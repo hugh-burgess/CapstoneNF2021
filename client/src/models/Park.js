@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 
 const ParkSchema = new Schema(
   {
+    parkId: String,
     name: String,
     address: String,
   },

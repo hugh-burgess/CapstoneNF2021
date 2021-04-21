@@ -7,8 +7,8 @@ const mongoose = require("mongoose");
 const Park = require("./client/src/models/Park");
 const app = express();
 
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 app.use((req, res, next) => {
   const { method, url } = req;
   console.log(`${method} ${url}`);
@@ -21,17 +21,38 @@ app.get("/", (req, res) => {
 
 app.get("/parks", (req, res) => {
   Park.find()
-    .then((park) => {
-      if (park) {
+    .then((parks) => {
+      if (parks) {
         res.status(200);
-        res.json(park);
+        res.json(parks);
       } else {
         res.json({ error: `No parks yet!` });
       }
     })
     .catch((error) => {
       res.status(404);
-      res.json({ error: `404: Not Found.` });
+      res.json({ error: `404: Not Found. ${error}` });
+      console.log("error");
+    });
+});
+
+app.get("/parks/:parkId", (req, res) => {
+  const { parkId } = req.params;
+
+  Park.findById({ parkId })
+    .then((park) => {
+      if (park) {
+        res.status(200);
+        res.json(park);
+        console.log(`found: ${park}`);
+      } else {
+        res.json({ error: `No parks found!` });
+        console.log(`cannot find: ${park}`);
+      }
+    })
+    .catch((error) => {
+      res.status(404);
+      res.json({ error: `404: Not Found. ${error}` });
       console.log("error");
     });
 });
