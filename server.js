@@ -1,7 +1,8 @@
 require("dotenv").config();
 const express = require("express");
-const db = require("./client/src/lib/db.json");
+const db = require("./client/src/lib/db");
 const cors = require("cors");
+
 const mongoose = require("mongoose");
 const Park = require("./client/src/models/Park");
 const app = express();
@@ -19,12 +20,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/parks", (req, res) => {
-  const { parks } = db;
-  Park.find(parks)
-    .then((parks) => {
-      if (parks) {
+  Park.find()
+    .then((park) => {
+      if (park) {
         res.status(200);
-        res.json(parks);
+        res.json(park);
       } else {
         res.json({ error: `No parks yet!` });
       }
@@ -32,6 +32,7 @@ app.get("/parks", (req, res) => {
     .catch((error) => {
       res.status(404);
       res.json({ error: `404: Not Found.` });
+      console.log("error");
     });
 });
 
