@@ -8,7 +8,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
 app.use((req, res, next) => {
   const { method, url } = req;
   console.log(`${method} ${url}`);
@@ -20,7 +19,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/parks", (req, res) => {
-  Park.find()
+  const { parks } = db;
+  Park.find(parks)
     .then((parks) => {
       if (parks) {
         res.status(200);
@@ -41,6 +41,8 @@ mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+const mongodb = mongoose.connection;
 
 mongodb.on("open", () => {
   app.listen(PORT, () => {
