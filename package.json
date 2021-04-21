@@ -1,5 +1,5 @@
 {
-  "name": "capstone-fullstack-template",
+  "name": "capstone-project-2021",
   "version": "1.0.0",
   "description": "Project template for a FullStack project with NodeJS for backend and React for frontend",
   "scripts": {
@@ -9,7 +9,7 @@
     "client-build": "cd client && npm run build",
     "postinstall": "cd client && npm install"
   },
-  "author": "Namir Sayed-Ahmad Baraza (https://namirsab.github.io)",
+  "author": "Hugh Burgess (https://github.com/hugh-burgess)",
   "license": "MIT",
   "devDependencies": {
     "nodemon": "^2.0.7",
@@ -18,6 +18,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.12.5"
+  },
+  "engines": {
+    "node": "15.x"
   }
 }
