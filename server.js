@@ -36,10 +36,10 @@ app.get("/parks", (req, res) => {
     });
 });
 
-app.get("/parks/:parkId", (req, res) => {
-  const { parkId } = req.params;
+app.get("/parks/:id", (req, res) => {
+  const { id } = req.params;
 
-  Park.findById({ parkId })
+  Park.findById(id)
     .then((park) => {
       if (park) {
         res.status(200);
