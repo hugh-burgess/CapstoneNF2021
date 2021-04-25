@@ -1,7 +1,7 @@
 {
   "name": "capstone-project-2021",
   "version": "1.0.0",
-  "description": "Project template for a FullStack project with NodeJS for backend and React for frontend",
+  "description": "Capstone Project 2021 with Neuefische",
   "scripts": {
     "server-start-prod": "node server.js",
     "server-start-dev": "nodemon server.js",
