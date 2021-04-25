@@ -1,10 +1,10 @@
 require("dotenv").config();
 const express = require("express");
-const db = require("./client/src/lib/db");
 const cors = require("cors");
 
 const mongoose = require("mongoose");
 const Park = require("./client/src/models/Park");
+const Friends = require("./client/src/models/Friends");
 const app = express();
 
 app.use(express.json());
@@ -27,6 +27,23 @@ app.get("/parks", (req, res) => {
         res.json(parks);
       } else {
         res.json({ error: `No parks yet!` });
+      }
+    })
+    .catch((error) => {
+      res.status(404);
+      res.json({ error: `404: Not Found. ${error}` });
+      console.log("error");
+    });
+});
+
+app.get("/friends", (req, res) => {
+  Friends.find()
+    .then((friends) => {
+      if (friends) {
+        res.status(200);
+        res.json(friends);
+      } else {
+        res.json({ error: `No friends yet!` });
       }
     })
     .catch((error) => {
