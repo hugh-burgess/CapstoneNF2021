@@ -1,3 +1,12 @@
+import Navigation from "./Navigation";
+
 export default function Map() {
-  return <div>Yo map is a dawg</div>;
+  return (
+    <div>
+      <div>Main part of the map</div>
+      <footer className="footer">
+        <Navigation />
+      </footer>
+    </div>
+  );
 }

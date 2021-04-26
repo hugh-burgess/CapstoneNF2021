@@ -1,8 +1,14 @@
-
 *,
 ::before,
 ::after {
   box-sizing: content-box;
   margin: 0;
   padding: 0;
+}
+
+:root {
+  --deep-blue: #304057;
+  --light-blue: #89c5cc;
+  --light-yellow: #f7de75;
+  --sea-blue: #2eaed1;
 }

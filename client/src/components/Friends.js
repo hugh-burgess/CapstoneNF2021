@@ -1,3 +1,12 @@
+import Navigation from "./Navigation";
+
 export default function Friends() {
-  return <div>Yo frens is a dawg</div>;
+  return (
+    <div>
+      <div>Main part of the friends</div>
+      <footer className="footer">
+        <Navigation />
+      </footer>
+    </div>
+  );
 }
