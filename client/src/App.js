@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Friends from "./components/Friends";
 import Map from "./components/Map";
-import Home from "./components/Home";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
               <Map />
             </Route>
             <Route exact path="/">
-              <Home />
+              <Profile />
             </Route>
             <Route path="*">
               <h2>No match! Go Back 🤓 </h2>
