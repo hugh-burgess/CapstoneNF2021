@@ -3,13 +3,16 @@
 .cover-page {
   background-color: var(--light-yellow);
   height: 100vh;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-bottom: 3fr;
 }
 
 .cover-title {
   font-family: "Cookie", cursive;
+  font-size: 15vw;
 }
 
 .cover-link {
@@ -36,8 +39,7 @@
   padding: 20px;
 }
 
-.cover-box-sea-blue {
-  height: 100px;
-  width: 100px;
-  background-color: var(--sea-blue);
+.cover-paw {
+  font-size: 50vh;
+  margin: 90px 20px;
 }
