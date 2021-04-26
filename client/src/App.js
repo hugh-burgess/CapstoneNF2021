@@ -1,10 +1,12 @@
 import "./App.css";
+import "./components/Cover.css";
 import "./components/Navigation.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Friends from "./components/Friends";
 import Map from "./components/Map";
 import Profile from "./components/Profile";
+import Cover from "./components/Cover";
 
 function App() {
   return (
@@ -21,8 +23,11 @@ function App() {
             <Route path="/map">
               <Map />
             </Route>
-            <Route exact path="/">
+            <Route exact path="/profile">
               <Profile />
+            </Route>
+            <Route exact path="/">
+              <Cover />
             </Route>
             <Route path="*">
               <h2>No match! Go Back 🤓 </h2>

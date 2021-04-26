@@ -7,7 +7,7 @@ export default function Navigation() {
   return (
     <nav className="nav">
       <button className="nav-button">
-        <NavLink exact to="/">
+        <NavLink exact to="/profile">
           <FaPaw className="nav-icons" />
         </NavLink>
       </button>
