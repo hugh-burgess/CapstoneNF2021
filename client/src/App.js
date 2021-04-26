@@ -1,30 +1,39 @@
 import "./App.css";
 import "./components/Navigation.css";
-import { FaPaw } from "react-icons/fa";
-import { FaDog } from "react-icons/fa";
-import { FaMap } from "react-icons/fa";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navigation from "./components/Navigation";
+import Friends from "./components/Friends";
+import Map from "./components/Map";
+import Home from "./components/Home";
 
 function App() {
   return (
-    <div className="grid-layout-app">
-      <header className="header">
-        <h1>Header</h1>
-      </header>
-      <main className="main">Main</main>
-      <footer className="footer">
-        <nav className="nav">
-          <button className="nav-button">
-            <FaPaw className="nav-icons" />
-          </button>
-          <button className="nav-button">
-            <FaDog className="nav-icons" />
-          </button>
-          <button className="nav-button">
-            <FaMap className="nav-icons" />
-          </button>
-        </nav>
-      </footer>
-    </div>
+    <Router>
+      <div className="grid-layout-app">
+        <header className="header">
+          <h1>Header</h1>
+        </header>
+        <main className="main">
+          <Switch>
+            <Route path="/friends">
+              <Friends />
+            </Route>
+            <Route path="/map">
+              <Map />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="*">
+              <h2>No match! Go Back 🤓 </h2>
+            </Route>
+          </Switch>
+        </main>
+        <footer className="footer">
+          <Navigation />
+        </footer>
+      </div>
+    </Router>
   );
 }
 
