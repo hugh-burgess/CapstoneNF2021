@@ -31,7 +31,7 @@
 }
 
 .footer {
-  background-color: rgb(105, 105, 126);
+  background-color: var(--grey-shade);
   grid-column: width;
   grid-row: footer;
 }

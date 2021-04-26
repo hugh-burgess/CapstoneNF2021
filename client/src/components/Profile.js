@@ -7,9 +7,7 @@ export default function Profile() {
   return (
     <div className="grid-layout-app">
       <header className="header">
-        <h1>
-          <span className="cover-title">profile</span>
-        </h1>
+        <h1 className="cover-title">profile</h1>
       </header>
       <main className="main profile-page">
         <div className="profile-wrapper">
