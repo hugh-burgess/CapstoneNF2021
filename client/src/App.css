@@ -1,7 +1,7 @@
 .grid-layout-app {
   display: grid;
   grid-template-columns: [width] 100vw;
-  grid-template-rows: [main] auto [footer] 80px;
+  grid-template-rows: [header] 70px [main] 517px [footer] 80px;
 }
 
 .header {
@@ -21,6 +21,8 @@
     0 0
   );
   display: flex;
+  grid-column: width;
+  grid-row: header;
 }
 
 .main {

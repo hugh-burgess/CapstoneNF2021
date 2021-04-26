@@ -1,6 +1,7 @@
 import "./App.css";
 import "./components/Cover.css";
 import "./components/Navigation.css";
+import "./components/Profile.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Friends from "./components/Friends";
 import Map from "./components/Map";

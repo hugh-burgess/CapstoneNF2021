@@ -1,0 +1,26 @@
+.profile-page {
+  background-color: var(--light-yellow);
+}
+
+.profile-wrapper {
+  position: relative;
+}
+
+.profile-picture {
+  height: 200px;
+  position: absolute;
+  left: 5px;
+  top: 89.5px;
+}
+
+.profile-bubble {
+  position: absolute;
+  left: 150.04px;
+  top: 108.67px;
+}
+
+.profile-bio {
+  position: absolute;
+  left: 5.6px;
+  top: 286.9px;
+}

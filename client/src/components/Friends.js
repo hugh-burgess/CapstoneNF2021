@@ -2,7 +2,7 @@ import Navigation from "./Navigation";
 
 export default function Friends() {
   return (
-    <div>
+    <div className="grid-layout-app">
       <header className="header">
         <h1>
           <span className="cover-title">frens</span>
