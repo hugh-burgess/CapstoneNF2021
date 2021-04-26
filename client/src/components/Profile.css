@@ -15,12 +15,25 @@
 
 .profile-bubble {
   position: absolute;
-  left: 150.04px;
+  left: 145px;
   top: 108.67px;
 }
 
 .profile-bio {
   position: absolute;
-  left: 5.6px;
-  top: 286.9px;
+  left: -15.6px;
+  top: 280.9px;
+  height: 160px;
+}
+
+.profile-bio-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10;
+  color: var(--deep-blue);
+  width: 200px;
+  height: 26px;
+  position: absolute;
+  left: 29.79px;
+  top: 313px;
+  z-index: 1;
 }

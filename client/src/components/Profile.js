@@ -13,6 +13,10 @@ export default function Profile() {
       </header>
       <main className="main profile-page">
         <div className="profile-wrapper">
+          <p className="profile-bio-text">
+            Hello, I’m Bud and I’m looking for a friend to hang out with, go
+            running with and chase birds. I’m 20kg and love eating toys.
+          </p>
           <img className="profile-picture" src={profileDog} alt="doggy" />
           <img className="profile-bubble" src={bubble} alt="#" />
           <img className="profile-bio" src={bioBubble} alt="#" />
