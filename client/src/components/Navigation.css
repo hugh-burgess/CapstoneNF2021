@@ -1,0 +1,17 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.nav-button {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  border: none;
+}
+
+.nav-icons {
+  font-size: 40px;
+}

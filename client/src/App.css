@@ -1,0 +1,23 @@
+.grid-layout-app {
+  display: grid;
+  grid-template-columns: [width] 100vw;
+  grid-template-rows: [header] 80px [main] auto [footer] 80px;
+}
+
+.header {
+  background-color: blue;
+  grid-column: width;
+  grid-row: header;
+}
+
+.main {
+  background-color: rgb(63, 63, 78);
+  grid-column: width;
+  grid-row: main;
+}
+
+.footer {
+  background-color: rgb(105, 105, 126);
+  grid-column: width;
+  grid-row: footer;
+}
