@@ -1,0 +1,33 @@
+.grid-layout-app {
+  display: grid;
+  grid-template-columns: [width] 100vw;
+  grid-template-rows: [main] auto [footer] 80px;
+}
+
+.header {
+  height: 100px;
+  max-width: 100vw;
+  background-color: var(--light-blue);
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 0,
+    100% 70%,
+    65% 78%,
+    30% 88%,
+    0 100%,
+    0 0
+  );
+  display: flex;
+}
+
+.main {
+  grid-column: width;
+  grid-row: main;
+}
+
+.footer {
+  background-color: rgb(105, 105, 126);
+  grid-column: width;
+  grid-row: footer;
+}

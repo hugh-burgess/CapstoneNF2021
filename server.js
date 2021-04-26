@@ -3,8 +3,8 @@ const express = require("express");
 const cors = require("cors");
 
 const mongoose = require("mongoose");
-const Park = require("./client/src/models/Park");
-const Friends = require("./client/src/models/Friends");
+const Park = require("./models/Park");
+const Friends = require("./models/Friends");
 const app = express();
 
 app.use(express.json());
