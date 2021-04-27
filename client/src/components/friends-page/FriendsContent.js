@@ -13,20 +13,20 @@ import dogFive from "../../images/dogs/dogFive.png";
 
 export default function FriendsContent() {
   return (
-    <div className="clouds-wrapper">
+    <div className="clouds-wrapper friends-page">
       <div className="cloud-right">
-        <p className="names">Ralph</p>
+        <p className="names-right">Ralph</p>
         <img src={cloudOne} alt="cloud" />
         <img className="dog-image-right" src={dogOne} alt="dog" />
       </div>
       <div className="cloud-left">
         <img className="dog-image-left" src={dogTwo} alt="dog" />
         <img src={cloudTwo} alt="cloud" />
-        <p className="names">Spot</p>
+        <p className="names-left">Spot</p>
       </div>
 
       <div className="cloud-right">
-        <p className="names">Bob</p>
+        <p className="names-right">Bob</p>
 
         <img src={cloudThree} alt="cloud" />
         <img className="dog-image-right" src={dogThree} alt="dog" />
@@ -35,11 +35,11 @@ export default function FriendsContent() {
       <div className="cloud-left">
         <img className="dog-image-left" src={dogFour} alt="dog" />
         <img src={cloudFour} alt="cloud" />
-        <p className="names">Jupe</p>
+        <p className="names-left">Jupe</p>
       </div>
 
       <div className="cloud-right">
-        <p className="names">Steve</p>
+        <p className="names-right">Steve</p>
 
         <img src={cloudFive} alt="cloud" />
         <img className="dog-image-right" src={dogFive} alt="dog" />

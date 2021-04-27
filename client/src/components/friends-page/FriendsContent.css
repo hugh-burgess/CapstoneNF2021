@@ -7,7 +7,6 @@
 .friends-header {
   position: fixed;
   z-index: 100;
-
   width: 100vw;
 }
 
@@ -16,7 +15,7 @@
 }
 
 .clouds-wrapper {
-  height: 100%;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -63,8 +62,28 @@
   z-index: 100;
 }
 
-.names {
+.names-left {
   font-family: "Cookie", cursive;
   font-size: 41px;
   color: var(--deep-blue);
+  position: absolute;
+  left: 100px;
+  bottom: 30px;
+}
+
+.names-right {
+  font-family: "Cookie", cursive;
+  font-size: 41px;
+  color: var(--deep-blue);
+  position: absolute;
+  right: 100px;
+  bottom: 30px;
+}
+
+.search-icon {
+  color: var(--deep-blue);
+  font-size: 40px;
+  position: absolute;
+  right: 25px;
+  top: 15px;
 }
