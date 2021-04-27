@@ -6,9 +6,7 @@ export default function Friends() {
     <div className="grid-layout-app">
       <div className="friends-header-wrapper">
         <header className="header friends-header">
-          <h1>
-            <span className="cover-title">frens</span>
-          </h1>
+          <h1 className="cover-title">frens</h1>
         </header>
       </div>
       <main className="main friends-page">

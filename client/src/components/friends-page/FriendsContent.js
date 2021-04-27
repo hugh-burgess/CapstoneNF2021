@@ -12,16 +12,29 @@ import dogFive from "../../images/dogs/dogFive.png";
 export default function FriendsContent() {
   return (
     <div className="clouds-wrapper">
-      <img className="cloud-right" src={cloudOne} alt="cloud" />
-      <img className="dog-image cloud-right" src={dogOne} alt="dog" />
-      <img className="cloud-left" src={cloudTwo} alt="cloud" />
-      <img className="dog-image cloud-left" src={dogTwo} alt="dog" />
-      <img className="cloud-right" src={cloudThree} alt="cloud" />
-      <img className="dog-image cloud-right" src={dogThree} alt="dog" />
-      <img className="cloud-left" src={cloudFour} alt="cloud" />
-      <img className="dog-image cloud-left" src={dogFour} alt="dog" />
-      <img className="cloud-right" src={cloudFive} alt="cloud" />
-      <img className="dog-image cloud-right" src={dogFive} alt="dog" />
+      <div className="cloud-right">
+        <img src={cloudOne} alt="cloud" />
+        <img className="dog-image-right" src={dogOne} alt="dog" />
+      </div>
+      <div className="cloud-left">
+        <img className="dog-image-left" src={dogTwo} alt="dog" />
+        <img src={cloudTwo} alt="cloud" />
+      </div>
+
+      <div className="cloud-right">
+        <img src={cloudThree} alt="cloud" />
+        <img className="dog-image-right" src={dogThree} alt="dog" />
+      </div>
+
+      <div className="cloud-left">
+        <img className="dog-image-left" src={dogFour} alt="dog" />
+        <img src={cloudFour} alt="cloud" />
+      </div>
+
+      <div className="cloud-right">
+        <img src={cloudFive} alt="cloud" />
+        <img className="dog-image-right" src={dogFive} alt="dog" />
+      </div>
     </div>
   );
 }

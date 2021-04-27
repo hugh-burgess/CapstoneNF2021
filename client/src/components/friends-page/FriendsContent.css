@@ -6,6 +6,8 @@
 
 .friends-header {
   position: fixed;
+  z-index: 100;
+
   width: 100vw;
 }
 
@@ -21,22 +23,36 @@
 }
 
 .cloud-right {
-  justify-self: right;
+  display: flex;
+  justify-content: flex-end;
   padding: 10px 0;
 }
 .cloud-left {
-  justify-self: left;
+  display: flex;
   padding: 10px 0;
 }
 
-.dog-image {
+.dog-image-left {
+  justify-self: left;
   border-radius: 50%;
   height: 60px;
   width: 60px;
+  z-index: 1;
+  position: absolute;
+}
+
+.dog-image-right {
+  justify-self: right;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  z-index: 1;
+  position: absolute;
 }
 .friends-footer-wrapper {
   position: relative;
 }
 .friends-footer {
   position: fixed;
+  z-index: 100;
 }
