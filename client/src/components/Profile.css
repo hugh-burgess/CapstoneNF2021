@@ -28,6 +28,7 @@
   top: 220.9px;
   left: -15px;
   height: 170px;
+  z-index: 1;
 }
 
 .profile-bio-text {
@@ -39,7 +40,7 @@
   position: absolute;
   left: 39.79px;
   top: 265px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .fren-icon {
@@ -86,7 +87,7 @@
   position: absolute;
   left: 183.06px;
   top: 225.77px;
-  z-index: 1;
+  z-index: 2;
   font-size: 37px;
   color: var(--deep-blue);
   font-weight: 500;
@@ -109,4 +110,33 @@
   bottom: 25.81px;
   padding: 10px;
   border: black 1px solid;
+}
+
+.edit-wrapper {
+  display: flex;
+  justify-content: right;
+  position: relative;
+}
+
+.edit-button {
+  cursor: pointer;
+  position: absolute;
+  background-color: white;
+  color: var(--deep-blue);
+  border-radius: 15px;
+  width: 40px;
+  height: 20px;
+  right: 31px;
+  bottom: 36.817px;
+  padding: 10px;
+  border: black 1px solid;
+}
+
+.plant-image {
+  position: absolute;
+  width: 136px;
+  height: 238px;
+  left: -15px;
+  top: 367px;
+  z-index: 0;
 }

@@ -2,11 +2,10 @@ import Navigation from "./Navigation";
 import profileDog from "../images/profile-pic.svg";
 import bubble from "../images/stat-bubble.svg";
 import bioBubble from "../images/bio-bubble.svg";
+import plant from "../images/plant.svg";
 import { FaDog } from "react-icons/fa";
 import { FaBone } from "react-icons/fa";
 import { GiBinoculars } from "react-icons/gi";
-import { NavLink } from "react-router-dom";
-
 
 export default function Profile() {
   return (
@@ -30,11 +29,16 @@ export default function Profile() {
           <img className="profile-bio" src={bioBubble} alt="#" />
         </div>
         <div className="tour-wrapper">
-          <a href="./tour">
-          <GiBinoculars className="tour-icon" />
+          <a href="/tour">
+            <GiBinoculars className="tour-icon" />
           </a>
         </div>
-        
+        <div className="edit-wrapper">
+          <a href="/edit-profile">
+            <button className="edit-button">edit</button>
+          </a>
+        </div>
+        <img className="plant-image" src={plant} alt="plant" />
       </main>
       <footer className="footer">
         <Navigation />
