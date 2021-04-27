@@ -27,7 +27,6 @@ export default function MainContent() {
       <img className="profile-picture" src={profileDog} alt="doggy" />
       <img className="profile-bubble" src={bubble} alt="#" />
       <img className="profile-bio" src={bioBubble} alt="#" />
-      <FaBone className="bone-image" />
       <FaBone className="big-bone-image" />
     </div>
   );

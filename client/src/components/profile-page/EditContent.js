@@ -33,7 +33,6 @@ export default function EditContent() {
       <img className="profile-picture" src={blankProfilePic} alt="blank" />
       <img className="profile-bubble blur-effect" src={bubble} alt="#" />
       <img className="profile-bio" src={bioBubble} alt="#" />
-      <FaBone className="bone-image blur-effect" />
       <FaBone className="big-bone-image blur-effect" />
     </div>
   );
