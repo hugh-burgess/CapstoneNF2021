@@ -1,0 +1,10 @@
+.tour-page {
+  position: relative;
+  background-color: var(--light-yellow);
+}
+
+.tour-title {
+  position: absolute;
+  left: 136.5px;
+  top: 40px;
+}

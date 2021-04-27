@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+
+.profile-page {
+  background-color: var(--light-yellow);
+}
+
+.profile-wrapper {
+  position: relative;
+  height: 80vh;
+}
+
+.profile-picture {
+  height: 200px;
+  position: absolute;
+  left: 5px;
+  top: 39.5px;
+}
+
+.profile-bubble {
+  position: absolute;
+  left: 150px;
+  top: 25.67px;
+  height: 200px;
+}
+
+.profile-bio {
+  position: absolute;
+  top: 220.9px;
+  left: -15px;
+  height: 170px;
+  z-index: 1;
+}
+
+.profile-bio-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10;
+  color: var(--deep-blue);
+  width: 200px;
+  height: 26px;
+  position: absolute;
+  left: 39.79px;
+  top: 265px;
+  z-index: 2;
+}
+
+.fren-icon {
+  position: absolute;
+  width: 39.13px;
+  height: 36.69px;
+  left: 189.44px;
+  top: 40px;
+  z-index: 1;
+}
+
+.bone-icon {
+  position: absolute;
+  width: 37.68px;
+  height: 25.84px;
+  left: 189.44px;
+  top: 90px;
+  transform: rotate(-45deg);
+  z-index: 1;
+  color: var(--light-yellow);
+}
+
+.fren-count {
+  font-family: "Cookie", cursive;
+  position: absolute;
+  left: 237.27px;
+  top: 40px;
+  z-index: 1;
+  font-size: 36px;
+  color: var(--deep-blue);
+}
+.dog-rating {
+  font-family: "Cookie", cursive;
+  position: absolute;
+  left: 237.27px;
+  top: 90px;
+  z-index: 1;
+  font-size: 36px;
+  color: var(--deep-blue);
+}
+
+.dog-name {
+  font-family: "Cookie", cursive;
+  position: absolute;
+  left: 183.06px;
+  top: 225.77px;
+  z-index: 2;
+  font-size: 37px;
+  color: var(--deep-blue);
+  font-weight: 500;
+}
+
+.tour-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.tour-icon {
+  position: absolute;
+  background-color: white;
+  color: var(--deep-blue);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  left: 156.5px;
+  bottom: 25.81px;
+  padding: 10px;
+  border: black 1px solid;
+}
+
+.edit-wrapper {
+  display: flex;
+  justify-content: right;
+  position: relative;
+}
+
+.edit-button {
+  font-family: "PT Sans";
+  cursor: pointer;
+  position: absolute;
+  background-color: white;
+  color: var(--deep-blue);
+  border-radius: 15px;
+  width: 25px;
+  height: 20px;
+  left: 290.067px;
+  bottom: 36.817px;
+  padding: 10px;
+  border: black 1px solid;
+}
+
+.plant-image {
+  position: absolute;
+  width: 136px;
+  height: 180px;
+  left: -15px;
+  bottom: 0px;
+  z-index: 0;
+}
+
+.feedback {
+  position: absolute;
+  left: 272.06px;
+  top: 339px;
+  font-family: "Cookie", cursive;
+  font-size: 26px;
+  color: var(--deep-blue);
+}
+
+.feedback-list {
+  position: absolute;
+  left: 219.06px;
+  top: 373px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  color: var(--deep-blue);
+}

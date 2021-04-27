@@ -1,7 +1,7 @@
 .grid-layout-app {
   display: grid;
   grid-template-columns: [width] 100vw;
-  grid-template-rows: [main] auto [footer] 80px;
+  grid-template-rows: [header] 70px [main] auto [footer] 80px;
 }
 
 .header {
@@ -21,6 +21,9 @@
     0 0
   );
   display: flex;
+  grid-column: width;
+  grid-row: header;
+  z-index: 100;
 }
 
 .main {
@@ -29,7 +32,10 @@
 }
 
 .footer {
-  background-color: rgb(105, 105, 126);
+  background-color: var(--grey-shade);
   grid-column: width;
   grid-row: footer;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
 }
