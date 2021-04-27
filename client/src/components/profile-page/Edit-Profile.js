@@ -1,15 +1,14 @@
-import Navigation from "./Navigation";
+import Navigation from "../Navigation";
+import MainContent from "./MainContent";
 
 export default function EditProfile() {
   return (
     <div className="grid-layout-app">
       <header className="header">
-        <h1>
-          <span className="cover-title">EditProfile</span>
-        </h1>
+        <h1 className="cover-title">EditProfile</h1>
       </header>
       <main className="main edit-page">
-        <div className="edit-title">Welcome to the EditProfile!</div>
+        <MainContent />
       </main>
       <footer className="footer">
         <Navigation />

@@ -106,7 +106,7 @@
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  left: 156.5px;
+  left: 150.5px;
   bottom: 25.81px;
   padding: 10px;
   border: black 1px solid;
@@ -119,14 +119,15 @@
 }
 
 .edit-button {
+  font-family: "PT Sans";
   cursor: pointer;
   position: absolute;
   background-color: white;
   color: var(--deep-blue);
   border-radius: 15px;
-  width: 40px;
+  width: 25px;
   height: 20px;
-  right: 31px;
+  left: 290.067px;
   bottom: 36.817px;
   padding: 10px;
   border: black 1px solid;
@@ -137,6 +138,6 @@
   width: 136px;
   height: 180px;
   left: -15px;
-  bottom: 70px;
+  bottom: 0px;
   z-index: 0;
 }

@@ -1,5 +1,6 @@
 .tour-page {
   position: relative;
+  background-color: var(--light-yellow);
 }
 
 .tour-title {

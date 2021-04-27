@@ -1,15 +1,15 @@
 import "./App.css";
 import "./components/Cover.css";
 import "./components/Navigation.css";
-import "./components/Profile.css";
-import "./components/Tour.css";
-import "./components/Edit-Profile.css";
+import "./components/profile-page/Profile.css";
+import "./components/profile-page/Tour.css";
+import "./components/profile-page/Edit-Profile.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Friends from "./components/Friends";
 import Map from "./components/Map";
-import EditProfile from "./components/Edit-Profile";
-import Profile from "./components/Profile";
-import Tour from "./components/Tour";
+import EditProfile from "./components/profile-page/Edit-Profile";
+import Profile from "./components/profile-page/Profile";
+import Tour from "./components/profile-page/Tour";
 import Cover from "./components/Cover";
 
 function App() {

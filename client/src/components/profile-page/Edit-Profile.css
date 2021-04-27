@@ -1,5 +1,6 @@
 .edit-page {
   position: relative;
+  background-color: var(--light-yellow);
 }
 
 .edit-title {
