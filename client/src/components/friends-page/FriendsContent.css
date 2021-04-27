@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+
+.friends-header-wrapper {
+  position: relative;
+}
+
+.friends-header {
+  position: fixed;
+  width: 100vw;
+}
+
+.friends-page {
+  background-color: var(--light-blue);
+}
+
+.clouds-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.cloud-right {
+  justify-self: right;
+  padding: 10px 0;
+}
+.cloud-left {
+  justify-self: left;
+  padding: 10px 0;
+}
+
+.dog-image {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+}
+.friends-footer-wrapper {
+  position: relative;
+}
+.friends-footer {
+  position: fixed;
+}
