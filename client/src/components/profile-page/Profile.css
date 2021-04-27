@@ -133,13 +133,27 @@
   border: black 1px solid;
 }
 
-.plant-image {
+.bone-image {
+  color: var(--grey-shade);
   position: absolute;
   width: 136px;
-  height: 180px;
-  left: -15px;
-  bottom: 0px;
+  height: 50px;
+  transform: rotate(45deg);
+  bottom: 20px;
+  left: -40px;
+  z-index: 1;
+}
+
+.big-bone-image {
+  color: var(--dark-grey-shade);
+  position: absolute;
+  width: 136px;
+  height: 150px;
+  transform: rotate(80deg);
+  bottom: 10px;
+  left: -26px;
   z-index: 0;
+  opacity: 0.6;
 }
 
 .feedback {
