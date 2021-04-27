@@ -22,6 +22,13 @@ export default function EditContent() {
       <FaBone className="bone-icon blur-effect" />
       <p className="fren-count blur-effect">4 frens</p>
       <p className="dog-rating blur-effect">4.8</p>
+      <p className="feedback blur-effect">feedback</p>
+      <div className="feedback-list blur-effect">
+        <li>the goodest boy</li>
+        <li>loves scritches</li>
+        <li>loves walks</li>
+      </div>
+
       <img className="profile-picture" src={blankProfilePic} alt="blank" />
       <img className="profile-bubble blur-effect" src={bubble} alt="#" />
       <img className="profile-bio" src={bioBubble} alt="#" />

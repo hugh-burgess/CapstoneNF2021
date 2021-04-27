@@ -141,3 +141,21 @@
   bottom: 0px;
   z-index: 0;
 }
+
+.feedback {
+  position: absolute;
+  left: 272.06px;
+  top: 339px;
+  font-family: "Cookie", cursive;
+  font-size: 26px;
+  color: var(--deep-blue);
+}
+
+.feedback-list {
+  position: absolute;
+  left: 219.06px;
+  top: 373px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  color: var(--deep-blue);
+}
