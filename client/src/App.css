@@ -1,14 +1,17 @@
 .grid-layout-app {
+  position: relative;
+
   display: grid;
-  grid-template-columns: [width] 100vw;
   grid-template-rows: [header] 70px [main] auto [footer] 80px;
 }
 
 .header {
+  position: fixed;
+
   padding-left: 10px;
   color: var(--deep-blue);
   height: 100px;
-  max-width: 100vw;
+  width: 100vw;
   background-color: var(--sea-blue);
   clip-path: polygon(
     30% 0%,
@@ -21,21 +24,18 @@
     0 0
   );
   display: flex;
-  grid-column: width;
   grid-row: header;
   z-index: 100;
 }
 
 .main {
-  grid-column: width;
   grid-row: main;
 }
 
 .footer {
   background-color: var(--grey-shade);
-  grid-column: width;
   grid-row: footer;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100vw;
 }
