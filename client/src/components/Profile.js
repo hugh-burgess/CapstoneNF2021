@@ -5,7 +5,7 @@ export default function Profile() {
     <div>
       <header className="header">
         <h1>
-          <span className="cover-title">Profile</span>
+          <span className="cover-title">profile</span>
         </h1>
       </header>
       <main className="main">

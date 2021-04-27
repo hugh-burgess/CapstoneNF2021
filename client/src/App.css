@@ -5,9 +5,11 @@
 }
 
 .header {
+  padding-left: 10px;
+  color: var(--deep-blue);
   height: 100px;
   max-width: 100vw;
-  background-color: var(--light-blue);
+  background-color: var(--sea-blue);
   clip-path: polygon(
     30% 0%,
     70% 0%,
