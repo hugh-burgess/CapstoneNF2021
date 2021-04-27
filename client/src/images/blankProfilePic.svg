@@ -1,0 +1,15 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130.603" height="182.485" viewBox="0 0 130.603 182.485">
+  <defs>
+    <filter id="Ellipse_24" x="0" y="0" width="130.603" height="182.485" filterUnits="userSpaceOnUse">
+      <feOffset dx="4" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Ellipse_24)">
+    <path id="Ellipse_24-2" data-name="Ellipse 24" d="M95.963-11.183c29.323,0,8.388,47.91,8.388,95.167S38.4,164.565,9.077,164.565-14.568,69.992-14.568,22.736,66.64-11.183,95.963-11.183Z" transform="translate(15.01 12.92)" fill="#fff" opacity="0.997"/>
+  </g>
+</svg>

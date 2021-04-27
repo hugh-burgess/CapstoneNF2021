@@ -1,14 +1,19 @@
+import { Link } from "react-router-dom";
 import Navigation from "../Navigation";
-import MainContent from "./MainContent";
+import EditContent from "./EditContent";
 
 export default function EditProfile() {
   return (
     <div className="grid-layout-app">
       <header className="header">
-        <h1 className="cover-title">EditProfile</h1>
+        <h1 className="cover-title">profile</h1>
       </header>
       <main className="main edit-page">
-        <MainContent />
+        <EditContent />
+
+        <Link to="/profile">
+          <div className="save-button">save</div>
+        </Link>
       </main>
       <footer className="footer">
         <Navigation />

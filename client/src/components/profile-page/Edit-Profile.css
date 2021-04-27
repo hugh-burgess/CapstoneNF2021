@@ -3,6 +3,19 @@
   background-color: var(--light-yellow);
 }
 
+.blur-effect {
+  filter: blur(3px);
+}
+
+.edit-pen {
+  position: absolute;
+  color: red;
+  z-index: 10;
+  font-size: 30px;
+  left: 116.84px;
+  top: 280.45px;
+}
+
 .edit-title {
   position: absolute;
   left: 136.5px;
@@ -16,4 +29,19 @@
   position: absolute;
   left: 136.5px;
   top: 40px;
+}
+
+.save-button {
+  font-family: "PT Sans";
+  cursor: pointer;
+  position: absolute;
+  background-color: white;
+  color: var(--deep-blue);
+  border-radius: 15px;
+  width: 30px;
+  height: 20px;
+  left: 290.067px;
+  bottom: 36.817px;
+  padding: 10px;
+  border: black 1px solid;
 }
