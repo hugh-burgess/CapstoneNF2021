@@ -135,8 +135,8 @@
 .plant-image {
   position: absolute;
   width: 136px;
-  height: 238px;
+  height: 180px;
   left: -15px;
-  top: 367px;
+  bottom: 70px;
   z-index: 0;
 }
