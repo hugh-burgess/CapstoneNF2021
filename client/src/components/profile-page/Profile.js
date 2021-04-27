@@ -2,6 +2,7 @@ import Navigation from "../Navigation";
 import TourButton from "./TourButton";
 import EditButton from "./EditButton";
 import MainContent from "./MainContent";
+import "./Profile.css";
 
 export default function Profile() {
   return (

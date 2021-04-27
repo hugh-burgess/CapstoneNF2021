@@ -6,6 +6,7 @@ import blankProfilePic from "../../images/blankProfilePic.svg";
 import bubble from "../../images/stat-bubble.svg";
 import bioBubble from "../../images/bio-bubble.svg";
 import plant from "../../images/plant.svg";
+import "./Edit-Profile.css";
 
 export default function EditContent() {
   return (

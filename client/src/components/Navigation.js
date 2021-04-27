@@ -2,6 +2,7 @@ import { FaPaw } from "react-icons/fa";
 import { FaDog } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import "./Navigation.css";
 
 export default function Navigation() {
   return (

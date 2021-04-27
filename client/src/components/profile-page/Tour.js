@@ -1,5 +1,6 @@
 import Navigation from "../Navigation";
 import MainContent from "./MainContent";
+import "./Tour.css";
 
 export default function Tour() {
   return (
