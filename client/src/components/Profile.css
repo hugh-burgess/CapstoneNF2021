@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+
 .profile-page {
   background-color: var(--light-yellow);
 }
 
 .profile-wrapper {
   position: relative;
+  height: 80vh;
 }
 
 .profile-picture {
@@ -16,14 +19,15 @@
 .profile-bubble {
   position: absolute;
   left: 150px;
-  top: 108.67px;
+  top: 25.67px;
   height: 200px;
 }
 
 .profile-bio {
   position: absolute;
-  top: 280.9px;
-  height: 160px;
+  top: 220.9px;
+  left: -15px;
+  height: 170px;
 }
 
 .profile-bio-text {
@@ -33,7 +37,76 @@
   width: 200px;
   height: 26px;
   position: absolute;
-  left: 49.79px;
-  top: 313px;
+  left: 39.79px;
+  top: 265px;
   z-index: 1;
+}
+
+.fren-icon {
+  position: absolute;
+  width: 39.13px;
+  height: 36.69px;
+  left: 189.44px;
+  top: 40px;
+  z-index: 1;
+}
+
+.bone-icon {
+  position: absolute;
+  width: 37.68px;
+  height: 25.84px;
+  left: 189.44px;
+  top: 90px;
+  transform: rotate(-45deg);
+  z-index: 1;
+  color: var(--light-yellow);
+}
+
+.fren-count {
+  font-family: "Cookie", cursive;
+  position: absolute;
+  left: 237.27px;
+  top: 40px;
+  z-index: 1;
+  font-size: 36px;
+  color: var(--deep-blue);
+}
+.dog-rating {
+  font-family: "Cookie", cursive;
+  position: absolute;
+  left: 237.27px;
+  top: 90px;
+  z-index: 1;
+  font-size: 36px;
+  color: var(--deep-blue);
+}
+
+.dog-name {
+  font-family: "Cookie", cursive;
+  position: absolute;
+  left: 183.06px;
+  top: 225.77px;
+  z-index: 1;
+  font-size: 37px;
+  color: var(--deep-blue);
+  font-weight: 500;
+}
+
+.tour-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.tour-icon {
+  position: absolute;
+  background-color: white;
+  color: var(--deep-blue);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  left: 156.5px;
+  bottom: 25.81px;
+  padding: 10px;
+  border: black 1px solid;
 }

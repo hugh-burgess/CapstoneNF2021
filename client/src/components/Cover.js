@@ -5,9 +5,7 @@ export default function Cover() {
     <a href="./Profile" className="cover-link">
       <div className="cover-page">
         <div className="cover-box-light-blue">
-          <h1>
-            <span className="cover-title">Walkies&amp;Talkies</span>
-          </h1>
+          <h1 className="cover-title">Walkies&amp;Talkies</h1>
         </div>
         <FaPaw className="cover-paw" />
       </div>

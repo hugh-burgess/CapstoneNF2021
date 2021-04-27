@@ -2,6 +2,7 @@ import "./App.css";
 import "./components/Cover.css";
 import "./components/Navigation.css";
 import "./components/Profile.css";
+import "./components/Tour.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Friends from "./components/Friends";
 import Map from "./components/Map";
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route exact path="/profile">
             <Profile />
+          </Route>
+           <Route path="/tour">
+            <Map />
           </Route>
           <Route exact path="/">
             <Cover />
