@@ -29,6 +29,7 @@ export default function AddButton() {
     // const formData = new FormData();
     // formData.append("name", friendName);
     // formData.append("file", selectedFile);
+    console.log(`Success! ${friendName} is a new friend.`);
 
     addItemToLocalStorage({
       name: friendName,
@@ -79,33 +80,32 @@ export default function AddButton() {
 
   return (
     <div className="add-friend-wrapper">
-      <div className="add-friend-button-wrapper">
-        {!isClicked && (
-          <button className="add-friend-button" onClick={handleButtonClick}>
-            Add A Friend
+      {!isClicked && (
+        <button className="add-friend-button" onClick={handleButtonClick}>
+          Add A Friend
+        </button>
+      )}
+      {isClicked && (
+        <form className="popup-box" onSubmit={handleSubmit}>
+          <button onClick={handleButtonClick} className="popup-delete">
+            close
           </button>
-        )}
-        {isClicked && (
-          <form className="popup-box" onSubmit={handleSubmit}>
-            <button onClick={handleButtonClick} className="popup-delete">
-              close
-            </button>
-            <input
-              type="text"
-              name="friendName"
-              placeholder="name goes here..."
-              onChange={handleNameChange}
-              value={friendName}
-            />
-            {/* <FileUploader
+          <input
+            className="name-input"
+            type="text"
+            name="friendName"
+            placeholder="name goes here..."
+            onChange={handleNameChange}
+            value={friendName}
+          />
+          {/* <FileUploader
               onFileSelectSuccess={(file) => setSelectedFile(file)}
               onFileSelectError={({ error }) => alert(error)}
             /> */}
-            <button type="submit">save</button>
-            {renderItems()}
-          </form>
-        )}
-      </div>
+          <button type="submit">save</button>
+          {renderItems()}
+        </form>
+      )}
     </div>
   );
 }
