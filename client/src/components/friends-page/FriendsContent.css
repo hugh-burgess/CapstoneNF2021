@@ -12,6 +12,10 @@
 
 .friends-page {
   background-color: var(--light-blue);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .clouds-wrapper {
