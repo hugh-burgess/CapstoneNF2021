@@ -5,7 +5,7 @@ import {
   addItemToLocalStorage,
   removeItemFromLocalStorage,
 } from "./itemStorage";
-import FileUploader from "./FileUploader";
+// import FileUploader from "./FileUploader";
 // import axios from "axios";
 
 export default function AddButton() {
