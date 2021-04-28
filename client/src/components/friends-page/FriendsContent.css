@@ -12,10 +12,11 @@
 
 .friends-page {
   background-color: var(--light-blue);
+  height: 100vh;
 }
 
 .clouds-wrapper {
-  height: 90vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   width: 100vw;

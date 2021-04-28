@@ -13,7 +13,7 @@ import dogFive from "../../images/dogs/dogFive.png";
 
 export default function FriendsContent() {
   return (
-    <div className="clouds-wrapper friends-page">
+    <div className="clouds-wrapper">
       <div className="cloud-right">
         <p className="names-right">Ralph</p>
         <img src={cloudOne} alt="cloud" />

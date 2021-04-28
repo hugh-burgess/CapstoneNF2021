@@ -15,7 +15,7 @@ export default function Friends() {
           </Link>
         </header>
       </div>
-      <main className="main">
+      <main className="main friends-page">
         <FriendsContent />
       </main>
       <div className="friends-footer-wrapper">
