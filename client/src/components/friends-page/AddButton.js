@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { GrFormAdd } from "react-icons/gr";
 import "./AddButton.css";
 
 export default function AddButton() {
@@ -25,17 +24,16 @@ export default function AddButton() {
 
   return (
     <div className="add-friend-wrapper">
-      <div className="add-friend-button">
+      <div className="add-friend-button-wrapper">
         {!isClicked && (
-          <button onClick={handleButtonClick}>
+          <button className="add-friend-button" onClick={handleButtonClick}>
             Add A Friend
-            <GrFormAdd />
           </button>
         )}
         {isClicked && (
           <form className="popup-box">
             <button onClick={handleButtonClick} className="popup-delete">
-              <p>close</p>
+              close
             </button>
             <input
               type="text"

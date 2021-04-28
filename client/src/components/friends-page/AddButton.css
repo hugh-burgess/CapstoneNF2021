@@ -3,21 +3,26 @@
   justify-content: center;
 }
 
-.add-friend-button {
+.add-friend-button-wrapper {
   border: none;
   height: 5vh;
+}
+
+.add-friend-button {
+  padding: 1px;
 }
 
 .popup-box {
   height: 100px;
   width: 300px;
+  border-radius: 15px;
+  padding: 5px;
   border: black 1px solid;
 }
 
 .popup-delete {
   float: right;
   padding: 1px;
-  border-radius: 5px;
 }
 
 .hidden {
