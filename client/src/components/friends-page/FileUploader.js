@@ -8,9 +8,11 @@ export default function FileUploader({
 
   const handleFileInput = (e) => {
     const file = e.target.files[0];
-    if (file.size > 1024)
+    if (file.size > 1048576)
+      // 1048576 Bytes = 1024 KB = 1 MB
       onFileSelectError({ error: "File size cannot exceed more than 1MB" });
     else onFileSelectSuccess(file);
+    console.log(file);
   };
 
   return (
@@ -19,7 +21,9 @@ export default function FileUploader({
       <button
         onClick={(e) => fileInput.current && fileInput.current.click()}
         className="btn btn-primary"
-      ></button>
+      >
+        Go
+      </button>
     </div>
   );
 }

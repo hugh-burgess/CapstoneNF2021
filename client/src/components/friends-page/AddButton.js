@@ -1,10 +1,24 @@
 import { useState } from "react";
 import "./AddButton.css";
+import FileUploader from "./FileUploader";
 
 export default function AddButton() {
   const [isClicked, setIsClicked] = useState(false);
   const [friendName, setFriendName] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
+
+  const submitForm = () => {
+    const formData = new FormData();
+    formData.append("name", friendName);
+    formData.append("file", selectedFile);
+
+    axios
+      .post(MONGO_URL, formData)
+      .then((res) => {
+        alert("File Upload success");
+      })
+      .catch((err) => alert("File Upload Error"));
+  };
 
   function handleButtonClick(event) {
     event.preventDefault();
@@ -42,12 +56,11 @@ export default function AddButton() {
               onChange={handleNameChange}
               value={friendName}
             />
-            <input
-              type="file"
-              value={selectedFile}
-              onChange={onBrowseFileChange}
+            <FileUploader
+              onFileSelectSuccess={(file) => setSelectedFile(file)}
+              onFileSelectError={({ error }) => alert(error)}
             />
-            <button onClick={handleButtonClick}>submit</button>
+            <button onClick={submitForm}>Submit</button>
           </form>
         )}
       </div>
