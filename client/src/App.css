@@ -35,7 +35,9 @@
 .footer {
   background-color: var(--grey-shade);
   grid-row: footer;
-  position: fixed;
   bottom: 0;
   width: 100vw;
+  height: 80px;
+  position: fixed;
+  z-index: 100;
 }

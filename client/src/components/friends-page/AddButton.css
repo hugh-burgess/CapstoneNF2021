@@ -3,11 +3,6 @@
   justify-content: center;
 }
 
-.add-friend-button-wrapper {
-  border: none;
-  height: 5vh;
-}
-
 .add-friend-button {
   padding: 1px;
 }
