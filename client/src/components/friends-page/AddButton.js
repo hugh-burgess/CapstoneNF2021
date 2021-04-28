@@ -102,9 +102,9 @@ export default function AddButton() {
               onFileSelectError={({ error }) => alert(error)}
             /> */}
             <button type="submit">save</button>
+            {renderItems()}
           </form>
         )}
-        {renderItems()}
       </div>
     </div>
   );
