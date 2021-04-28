@@ -12,7 +12,7 @@ export default function AddButton() {
   const [isClicked, setIsClicked] = useState(false);
   const [friendName, setFriendName] = useState("");
   const [friends, setFriends] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null);
+  // const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
     const friends = getItemsFromLocalStorage();
@@ -32,7 +32,7 @@ export default function AddButton() {
 
     addItemToLocalStorage({
       name: friendName,
-      file: selectedFile,
+      // file: selectedFile,
     });
 
     const items = getItemsFromLocalStorage();
@@ -97,11 +97,11 @@ export default function AddButton() {
               onChange={handleNameChange}
               value={friendName}
             />
-            <FileUploader
+            {/* <FileUploader
               onFileSelectSuccess={(file) => setSelectedFile(file)}
               onFileSelectError={({ error }) => alert(error)}
-            />
-            {/* <button type="submit">save</button> */}
+            /> */}
+            <button type="submit">save</button>
           </form>
         )}
         {renderItems()}
