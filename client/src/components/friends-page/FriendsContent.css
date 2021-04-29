@@ -87,10 +87,14 @@
 
 .no-mates-message {
   margin: 100px auto;
+  font-family: "Cookie", cursive;
+  font-size: 50px;
+  text-align: center;
 }
 
 .render-div {
   margin-top: 40px;
-  height: 200px;
-  background-color: red;
+  height: auto;
+  display: flex;
+  justify-content: center;
 }

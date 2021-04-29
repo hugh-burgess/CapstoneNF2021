@@ -49,13 +49,16 @@ export default function FriendsContent() {
           </div>
         );
       }
+      return renderItems();
     });
   }
   return (
     <div className="conditional-div">
       {friends < 1 && (
         <div className="render-div">
-          <p>no mates</p>
+          <p className="no-mates-message">
+            you dont have <br /> any frens!
+          </p>
         </div>
       )}
 
