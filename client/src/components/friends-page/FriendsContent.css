@@ -84,3 +84,13 @@
   right: 25px;
   top: 15px;
 }
+
+.no-mates-message {
+  margin: 100px auto;
+}
+
+.render-div {
+  margin-top: 40px;
+  height: 200px;
+  background-color: red;
+}
