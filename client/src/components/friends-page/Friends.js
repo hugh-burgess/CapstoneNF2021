@@ -1,6 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Navigation from "../Navigation";
+import AddButton from "./AddButton";
 import FriendsContent from "./FriendsContent";
 
 export default function Friends() {
@@ -17,12 +18,11 @@ export default function Friends() {
       </div>
       <main className="main friends-page">
         <FriendsContent />
+        <AddButton />
       </main>
-      <div className="friends-footer-wrapper">
-        <footer className="footer friends-footer">
-          <Navigation />
-        </footer>
-      </div>
+      <footer className="footer">
+        <Navigation />
+      </footer>
     </div>
   );
 }

@@ -12,7 +12,10 @@
 
 .friends-page {
   background-color: var(--light-blue);
-  height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .clouds-wrapper {
@@ -54,13 +57,6 @@
   top: 20px;
   z-index: 1;
   position: absolute;
-}
-.friends-footer-wrapper {
-  position: relative;
-}
-.friends-footer {
-  position: fixed;
-  z-index: 100;
 }
 
 .names-left {
