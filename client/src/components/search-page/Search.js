@@ -1,7 +1,8 @@
 import Navigation from "../Navigation";
 import "./Search.css";
 import "../profile-page/Profile.css";
-import SearchList from "./SearchList";
+import SearchBar from "./SearchBar";
+import Dogs from "./Dogs";
 
 export default function Search() {
   return (
@@ -12,7 +13,8 @@ export default function Search() {
         </header>
       </div>
       <main className="main search-page">
-        <SearchList />
+        <SearchBar />
+        <Dogs />
       </main>
       <div className="search-footer-wrapper">
         <footer className="footer">

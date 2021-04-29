@@ -1,4 +1,4 @@
-export default function SearchList() {
+export default function SearchBar() {
   return (
     <div>
       <form className="search-form">
@@ -8,12 +8,10 @@ export default function SearchList() {
           className="search-page-bar"
           placeholder="search a fren..."
         />
-        <button type="submit">Go</button>
+        <button className="search-go-button" type="submit">
+          Go
+        </button>
       </form>
-      <section>
-        <h2>Name</h2>
-        <img src="#" alt="dog" />
-      </section>
     </div>
   );
 }

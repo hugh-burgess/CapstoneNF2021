@@ -3,7 +3,6 @@ import { FaBone } from "react-icons/fa";
 import profileDog from "../../images/profile-pic.svg";
 import bubble from "../../images/stat-bubble.svg";
 import bioBubble from "../../images/bio-bubble.svg";
-import plant from "../../images/plant.svg";
 
 export default function MainContent() {
   return (
