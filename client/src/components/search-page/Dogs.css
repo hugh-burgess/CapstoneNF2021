@@ -1,5 +1,27 @@
-.dog-name {
+.friend-card {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  border: black 1px solid;
+  border-radius: 15px;
+  padding: 5px;
+  width: 50vw;
+  margin: 20px auto;
+  background-color: var(--sea-blue);
+  box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.16);
 }
-.dog-image {
-  background-color: var(--light-blue);
+
+.dogs-name {
+  font-size: 35px;
+  font-family: "Cookie", cursive;
+  color: var(--deep-blue);
+  margin: 5px;
+}
+.dogs-image {
+  border: black 1px solid;
+  color: var(--grey-shade);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  padding: 5px;
 }

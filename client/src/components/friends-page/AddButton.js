@@ -3,8 +3,8 @@ import "./AddButton.css";
 import {
   getItemsFromLocalStorage,
   addItemToLocalStorage,
-  removeItemFromLocalStorage,
-} from "./itemStorage";
+  removeItemFromLocalStorageByName,
+} from "../../utils/itemStorage";
 // import FileUploader from "./FileUploader";
 // import axios from "axios";
 
@@ -15,7 +15,7 @@ export default function AddButton() {
   // const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
-    const friends = getItemsFromLocalStorage();
+    const friends = getItemsFromLocalStorage("friends");
     setFriends(friends);
   }, []);
 
@@ -31,18 +31,19 @@ export default function AddButton() {
     // formData.append("file", selectedFile);
     console.log(`Success! ${friendName} is a new friend.`);
 
-    addItemToLocalStorage({
+    addItemToLocalStorage("friends", {
       name: friendName,
+      imgSrc: "String",
       // file: selectedFile,
     });
 
-    const items = getItemsFromLocalStorage();
+    const items = getItemsFromLocalStorage("friends");
     setFriends(items);
   }
 
   function handleRemove(itemName) {
-    removeItemFromLocalStorage(itemName);
-    const items = getItemsFromLocalStorage();
+    removeItemFromLocalStorageByName(itemName);
+    const items = getItemsFromLocalStorage("friends");
     setFriends(items);
   }
 

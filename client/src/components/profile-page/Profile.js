@@ -6,7 +6,7 @@ import "./Profile.css";
 
 export default function Profile() {
   return (
-    <div className="grid-layout-app">
+    <div>
       <header className="header">
         <h1 className="cover-title">profile</h1>
       </header>

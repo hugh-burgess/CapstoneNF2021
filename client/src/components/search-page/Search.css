@@ -2,16 +2,11 @@
   position: relative;
 }
 
-.search-footer-wrapper {
-  position: relative;
-}
-
 .search-page {
   background-color: var(--light-blue);
-  height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  margin: 90px 0;
 }
 
 .search-form {

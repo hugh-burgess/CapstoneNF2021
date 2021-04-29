@@ -4,7 +4,7 @@ import EditContent from "./EditContent";
 
 export default function EditProfile() {
   return (
-    <div className="grid-layout-app">
+    <div>
       <header className="header">
         <h1 className="cover-title">profile</h1>
       </header>

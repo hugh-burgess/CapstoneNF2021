@@ -1,8 +1,16 @@
-export default function SearchBar() {
+export default function SearchBar({ handleNameFilter }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    const value = event.target.value;
+    handleNameFilter(value);
+    console.log(value);
+  }
+
   return (
     <div>
       <form className="search-form">
         <input
+          onChange={handleSubmit}
           type="input"
           name="searchBar"
           className="search-page-bar"

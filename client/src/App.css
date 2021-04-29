@@ -1,13 +1,11 @@
 .grid-layout-app {
   position: relative;
-
   display: grid;
   grid-template-rows: [header] 70px [main] auto [footer] 80px;
 }
 
 .header {
   position: fixed;
-
   padding-left: 10px;
   color: var(--deep-blue);
   height: 100px;
@@ -23,7 +21,7 @@
 
 .main {
   grid-row: main;
-  height: 90vh;
+  height: auto;
 }
 
 .footer {

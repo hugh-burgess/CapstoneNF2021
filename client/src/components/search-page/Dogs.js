@@ -1,11 +1,30 @@
 import "./Dogs.css";
-export default function Dogs({ name, imgSrc }) {
-  return (
-    <div>
-      <section>
-        <h2 className="dog-name">{name}</h2>
-        <img className="dog-image" src={imgSrc} alt="dog" />
-      </section>
-    </div>
+import { getItemsFromLocalStorage } from "../../utils/itemStorage";
+import { useEffect, useState } from "react";
+
+export default function Dogs({ filter }) {
+  const [friends, setFriends] = useState([]);
+
+  useEffect(() => {
+    const friendsList = getItemsFromLocalStorage("friends");
+    setFriends(friendsList);
+  }, []);
+
+  const filteredName = friends.filter(
+    (friend) => friend.name.toLowerCase().includes(filter) || filter === ""
   );
+  console.log(filter);
+
+  function renderFriend() {
+    return filteredName.map((friend, index) => {
+      return (
+        <div key={index} className="friend-card">
+          <p className="dogs-name">{friend.name}</p>
+          <img className="dogs-image" src={friend.imgSrc} alt="dog" />
+        </div>
+      );
+    });
+  }
+
+  return <div>{renderFriend()}</div>;
 }
