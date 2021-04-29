@@ -7,12 +7,15 @@
 .friends-header {
   position: fixed;
   z-index: 100;
-
   width: 100vw;
 }
 
 .friends-page {
   background-color: var(--light-blue);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .clouds-wrapper {
@@ -25,11 +28,13 @@
 .cloud-right {
   display: flex;
   justify-content: flex-end;
-  padding: 10px 0;
+  padding: 10px 10px;
+  position: relative;
 }
 .cloud-left {
   display: flex;
-  padding: 10px 0;
+  padding: 10px 10px;
+  position: relative;
 }
 
 .dog-image-left {
@@ -37,6 +42,8 @@
   border-radius: 50%;
   height: 60px;
   width: 60px;
+  left: 20px;
+  top: 30px;
   z-index: 1;
   position: absolute;
 }
@@ -46,13 +53,34 @@
   border-radius: 50%;
   height: 60px;
   width: 60px;
+  right: 20px;
+  top: 20px;
   z-index: 1;
   position: absolute;
 }
-.friends-footer-wrapper {
-  position: relative;
+
+.names-left {
+  font-family: "Cookie", cursive;
+  font-size: 41px;
+  color: var(--deep-blue);
+  position: absolute;
+  left: 100px;
+  bottom: 30px;
 }
-.friends-footer {
-  position: fixed;
-  z-index: 100;
+
+.names-right {
+  font-family: "Cookie", cursive;
+  font-size: 41px;
+  color: var(--deep-blue);
+  position: absolute;
+  right: 100px;
+  bottom: 30px;
+}
+
+.search-icon {
+  color: var(--deep-blue);
+  font-size: 40px;
+  position: absolute;
+  right: 25px;
+  top: 15px;
 }

@@ -6,6 +6,7 @@ import EditProfile from "./components/profile-page/Edit-Profile";
 import Profile from "./components/profile-page/Profile";
 import Tour from "./components/profile-page/Tour";
 import Cover from "./components/Cover";
+import Search from "./components/search-page/Search";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/edit-profile">
             <EditProfile />
+          </Route>
+          <Route path="/search">
+            <Search />
           </Route>
           <Route exact path="/">
             <Cover />

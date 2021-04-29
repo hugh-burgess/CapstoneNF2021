@@ -1,0 +1,32 @@
+.add-friend-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.add-friend-button {
+  padding: 1px;
+}
+
+.popup-box {
+  height: auto;
+  width: 70vw;
+  border-radius: 5px;
+  padding: 5px;
+  border: black 1px solid;
+  box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.16);
+}
+
+.popup-delete {
+  float: right;
+  padding: 1px;
+}
+
+.name-input {
+  border-radius: 5px;
+  width: 50%;
+}
+
+.hidden {
+  display: hidden;
+}
