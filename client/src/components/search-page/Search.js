@@ -1,6 +1,7 @@
 import Navigation from "../Navigation";
 import "./Search.css";
 import "../profile-page/Profile.css";
+import SearchList from "./SearchList";
 
 export default function Search() {
   return (
@@ -10,7 +11,9 @@ export default function Search() {
           <h1 className="cover-title">search</h1>
         </header>
       </div>
-      <main className="main"></main>
+      <main className="main search-page">
+        <SearchList />
+      </main>
       <div className="search-footer-wrapper">
         <footer className="footer">
           <Navigation />
