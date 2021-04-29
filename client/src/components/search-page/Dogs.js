@@ -1,9 +1,10 @@
-export default function Dogs() {
+import "./Dogs.css";
+export default function Dogs({ name, imgSrc }) {
   return (
     <div>
       <section>
-        <h2>Name</h2>
-        <img src="#" alt="dog" />
+        <h2 className="dog-name">{name}</h2>
+        <img className="dog-image" src={imgSrc} alt="dog" />
       </section>
     </div>
   );
