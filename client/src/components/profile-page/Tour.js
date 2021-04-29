@@ -4,7 +4,7 @@ import "./Tour.css";
 
 export default function Tour() {
   return (
-    <div>
+    <div className="grid-layout-app">
       <header className="header">
         <h1 className="cover-title">tour</h1>
       </header>

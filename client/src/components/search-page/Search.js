@@ -12,7 +12,7 @@ export default function Search() {
     setFilter(value);
   }
   return (
-    <div>
+    <div className="grid-layout-app">
       <div className="search-header-wrapper">
         <header className="header">
           <h1 className="cover-title">search</h1>

@@ -6,7 +6,7 @@ import FriendsContent from "./FriendsContent";
 
 export default function Friends() {
   return (
-    <div>
+    <div className="grid-layout-app">
       <div className="friends-header-wrapper">
         <header className="header friends-header">
           <h1 className="cover-title">frens</h1>

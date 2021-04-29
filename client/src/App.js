@@ -11,7 +11,7 @@ import Search from "./components/search-page/Search";
 function App() {
   return (
     <Router>
-      <div className="grid-layout-app">
+      <div>
         <Switch>
           <Route path="/friends">
             <Friends />
