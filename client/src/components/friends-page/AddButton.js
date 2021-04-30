@@ -32,6 +32,7 @@ export default function AddButton() {
     // formData.append("file", selectedFile);
 
     addItemToLocalStorage("friends", {
+      id: friendName,
       name: friendName,
       imgSrc: String,
       bio: String,

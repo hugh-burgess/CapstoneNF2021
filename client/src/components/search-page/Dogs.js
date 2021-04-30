@@ -26,5 +26,17 @@ export default function Dogs({ filter }) {
     });
   }
 
-  return <div>{renderFriend()}</div>;
+  return (
+    <div className="conditional-div">
+      {filteredName < 1 && (
+        <div className="render-div">
+          <p className="no-mates-message">
+            Nothing to find <br /> here!
+          </p>
+        </div>
+      )}
+
+      {filteredName && renderFriend()}
+    </div>
+  );
 }
