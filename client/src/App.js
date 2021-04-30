@@ -7,6 +7,7 @@ import Profile from "./components/profile-page/Profile";
 import Tour from "./components/profile-page/Tour";
 import Cover from "./components/Cover";
 import Search from "./components/search-page/Search";
+import SingleDog from "./components/single-dog/SingleDog";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         <Switch>
           <Route path="/friends">
             <Friends />
+          </Route>
+          <Route path="/single-dog/:id">
+            <SingleDog />
           </Route>
           <Route path="/map">
             <Map />
@@ -31,6 +35,7 @@ function App() {
           <Route path="/search">
             <Search />
           </Route>
+
           <Route exact path="/">
             <Cover />
           </Route>
