@@ -6,7 +6,7 @@
 .single-dog-wrapper {
   display: flex;
   height: 200px;
-  flex-direction: column;
+  margin: 0 20px;
 }
 
 .single-dog-image {
@@ -16,4 +16,10 @@
   height: 40px;
   width: 40px;
   padding: 5px;
+}
+
+.single-dog-options {
+  display: flex;
+  height: 100px;
+  border: red 1px solid;
 }
