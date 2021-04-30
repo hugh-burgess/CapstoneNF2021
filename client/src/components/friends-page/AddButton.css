@@ -22,9 +22,17 @@
   padding: 1px;
 }
 
+.input-boxes-parent {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  align-content: space-around;
+}
+
 .name-input {
   border-radius: 5px;
-  width: 50%;
+  width: auto;
+  height: auto;
 }
 
 .hidden {
@@ -34,4 +42,15 @@
 .stats-wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.stats-input-parent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.stats-add-button,
+.stats-delete-button {
+  margin: 0 10px;
 }

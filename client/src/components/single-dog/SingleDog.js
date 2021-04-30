@@ -26,6 +26,14 @@ export default function SingleDog() {
     return (friend.isStarred = true);
   }
 
+  function createBones(number) {
+    const bones = [];
+    for (let i = 0; i < number; i++) {
+      bones.push(<div className="single-dog-starred-bone">{<FaBone />}</div>);
+    }
+    return bones;
+  }
+
   function renderDog() {
     return filteredFriend.map((friend) => {
       return (
@@ -58,12 +66,7 @@ export default function SingleDog() {
                 <div className="single-dog-rating">
                   <p className="single-dog-rating-title">Rating</p>
                   <p className="single-dog-rating-content">
-                    <FaBone className="single-dog-starred-bone" />
-                    <FaBone className="single-dog-starred-bone" />
-                    <FaBone className="single-dog-starred-bone" />
-                    <FaBone className="single-dog-starred-bone" />
-                    <FaBone className="single-dog-starred-bone" />
-                    {friend.rating}
+                    {createBones(friend.rating)}
                   </p>
                 </div>
               </div>

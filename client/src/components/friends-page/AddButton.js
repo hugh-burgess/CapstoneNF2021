@@ -5,6 +5,8 @@ import {
   addItemToLocalStorage,
   removeItemFromLocalStorageByName,
 } from "../../utils/itemStorage";
+import { ImBin } from "react-icons/im";
+import { RiAddCircleFill } from "react-icons/ri";
 // import FileUploader from "./FileUploader";
 // import axios from "axios";
 
@@ -39,7 +41,7 @@ export default function AddButton() {
   }
 
   function handleRatingsChange(event) {
-    setRatings(event.target.value);
+    setRatings(Number(event.target.value));
   }
 
   function handleChange(i, event) {
@@ -149,71 +151,80 @@ export default function AddButton() {
           <button onClick={handleButtonClick} className="popup-delete">
             close
           </button>
-          <input
-            className="name-input"
-            type="text"
-            name="friendName"
-            placeholder="name goes here..."
-            onChange={handleNameChange}
-            value={friendName}
-          />
-          <input
-            className="name-input"
-            type="text"
-            name="biography"
-            placeholder="bio goes here..."
-            onChange={handleBiographyChange}
-            value={biography}
-          />
-          <div className="stats-wrapper">
-            <button type="button" onClick={() => handleAdd()}>
-              +
-            </button>
+          <div className="input-boxes-parent">
+            <input
+              className="name-input"
+              type="text"
+              name="friendName"
+              placeholder="name goes here..."
+              onChange={handleNameChange}
+              value={friendName}
+            />
+            <input
+              className="name-input"
+              type="text"
+              name="biography"
+              placeholder="bio goes here..."
+              onChange={handleBiographyChange}
+              value={biography}
+            />
+            <div className="stats-wrapper">
+              {fields.map((field, idx) => {
+                return (
+                  <div className="stats-input-parent" key={`${field}-${idx}`}>
+                    <input
+                      className="name-input"
+                      type="text"
+                      name="statistics"
+                      placeholder="stats goes here..."
+                      value={field.value || ""}
+                      onChange={(e) => handleChange(idx, e)}
 
-            {fields.map((field, idx) => {
-              return (
-                <div key={`${field}-${idx}`}>
-                  <input
-                    className="name-input"
-                    type="text"
-                    name="statistics"
-                    placeholder="stats goes here..."
-                    value={field.value || ""}
-                    onChange={(e) => handleChange(idx, e)}
-
-                    //   value={statistics}
-                    //   onChange={handleStatsChange}
-                  />
-                  <button type="button" onClick={() => handleRemove(idx)}>
-                    X
-                  </button>
-                </div>
-              );
-            })}
+                      //   value={statistics}
+                      //   onChange={handleStatsChange}
+                    />
+                    <button
+                      className="stats-add-button"
+                      type="button"
+                      onClick={() => handleAdd()}
+                    >
+                      <RiAddCircleFill />
+                    </button>
+                    <button
+                      className="stats-delete-button"
+                      type="button"
+                      onClick={() => handleRemove(idx)}
+                    >
+                      <ImBin />
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+            <input
+              className="name-input"
+              type="text"
+              name="reviewing"
+              placeholder="review goes here..."
+              onChange={handleReviewChange}
+              value={reviewing}
+            />
+            <select
+              className="name-input"
+              type="text"
+              name="ratings"
+              id="ratings"
+              placeholder="ratings goes here..."
+              onChange={handleRatingsChange}
+              value={ratings}
+            >
+              <option value="1">1 Star</option>
+              <option value="2">2 Star</option>
+              <option value="3">3 Star</option>
+              <option value="4">4 Star</option>
+              <option value="5">5 Star</option>
+            </select>
           </div>
-          <input
-            className="name-input"
-            type="text"
-            name="reviewing"
-            placeholder="review goes here..."
-            onChange={handleReviewChange}
-            value={reviewing}
-          />
-          <select
-            className="name-input"
-            type="text"
-            name="ratings"
-            id="ratings"
-            placeholder="ratings goes here..."
-            onChange={handleRatingsChange}
-            value={ratings}
-          >
-            <option value="1 Star">1 Star</option>
-            <option value="2 Star">2 Star</option>
-            <option value="3 Star">3 Star</option>
-            <option value="4 Star">4 Star</option>
-            <option value="5 Star">5 Star</option>
-          </select>
           {/* <FileUploader
               onFileSelectSuccess={(file) => setSelectedFile(file)}
               onFileSelectError={({ error }) => alert(error)}
