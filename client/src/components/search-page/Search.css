@@ -2,6 +2,20 @@
   position: relative;
 }
 
-.search-header-wrapper {
-  position: relative;
+.search-page {
+  background-color: var(--light-blue);
+  display: flex;
+  flex-direction: column;
+}
+
+.search-form {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.search-page-bar,
+.search-go-button {
+  margin: 0 5px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.16);
 }

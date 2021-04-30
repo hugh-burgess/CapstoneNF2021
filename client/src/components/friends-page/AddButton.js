@@ -3,8 +3,8 @@ import "./AddButton.css";
 import {
   getItemsFromLocalStorage,
   addItemToLocalStorage,
-  removeItemFromLocalStorage,
-} from "./itemStorage";
+  removeItemFromLocalStorageByName,
+} from "../../utils/itemStorage";
 // import FileUploader from "./FileUploader";
 // import axios from "axios";
 
@@ -12,10 +12,11 @@ export default function AddButton() {
   const [isClicked, setIsClicked] = useState(false);
   const [friendName, setFriendName] = useState("");
   const [friends, setFriends] = useState([]);
+  const [count, setCount] = useState(0);
   // const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
-    const friends = getItemsFromLocalStorage();
+    const friends = getItemsFromLocalStorage("friends");
     setFriends(friends);
   }, []);
 
@@ -29,28 +30,34 @@ export default function AddButton() {
     // const formData = new FormData();
     // formData.append("name", friendName);
     // formData.append("file", selectedFile);
-    console.log(`Success! ${friendName} is a new friend.`);
 
-    addItemToLocalStorage({
+    addItemToLocalStorage("friends", {
+      id: friendName,
       name: friendName,
+      imgSrc: String,
+      bio: String,
+      stats: Array,
+      rating: Number,
+      review: String,
+      isStarred: Boolean,
       // file: selectedFile,
     });
 
-    const items = getItemsFromLocalStorage();
+    const items = getItemsFromLocalStorage("friends");
     setFriends(items);
   }
 
   function handleRemove(itemName) {
-    removeItemFromLocalStorage(itemName);
-    const items = getItemsFromLocalStorage();
+    removeItemFromLocalStorageByName(itemName);
+    const items = getItemsFromLocalStorage("friends");
     setFriends(items);
   }
 
   function renderItems() {
     return friends.map((friend, id) => {
       return (
-        <p key={id} onClick={() => handleRemove(friend.name)}>
-          {friend.name}
+        <p id={id} key={id} onClick={() => handleRemove(friend.name)}>
+          - {friend.name}
         </p>
       );
     });
@@ -78,6 +85,18 @@ export default function AddButton() {
     console.log(isClicked);
   }
 
+  // delete the rendered message after 2 seconds
+  const Expire = (props) => {
+    const [visible, setVisible] = useState(true);
+
+    useEffect(() => {
+      setTimeout(() => {
+        setVisible(false);
+      }, props.delay);
+    }, [props.delay]);
+    return visible ? <div>{props.children}</div> : <div />;
+  };
+
   return (
     <div className="add-friend-wrapper">
       {!isClicked && (
@@ -102,8 +121,13 @@ export default function AddButton() {
               onFileSelectSuccess={(file) => setSelectedFile(file)}
               onFileSelectError={({ error }) => alert(error)}
             /> */}
-          <button type="submit">save</button>
-          {renderItems()}
+          <button type="submit" onClick={() => setCount(count + 1)}>
+            save
+          </button>
+          <Expire delay="3000">
+            <p>New friends added: {count}</p>
+            {renderItems()}
+          </Expire>
         </form>
       )}
     </div>

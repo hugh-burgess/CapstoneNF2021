@@ -84,3 +84,17 @@
   right: 25px;
   top: 15px;
 }
+
+.no-mates-message {
+  margin: 100px auto;
+  font-family: "Cookie", cursive;
+  font-size: 50px;
+  text-align: center;
+}
+
+.render-div {
+  margin-top: 40px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}

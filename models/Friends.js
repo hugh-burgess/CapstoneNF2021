@@ -4,8 +4,9 @@ const { Schema } = mongoose;
 
 const FriendsSchema = new Schema(
   {
+    id: String,
     name: String,
-    image: String,
+    imgSrc: String,
     bio: String,
     stats: Array,
     rating: Number,
