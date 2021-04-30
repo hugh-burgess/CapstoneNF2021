@@ -18,7 +18,6 @@ export default function SingleDog() {
 
   function renderDog() {
     return filteredFriend.map((friend) => {
-      //   if (id === index + friend.name) {
       return (
         <div className="grid-layout-app">
           <header className="header">
@@ -39,7 +38,6 @@ export default function SingleDog() {
           </footer>
         </div>
       );
-      //   }
     });
   }
   return renderDog();
