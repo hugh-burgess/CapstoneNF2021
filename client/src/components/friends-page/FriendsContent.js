@@ -28,7 +28,6 @@ export default function FriendsContent() {
     return friends.map((friend, index) => {
       const id = `${index}${friend.name}`;
       if (index % 2 === 0) {
-        console.log(`${index} is even`);
         return (
           <Link to={`/single-dog/${id}`}>
             <div className="clouds-wrapper">
@@ -46,7 +45,6 @@ export default function FriendsContent() {
         );
       }
       if (!index % 2 === 0) {
-        console.log(`${index} is odd`);
         return (
           <Link to={`/single-dog/${id}`}>
             <div className="clouds-wrapper">

@@ -11,6 +11,12 @@ import {
 export default function AddButton() {
   const [isClicked, setIsClicked] = useState(false);
   const [friendName, setFriendName] = useState("");
+  const [imageSource, setImageSource] = useState("");
+  const [biography, setBiography] = useState("");
+  const [ratings, setRatings] = useState("");
+  const [reviewing, setReviewing] = useState("");
+  const [fields, setFields] = useState([{ value: null }]);
+
   const [friends, setFriends] = useState([]);
   const [count, setCount] = useState(0);
   // const [selectedFile, setSelectedFile] = useState(null);
@@ -24,6 +30,36 @@ export default function AddButton() {
     setFriendName(event.target.value);
   }
 
+  function handleBiographyChange(event) {
+    setBiography(event.target.value);
+  }
+
+  function handleReviewChange(event) {
+    setReviewing(event.target.value);
+  }
+
+  function handleRatingsChange(event) {
+    setRatings(event.target.value);
+  }
+
+  function handleChange(i, event) {
+    const values = [...fields];
+    values[i].value = event.target.value;
+    setFields(values);
+  }
+
+  function handleAdd() {
+    const values = [...fields];
+    values.push({ value: null });
+    setFields(values);
+  }
+
+  function handleRemove(i) {
+    const values = [...fields];
+    values.splice(i, 1);
+    setFields(values);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -34,12 +70,12 @@ export default function AddButton() {
     addItemToLocalStorage("friends", {
       id: friendName,
       name: friendName,
-      imgSrc: String,
-      bio: String,
-      stats: Array,
-      rating: Number,
-      review: String,
-      isStarred: Boolean,
+      imgSrc: imageSource,
+      bio: biography,
+      stats: fields,
+      rating: ratings,
+      review: reviewing,
+      isStarred: false,
       // file: selectedFile,
     });
 
@@ -47,7 +83,7 @@ export default function AddButton() {
     setFriends(items);
   }
 
-  function handleRemove(itemName) {
+  function handleRemoveLocalStorage(itemName) {
     removeItemFromLocalStorageByName(itemName);
     const items = getItemsFromLocalStorage("friends");
     setFriends(items);
@@ -56,7 +92,11 @@ export default function AddButton() {
   function renderItems() {
     return friends.map((friend, id) => {
       return (
-        <p id={id} key={id} onClick={() => handleRemove(friend.name)}>
+        <p
+          id={id}
+          key={id}
+          onClick={() => handleRemoveLocalStorage(friend.name)}
+        >
           - {friend.name}
         </p>
       );
@@ -117,6 +157,63 @@ export default function AddButton() {
             onChange={handleNameChange}
             value={friendName}
           />
+          <input
+            className="name-input"
+            type="text"
+            name="biography"
+            placeholder="bio goes here..."
+            onChange={handleBiographyChange}
+            value={biography}
+          />
+          <div className="stats-wrapper">
+            <button type="button" onClick={() => handleAdd()}>
+              +
+            </button>
+
+            {fields.map((field, idx) => {
+              return (
+                <div key={`${field}-${idx}`}>
+                  <input
+                    className="name-input"
+                    type="text"
+                    name="statistics"
+                    placeholder="stats goes here..."
+                    value={field.value || ""}
+                    onChange={(e) => handleChange(idx, e)}
+
+                    //   value={statistics}
+                    //   onChange={handleStatsChange}
+                  />
+                  <button type="button" onClick={() => handleRemove(idx)}>
+                    X
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+          <input
+            className="name-input"
+            type="text"
+            name="reviewing"
+            placeholder="review goes here..."
+            onChange={handleReviewChange}
+            value={reviewing}
+          />
+          <select
+            className="name-input"
+            type="text"
+            name="ratings"
+            id="ratings"
+            placeholder="ratings goes here..."
+            onChange={handleRatingsChange}
+            value={ratings}
+          >
+            <option value="1 Star">1 Star</option>
+            <option value="2 Star">2 Star</option>
+            <option value="3 Star">3 Star</option>
+            <option value="4 Star">4 Star</option>
+            <option value="5 Star">5 Star</option>
+          </select>
           {/* <FileUploader
               onFileSelectSuccess={(file) => setSelectedFile(file)}
               onFileSelectError={({ error }) => alert(error)}

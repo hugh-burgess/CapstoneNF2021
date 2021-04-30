@@ -14,7 +14,6 @@ export default function SingleDog() {
   useEffect(() => {
     const friends = getItemsFromLocalStorage("friends");
     setFriends(friends);
-    console.log(friends);
   }, []);
 
   let { id } = useParams();
@@ -46,7 +45,9 @@ export default function SingleDog() {
               <div className="single-dog-overview">
                 <div className="single-dog-stats">
                   <p className="single-dog-stats-title">Stats</p>
-                  <p className="single-dog-stats-content">{friend.stats}</p>
+                  <p className="single-dog-stats-content">
+                    {friend.stats.map((stat) => stat.value + " ")}
+                  </p>
                   <div className="single-dog-content-box"></div>
                 </div>
                 <div className="single-dog-review">
