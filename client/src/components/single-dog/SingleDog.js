@@ -14,25 +14,32 @@ export default function SingleDog() {
 
   let { id } = useParams();
 
+  const filteredFriend = friends.filter((dog) => id.includes(dog.name));
+
   function renderDog() {
-    return friends.map((friend, index) => {
-      if (id === index + friend.name) {
-        return (
-          <div className="grid-layout-app">
-            <header className="header">
+    return filteredFriend.map((friend) => {
+      //   if (id === index + friend.name) {
+      return (
+        <div className="grid-layout-app">
+          <header className="header">
+            <div className="single-dog-wrapper">
+              <img
+                class="single-dog-image"
+                src={friend.imgSrc}
+                alt={friend.name}
+              />
               <h1 className="cover-title">{friend.name}</h1>
-            </header>
-            <main className="main profile-page">
-              <div key={id} className="single-dog-page">
-                Hello {id}
-              </div>
-            </main>
-            <footer className="footer">
-              <Navigation />
-            </footer>
-          </div>
-        );
-      }
+            </div>
+          </header>
+          <main className="main profile-page">
+            <div key={id} className="single-dog-page"></div>
+          </main>
+          <footer className="footer">
+            <Navigation />
+          </footer>
+        </div>
+      );
+      //   }
     });
   }
   return renderDog();

@@ -1,3 +1,19 @@
 .single-dog-page {
   color: var(--deep-blue);
+  margin-top: 40px;
+}
+
+.single-dog-wrapper {
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+}
+
+.single-dog-image {
+  border: black 1px solid;
+  color: var(--grey-shade);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  padding: 5px;
 }
