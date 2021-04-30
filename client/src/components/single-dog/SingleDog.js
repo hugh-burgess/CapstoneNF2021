@@ -14,7 +14,9 @@ export default function SingleDog() {
 
   let { id } = useParams();
 
-  const filteredFriend = friends.filter((dog) => id.includes(dog.name));
+  const filteredFriend = friends.filter((dog, index) =>
+    id.includes(index + dog.name)
+  );
 
   function renderDog() {
     return filteredFriend.map((friend) => {
