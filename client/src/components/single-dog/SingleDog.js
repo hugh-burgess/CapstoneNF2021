@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 import Navigation from "../Navigation";
 import "./SingleDog.css";
@@ -74,7 +74,9 @@ export default function SingleDog() {
                 </div>
                 <div className="single-dog-message">
                   <p className="single-dog-message-content">
-                    <ImBubble />
+                    <Link to={`/whistle/${id}`}>
+                      <ImBubble />
+                    </Link>
                   </p>
                 </div>
                 <div className="single-dog-delete">
