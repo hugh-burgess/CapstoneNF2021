@@ -82,3 +82,10 @@
   color: var(--gold);
   font-size: 25px;
 }
+
+.gold-star {
+  color: var(--gold);
+}
+.dull-star {
+  color: var(--grey-shade);
+}

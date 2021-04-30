@@ -18,6 +18,7 @@ export default function AddButton() {
   const [ratings, setRatings] = useState("");
   const [reviewing, setReviewing] = useState("");
   const [fields, setFields] = useState([{ value: null }]);
+  const [isStar, setIsStar] = useState(false);
 
   const [friends, setFriends] = useState([]);
   const [count, setCount] = useState(0);
@@ -42,6 +43,10 @@ export default function AddButton() {
 
   function handleRatingsChange(event) {
     setRatings(Number(event.target.value));
+  }
+
+  function handleStarredClick() {
+    setIsStar(!isStar);
   }
 
   function handleChange(i, event) {
@@ -77,7 +82,7 @@ export default function AddButton() {
       stats: fields,
       rating: ratings,
       review: reviewing,
-      isStarred: false,
+      isStarred: isStar,
       // file: selectedFile,
     });
 
@@ -218,12 +223,16 @@ export default function AddButton() {
               onChange={handleRatingsChange}
               value={ratings}
             >
+              <option disabled>Rate Your Friend</option>
               <option value="1">1 Star</option>
               <option value="2">2 Star</option>
               <option value="3">3 Star</option>
               <option value="4">4 Star</option>
               <option value="5">5 Star</option>
             </select>
+            <button type="button" onClick={handleStarredClick}>
+              {isStar ? "Starred!" : "Star"}
+            </button>
           </div>
           {/* <FileUploader
               onFileSelectSuccess={(file) => setSelectedFile(file)}

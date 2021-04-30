@@ -21,9 +21,39 @@ export default function SingleDog() {
   const filteredFriend = friends.filter((dog, index) =>
     id.includes(index + dog.name)
   );
+  console.log(filteredFriend);
+  function starredClick() {
+    let index;
+    friends.forEach((friend, i) => {
+      if (friend.name === filteredFriend[0].name) {
+        index = i;
+      }
+    });
+    const newFriend = friends[index];
+    newFriend.isStarred = !newFriend.isStarred;
+    const veryNewFriends = [
+      ...friends.slice(0, index),
+      newFriend,
+      ...friends.slice(index + 1),
+    ];
+    setFriends(veryNewFriends);
+    localStorage.setItem("friends", JSON.stringify(veryNewFriends));
+  }
 
-  function handleStarredClick(friend) {
-    return (friend.isStarred = true);
+  function handleStarredClick(boolean) {
+    return (
+      <div>
+        {boolean === true ? (
+          <div>
+            <AiFillStar className="gold-star" onClick={() => starredClick()} />
+          </div>
+        ) : (
+          <div>
+            <AiFillStar className="dull-star" onClick={() => starredClick()} />
+          </div>
+        )}
+      </div>
+    );
   }
 
   function createBones(number) {
@@ -73,7 +103,7 @@ export default function SingleDog() {
               <div class="single-dog-options">
                 <div className="single-dog-starred">
                   <p className="single-dog-starred-content">
-                    <AiFillStar onClick={handleStarredClick} />
+                    {handleStarredClick(friend.isStarred)}
                   </p>
                 </div>
                 <div className="single-dog-message">
