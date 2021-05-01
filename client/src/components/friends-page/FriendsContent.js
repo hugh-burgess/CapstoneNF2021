@@ -14,6 +14,7 @@ import cloudTwo from "../../images/cloudTwo.svg";
 import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ImBin } from "react-icons/im";
 
 export default function FriendsContent() {
   const [friends, setFriends] = useState([]);
@@ -24,37 +25,63 @@ export default function FriendsContent() {
     console.log(friends);
   }, []);
 
+  function handleDeleteFriend(index) {
+    const veryNewFriends = [
+      ...friends.slice(0, index),
+      ...friends.slice(index + 1),
+    ];
+    setFriends(veryNewFriends);
+    localStorage.setItem("friends", JSON.stringify(veryNewFriends));
+  }
+
   function renderItems() {
     return friends.map((friend, index) => {
-      const id = `${index}${friend.name}`;
+      const id = `${index}${friend.name}`; // hardcoded dog id which could be an issue in future
       if (index % 2 === 0) {
         return (
-          <Link to={`/single-dog/${id}`}>
+          <>
+            {" "}
             <div className="clouds-wrapper">
               <div key={index} className="cloud-right">
-                <p className="names-right">{friend.name}</p>
-                <img src={cloudOne} alt="cloud" />
-                <img
-                  className="dog-image-right"
-                  src={friend.imgSrc}
-                  alt="dog"
+                <Link to={`/single-dog/${id}`}>
+                  <p className="names-right">{friend.name}</p>
+                  <img src={cloudOne} alt="cloud" />
+                  <img
+                    className="dog-image-right"
+                    src={friend.imgSrc}
+                    alt="dog"
+                  />
+                </Link>
+                <ImBin
+                  className="bin-right"
+                  onClick={() => handleDeleteFriend(index)}
                 />
               </div>
             </div>
-          </Link>
+          </>
         );
       }
       if (!index % 2 === 0) {
         return (
-          <Link to={`/single-dog/${id}`}>
+          <>
             <div className="clouds-wrapper">
               <div className="cloud-left">
-                <img className="dog-image-left" src={friend.imgSrc} alt="dog" />
-                <img src={cloudTwo} alt="cloud" />
-                <p className="names-left">{friend.name}</p>
+                <Link to={`/single-dog/${id}`}>
+                  <img
+                    className="dog-image-left"
+                    src={friend.imgSrc}
+                    alt="dog"
+                  />
+                  <img src={cloudTwo} alt="cloud" />
+                  <p className="names-left">{friend.name}</p>
+                </Link>
+                <ImBin
+                  className="bin-left"
+                  onClick={() => handleDeleteFriend(index)}
+                />
               </div>
             </div>
-          </Link>
+          </>
         );
       }
       return renderItems();

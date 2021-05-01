@@ -13,7 +13,7 @@ import { RiAddCircleFill } from "react-icons/ri";
 export default function AddButton() {
   const [isClicked, setIsClicked] = useState(false);
   const [friendName, setFriendName] = useState("");
-  const [imageSource, setImageSource] = useState("");
+  // const [imageSource, setImageSource] = useState("");
   const [biography, setBiography] = useState("");
   const [ratings, setRatings] = useState("");
   const [reviewing, setReviewing] = useState("");
@@ -77,7 +77,7 @@ export default function AddButton() {
     addItemToLocalStorage("friends", {
       id: friendName,
       name: friendName,
-      imgSrc: imageSource,
+      // imgSrc: imageSource,
       bio: biography,
       stats: fields,
       rating: ratings,
