@@ -1,10 +1,11 @@
 import Navigation from "../Navigation";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import * as parkData from "../../parks.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TiTree } from "react-icons/ti";
 import { AiFillStar } from "react-icons/ai";
 import { Link, useParams } from "react-router-dom";
+import "./SinglePark.css";
 
 export default function Map() {
   const [viewport, setViewport] = useState({
@@ -15,9 +16,14 @@ export default function Map() {
     zoom: 11,
   });
   const [selectedPark, setSelectedPark] = useState(null);
-  const [starPark, setStarPark] = useState(false);
+  const [starredPark, setStarredPark] = useState(false);
+
   let { mapID } = useParams();
   mapID = selectedPark?.coordinates[0].replace(/\./g, "-");
+
+  function handleStarClick() {
+    setStarredPark(!starredPark);
+  }
 
   return (
     <div className="grid-layout-app">
@@ -53,10 +59,9 @@ export default function Map() {
             ))}
 
             {selectedPark ? (
-
               <Link to={`/single-park/${mapID}`}>
-
                 <Popup
+                  className="popup"
                   latitude={Number(selectedPark.coordinates[0])}
                   longitude={Number(selectedPark.coordinates[1])}
                   // onClose={() => {
@@ -64,10 +69,15 @@ export default function Map() {
                   // }}
                 >
                   <AiFillStar
-                    onClick={() => {
-                      setStarPark(!starPark);
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleStarClick();
                     }}
+                    className={
+                      starredPark ? "park-gold-star" : "park-dull-star"
+                    }
                   />
+
                   <div>
                     <h3>{selectedPark.name}</h3>
                     <p>{selectedPark.address}</p>
