@@ -1,0 +1,93 @@
+.single-dog-main-wrapper {
+  background-color: var(--light-blue);
+  height: 80vh;
+  overflow-y: hidden;
+}
+
+.single-dog-page {
+  color: var(--deep-blue);
+  margin-top: 40px;
+}
+
+.single-dog-wrapper {
+  display: flex;
+  justify-content: left;
+  width: 100vw;
+  height: auto;
+  margin: 0 20px;
+}
+
+.single-dog-image {
+  border: black 1px solid;
+  color: var(--grey-shade);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.single-dog-overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.single-dog-stats,
+.single-dog-review,
+.single-dog-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70vw;
+  margin: 10px;
+}
+
+.single-dog-options {
+  display: flex;
+  height: auto;
+  justify-content: space-around;
+  font-size: 40px;
+}
+
+.single-dog-stats-title,
+.single-dog-review-title,
+.single-dog-rating-title {
+  font-family: "Helvetiva Neue";
+  font-size: 30px;
+}
+
+.single-dog-starred-content,
+.single-dog-message-content,
+.single-dog-delete-content {
+  height: auto;
+  margin-bottom: 0;
+}
+
+.single-dog-rating-content {
+  display: flex;
+  justify-content: center;
+  width: 70vw;
+}
+
+.single-dog-content-box {
+  height: auto;
+  text-align: center;
+  padding: 20px;
+  width: auto;
+  background: var(--white);
+  border-radius: 15px;
+}
+
+.single-dog-starred-bone {
+  transform: rotate(-45deg);
+  color: var(--gold);
+  font-size: 25px;
+}
+
+.gold-star {
+  color: var(--gold);
+}
+.dull-star {
+  color: var(--grey-shade);
+}

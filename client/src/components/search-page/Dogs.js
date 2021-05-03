@@ -1,10 +1,11 @@
 import "./Dogs.css";
 import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { GiSniffingDog } from "react-icons/gi";
 
 export default function Dogs({ filter }) {
   const [friends, setFriends] = useState([]);
-
   useEffect(() => {
     const friendsList = getItemsFromLocalStorage("friends");
     setFriends(friendsList);
@@ -17,11 +18,14 @@ export default function Dogs({ filter }) {
 
   function renderFriend() {
     return filteredName.map((friend, index) => {
+      const id = `${index}${friend.name}`;
       return (
-        <div key={index} className="friend-card">
-          <p className="dogs-name">{friend.name}</p>
-          <img className="dogs-image" src={friend.imgSrc} alt="dog" />
-        </div>
+        <Link to={`/single-dog/${id}`}>
+          <div key={index} className="friend-card">
+            <p className="dogs-name">{friend.name}</p>
+            <img className="dogs-image" src={friend.imgSrc} alt="dog" />
+          </div>
+        </Link>
       );
     });
   }
@@ -32,6 +36,9 @@ export default function Dogs({ filter }) {
         <div className="render-div">
           <p className="no-mates-message">
             Nothing to find <br /> here!
+            <br />
+            <br />
+            <GiSniffingDog />
           </p>
         </div>
       )}
