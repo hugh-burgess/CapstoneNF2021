@@ -14,10 +14,10 @@ export default function Map() {
     width: "100vw",
     zoom: 11,
   });
-
   const [selectedPark, setSelectedPark] = useState(null);
   const [starPark, setStarPark] = useState(false);
   let { mapID } = useParams();
+  mapID = selectedPark?.coordinates[0].replace(/\./g, "-");
   return (
     <div className="grid-layout-app">
       <header className="header">
@@ -52,7 +52,7 @@ export default function Map() {
             ))}
 
             {selectedPark ? (
-              <Link key={mapID} to={`/single-park/${selectedPark.id}`}>
+              <Link to={`/single-park/${mapID}`}>
                 <Popup
                   latitude={Number(selectedPark.coordinates[0])}
                   longitude={Number(selectedPark.coordinates[1])}
