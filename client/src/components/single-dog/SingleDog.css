@@ -71,9 +71,11 @@
 }
 
 .single-dog-content-box {
-  height: 50px;
+  height: auto;
+  text-align: center;
+  padding: 10px;
   width: 70vw;
-  background: green;
+  background: var(--white);
   border-radius: 15px;
 }
 

@@ -83,15 +83,17 @@ export default function SingleDog() {
               <div className="single-dog-overview">
                 <div className="single-dog-stats">
                   <p className="single-dog-stats-title">Stats</p>
-                  <p className="single-dog-stats-content">
-                    {friend.stats.map((stat) => stat.value + " ")}
-                  </p>
-                  <div className="single-dog-content-box"></div>
+                  <div className="single-dog-content-box">
+                    <ul>
+                      {friend.stats.map((stat) => (
+                        <li key={stat.value}>{stat.value + " "}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
                 <div className="single-dog-review">
                   <p className="single-dog-review-title">Review</p>
-                  <p className="single-dog-review-content">{friend.review}</p>
-                  <div className="single-dog-content-box"></div>
+                  <div className="single-dog-content-box">{friend.review}</div>
                 </div>
                 <div className="single-dog-rating">
                   <p className="single-dog-rating-title">Rating</p>
