@@ -2,6 +2,7 @@ import "./Dogs.css";
 import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { GiSniffingDog } from "react-icons/gi";
 
 export default function Dogs({ filter }) {
   const [friends, setFriends] = useState([]);
@@ -35,6 +36,9 @@ export default function Dogs({ filter }) {
         <div className="render-div">
           <p className="no-mates-message">
             Nothing to find <br /> here!
+            <br />
+            <br />
+            <GiSniffingDog />
           </p>
         </div>
       )}

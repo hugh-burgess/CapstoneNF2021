@@ -14,7 +14,8 @@ import cloudTwo from "../../images/cloudTwo.svg";
 import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ImBin } from "react-icons/im";
+import { TiDelete } from "react-icons/ti";
+import { GiSittingDog } from "react-icons/gi";
 
 export default function FriendsContent() {
   const [friends, setFriends] = useState([]);
@@ -52,7 +53,7 @@ export default function FriendsContent() {
                     alt="dog"
                   />
                 </Link>
-                <ImBin
+                <TiDelete
                   className="bin-right"
                   onClick={() => handleDeleteFriend(index)}
                 />
@@ -75,7 +76,7 @@ export default function FriendsContent() {
                   <img src={cloudTwo} alt="cloud" />
                   <p className="names-left">{friend.name}</p>
                 </Link>
-                <ImBin
+                <TiDelete
                   className="bin-left"
                   onClick={() => handleDeleteFriend(index)}
                 />
@@ -92,7 +93,8 @@ export default function FriendsContent() {
       {friends < 1 && (
         <div className="render-div">
           <p className="no-mates-message">
-            you dont have <br /> any frens!
+            you dont have <br /> any frens yet!
+            <br /> <GiSittingDog />
           </p>
         </div>
       )}
