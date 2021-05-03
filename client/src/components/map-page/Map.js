@@ -3,6 +3,7 @@ import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import * as parkData from "../../parks.json";
 import { useState } from "react";
 import { TiTree } from "react-icons/ti";
+import { AiFillStar } from "react-icons/ai";
 
 export default function Map() {
   const [viewport, setViewport] = useState({
@@ -14,6 +15,7 @@ export default function Map() {
   });
 
   const [selectedPark, setSelectedPark] = useState(null);
+  const [starPark, setStarPark] = useState(false);
   return (
     <div className="grid-layout-app">
       <header className="header">
@@ -54,6 +56,11 @@ export default function Map() {
                   setSelectedPark(null);
                 }}
               >
+                <AiFillStar
+                  onClick={() => {
+                    setStarPark(!starPark);
+                  }}
+                />
                 <div>
                   <h3>{selectedPark.name}</h3>
                   <p>{selectedPark.address}</p>
