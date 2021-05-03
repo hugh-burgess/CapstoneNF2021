@@ -18,7 +18,6 @@ export default function Map() {
   const [starPark, setStarPark] = useState(false);
   let { mapID } = useParams();
   mapID = selectedPark?.coordinates[0].replace(/\./g, "-");
-  console.log(mapID);
   return (
     <div className="grid-layout-app">
       <header className="header">
