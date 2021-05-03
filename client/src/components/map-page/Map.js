@@ -1,9 +1,14 @@
 import Navigation from "../Navigation";
-import ReactMapGL, { Marker } from "react-map-gl";
+import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import * as parkData from "../../parks.json";
 import { useState } from "react";
+import { TiTree } from "react-icons/ti";
+import { AiFillStar } from "react-icons/ai";
+import { Link, useParams } from "react-router-dom";
 
 export default function Map() {
+  const { mapID } = useParams();
+
   const [viewport, setViewport] = useState({
     latitude: 53.55293568997971,
     longitude: 10.007432910156012,
@@ -11,11 +16,15 @@ export default function Map() {
     width: "100vw",
     zoom: 11,
   });
+
+  const [selectedPark, setSelectedPark] = useState(null);
+  const [starPark, setStarPark] = useState(false);
   return (
     <div className="grid-layout-app">
       <header className="header">
         <h1 className="cover-title">map</h1>
       </header>
+
       <main className="main">
         <div>
           <ReactMapGL
@@ -28,9 +37,42 @@ export default function Map() {
             }}
             mapStyle="mapbox://styles/trix2705/cko8hkfyn0sm617o9ek7qmkiq"
           >
-            {parkData.park.map((park) => {
-              <Marker></Marker>;
-            })}
+            {parkData.park.map((park) => (
+              <Marker
+                key={park.coordinates[0]}
+                latitude={Number(park.coordinates[0])}
+                longitude={Number(park.coordinates[1])}
+              >
+                <TiTree
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedPark(park);
+                  }}
+                />
+              </Marker>
+            ))}
+
+            {selectedPark ? (
+              <Link to={`/map/${mapID}`}>
+                <Popup
+                  latitude={Number(selectedPark.coordinates[0])}
+                  longitude={Number(selectedPark.coordinates[1])}
+                  onClose={() => {
+                    setSelectedPark(null);
+                  }}
+                >
+                  <AiFillStar
+                    onClick={() => {
+                      setStarPark(!starPark);
+                    }}
+                  />
+                  <div>
+                    <h3>{selectedPark.name}</h3>
+                    <p>{selectedPark.address}</p>
+                  </div>
+                </Popup>
+              </Link>
+            ) : null}
           </ReactMapGL>
         </div>
       </main>

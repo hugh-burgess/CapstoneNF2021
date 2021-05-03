@@ -9,6 +9,7 @@ import Cover from "./components/Cover";
 import Search from "./components/search-page/Search";
 import SingleDog from "./components/single-dog/SingleDog";
 import Whistle from "./components/single-dog/Whistle";
+import SinglePark from "./components/map-page/SinglePark";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/map">
             <Map />
+          </Route>
+          <Route path="/map/:mapID">
+            <SinglePark />
           </Route>
           <Route exact path="/profile">
             <Profile />
