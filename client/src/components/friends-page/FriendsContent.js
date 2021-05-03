@@ -23,7 +23,6 @@ export default function FriendsContent() {
   useEffect(() => {
     const friends = getItemsFromLocalStorage("friends");
     setFriends(friends);
-    console.log(friends);
   }, []);
 
   function handleDeleteFriend(index) {

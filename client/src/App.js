@@ -28,7 +28,7 @@ function App() {
           <Route path="/map">
             <Map />
           </Route>
-          <Route path="/map/:mapID">
+          <Route path="/single-park/:mapID">
             <SinglePark />
           </Route>
           <Route exact path="/profile">

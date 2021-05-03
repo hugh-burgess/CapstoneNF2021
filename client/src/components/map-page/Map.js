@@ -5,6 +5,7 @@ import { useState } from "react";
 import { TiTree } from "react-icons/ti";
 import { AiFillStar } from "react-icons/ai";
 import { Link, useParams } from "react-router-dom";
+import "./SinglePark.css";
 
 export default function Map() {
   const [viewport, setViewport] = useState({
@@ -14,10 +15,24 @@ export default function Map() {
     width: "100vw",
     zoom: 11,
   });
-
   const [selectedPark, setSelectedPark] = useState(null);
-  const [starPark, setStarPark] = useState(false);
+  const [starredPark, setStarredPark] = useState(false);
+
   let { mapID } = useParams();
+  mapID = selectedPark?.coordinates[0].replace(/\./g, "-");
+
+  function handleStarClick() {
+    setStarredPark(!starredPark);
+
+    if (starredPark === false) {
+      selectedPark.isStarred = true;
+    } else {
+      selectedPark.isStarred = false;
+    }
+    console.log(selectedPark.isStarred);
+    console.log(selectedPark);
+  }
+
   return (
     <div className="grid-layout-app">
       <header className="header">
@@ -52,8 +67,9 @@ export default function Map() {
             ))}
 
             {selectedPark ? (
-              <Link key={mapID} to={`/single-park/${selectedPark.id}`}>
+              <Link to={`/single-park/${mapID}`}>
                 <Popup
+                  className="popup"
                   latitude={Number(selectedPark.coordinates[0])}
                   longitude={Number(selectedPark.coordinates[1])}
                   // onClose={() => {
@@ -61,10 +77,15 @@ export default function Map() {
                   // }}
                 >
                   <AiFillStar
-                    onClick={() => {
-                      setStarPark(!starPark);
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleStarClick();
                     }}
+                    className={
+                      starredPark ? "park-gold-star" : "park-dull-star"
+                    }
                   />
+
                   <div>
                     <h3>{selectedPark.name}</h3>
                     <p>{selectedPark.address}</p>
