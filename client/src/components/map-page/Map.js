@@ -15,7 +15,7 @@ export default function Map() {
     zoom: 11,
   });
   const [selectedPark, setSelectedPark] = useState(null);
-  const [starPark, setStarPark] = useState(false);
+  // const [starPark, setStarPark] = useState(false);
   let { mapID } = useParams();
   mapID = selectedPark?.coordinates[0].replace(/\./g, "-");
   return (
@@ -61,9 +61,9 @@ export default function Map() {
                   // }}
                 >
                   <AiFillStar
-                    onClick={() => {
-                      setStarPark(!starPark);
-                    }}
+                  // onClick={() => {
+                  //   setStarPark(!starPark);
+                  // }}
                   />
                   <div>
                     <h3>{selectedPark.name}</h3>
