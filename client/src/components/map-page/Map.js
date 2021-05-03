@@ -7,8 +7,6 @@ import { AiFillStar } from "react-icons/ai";
 import { Link, useParams } from "react-router-dom";
 
 export default function Map() {
-  const { mapID } = useParams();
-
   const [viewport, setViewport] = useState({
     latitude: 53.55293568997971,
     longitude: 10.007432910156012,
@@ -16,9 +14,11 @@ export default function Map() {
     width: "100vw",
     zoom: 11,
   });
-
   const [selectedPark, setSelectedPark] = useState(null);
   const [starPark, setStarPark] = useState(false);
+  let { mapID } = useParams();
+  mapID = selectedPark?.coordinates[0].replace(/\./g, "-");
+  console.log(mapID);
   return (
     <div className="grid-layout-app">
       <header className="header">
@@ -53,13 +53,13 @@ export default function Map() {
             ))}
 
             {selectedPark ? (
-              <Link to={`/map/${mapID}`}>
+              <Link to={`/single-map/${mapID}`}>
                 <Popup
                   latitude={Number(selectedPark.coordinates[0])}
                   longitude={Number(selectedPark.coordinates[1])}
-                  onClose={() => {
-                    setSelectedPark(null);
-                  }}
+                  // onClose={() => {
+                  //   setSelectedPark(null);
+                  // }}
                 >
                   <AiFillStar
                     onClick={() => {
