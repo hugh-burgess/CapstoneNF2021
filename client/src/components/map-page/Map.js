@@ -1,7 +1,7 @@
 import Navigation from "../Navigation";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import * as parkData from "../../parks.json";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { TiTree } from "react-icons/ti";
 import { AiFillStar } from "react-icons/ai";
 import { Link, useParams } from "react-router-dom";
@@ -23,6 +23,14 @@ export default function Map() {
 
   function handleStarClick() {
     setStarredPark(!starredPark);
+
+    if (starredPark === false) {
+      selectedPark.isStarred = true;
+    } else {
+      selectedPark.isStarred = false;
+    }
+    console.log(selectedPark.isStarred);
+    console.log(selectedPark);
   }
 
   return (
