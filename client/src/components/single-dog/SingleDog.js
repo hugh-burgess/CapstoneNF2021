@@ -21,7 +21,6 @@ export default function SingleDog() {
   const filteredFriend = friends.filter((dog, index) =>
     id.includes(index + dog.name)
   );
-  console.log(filteredFriend);
   function starredClick() {
     let index;
     friends.forEach((friend, i) => {
