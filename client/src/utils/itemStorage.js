@@ -21,3 +21,7 @@ export function removeItemFromLocalStorageByName(key, itemName) {
 
   localStorage.setItem(key, JSON.stringify(newData));
 }
+
+export function saveJSONToLocalStorage(key, json) {
+  localStorage.setItem(key, JSON.stringify(json));
+}
