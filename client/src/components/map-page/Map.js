@@ -50,9 +50,13 @@ export default function Map() {
               <Popup
                 latitude={Number(selectedPark.coordinates[0])}
                 longitude={Number(selectedPark.coordinates[1])}
+                onClose={() => {
+                  setSelectedPark(null);
+                }}
               >
                 <div>
-                  <h2>{selectedPark.name}</h2>
+                  <h3>{selectedPark.name}</h3>
+                  <p>{selectedPark.address}</p>
                 </div>
               </Popup>
             ) : null}
