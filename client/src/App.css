@@ -6,7 +6,6 @@
 
 .header {
   position: fixed;
-  padding-left: 10px;
   color: var(--deep-blue);
   height: 100px;
   width: 100vw;
