@@ -1,0 +1,12 @@
+.single-park-page {
+  background-color: var(--light-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.single-park-address {
+  font-size: 20px;
+  text-align: center;
+}
