@@ -1,4 +1,6 @@
 import Navigation from "../Navigation";
+import * as parkData from "../../parks.json";
+
 import "./SinglePark.css";
 const parks = parkData.park;
 export default function SinglePark() {
