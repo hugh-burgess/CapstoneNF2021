@@ -53,7 +53,7 @@ export default function Map() {
             ))}
 
             {selectedPark ? (
-              <Link to={`/single-map/${mapID}`}>
+              <Link to={`/single-park/${mapID}`}>
                 <Popup
                   latitude={Number(selectedPark.coordinates[0])}
                   longitude={Number(selectedPark.coordinates[1])}
