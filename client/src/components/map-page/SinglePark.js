@@ -1,4 +1,3 @@
-import * as parkData from "../../parks.json";
 import Navigation from "../Navigation";
 import "./SinglePark.css";
 const parks = parkData.park;
