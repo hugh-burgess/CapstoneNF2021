@@ -25,9 +25,9 @@ export default function SinglePark() {
   const selectedPark = parkData.find((park) =>
     park.coordinates[0].includes(geo)
   );
+
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(selectedPark.name);
 
     addNotetoLocalStorage("parkData", selectedPark, note);
     setParkData(getItemsFromLocalStorage("parkData"));
@@ -43,36 +43,38 @@ export default function SinglePark() {
     setNote(e.target.value);
   }
 
+  useEffect(() => {
+    getItemsFromLocalStorage("parkData");
+  }, []);
+
   return (
     <div>
-      {parkData
-        .filter((park) => park.coordinates[0].includes(geo))
-        .map((filteredPark) => (
-          <div key={geo}>
-            <header className="header">
-              <h1 className="cover-title">{filteredPark.name}</h1>
-            </header>
-            <main className="main single-park-page">
-              <p class="single-park-address">Address: {filteredPark.address}</p>
-              <p className="single-park-updates-title">Updates</p>
-              <div className="single-park-updates-content">Updates here</div>
-              <form className="single-park-form" onSubmit={handleSubmit}>
-                <input
-                  className="single-park-form-input"
-                  name="note"
-                  placeholder="leave a note for others..."
-                  value={note}
-                  onChange={handleNoteChange}
-                  type="input"
-                />
-                <button type="submit">Leave a Note</button>
-              </form>
-            </main>
-            <footer className="footer">
-              <Navigation />
-            </footer>
-          </div>
-        ))}
+      <header className="header">
+        <h1 className="cover-title">{selectedPark.name}</h1>
+      </header>
+      <main className="main single-park-page">
+        <p class="single-park-address">Address: {selectedPark.address}</p>
+        <p className="single-park-updates-title">Updates</p>
+        <div className="single-park-updates-content">
+          {selectedPark.notes.map((note, i) => (
+            <li key={i}>{note}</li>
+          ))}
+        </div>
+        <form className="single-park-form" onSubmit={handleSubmit}>
+          <input
+            className="single-park-form-input"
+            name="note"
+            placeholder="leave a note for others..."
+            value={note}
+            onChange={handleNoteChange}
+            type="input"
+          />
+          <button type="submit">Leave a Note</button>
+        </form>
+      </main>
+      <footer className="footer">
+        <Navigation />
+      </footer>
     </div>
   );
 }

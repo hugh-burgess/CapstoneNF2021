@@ -18,10 +18,10 @@
 }
 
 .single-park-updates-content {
-  height: 100px;
+  height: auto;
   width: 70vw;
   border-radius: 15px;
-  background-color: var(--deep-blue);
+  background-color: var(--sea-blue);
 }
 
 .single-park-form {
