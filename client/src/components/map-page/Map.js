@@ -4,6 +4,7 @@ import parksData from "../../parks.json";
 import { useEffect, useState } from "react";
 import { TiTree } from "react-icons/ti";
 import { AiFillStar } from "react-icons/ai";
+import { BsFillCircleFill } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import "./SinglePark.css";
 import {
@@ -72,6 +73,9 @@ export default function Map() {
                       e.preventDefault();
                       setSelectedPark(park);
                     }}
+                  />
+                  <BsFillCircleFill
+                    className={park.isStarred ? "red-dot" : "hidden"}
                   />
                 </Marker>
               ))}
