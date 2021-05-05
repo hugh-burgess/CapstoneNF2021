@@ -128,7 +128,9 @@ export default function AddButton() {
 
   function handleButtonClick(event) {
     event.preventDefault();
+
     setIsClicked(!isClicked);
+
     console.log(isClicked);
   }
 
@@ -242,7 +244,7 @@ export default function AddButton() {
             save
           </button>
           <Expire delay="3000">
-            <p>New friends added: {count}</p>
+            <p>Friends added: {count}</p>
             {renderItems()}
           </Expire>
         </form>

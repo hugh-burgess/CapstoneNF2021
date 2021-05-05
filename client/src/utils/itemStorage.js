@@ -25,3 +25,8 @@ export function removeItemFromLocalStorageByName(key, itemName) {
 export function saveJSONToLocalStorage(key, json) {
   localStorage.setItem(key, JSON.stringify(json));
 }
+
+export function getSingleDogFromLocalStorage(id) {
+  const friends = JSON.parse(localStorage.getItem("friends"));
+  return friends.find((friend) => friend.id === id);
+}
