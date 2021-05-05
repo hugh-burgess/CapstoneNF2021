@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getItemsFromLocalStorage } from "../../utils/itemStorage";
+import Header from "../Header";
 import Navigation from "../Navigation";
 import "./Whistle.css";
 
@@ -22,9 +23,8 @@ export default function Whistle() {
   return singleDog.map((friend) => {
     return (
       <div className="whistle-page">
-        <header className="header">
-          <h1 className="cover-title">whistle</h1>
-        </header>
+        <Header title="whistle" />
+
         <main className="main whistle-page">
           <div className="whistle-messages"></div>
           <div className="whistle-message-box">

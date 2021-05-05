@@ -3,13 +3,12 @@ import TourButton from "./TourButton";
 import EditButton from "./EditButton";
 import MainContent from "./MainContent";
 import "./Profile.css";
+import Header from "../Header";
 
 export default function Profile() {
   return (
     <div className="grid-layout-app">
-      <header className="header">
-        <h1 className="cover-title">profile</h1>
-      </header>
+      <Header title="profile" />
       <main className="main profile-page">
         <MainContent />
         <TourButton />

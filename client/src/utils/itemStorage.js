@@ -25,3 +25,11 @@ export function removeItemFromLocalStorageByName(key, itemName) {
 export function saveJSONToLocalStorage(key, json) {
   localStorage.setItem(key, JSON.stringify(json));
 }
+
+export function addNotetoLocalStorage(key, item, note) {
+  const array = getItemsFromLocalStorage(key);
+  const foundObject = array.find((currywurst) => currywurst.name === item.name);
+  foundObject.notes.push(note);
+
+  localStorage.setItem(key, JSON.stringify(array));
+}

@@ -11,6 +11,7 @@ import {
   getItemsFromLocalStorage,
   saveJSONToLocalStorage,
 } from "../../utils/itemStorage";
+import Header from "../Header";
 
 export default function Map() {
   const [viewport, setViewport] = useState({
@@ -45,9 +46,7 @@ export default function Map() {
 
   return (
     <div className="grid-layout-app">
-      <header className="header">
-        <h1 className="cover-title">map</h1>
-      </header>
+      <Header title="map" />
 
       <main className="main">
         <div>
