@@ -1,3 +1,4 @@
+import { FaBone } from "react-icons/fa";
 import Header from "../Header";
 import Navigation from "../Navigation";
 import MainContent from "./MainContent";
@@ -9,6 +10,7 @@ export default function Tour() {
       <Header title="tour" />
       <main className="main tour-page">
         <MainContent />
+        <FaBone className="big-bone-image" />
       </main>
       <footer className="footer">
         <Navigation />

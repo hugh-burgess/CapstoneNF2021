@@ -1,6 +1,7 @@
 .edit-page {
-  position: relative;
   background-color: var(--light-yellow);
+  height: 100vh;
+  position: relative;
 }
 
 .blur-effect {
@@ -49,8 +50,8 @@
   border-radius: 15px;
   width: 30px;
   height: 20px;
-  left: 290.067px;
-  bottom: 36.817px;
+  left: 285.833px;
+  top: 478.183px;
   padding: 10px;
   border: black 1px solid;
 }

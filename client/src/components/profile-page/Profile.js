@@ -1,5 +1,4 @@
 import Navigation from "../Navigation";
-
 import MainContent from "./MainContent";
 import "./Profile.css";
 import Header from "../Header";
