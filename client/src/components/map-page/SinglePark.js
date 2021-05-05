@@ -7,6 +7,7 @@ import {
   getItemsFromLocalStorage,
   addNotetoLocalStorage,
 } from "../../utils/itemStorage";
+import Header from "../Header";
 
 function initialLoad() {
   const retrieveArray = getItemsFromLocalStorage("parkData");
@@ -26,32 +27,33 @@ export default function SinglePark() {
     park.coordinates[0].includes(geo)
   );
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    addNotetoLocalStorage("parkData", selectedPark, note);
-    setParkData(getItemsFromLocalStorage("parkData"));
-
-    setNote("");
-  }
-
   useEffect(() => {
     saveJSONToLocalStorage("parkData", parkData);
   }, [parkData]);
-
-  function handleNoteChange(e) {
-    setNote(e.target.value);
-  }
 
   useEffect(() => {
     getItemsFromLocalStorage("parkData");
   }, []);
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!note) {
+      alert("Please write in a note!");
+    } else {
+      addNotetoLocalStorage("parkData", selectedPark, note);
+      setParkData(getItemsFromLocalStorage("parkData"));
+
+      setNote("");
+    }
+  }
+
+  function handleNoteChange(e) {
+    setNote(e.target.value);
+  }
+
   return (
     <div>
-      <header className="header">
-        <h1 className="cover-title">{selectedPark.name}</h1>
-      </header>
+      <Header title={selectedPark.name} />
       <main className="main single-park-page">
         <p class="single-park-address">Address: {selectedPark.address}</p>
         <p className="single-park-updates-title">Updates</p>
