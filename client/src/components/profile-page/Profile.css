@@ -11,7 +11,7 @@
   flex-direction: column;
   width: 100vw;
 }
-/*-------*/
+
 .top-flex-wrapper {
   display: flex;
   max-width: 100vw;
@@ -71,7 +71,6 @@
   color: var(--deep-blue);
 }
 
-/*-------*/
 .middle-flex-wrapper {
   display: flex;
   flex-direction: column;
@@ -132,8 +131,6 @@
   font-size: 17px;
   color: var(--deep-blue);
 }
-
-/*-------*/
 
 .bottom-flex-wrapper {
   width: 100vw;
