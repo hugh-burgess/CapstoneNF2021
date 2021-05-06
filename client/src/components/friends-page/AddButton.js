@@ -130,8 +130,6 @@ export default function AddButton() {
     event.preventDefault();
 
     setIsClicked(!isClicked);
-
-    console.log(isClicked);
   }
 
   // delete the rendered message after 2 seconds
