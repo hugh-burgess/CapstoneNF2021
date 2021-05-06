@@ -33,3 +33,8 @@ export function addNotetoLocalStorage(key, item, note) {
 
   localStorage.setItem(key, JSON.stringify(array));
 }
+
+export function getSingleDogFromLocalStorage(id) {
+  const friends = JSON.parse(localStorage.getItem("friends"));
+  return friends.find((friend) => friend.id === id);
+}

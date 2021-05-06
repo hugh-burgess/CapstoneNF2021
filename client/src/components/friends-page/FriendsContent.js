@@ -1,21 +1,22 @@
 import "./FriendsContent.css";
-import cloudOne from "../../images/cloudOne.svg";
-import cloudTwo from "../../images/cloudTwo.svg";
-// import cloudThree from "../../images/cloudThree.svg";
-// import cloudFour from "../../images/cloudFour.svg";
-// import cloudFive from "../../images/cloudFive.svg";
 
-// import dogOne from "../../images/dogs/dogOne.png";
-// import dogTwo from "../../images/dogs/dogTwo.png";
-// import dogThree from "../../images/dogs/dogThree.png";
-// import dogFour from "../../images/dogs/dogFour.png";
-// import dogFive from "../../images/dogs/dogFive.png";
-
-import { getItemsFromLocalStorage } from "../../utils/itemStorage";
+import {
+  getItemsFromLocalStorage,
+  removeItemFromLocalStorageByName,
+} from "../../utils/itemStorage";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { TiDelete } from "react-icons/ti";
 import { GiSittingDog } from "react-icons/gi";
+import CloudRight from "./CloudRight";
+import CloudLeft from "./CloudLeft";
+
+import cloudOne from "../../images/clouds/cloudOne.svg";
+import cloudTwo from "../../images/clouds/cloudTwo.svg";
+import cloudThree from "../../images/clouds/cloudThree.svg";
+import cloudFour from "../../images/clouds/cloudFour.svg";
+import cloudFive from "../../images/clouds/cloudFive.svg";
+import cloudSix from "../../images/clouds/cloudSix.svg";
+const cloudFormationsLeft = [cloudTwo, cloudFour, cloudSix];
+const cloudFormationsRight = [cloudOne, cloudThree, cloudFive];
 
 export default function FriendsContent() {
   const [friends, setFriends] = useState([]);
@@ -24,14 +25,9 @@ export default function FriendsContent() {
     const friends = getItemsFromLocalStorage("friends");
     setFriends(friends);
   }, []);
-
-  function handleDeleteFriend(index) {
-    const veryNewFriends = [
-      ...friends.slice(0, index),
-      ...friends.slice(index + 1),
-    ];
-    setFriends(veryNewFriends);
-    localStorage.setItem("friends", JSON.stringify(veryNewFriends));
+  function handleDeleteFriend(friend) {
+    removeItemFromLocalStorageByName("friends", friend.name);
+    setFriends(getItemsFromLocalStorage("friends"));
   }
 
   function renderItems() {
@@ -39,54 +35,26 @@ export default function FriendsContent() {
       const id = `${index}${friend.name}`; // hardcoded dog id which could be an issue in future
       if (index % 2 === 0) {
         return (
-          <>
-            {" "}
-            <div className="clouds-wrapper">
-              <div key={index} className="cloud-right">
-                <Link to={`/single-dog/${id}`}>
-                  <p className="names-right">{friend.name}</p>
-                  <img src={cloudOne} alt="cloud" />
-                  <img
-                    className="dog-image-right"
-                    src={friend.imgSrc}
-                    alt="dog"
-                  />
-                </Link>
-                <TiDelete
-                  className="bin-right"
-                  onClick={() => handleDeleteFriend(index)}
-                />
-              </div>
-            </div>
-          </>
+          <CloudRight
+            friend={friend}
+            id={id}
+            onDeleteFriend={handleDeleteFriend}
+            cloudFormationsRight={cloudFormationsRight}
+          />
         );
-      }
-      if (!index % 2 === 0) {
+      } else {
         return (
-          <>
-            <div className="clouds-wrapper">
-              <div className="cloud-left">
-                <Link to={`/single-dog/${id}`}>
-                  <img
-                    className="dog-image-left"
-                    src={friend.imgSrc}
-                    alt="dog"
-                  />
-                  <img src={cloudTwo} alt="cloud" />
-                  <p className="names-left">{friend.name}</p>
-                </Link>
-                <TiDelete
-                  className="bin-left"
-                  onClick={() => handleDeleteFriend(index)}
-                />
-              </div>
-            </div>
-          </>
+          <CloudLeft
+            friend={friend}
+            id={id}
+            onDeleteFriend={handleDeleteFriend}
+            cloudFormationsLeft={cloudFormationsLeft}
+          />
         );
       }
-      return renderItems();
     });
   }
+
   return (
     <div className="conditional-div">
       {friends < 1 && (
