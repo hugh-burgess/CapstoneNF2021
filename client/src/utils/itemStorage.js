@@ -24,6 +24,16 @@ export function removeItemFromLocalStorageByName(key, itemName) {
   localStorage.setItem(key, JSON.stringify(newData));
 }
 
+export function removeItemFromLocalStorageById(key, id) {
+  const data = getItemsFromLocalStorage(key);
+
+  const newData = data.filter((item) => {
+    return item.id !== id;
+  });
+
+  localStorage.setItem(key, JSON.stringify(newData));
+}
+
 export function saveJSONToLocalStorage(key, json) {
   localStorage.setItem(key, JSON.stringify(json));
 }

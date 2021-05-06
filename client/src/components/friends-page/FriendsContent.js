@@ -2,6 +2,7 @@ import "./FriendsContent.css";
 
 import {
   getItemsFromLocalStorage,
+  removeItemFromLocalStorageById,
   removeItemFromLocalStorageByName,
 } from "../../utils/itemStorage";
 import { useEffect, useState } from "react";
@@ -26,7 +27,7 @@ export default function FriendsContent() {
     setFriends(friends);
   }, []);
   function handleDeleteFriend(friend) {
-    removeItemFromLocalStorageByName("friends", friend.name);
+    removeItemFromLocalStorageById("friends", friend.id);
     setFriends(getItemsFromLocalStorage("friends"));
   }
 
