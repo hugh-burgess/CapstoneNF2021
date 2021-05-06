@@ -11,14 +11,14 @@ import { Link } from "react-router-dom";
 export default function EditContent() {
   return (
     <div className="profile-wrapper">
-      <div className="edit-pen">
-        <BsPencil />
-      </div>
-
-      <div className="edit-photo">
-        <MdAddAPhoto />
-      </div>
       <div className="grid-wrapper">
+        <div className="edit-pen">
+          <BsPencil />
+        </div>
+
+        <div className="edit-photo">
+          <MdAddAPhoto />
+        </div>
         <img className="profile-picture" src={blankProfilePic} alt="doggy" />
         <img className="profile-bubble blur-effect" src={bubble} alt="#" />
         <div className="top-icons-and-text">
@@ -33,8 +33,10 @@ export default function EditContent() {
         </div>
 
         <img className="profile-bio" src={bioBubble} alt="#" />
-        <div className="middle-flex-feedback-wrapper blur-effect">
+        <div className="middle-flex-feedback-title blur-effect">
           <p className="feedback">feedback</p>
+        </div>
+        <div className="middle-flex-feedback-list blur-effect">
           <div className="feedback-list">
             <li>the goodest boy</li>
             <li>loves scritches</li>
@@ -46,6 +48,9 @@ export default function EditContent() {
           <Link to="/profile">
             <div className="save-button">save</div>
           </Link>
+        </div>
+        <div className="bone-wrapper">
+          <FaBone className="big-bone-image" />
         </div>
       </div>
     </div>

@@ -32,8 +32,10 @@ export default function MainContent() {
           </p>
         </div>
         <img className="profile-bio" src={bioBubble} alt="#" />
-        <div className="middle-flex-feedback-wrapper">
+        <div className="middle-flex-feedback-title">
           <p className="feedback">feedback</p>
+        </div>
+        <div className="middle-flex-feedback-list">
           <div className="feedback-list">
             <li>the goodest boy</li>
             <li>loves scritches</li>
