@@ -10,7 +10,6 @@ export default function Tour() {
       <Header title="tour" />
       <main className="main tour-page">
         <MainContent />
-        <FaBone className="big-bone-image" />
       </main>
       <footer className="footer">
         <Navigation />

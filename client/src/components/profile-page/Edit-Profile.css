@@ -40,18 +40,3 @@
   left: 136.5px;
   top: 40px;
 }
-
-.save-button {
-  font-family: "PT Sans";
-  cursor: pointer;
-  position: absolute;
-  background-color: white;
-  color: var(--deep-blue);
-  border-radius: 15px;
-  width: 30px;
-  height: 20px;
-  left: 285.833px;
-  top: 478.183px;
-  padding: 10px;
-  border: black 1px solid;
-}
