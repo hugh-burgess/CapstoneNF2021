@@ -7,6 +7,8 @@ export function getItemsFromLocalStorage(key) {
 export function addItemToLocalStorage(key, item) {
   const data = getItemsFromLocalStorage(key); // always returns an array
 
+  item.id = Date.now();
+
   data.push(item);
 
   localStorage.setItem(key, JSON.stringify(data));

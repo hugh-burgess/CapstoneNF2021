@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { getItemsFromLocalStorage } from "../../utils/itemStorage";
+import { Link, useLocation, useParams } from "react-router-dom";
+import {
+  getItemsFromLocalStorage,
+  getSingleDogFromLocalStorage,
+} from "../../utils/itemStorage";
 import Navigation from "../Navigation";
 import "./SingleDog.css";
 import { AiFillStar } from "react-icons/ai";
@@ -10,32 +13,33 @@ import { FaBone } from "react-icons/fa";
 
 export default function SingleDog() {
   const [friends, setFriends] = useState([]);
+  let location = useLocation();
+  let { id } = useParams();
 
   useEffect(() => {
     const friends = getItemsFromLocalStorage("friends");
     setFriends(friends);
   }, []);
 
-  let { id } = useParams();
-
-  const filteredFriend = friends.filter((dog, index) =>
-    id.includes(index + dog.name)
+  const filteredFriend = getSingleDogFromLocalStorage(
+    Number(location.pathname.slice(12))
   );
+
   function starredClick() {
     let index;
     friends.forEach((friend, i) => {
-      if (friend.name === filteredFriend[0].name) {
+      if (friend.id === filteredFriend.id) {
         index = i;
       }
     });
-    const newFriend = friends[index];
-    newFriend.isStarred = !newFriend.isStarred;
+    filteredFriend.isStarred = !filteredFriend.isStarred;
     const veryNewFriends = [
       ...friends.slice(0, index),
-      newFriend,
+      filteredFriend,
       ...friends.slice(index + 1),
     ];
     setFriends(veryNewFriends);
+    console.log(veryNewFriends);
     localStorage.setItem("friends", JSON.stringify(veryNewFriends));
   }
 
@@ -64,70 +68,70 @@ export default function SingleDog() {
   }
 
   function renderDog() {
-    return filteredFriend.map((friend) => {
-      return (
-        <div className="grid-layout-app">
-          <header className="header">
-            <div className="single-dog-wrapper">
-              <img
-                class="single-dog-image"
-                src={friend.imgSrc}
-                alt={friend.name}
-              />
-              <h1 className="cover-title">{friend.name}</h1>
-            </div>
-          </header>
-          <main className="main single-dog-main-wrapper">
-            <div key={id} className="single-dog-page">
-              <div className="single-dog-overview">
-                <div className="single-dog-stats">
-                  <p className="single-dog-stats-title">Stats</p>
-                  <div className="single-dog-content-box">
-                    <ul>
-                      {friend.stats.map((stat) => (
-                        <li key={stat.value}>{stat.value + " "}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                <div className="single-dog-review">
-                  <p className="single-dog-review-title">Review</p>
-                  <div className="single-dog-content-box">{friend.review}</div>
-                </div>
-                <div className="single-dog-rating">
-                  <p className="single-dog-rating-title">Rating</p>
-                  <p className="single-dog-rating-content">
-                    {createBones(friend.rating)}
-                  </p>
+    return (
+      <div className="grid-layout-app">
+        <header className="header">
+          <div className="single-dog-wrapper">
+            <img
+              class="single-dog-image"
+              src={filteredFriend.imgSrc}
+              alt={filteredFriend.name}
+            />
+            <h1 className="cover-title">{filteredFriend.name}</h1>
+          </div>
+        </header>
+        <main className="main single-dog-main-wrapper">
+          <div key={id} className="single-dog-page">
+            <div className="single-dog-overview">
+              <div className="single-dog-stats">
+                <p className="single-dog-stats-title">Stats</p>
+                <div className="single-dog-content-box">
+                  <ul>
+                    {filteredFriend.stats.map((stat) => (
+                      <li key={stat.value}>{stat.value + " "}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <div class="single-dog-options">
-                <div className="single-dog-starred">
-                  <p className="single-dog-starred-content">
-                    {handleStarredClick(friend.isStarred)}
-                  </p>
-                </div>
-                <div className="single-dog-message">
-                  <p className="single-dog-message-content">
-                    <Link to={`/whistle/${id}`}>
-                      <ImBubble />
-                    </Link>
-                  </p>
-                </div>
-                <div className="single-dog-delete">
-                  <p className="single-dog-delete-content">
-                    <ImBin />
-                  </p>
+              <div className="single-dog-review">
+                <p className="single-dog-review-title">Review</p>
+                <div className="single-dog-content-box">
+                  {filteredFriend.review}
                 </div>
               </div>
+              <div className="single-dog-rating">
+                <p className="single-dog-rating-title">Rating</p>
+                <p className="single-dog-rating-content">
+                  {createBones(filteredFriend.rating)}
+                </p>
+              </div>
             </div>
-          </main>
-          <footer className="footer">
-            <Navigation />
-          </footer>
-        </div>
-      );
-    });
+            <div class="single-dog-options">
+              <div className="single-dog-starred">
+                <p className="single-dog-starred-content">
+                  {handleStarredClick(filteredFriend.isStarred)}
+                </p>
+              </div>
+              <div className="single-dog-message">
+                <p className="single-dog-message-content">
+                  <Link to={`/whistle/${id}`}>
+                    <ImBubble />
+                  </Link>
+                </p>
+              </div>
+              <div className="single-dog-delete">
+                <p className="single-dog-delete-content">
+                  <ImBin />
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer className="footer">
+          <Navigation />
+        </footer>
+      </div>
+    );
   }
   return renderDog();
 }

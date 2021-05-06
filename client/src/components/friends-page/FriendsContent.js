@@ -32,12 +32,11 @@ export default function FriendsContent() {
 
   function renderItems() {
     return friends.map((friend, index) => {
-      const id = `${index}${friend.name}`; // hardcoded dog id which could be an issue in future
       if (index % 2 === 0) {
         return (
           <CloudRight
             friend={friend}
-            id={id}
+            id={friend.id}
             onDeleteFriend={handleDeleteFriend}
             cloudFormationsRight={cloudFormationsRight}
           />
@@ -46,7 +45,7 @@ export default function FriendsContent() {
         return (
           <CloudLeft
             friend={friend}
-            id={id}
+            id={friend.id}
             onDeleteFriend={handleDeleteFriend}
             cloudFormationsLeft={cloudFormationsLeft}
           />
