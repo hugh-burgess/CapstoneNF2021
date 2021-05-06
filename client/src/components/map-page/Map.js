@@ -4,12 +4,14 @@ import parksData from "../../parks.json";
 import { useEffect, useState } from "react";
 import { TiTree } from "react-icons/ti";
 import { AiFillStar } from "react-icons/ai";
+import { BsFillCircleFill } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import "./SinglePark.css";
 import {
   getItemsFromLocalStorage,
   saveJSONToLocalStorage,
 } from "../../utils/itemStorage";
+import Header from "../Header";
 
 export default function Map() {
   const [viewport, setViewport] = useState({
@@ -44,9 +46,7 @@ export default function Map() {
 
   return (
     <div className="grid-layout-app">
-      <header className="header">
-        <h1 className="cover-title">map</h1>
-      </header>
+      <Header title="map" />
 
       <main className="main">
         <div>
@@ -72,6 +72,9 @@ export default function Map() {
                       e.preventDefault();
                       setSelectedPark(park);
                     }}
+                  />
+                  <BsFillCircleFill
+                    className={park.isStarred ? "red-dot" : "hidden"}
                   />
                 </Marker>
               ))}

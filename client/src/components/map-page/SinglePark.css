@@ -3,12 +3,35 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 100vh;
+  text-align: center;
 }
 
 .single-park-address {
   font-size: 20px;
-  text-align: center;
+}
+
+.single-park-updates-title {
+  font-family: "Helvetiva Neue";
+  font-size: 30px;
+}
+
+.single-park-updates-content {
+  height: auto;
+  width: 70vw;
+  border-radius: 15px;
+  background-color: var(--sea-blue);
+}
+
+.single-park-form {
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.single-park-form-input {
+  border-radius: 5px;
 }
 
 .popup {
@@ -28,4 +51,16 @@
   position: absolute;
   right: -15px;
   bottom: -15px;
+}
+
+.red-dot {
+  fill: var(--red);
+  font-size: 10px;
+  position: absolute;
+  left: 3px;
+  top: 15px;
+}
+.hidden {
+  display: hidden;
+  font-size: 0px;
 }

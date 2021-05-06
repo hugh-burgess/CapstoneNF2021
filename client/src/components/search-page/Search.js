@@ -4,6 +4,7 @@ import "../profile-page/Profile.css";
 import SearchBar from "./SearchBar";
 import Dogs from "./Dogs";
 import { useState } from "react";
+import Header from "../Header";
 
 export default function Search() {
   const [filter, setFilter] = useState("");
@@ -14,9 +15,7 @@ export default function Search() {
   return (
     <div className="grid-layout-app">
       <div className="search-header-wrapper">
-        <header className="header">
-          <h1 className="cover-title">search</h1>
-        </header>
+        <Header title="search" />
       </div>
       <main className="main search-page">
         <SearchBar handleNameFilter={handleNameFilter} />
