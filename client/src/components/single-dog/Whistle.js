@@ -1,9 +1,5 @@
-import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import {
-  getItemsFromLocalStorage,
-  getSingleDogFromLocalStorage,
-} from "../../utils/itemStorage";
+import { getSingleDogFromLocalStorage } from "../../utils/itemStorage";
 import Header from "../Header";
 import Navigation from "../Navigation";
 import "./Whistle.css";
