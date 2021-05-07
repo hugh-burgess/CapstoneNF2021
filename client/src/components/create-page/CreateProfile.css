@@ -1,0 +1,9 @@
+.create-profile-image {
+  height: 200px;
+  border-radius: 50%;
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
