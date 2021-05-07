@@ -16,6 +16,7 @@ export default function CreateProfile() {
   const [bio, setBio] = useState("");
   const [counter, setCounter] = useState(125);
   const [clicked, setClicked] = useState(false);
+  const [info, setInfo] = useState({});
 
   const uploadImage = (e) => {
     e.preventDefault();
@@ -32,7 +33,7 @@ export default function CreateProfile() {
         setImagePublicId(result.public_id);
         setImageType(result.format);
         setImageId(result.created_at);
-
+        setInfo(result);
         console.log("Success:", result);
         if (result.error.message === "Missing required parameter - file") {
           alert("Please select a picture to upload.");
@@ -43,7 +44,7 @@ export default function CreateProfile() {
       });
   };
 
-  const profile = { name, bio, imageType };
+  const profile = { name, bio, imageType, info };
   function handleCreateProfileSubmit(e) {
     e.preventDefault();
     if (name === "" || imageType === "" || bio === "") {
