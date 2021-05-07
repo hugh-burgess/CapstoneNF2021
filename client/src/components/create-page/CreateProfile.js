@@ -89,6 +89,7 @@ export default function CreateProfile() {
               placeholder="name here..."
               onChange={handleNameChange}
               value={name}
+              maxLength="10"
               required
             />
 
