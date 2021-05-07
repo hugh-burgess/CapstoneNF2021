@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import { NavLink } from "react-router-dom";
 import { AiFillSave } from "react-icons/ai";
 import { GiDogHouse } from "react-icons/gi";
+import { addProfileToLocalStorage } from "../../utils/itemStorage";
 
 export default function CreateProfile() {
   const [imageSelected, setImageSelected] = useState("");
@@ -14,8 +15,10 @@ export default function CreateProfile() {
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
   const [counter, setCounter] = useState(125);
+  const [clicked, setClicked] = useState(false);
 
-  const uploadImage = () => {
+  const uploadImage = (e) => {
+    e.preventDefault();
     const formData = new FormData();
     formData.append("file", imageSelected);
     formData.append("upload_preset", "s2bkhsfz");
@@ -29,6 +32,7 @@ export default function CreateProfile() {
         setImagePublicId(result.public_id);
         setImageType(result.format);
         setImageId(result.created_at);
+
         console.log("Success:", result);
         if (result.error.message === "Missing required parameter - file") {
           alert("Please select a picture to upload.");
@@ -39,35 +43,34 @@ export default function CreateProfile() {
       });
   };
 
+  const profile = { name, bio, imageType };
   function handleCreateProfileSubmit(e) {
     e.preventDefault();
-    const nameInput =
-      e.target.parentElement.parentElement.parentElement.parentElement[0].value;
-    const imagePathInput =
-      e.target.parentElement.parentElement.parentElement.parentElement[1].value;
-    const bioInput =
-      e.target.parentElement.parentElement.parentElement.parentElement[3].value;
-    console.log(`name: ${nameInput}`);
-    console.log(`image path: ${imagePathInput}`);
-    console.log(`bio: ${bioInput}`);
-    if (nameInput === "" || imagePathInput === "" || bioInput === "") {
-      alert("please fill all details to save a profile");
+    if (name === "" || imageType === "" || bio === "") {
+      alert(
+        "Please fill out the name and bio, and pick a photo and upload. If you've done all this then hit save!"
+      );
+    } else {
+      addProfileToLocalStorage("user", profile);
+      setClicked(!clicked);
     }
   }
 
   function handleNameChange(e) {
-    setName(e.target.value);
+    const newName = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+
+    setName(newName);
   }
 
   function handleBioChange(e) {
-    setBio(e.target.value);
+    const newBio = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+
+    setBio(newBio);
     setCounter(counter - 1);
     if (e.target.value === "") {
       setCounter(125);
     }
   }
-
-  // max length for bio 125
 
   return (
     <div className="grid-layout-app">
@@ -112,27 +115,34 @@ export default function CreateProfile() {
               maxLength="125"
               required
             />
+            <div className="bio-counter" onChange={handleBioChange}>
+              {counter}
+            </div>
           </div>
-          <div onChange={handleBioChange}>{counter}</div>
 
           <Image
             className={imageId ? "create-profile-image" : "hidden"}
+            placeholder="loading..."
             id={imageId}
             cloudName="dy1xpaosj"
             publicId={`https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`}
           />
-          <div className="save-wrapper">
-            <button className="create-profile-save-button">
-              <AiFillSave type="submit" onClick={handleCreateProfileSubmit} />
-            </button>
-          </div>
+          <button
+            className={
+              clicked === true ? "hidden" : "create-profile-save-button"
+            }
+          >
+            <AiFillSave type="submit" onClick={handleCreateProfileSubmit} />
+          </button>
         </form>
       </main>
       <footer className="footer">
         <nav className="nav footer">
-          <button className="nav-button">
+          <button className={clicked === false ? "hidden" : "nav-button"}>
             <NavLink exact to="/profile">
-              <GiDogHouse className="nav-icons" />
+              <GiDogHouse
+                className={clicked === false ? "hidden" : "nav-icons"}
+              />
             </NavLink>
           </button>
         </nav>
