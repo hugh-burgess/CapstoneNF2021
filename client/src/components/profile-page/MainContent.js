@@ -17,13 +17,18 @@ export default function MainContent() {
     setBio(user[0].bio);
     setPicture(user[0].info.url);
   }, []);
+
+  function Capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   return (
     <div className="profile-wrapper">
       <p className="profile-bio-text">{bio}</p>
 
       <FaDog className="fren-icon" />
       <FaBone className="bone-icon" />
-      <h2 className="dog-name">{name}</h2>
+      <h2 className="dog-name">{Capitalize(name)}</h2>
       <p className="fren-count">4 frens</p>
       <p className="dog-rating">4.8</p>
       <p className="feedback">feedback</p>
