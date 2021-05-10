@@ -3,10 +3,24 @@ import { FaBone } from "react-icons/fa";
 import TourButton from "./TourButton";
 import EditButton from "./EditButton";
 import profileDog from "../../images/profile-pic.svg";
+
 import bubble from "../../images/stat-bubble.svg";
 import bioBubble from "../../images/bio-bubble.svg";
+import { useEffect, useState } from "react";
+import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 
 export default function MainContent() {
+  const [name, setName] = useState("");
+  const [bio, setBio] = useState("");
+  const [picture, setPicture] = useState("");
+
+  useEffect(() => {
+    const user = getItemsFromLocalStorage("user");
+
+    setName(user[0].name);
+    setBio(user[0].bio);
+    setPicture(user[0].info.url);
+  }, []);
   return (
     <div className="profile-wrapper">
       <div className="grid-wrapper">
@@ -52,6 +66,7 @@ export default function MainContent() {
           <FaBone className="big-bone-image" />
         </div>
       </div>
+
     </div>
   );
 }
