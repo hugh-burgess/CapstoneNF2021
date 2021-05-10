@@ -51,15 +51,10 @@ export function getSingleDogFromLocalStorage(id) {
   return friends.find((friend) => friend.id === id);
 }
 
-  export function addNotetoLocalStorage(key, item, note) {
+export function addNotetoLocalStorage(key, item, note) {
   const array = getItemsFromLocalStorage(key);
   const foundObject = array.find((currywurst) => currywurst.name === item.name);
   foundObject.notes.push(note);
 
   localStorage.setItem(key, JSON.stringify(array));
-}
-
-export function getSingleDogFromLocalStorage(id) {
-  const friends = JSON.parse(localStorage.getItem("friends"));
-  return friends.find((friend) => friend.id === id);
 }
