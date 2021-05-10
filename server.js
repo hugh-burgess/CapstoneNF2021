@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const Park = require("./models/Park");
 const Friends = require("./models/Friends");
+const Users = require("./models/Users");
 const app = express();
 
 app.use(express.json());
@@ -16,7 +17,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.status(200).send("Hello World");
+  res.status(200).send("Hello again World");
 });
 
 app.get("/parks", (req, res) => {
@@ -44,6 +45,23 @@ app.get("/friends", (req, res) => {
         res.json(friends);
       } else {
         res.json({ error: `No friends yet!` });
+      }
+    })
+    .catch((error) => {
+      res.status(404);
+      res.json({ error: `404: Not Found. ${error}` });
+      console.log("error");
+    });
+});
+
+app.get("/users", (req, res) => {
+  Users.find()
+    .then((users) => {
+      if (users) {
+        res.status(200);
+        res.json(users);
+      } else {
+        res.json({ error: `No users yet!` });
       }
     })
     .catch((error) => {

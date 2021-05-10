@@ -1,4 +1,5 @@
 import { SiDatadog } from "react-icons/si";
+import { Link } from "react-router-dom";
 import "./Cover.css";
 
 export default function Cover() {
@@ -30,12 +31,16 @@ export default function Cover() {
             className="login-page-password"
           />
           <div className="login-buttons-wrapper">
-            <button type="submit" className="login-page-login-button">
-              Log In
-            </button>
-            <button type="button" className="login-page-register-button">
-              Register
-            </button>
+            <Link to="/create">
+              <button type="submit" className="login-page-login-button">
+                Log In
+              </button>
+            </Link>
+            <Link to="/register">
+              <button type="button" className="login-page-register-button">
+                Register
+              </button>
+            </Link>
           </div>
         </form>
       </div>

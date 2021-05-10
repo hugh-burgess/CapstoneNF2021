@@ -11,6 +11,7 @@ import SingleDog from "./components/single-dog/SingleDog";
 import Whistle from "./components/single-dog/Whistle";
 import SinglePark from "./components/map-page/SinglePark";
 import CreateProfile from "./components/create-page/CreateProfile";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
           </Route>
           <Route path="/create">
             <CreateProfile />
+          </Route>
+          <Route path="/register">
+            <Register />
           </Route>
           <Route exact path="/">
             <Cover />
