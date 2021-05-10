@@ -39,7 +39,6 @@ export default function SingleDog() {
       ...friends.slice(index + 1),
     ];
     setFriends(veryNewFriends);
-    console.log(veryNewFriends);
     localStorage.setItem("friends", JSON.stringify(veryNewFriends));
   }
 

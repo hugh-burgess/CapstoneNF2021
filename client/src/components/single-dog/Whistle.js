@@ -10,7 +10,6 @@ export default function Whistle() {
   const friend = getSingleDogFromLocalStorage(
     Number(location.pathname.slice(9))
   );
-  console.log(friend);
 
   return (
     <div className="whistle-page">
