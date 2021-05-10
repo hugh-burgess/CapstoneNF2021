@@ -40,6 +40,7 @@ export default function Register() {
           history.push("/");
         } else {
           setClicked(!clicked);
+          e.target[0].value = "";
         }
       })
       .catch((err) => {
