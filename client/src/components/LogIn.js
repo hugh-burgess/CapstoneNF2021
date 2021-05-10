@@ -1,7 +1,9 @@
 import { SiDatadog } from "react-icons/si";
 import { Link } from "react-router-dom";
+
 import "./LogIn.css";
 const baseUrl = "https://shielded-tundra-69796.herokuapp.com/";
+
 const initDetails = {
   method: "get",
   headers: {
