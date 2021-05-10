@@ -8,6 +8,7 @@ const baseUrl = "http://localhost:4000/login";
 
 export default function Cover() {
   const [clicked, setClicked] = useState(false);
+  console.log(clicked);
 
   let history = useHistory();
 
@@ -29,6 +30,8 @@ export default function Cover() {
         if (res.status !== 200) {
           console.log("There was an error, please check again.");
           setClicked(!clicked);
+          e.target[0].value = "";
+          e.target[1].value = "";
 
           return;
         } else {
