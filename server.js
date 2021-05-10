@@ -54,34 +54,22 @@ app.get("/friends", (req, res) => {
     });
 });
 
-app.get("/users", (req, res) => {
-  Users.find()
-    .then((users) => {
-      if (users) {
-        res.status(200);
-        res.json(users);
-      } else {
-        res.json({ error: `No users yet!` });
-      }
-    })
-    .catch((error) => {
-      res.status(404);
-      res.json({ error: `404: Not Found. ${error}` });
-      console.log("error");
-    });
-});
-
-app.post("/users", (req, res) => {
+app.post("/login", (req, res) => {
+  console.log(req.body);
   const { username, password } = req.body;
   if (!username || !password) {
     res.status(400);
     res.json({ error: "Please create a username and password!" });
   } else {
-    Users.create({ username: username, password: password })
+    Users.find({ username: username })
       .then((user) => {
         console.log(user);
-        res.json(user);
-        res.status(201);
+        if (password === user[0].password) {
+          res.status(200).json({ login: true });
+        } else {
+          res.status(400);
+          res.json({ error: "Password and username invalid!" });
+        }
       })
       .catch((error) => {
         console.error(error);

@@ -1,20 +1,26 @@
 import { SiDatadog } from "react-icons/si";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import "./LogIn.css";
-const baseUrl = "https://shielded-tundra-69796.herokuapp.com/";
-
-const initDetails = {
-  method: "get",
-  headers: {
-    "Content-Type": "application/json; charset=utf-8",
-  },
-  mode: "cors",
-};
+const baseUrl = "http://localhost:4000/login";
 
 export default function Cover() {
+  let history = useHistory();
+
   function handleLogInSubmit(e) {
     e.preventDefault();
+    const initDetails = {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      mode: "cors",
+      body: JSON.stringify({
+        username: e.target[0].value,
+        password: e.target[1].value,
+      }),
+    };
     fetch(baseUrl, initDetails)
       .then((res) => {
         if (res.status !== 200) {
@@ -25,7 +31,12 @@ export default function Cover() {
           return res.json();
         }
       })
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        if (data.login === true) {
+          history.push("/profile");
+        }
+      })
       .catch((err) => {
         console.error(err);
       });
@@ -39,7 +50,7 @@ export default function Cover() {
       <div className="login-page-wrapper">
         <SiDatadog className="login-page-dog" />
 
-        <form className="login-form" action={baseUrl} method="get">
+        <form className="login-form" onSubmit={handleLogInSubmit}>
           <input
             type="text"
             name="username"
@@ -57,11 +68,7 @@ export default function Cover() {
             required
           />
           <div className="login-buttons-wrapper">
-            <button
-              type="submit"
-              onClick={handleLogInSubmit}
-              className="login-page-login-button"
-            >
+            <button type="submit" className="login-page-login-button">
               Log In
             </button>
             <Link to="/register">
