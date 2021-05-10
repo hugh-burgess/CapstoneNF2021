@@ -64,7 +64,7 @@ export default function CreateProfile() {
   }
 
   function handleBioChange(e) {
-    const newBio = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+    const newBio = e.target.value;
 
     setBio(newBio);
     setCounter(counter - 1);
