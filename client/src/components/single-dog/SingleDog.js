@@ -87,9 +87,13 @@ export default function SingleDog() {
                 <p className="single-dog-stats-title">Stats</p>
                 <div className="single-dog-content-box">
                   <ul>
-                    {filteredFriend.stats.map((stat) => (
-                      <li key={stat.value}>{stat.value + " "}</li>
-                    ))}
+                    {filteredFriend.stats.map((stat) => {
+                      if (stat.value === null) {
+                        return <li key={stat.value}>None listed</li>;
+                      } else {
+                        return <li key={stat.value}>{stat.value + " "}</li>;
+                      }
+                    })}
                   </ul>
                 </div>
               </div>
