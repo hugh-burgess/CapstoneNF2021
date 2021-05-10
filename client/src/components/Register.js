@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { SiDatadog } from "react-icons/si";
 import { useHistory } from "react-router-dom";
 
@@ -5,6 +6,7 @@ import "./LogIn.css";
 const baseUrl = "http://localhost:4000/login/register";
 
 export default function Register() {
+  const [clicked, setClicked] = useState(false);
   let history = useHistory();
 
   function handleRegisterSubmit(e) {
@@ -34,7 +36,10 @@ export default function Register() {
       .then((data) => {
         console.log(data);
         if (data.newUserCreated === true) {
+          alert("Account created! Please log in to continue");
           history.push("/");
+        } else {
+          setClicked(!clicked);
         }
       })
       .catch((err) => {
@@ -55,7 +60,7 @@ export default function Register() {
             name="username"
             id="username"
             placeholder="create username..."
-            className="login-page-username"
+            className={clicked ? "register-red-warning" : "login-page-username"}
             required
           />
           <input
@@ -74,6 +79,10 @@ export default function Register() {
             className="login-page-password"
             required
           />
+          <div className={clicked ? "register-message-warning" : "hidden"}>
+            This name is already taken, please choose another.
+          </div>
+
           <div className="login-buttons-wrapper">
             <button type="submit" className="login-page-register-button">
               Sign Up

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { SiDatadog } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -6,6 +7,8 @@ import "./LogIn.css";
 const baseUrl = "http://localhost:4000/login";
 
 export default function Cover() {
+  const [clicked, setClicked] = useState(false);
+
   let history = useHistory();
 
   function handleLogInSubmit(e) {
@@ -25,6 +28,8 @@ export default function Cover() {
       .then((res) => {
         if (res.status !== 200) {
           console.log("There was an error, please check again.");
+          setClicked(!clicked);
+
           return;
         } else {
           console.log(res.status);
@@ -35,10 +40,13 @@ export default function Cover() {
         console.log(data);
         if (data.login === true) {
           history.push("/profile");
+        } else {
+          setClicked(!clicked);
         }
       })
       .catch((err) => {
         console.error(err);
+        setClicked(!clicked);
       });
   }
 
@@ -56,7 +64,7 @@ export default function Cover() {
             name="username"
             id="username"
             placeholder="username..."
-            className="login-page-username"
+            className={clicked ? "register-red-warning" : "login-page-username"}
             required
           />
           <input
@@ -64,9 +72,12 @@ export default function Cover() {
             name="password"
             id="password"
             placeholder="password..."
-            className="login-page-password"
+            className={clicked ? "register-red-warning" : "login-page-password"}
             required
           />
+          <div className={clicked ? "register-message-warning" : "hidden"}>
+            username or password invalid. Please retry...{" "}
+          </div>
           <div className="login-buttons-wrapper">
             <button type="submit" className="login-page-login-button">
               Log In
