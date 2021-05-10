@@ -7,8 +7,18 @@ export function getItemsFromLocalStorage(key) {
 export function addItemToLocalStorage(key, item) {
   const data = getItemsFromLocalStorage(key); // always returns an array
 
+  item.id = Date.now();
+
   data.push(item);
 
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+export function addProfileToLocalStorage(key, profile) {
+  const data = getItemsFromLocalStorage(key);
+  data.length = 0;
+  profile.id = Date.now();
+  data.push(profile);
   localStorage.setItem(key, JSON.stringify(data));
 }
 
@@ -17,6 +27,16 @@ export function removeItemFromLocalStorageByName(key, itemName) {
 
   const newData = data.filter((item) => {
     return item.name !== itemName;
+  });
+
+  localStorage.setItem(key, JSON.stringify(newData));
+}
+
+export function removeItemFromLocalStorageById(key, id) {
+  const data = getItemsFromLocalStorage(key);
+
+  const newData = data.filter((item) => {
+    return item.id !== id;
   });
 
   localStorage.setItem(key, JSON.stringify(newData));
@@ -32,4 +52,9 @@ export function addNotetoLocalStorage(key, item, note) {
   foundObject.notes.push(note);
 
   localStorage.setItem(key, JSON.stringify(array));
+}
+
+export function getSingleDogFromLocalStorage(id) {
+  const friends = JSON.parse(localStorage.getItem("friends"));
+  return friends.find((friend) => friend.id === id);
 }

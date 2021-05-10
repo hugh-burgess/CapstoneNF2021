@@ -4,7 +4,7 @@ import "./Cover.css";
 
 export default function Cover() {
   return (
-    <Link to="/profile">
+    <Link to="/create">
       <div className="cover-page">
         <div className="cover-box-light-blue">
           <h1 className="cover-title">Walkies&amp;Talkies</h1>

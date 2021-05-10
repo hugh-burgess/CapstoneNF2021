@@ -18,9 +18,8 @@ export default function Dogs({ filter }) {
 
   function renderFriend() {
     return filteredName.map((friend, index) => {
-      const id = `${index}${friend.name}`;
       return (
-        <Link to={`/single-dog/${id}`}>
+        <Link to={`/single-dog/${friend.id}`}>
           <div key={index} className="friend-card">
             <p className="dogs-name">{friend.name}</p>
             <img className="dogs-image" src={friend.imgSrc} alt="dog" />

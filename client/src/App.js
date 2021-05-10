@@ -10,6 +10,7 @@ import Search from "./components/search-page/Search";
 import SingleDog from "./components/single-dog/SingleDog";
 import Whistle from "./components/single-dog/Whistle";
 import SinglePark from "./components/map-page/SinglePark";
+import CreateProfile from "./components/create-page/CreateProfile";
 
 function App() {
   return (
@@ -43,7 +44,9 @@ function App() {
           <Route path="/search">
             <Search />
           </Route>
-
+          <Route path="/create">
+            <CreateProfile />
+          </Route>
           <Route exact path="/">
             <Cover />
           </Route>

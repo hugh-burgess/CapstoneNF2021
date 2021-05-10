@@ -75,7 +75,6 @@ export default function AddButton() {
     // formData.append("file", selectedFile);
 
     addItemToLocalStorage("friends", {
-      id: friendName,
       name: friendName,
       // imgSrc: imageSource,
       bio: biography,
@@ -97,13 +96,9 @@ export default function AddButton() {
   }
 
   function renderItems() {
-    return friends.map((friend, id) => {
+    return friends.map((friend) => {
       return (
-        <p
-          id={id}
-          key={id}
-          onClick={() => handleRemoveLocalStorage(friend.name)}
-        >
+        <p onClick={() => handleRemoveLocalStorage(friend.name)}>
           - {friend.name}
         </p>
       );
@@ -128,8 +123,8 @@ export default function AddButton() {
 
   function handleButtonClick(event) {
     event.preventDefault();
+
     setIsClicked(!isClicked);
-    console.log(isClicked);
   }
 
   // delete the rendered message after 2 seconds
@@ -242,7 +237,7 @@ export default function AddButton() {
             save
           </button>
           <Expire delay="3000">
-            <p>New friends added: {count}</p>
+            <p>Friends added: {count}</p>
             {renderItems()}
           </Expire>
         </form>
