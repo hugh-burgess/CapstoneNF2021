@@ -71,6 +71,24 @@ app.get("/users", (req, res) => {
     });
 });
 
+app.post("/users", (req, res) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    res.status(400);
+    res.json({ error: "Please create a username and password!" });
+  } else {
+    Users.create({ username: username, password: password })
+      .then((user) => {
+        console.log(user);
+        res.json(user);
+        res.status(201);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+});
+
 app.get("/parks/:id", (req, res) => {
   const { id } = req.params;
 
