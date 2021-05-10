@@ -13,14 +13,13 @@ const initDetails = {
 export default function Cover() {
   function handleLogInSubmit(e) {
     e.preventDefault();
-
     fetch(baseUrl, initDetails)
       .then((res) => {
         if (res.status !== 200) {
           console.log("There was an error, please check again.");
           return;
         } else {
-          console.log(res.headers.get("Content-Type"));
+          console.log(res.status);
           return res.json();
         }
       })
@@ -38,13 +37,14 @@ export default function Cover() {
       <div className="login-page-wrapper">
         <SiDatadog className="login-page-dog" />
 
-        <form className="login-form" onSubmit={handleLogInSubmit}>
+        <form className="login-form" action={baseUrl} method="get">
           <input
             type="text"
             name="username"
             id="username"
             placeholder="username..."
             className="login-page-username"
+            required
           />
           <input
             type="password"
@@ -52,6 +52,7 @@ export default function Cover() {
             id="password"
             placeholder="password..."
             className="login-page-password"
+            required
           />
           <div className="login-buttons-wrapper">
             <button
