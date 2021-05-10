@@ -2,7 +2,7 @@ import "./FriendsContent.css";
 
 import {
   getItemsFromLocalStorage,
-  removeItemFromLocalStorageByName,
+  removeItemFromLocalStorageById,
 } from "../../utils/itemStorage";
 import { useEffect, useState } from "react";
 import { GiSittingDog } from "react-icons/gi";
@@ -26,18 +26,17 @@ export default function FriendsContent() {
     setFriends(friends);
   }, []);
   function handleDeleteFriend(friend) {
-    removeItemFromLocalStorageByName("friends", friend.name);
+    removeItemFromLocalStorageById("friends", friend.id);
     setFriends(getItemsFromLocalStorage("friends"));
   }
 
   function renderItems() {
     return friends.map((friend, index) => {
-      const id = `${index}${friend.name}`; // hardcoded dog id which could be an issue in future
       if (index % 2 === 0) {
         return (
           <CloudRight
             friend={friend}
-            id={id}
+            id={friend.id}
             onDeleteFriend={handleDeleteFriend}
             cloudFormationsRight={cloudFormationsRight}
           />
@@ -46,7 +45,7 @@ export default function FriendsContent() {
         return (
           <CloudLeft
             friend={friend}
-            id={id}
+            id={friend.id}
             onDeleteFriend={handleDeleteFriend}
             cloudFormationsLeft={cloudFormationsLeft}
           />
