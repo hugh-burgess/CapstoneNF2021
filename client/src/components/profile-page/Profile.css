@@ -14,6 +14,7 @@
   position: absolute;
   left: 5px;
   top: 39.5px;
+  border-radius: 50%;
 }
 
 .profile-bubble {
