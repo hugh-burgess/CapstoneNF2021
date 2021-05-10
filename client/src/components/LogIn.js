@@ -1,10 +1,33 @@
 import { SiDatadog } from "react-icons/si";
 import { Link } from "react-router-dom";
-import "./Cover.css";
+import "./LogIn.css";
+const baseUrl = "https://shielded-tundra-69796.herokuapp.com/";
+const initDetails = {
+  method: "get",
+  headers: {
+    "Content-Type": "application/json; charset=utf-8",
+  },
+  mode: "cors",
+};
 
 export default function Cover() {
-  function handleLogInHandle(e) {
+  function handleLogInSubmit(e) {
     e.preventDefault();
+
+    fetch(baseUrl, initDetails)
+      .then((res) => {
+        if (res.status !== 200) {
+          console.log("There was an error, please check again.");
+          return;
+        } else {
+          console.log(res.headers.get("Content-Type"));
+          return res.json();
+        }
+      })
+      .then((data) => console.log(data))
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   return (
@@ -15,7 +38,7 @@ export default function Cover() {
       <div className="login-page-wrapper">
         <SiDatadog className="login-page-dog" />
 
-        <form className="login-form" onSubmit={handleLogInHandle}>
+        <form className="login-form" onSubmit={handleLogInSubmit}>
           <input
             type="text"
             name="username"
@@ -31,13 +54,15 @@ export default function Cover() {
             className="login-page-password"
           />
           <div className="login-buttons-wrapper">
-            <Link to="/create">
-              <button type="submit" className="login-page-login-button">
-                Log In
-              </button>
-            </Link>
+            <button
+              type="submit"
+              onClick={handleLogInSubmit}
+              className="login-page-login-button"
+            >
+              Log In
+            </button>
             <Link to="/register">
-              <button type="button" className="login-page-register-button">
+              <button type="submit" className="login-page-register-button">
                 Register
               </button>
             </Link>

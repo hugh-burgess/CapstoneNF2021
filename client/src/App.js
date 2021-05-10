@@ -5,7 +5,7 @@ import Map from "./components/map-page/Map";
 import EditProfile from "./components/profile-page/Edit-Profile";
 import Profile from "./components/profile-page/Profile";
 import Tour from "./components/profile-page/Tour";
-import Cover from "./components/Cover";
+import LogIn from "./components/LogIn";
 import Search from "./components/search-page/Search";
 import SingleDog from "./components/single-dog/SingleDog";
 import Whistle from "./components/single-dog/Whistle";
@@ -52,7 +52,7 @@ function App() {
             <Register />
           </Route>
           <Route exact path="/">
-            <Cover />
+            <LogIn />
           </Route>
           <Route path="*">
             <h2>No match! Go Back 🤓 </h2>
