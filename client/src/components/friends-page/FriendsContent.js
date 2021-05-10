@@ -2,6 +2,7 @@ import "./FriendsContent.css";
 
 import {
   getItemsFromLocalStorage,
+
   removeItemFromLocalStorageById,
 } from "../../utils/itemStorage";
 import { useEffect, useState } from "react";
@@ -26,6 +27,7 @@ export default function FriendsContent() {
     setFriends(friends);
   }, []);
   function handleDeleteFriend(friend) {
+
     removeItemFromLocalStorageById("friends", friend.id);
     setFriends(getItemsFromLocalStorage("friends"));
   }
@@ -36,6 +38,7 @@ export default function FriendsContent() {
         return (
           <CloudRight
             friend={friend}
+
             id={friend.id}
             onDeleteFriend={handleDeleteFriend}
             cloudFormationsRight={cloudFormationsRight}
@@ -45,6 +48,7 @@ export default function FriendsContent() {
         return (
           <CloudLeft
             friend={friend}
+
             id={friend.id}
             onDeleteFriend={handleDeleteFriend}
             cloudFormationsLeft={cloudFormationsLeft}

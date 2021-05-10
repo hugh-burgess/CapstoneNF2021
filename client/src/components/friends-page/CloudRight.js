@@ -15,6 +15,7 @@ export default function CloudRight({
     <div className="cloud-wrapper">
       <div className="cloud-right">
         <Link to={`/single-dog/${id}`}>
+
           {/* <img className="dog-image-right" src={friend.imgSrc} alt="dog" /> */}
           <img
             className="cloud-right"
