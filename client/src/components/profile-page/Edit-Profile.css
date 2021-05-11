@@ -1,6 +1,6 @@
 .edit-page {
-  position: relative;
   background-color: var(--light-yellow);
+  height: 100vh;
 }
 
 .blur-effect {
@@ -8,49 +8,26 @@
 }
 
 .edit-pen {
-  position: absolute;
   color: red;
   z-index: 10;
   font-size: 30px;
-  left: 116.84px;
-  top: 280.45px;
+  grid-area: 2 / 1 / 3 / 3;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .edit-photo {
-  position: absolute;
+  grid-column: left;
+  grid-row: first;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
   color: red;
   z-index: 10;
   font-size: 30px;
-  left: 56px;
-  top: 110.2px;
-}
-
-.edit-title {
-  position: absolute;
-  left: 136.5px;
-  top: 40px;
-}
-.edit-page {
-  position: relative;
-}
-
-.edit-title {
-  position: absolute;
-  left: 136.5px;
-  top: 40px;
-}
-
-.save-button {
-  font-family: "PT Sans";
-  cursor: pointer;
-  position: absolute;
-  background-color: white;
-  color: var(--deep-blue);
-  border-radius: 15px;
-  width: 30px;
-  height: 20px;
-  left: 290.067px;
-  bottom: 36.817px;
-  padding: 10px;
-  border: black 1px solid;
 }

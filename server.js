@@ -99,6 +99,7 @@ app.post("/login/register", (req, res) => {
   });
 });
 
+
 app.get("/parks/:id", (req, res) => {
   const { id } = req.params;
 
