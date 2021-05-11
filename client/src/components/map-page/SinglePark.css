@@ -38,6 +38,11 @@
   position: relative;
 }
 
+.mapboxgl-popup-close-button {
+  font-size: 2em;
+  margin-top: -0.3em;
+}
+
 .park-gold-star {
   color: var(--gold);
   font-size: 35px;
