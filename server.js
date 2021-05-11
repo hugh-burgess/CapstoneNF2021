@@ -63,7 +63,6 @@ app.post("/login", (req, res) => {
   } else {
     Users.find({ username: username })
       .then((user) => {
-        console.log(user);
         if (password === user[0].password) {
           res.status(200).json({ login: true });
         } else {
