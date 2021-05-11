@@ -58,7 +58,7 @@ export default function CreateProfile() {
     }
 
     const initDetails = {
-      method: "patch",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },

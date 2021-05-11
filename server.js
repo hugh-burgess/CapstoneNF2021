@@ -80,7 +80,7 @@ app.post("/login", (req, res) => {
 
 app.post("/login/register", (req, res) => {
   console.log(req.body);
-  const { username, password } = req.body;
+  const { username, password, bio, name, picture } = req.body;
   Users.find({ username: username }).then((user) => {
     console.log(user);
     if (user.length !== 0) {
@@ -90,7 +90,13 @@ app.post("/login/register", (req, res) => {
         res.status(400);
         res.json({ error: "Please create a username and password!" });
       } else {
-        Users.create({ username: username, password: password })
+        Users.create({
+          username: username,
+          password: password,
+          bio: bio,
+          name: name,
+          picture: picture,
+        })
           .then((user) => {
             console.log(user);
             res.status(200).json({ newUserCreated: true });
@@ -110,22 +116,15 @@ app.patch("/users", (req, res) => {
     res.status(400);
     res.json({ error: "Please create a profile!" });
   } else {
-    Users.findOneAndUpdate(
-      (query,
-      { $set: { name: name, bio: bio, picture: picture } },
-      { new: true })
-    )
+    Users.findOneAndUpdate((query, { name: name, bio: bio, picture: picture }))
       .then((user) => {
-        if (username === user[0].username) {
-          console.log(user);
-          console.log({ profileUpdated: true });
-          res.status(200).json({ profileUpdated: true });
-        } else {
-          res.status(400);
-          res.json({ error: "Something went wrong" });
-        }
+        mongoose.set("useFindAndModify", false);
+        console.log(user);
+        res.status(200).json({ profileUpdated: true });
       })
       .catch((error) => {
+        res.status(400);
+        res.json({ error: "Something went wrong" });
         console.error(error);
       });
   }

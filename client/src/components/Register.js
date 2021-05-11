@@ -21,6 +21,9 @@ export default function Register() {
         username: e.target[0].value,
         password: e.target[1].value,
         verifyPassword: e.target[2].value,
+        bio: "",
+        name: "",
+        picture: "",
       }),
     };
     fetch(baseUrl, initDetails)
