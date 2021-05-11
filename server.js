@@ -76,6 +76,30 @@ app.post("/login", (req, res) => {
   }
 });
 
+app.post("/login/register", (req, res) => {
+  console.log(req.body);
+  const { username, password } = req.body;
+  Users.find({ username: username }).then((user) => {
+    if (user.length !== 0) {
+      res.json({ error: "User already exists! Please choose another name" });
+    } else {
+      if (!username || !password) {
+        res.status(400);
+        res.json({ error: "Please create a username and password!" });
+      } else {
+        Users.create({ username: username, password: password })
+          .then((user) => {
+            res.status(200).json({ newUserCreated: true });
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+    }
+  });
+});
+
+
 app.get("/parks/:id", (req, res) => {
   const { id } = req.params;
 

@@ -30,7 +30,6 @@ export default function Cover() {
         }
       })
       .then((data) => {
-        console.log(data);
         if (data.login === true) {
           history.push("/profile");
         }
