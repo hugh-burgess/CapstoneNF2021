@@ -61,7 +61,11 @@ export default function Cover() {
       <div className="login-page-wrapper">
         <SiDatadog className="login-page-dog" />
 
-        <form className="login-form" onSubmit={handleLogInSubmit}>
+        <form
+          className="login-form"
+          autocomplete="off"
+          onSubmit={handleLogInSubmit}
+        >
           <input
             type="text"
             name="username"

@@ -55,7 +55,11 @@ export default function Register() {
       <div className="login-page-wrapper">
         <SiDatadog className="login-page-dog" />
 
-        <form className="login-form" onSubmit={handleRegisterSubmit}>
+        <form
+          className="login-form"
+          autocomplete="off"
+          onSubmit={handleRegisterSubmit}
+        >
           <input
             type="text"
             name="username"
@@ -88,6 +92,7 @@ export default function Register() {
             <button type="submit" className="login-page-register-button">
               Sign Up
             </button>
+            <button onClick={() => history.goBack()}>Back</button>
           </div>
         </form>
       </div>
