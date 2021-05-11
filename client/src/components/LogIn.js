@@ -70,7 +70,7 @@ export default function Cover() {
 
         <form
           className="login-form"
-          autocomplete="off"
+          autoComplete="off"
           onSubmit={handleLogInSubmit}
         >
           <input

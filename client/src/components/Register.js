@@ -57,7 +57,7 @@ export default function Register() {
 
         <form
           className="login-form"
-          autocomplete="off"
+          autoComplete="off"
           onSubmit={handleRegisterSubmit}
         >
           <input

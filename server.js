@@ -8,8 +8,9 @@ const Friends = require("./models/Friends");
 const Users = require("./models/Users");
 const app = express();
 
-app.use(express.json());
 app.use(cors());
+app.options("*", cors());
+app.use(express.json());
 app.use((req, res, next) => {
   const { method, url } = req;
   console.log(`${method} ${url}`);
@@ -100,6 +101,34 @@ app.post("/login/register", (req, res) => {
       }
     }
   });
+});
+
+app.patch("/users", (req, res) => {
+  const { bio, name, picture, username } = req.body;
+  const query = { username: username };
+  if (!name || !bio || !picture) {
+    res.status(400);
+    res.json({ error: "Please create a profile!" });
+  } else {
+    Users.findOneAndUpdate(
+      (query,
+      { $set: { name: name, bio: bio, picture: picture } },
+      { new: true })
+    )
+      .then((user) => {
+        if (username === user[0].username) {
+          console.log(user);
+          console.log({ profileUpdated: true });
+          res.status(200).json({ profileUpdated: true });
+        } else {
+          res.status(400);
+          res.json({ error: "Something went wrong" });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 });
 
 app.get("/parks/:id", (req, res) => {

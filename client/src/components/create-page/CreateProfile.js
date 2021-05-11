@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import { AiFillSave } from "react-icons/ai";
 import { GiDogHouse } from "react-icons/gi";
 import { addProfileToLocalStorage } from "../../utils/itemStorage";
+const baseUrl = "http://localhost:4000/users";
 
 export default function CreateProfile() {
   const [imageSelected, setImageSelected] = useState("");
@@ -55,6 +56,31 @@ export default function CreateProfile() {
       addProfileToLocalStorage("user", profile);
       setClicked(!clicked);
     }
+
+    const initDetails = {
+      method: "patch",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      mode: "cors",
+      body: JSON.stringify({
+        username: "hugh",
+        picture: `https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`,
+        bio: bio,
+        name: name,
+      }),
+    };
+    fetch(baseUrl, initDetails)
+      .then((res) => {
+        console.log(res.status);
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   function handleNameChange(e) {
@@ -88,8 +114,8 @@ export default function CreateProfile() {
               type="text"
               placeholder="name here..."
               onChange={handleNameChange}
-              value={name}
               maxLength="10"
+              value={name}
               required
             />
 
@@ -112,9 +138,9 @@ export default function CreateProfile() {
             <input
               type="text"
               onChange={handleBioChange}
-              value={bio}
               placeholder="enter a bio here..."
               maxLength="125"
+              value={bio}
               required
             />
             <div className="bio-counter" onChange={handleBioChange}>
