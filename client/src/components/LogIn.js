@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SiDatadog } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { getItemsFromLocalStorage } from "../utils/itemStorage";
 
 import "./LogIn.css";
 const baseUrl = "http://localhost:4000/login";
 
 export default function Cover() {
+  const [user, setUser] = useState([]);
   const [clicked, setClicked] = useState(false);
-  console.log(clicked);
+  useEffect(() => {
+    const user = getItemsFromLocalStorage("user");
+    setUser(user);
+  }, []);
 
   let history = useHistory();
 
@@ -41,7 +46,9 @@ export default function Cover() {
       })
       .then((data) => {
         console.log(data);
-        if (data.login === true) {
+        if (data.login === true && user.length === 0) {
+          history.push("/create");
+        } else if (data.login === true && user.length !== 0) {
           history.push("/profile");
         } else {
           setClicked(!clicked);
