@@ -85,7 +85,15 @@ export default function Map() {
                   className="popup"
                   latitude={Number(selectedPark.coordinates[0])}
                   longitude={Number(selectedPark.coordinates[1])}
+                  onClose={() => {
+                    setSelectedPark(null);
+                  }}
+                  closeOnClick={false}
                 >
+                  <div>
+                    <h3>{selectedPark.name}</h3>
+                    <p>{selectedPark.address}</p>
+                  </div>
                   <AiFillStar
                     onClick={(e) => {
                       e.preventDefault();
@@ -97,11 +105,6 @@ export default function Map() {
                         : "park-dull-star"
                     }
                   />
-
-                  <div>
-                    <h3>{selectedPark.name}</h3>
-                    <p>{selectedPark.address}</p>
-                  </div>
                 </Popup>
               </Link>
             ) : null}

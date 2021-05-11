@@ -64,7 +64,6 @@ app.post("/login", (req, res) => {
   } else {
     Users.find({ username: username })
       .then((user) => {
-        console.log(user);
         if (password === user[0].password) {
           res.status(200).json({ login: true });
         } else {
@@ -82,7 +81,6 @@ app.post("/login/register", (req, res) => {
   console.log(req.body);
   const { username, password, bio, name, picture } = req.body;
   Users.find({ username: username }).then((user) => {
-    console.log(user);
     if (user.length !== 0) {
       res.json({ error: "User already exists! Please choose another name" });
     } else {
@@ -98,7 +96,6 @@ app.post("/login/register", (req, res) => {
           picture: picture,
         })
           .then((user) => {
-            console.log(user);
             res.status(200).json({ newUserCreated: true });
           })
           .catch((error) => {
@@ -129,6 +126,7 @@ app.patch("/users", (req, res) => {
       });
   }
 });
+
 
 app.get("/parks/:id", (req, res) => {
   const { id } = req.params;

@@ -33,19 +33,15 @@ export default function Cover() {
     fetch(baseUrl, initDetails)
       .then((res) => {
         if (res.status !== 200) {
-          console.log("There was an error, please check again.");
           setClicked(!clicked);
           e.target[0].value = "";
           e.target[1].value = "";
-
-          return;
+          alert("There was an error, please check again.");
         } else {
-          console.log(res.status);
           return res.json();
         }
       })
       .then((data) => {
-        console.log(data);
         if (data.login === true && user.length === 0) {
           history.push("/create");
         } else if (data.login === true && user.length !== 0) {

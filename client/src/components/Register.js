@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { SiDatadog } from "react-icons/si";
-import { useHistory } from "react-router-dom";
-
+import { useHistory } from "react-router";
 import "./LogIn.css";
 const baseUrl = "http://localhost:4000/login/register";
 
@@ -29,7 +28,7 @@ export default function Register() {
     fetch(baseUrl, initDetails)
       .then((res) => {
         if (initDetails.body.password !== initDetails.body.verifyPassword) {
-          console.log("Passwords dont match, please check again.");
+          alert("Passwords dont match, please check again.");
           return;
         } else {
           console.log(res.status);
@@ -48,6 +47,7 @@ export default function Register() {
       })
       .catch((err) => {
         console.error(err);
+        history.push("*");
       });
   }
   return (
