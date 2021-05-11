@@ -63,7 +63,6 @@ app.post("/login", (req, res) => {
   } else {
     Users.find({ username: username })
       .then((user) => {
-        console.log(user);
         if (password === user[0].password) {
           res.status(200).json({ login: true });
         } else {
@@ -81,7 +80,6 @@ app.post("/login/register", (req, res) => {
   console.log(req.body);
   const { username, password } = req.body;
   Users.find({ username: username }).then((user) => {
-    console.log(user);
     if (user.length !== 0) {
       res.json({ error: "User already exists! Please choose another name" });
     } else {
@@ -91,7 +89,6 @@ app.post("/login/register", (req, res) => {
       } else {
         Users.create({ username: username, password: password })
           .then((user) => {
-            console.log(user);
             res.status(200).json({ newUserCreated: true });
           })
           .catch((error) => {

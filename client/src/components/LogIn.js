@@ -24,15 +24,12 @@ export default function Cover() {
     fetch(baseUrl, initDetails)
       .then((res) => {
         if (res.status !== 200) {
-          console.log("There was an error, please check again.");
-          return;
+          alert("There was an error, please check again.");
         } else {
-          console.log(res.status);
           return res.json();
         }
       })
       .then((data) => {
-        console.log(data);
         if (data.login === true) {
           history.push("/profile");
         }

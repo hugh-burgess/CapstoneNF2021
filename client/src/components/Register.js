@@ -24,7 +24,7 @@ export default function Register() {
     fetch(baseUrl, initDetails)
       .then((res) => {
         if (initDetails.body.password !== initDetails.body.verifyPassword) {
-          console.log("Passwords dont match, please check again.");
+          alert("Passwords dont match, please check again.");
           return;
         } else {
           console.log(res.status);
@@ -39,6 +39,7 @@ export default function Register() {
       })
       .catch((err) => {
         console.error(err);
+        history.push("*");
       });
   }
   return (
