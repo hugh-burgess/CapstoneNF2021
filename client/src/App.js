@@ -5,12 +5,13 @@ import Map from "./components/map-page/Map";
 import EditProfile from "./components/profile-page/Edit-Profile";
 import Profile from "./components/profile-page/Profile";
 import Tour from "./components/profile-page/Tour";
-import Cover from "./components/Cover";
+import LogIn from "./components/LogIn";
 import Search from "./components/search-page/Search";
 import SingleDog from "./components/single-dog/SingleDog";
 import Whistle from "./components/single-dog/Whistle";
 import SinglePark from "./components/map-page/SinglePark";
 import CreateProfile from "./components/create-page/CreateProfile";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -47,8 +48,11 @@ function App() {
           <Route path="/create">
             <CreateProfile />
           </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
           <Route exact path="/">
-            <Cover />
+            <LogIn />
           </Route>
           <Route path="*">
             <h2>No match! Go Back 🤓 </h2>

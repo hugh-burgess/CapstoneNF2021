@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const Park = require("./models/Park");
 const Friends = require("./models/Friends");
+const Users = require("./models/Users");
 const app = express();
 
 app.use(express.json());
@@ -16,7 +17,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.status(200).send("Hello World");
+  res.status(200).send("Hello local World");
 });
 
 app.get("/parks", (req, res) => {
@@ -51,6 +52,54 @@ app.get("/friends", (req, res) => {
       res.json({ error: `404: Not Found. ${error}` });
       console.log("error");
     });
+});
+
+app.post("/login", (req, res) => {
+  console.log(req.body);
+  const { username, password } = req.body;
+  if (!username || !password) {
+    res.status(400);
+    res.json({ error: "Please create a username and password!" });
+  } else {
+    Users.find({ username: username })
+      .then((user) => {
+        console.log(user);
+        if (password === user[0].password) {
+          res.status(200).json({ login: true });
+        } else {
+          res.status(400);
+          res.json({ error: "Password and username invalid!" });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+});
+
+app.post("/login/register", (req, res) => {
+  console.log(req.body);
+  const { username, password } = req.body;
+  Users.find({ username: username }).then((user) => {
+    console.log(user);
+    if (user.length !== 0) {
+      res.json({ error: "User already exists! Please choose another name" });
+    } else {
+      if (!username || !password) {
+        res.status(400);
+        res.json({ error: "Please create a username and password!" });
+      } else {
+        Users.create({ username: username, password: password })
+          .then((user) => {
+            console.log(user);
+            res.status(200).json({ newUserCreated: true });
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+    }
+  });
 });
 
 app.get("/parks/:id", (req, res) => {
