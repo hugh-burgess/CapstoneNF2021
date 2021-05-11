@@ -1,5 +1,9 @@
-export default function Register() {
+import { SiDatadog } from "react-icons/si";
+import { useHistory } from "react-router";
+import "./LogIn.css";
+const baseUrl = "http://localhost:4000/login/register";
 
+export default function Register() {
   let history = useHistory();
 
   function handleRegisterSubmit(e) {
@@ -79,5 +83,4 @@ export default function Register() {
       </div>
     </div>
   );
-
 }
