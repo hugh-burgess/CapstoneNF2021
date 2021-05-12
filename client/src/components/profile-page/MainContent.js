@@ -12,10 +12,9 @@ export default function MainContent() {
 
   useEffect(() => {
     const user = getItemsFromLocalStorage("user");
-
-    setName(user[0].name);
-    setBio(user[0].bio);
     setPicture(user[0].info.url);
+    setBio(user[0].bio);
+    setName(user[0].name);
   }, []);
 
   function Capitalize(str) {

@@ -8,8 +8,9 @@ const Friends = require("./models/Friends");
 const Users = require("./models/Users");
 const app = express();
 
-app.use(express.json());
 app.use(cors());
+app.options("*", cors());
+app.use(express.json());
 app.use((req, res, next) => {
   const { method, url } = req;
   console.log(`${method} ${url}`);
@@ -78,7 +79,7 @@ app.post("/login", (req, res) => {
 
 app.post("/login/register", (req, res) => {
   console.log(req.body);
-  const { username, password } = req.body;
+  const { username, password, bio, name, picture } = req.body;
   Users.find({ username: username }).then((user) => {
     if (user.length !== 0) {
       res.json({ error: "User already exists! Please choose another name" });
@@ -87,7 +88,13 @@ app.post("/login/register", (req, res) => {
         res.status(400);
         res.json({ error: "Please create a username and password!" });
       } else {
-        Users.create({ username: username, password: password })
+        Users.create({
+          username: username,
+          password: password,
+          bio: bio,
+          name: name,
+          picture: picture,
+        })
           .then((user) => {
             res.status(200).json({ newUserCreated: true });
           })
@@ -97,6 +104,27 @@ app.post("/login/register", (req, res) => {
       }
     }
   });
+});
+
+app.patch("/users", (req, res) => {
+  const { bio, name, picture, username } = req.body;
+  const query = { username: username };
+  if (!name || !bio || !picture) {
+    res.status(400);
+    res.json({ error: "Please create a profile!" });
+  } else {
+    Users.findOneAndUpdate((query, { name: name, bio: bio, picture: picture }))
+      .then((user) => {
+        mongoose.set("useFindAndModify", false);
+        console.log(user);
+        res.status(200).json({ profileUpdated: true });
+      })
+      .catch((error) => {
+        res.status(400);
+        res.json({ error: "Something went wrong" });
+        console.error(error);
+      });
+  }
 });
 
 

@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { SiDatadog } from "react-icons/si";
 import { useHistory } from "react-router";
 import "./LogIn.css";
 const baseUrl = "http://localhost:4000/login/register";
 
 export default function Register() {
+  const [clicked, setClicked] = useState(false);
   let history = useHistory();
 
   function handleRegisterSubmit(e) {
@@ -18,6 +20,9 @@ export default function Register() {
         username: e.target[0].value,
         password: e.target[1].value,
         verifyPassword: e.target[2].value,
+        bio: "",
+        name: "",
+        picture: "",
       }),
     };
     fetch(baseUrl, initDetails)
@@ -33,7 +38,11 @@ export default function Register() {
       .then((data) => {
         console.log(data);
         if (data.newUserCreated === true) {
+          alert("Account created! Please log in to continue");
           history.push("/");
+        } else {
+          setClicked(!clicked);
+          e.target[0].value = "";
         }
       })
       .catch((err) => {
@@ -49,13 +58,17 @@ export default function Register() {
       <div className="login-page-wrapper">
         <SiDatadog className="login-page-dog" />
 
-        <form className="login-form" onSubmit={handleRegisterSubmit}>
+        <form
+          className="login-form"
+          autoComplete="off"
+          onSubmit={handleRegisterSubmit}
+        >
           <input
             type="text"
             name="username"
             id="username"
             placeholder="create username..."
-            className="login-page-username"
+            className={clicked ? "register-red-warning" : "login-page-username"}
             required
           />
           <input
@@ -74,10 +87,15 @@ export default function Register() {
             className="login-page-password"
             required
           />
+          <div className={clicked ? "register-message-warning" : "hidden"}>
+            This name is already taken, please choose another.
+          </div>
+
           <div className="login-buttons-wrapper">
             <button type="submit" className="login-page-register-button">
               Sign Up
             </button>
+            <button onClick={() => history.goBack()}>Back</button>
           </div>
         </form>
       </div>
