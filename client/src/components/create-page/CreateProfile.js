@@ -74,6 +74,9 @@ export default function CreateProfile() {
     setCounter(counter - 1);
     if (e.target.value === "") {
       setCounter(125);
+    } else if (e.nativeEvent.data === null) {
+      console.log("backspace");
+      setCounter(counter + 1);
     }
   }
 
