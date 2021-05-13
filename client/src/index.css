@@ -9,11 +9,17 @@
 :root {
   --white: #fff;
   --deep-blue: #304057;
+  --border-blue: #304057;
   --light-blue: #89c5cc;
+  --background-light: #89c5cc;
   --light-yellow: #f7de75;
   --gold: #e7d513;
   --sea-blue: #2eaed1;
   --grey-shade: rgb(105, 105, 126);
   --dark-grey-shade: rgb(84, 84, 100);
   --red: rgb(255, 5, 67);
+  --normal-text-title: Arial, Helvetica, sans-serif;
+  --cookie-text-title: "Cookie", cursive;
+  --hard-shadow: 0px 7px 0px 0px rgba(0, 0, 0, 0.32);
+  --soft-shadow: 0px 8px 7px 7px rgba(0, 0, 0, 0.61);
 }

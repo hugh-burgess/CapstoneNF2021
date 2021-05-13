@@ -18,12 +18,14 @@ export default function CreateProfile() {
   const [counter, setCounter] = useState(125);
   const [clicked, setClicked] = useState(false);
   const [info, setInfo] = useState({});
+  const [buttonName, setButtonName] = useState("Upload");
 
   const uploadImage = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", imageSelected);
     formData.append("upload_preset", "s2bkhsfz");
+    setButtonName("uploading...");
 
     fetch("https://api.cloudinary.com/v1_1/dy1xpaosj/image/upload", {
       method: "PUT",
@@ -35,6 +37,8 @@ export default function CreateProfile() {
         setImageType(result.format);
         setImageId(result.created_at);
         setInfo(result);
+        setButtonName("Done!");
+
         console.log("Success:", result);
         if (result.error.message === "Missing required parameter - file") {
           alert("Please select a picture to upload.");
@@ -96,21 +100,38 @@ export default function CreateProfile() {
     setCounter(counter - 1);
     if (e.target.value === "") {
       setCounter(125);
+    } else if (e.nativeEvent.data === null) {
+      setCounter(counter + 1);
     }
   }
 
   return (
-    <div className="grid-layout-app">
+    <div className="grid-layout-app background-create-page">
       <Header title="create profile" />
       <main className="main create-profile-page">
         <form
           className="create-profile-form"
           onSubmit={handleCreateProfileSubmit}
         >
-          <div className="top-wrapper">
-            <p className="top-wrapper-name-title">Name</p>
-            <input
-              className="top-wrapper-name"
+          <div className="image-wrapper">
+            <Image
+              className={imageId ? "create-profile-image" : "hidden"}
+              id={imageId}
+              cloudName="dy1xpaosj"
+              publicId={
+                imageId
+                  ? `https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`
+                  : ""
+              }
+            />
+            <div className={imageId ? "hidden" : "create-profile-title"}>
+              Describe your Dog!
+            </div>
+          </div>
+          <div className="name-and-bio-wrapper">
+            <p className="wrapper-name-title">Name:</p>
+            <textarea
+              className="wrapper-name"
               type="text"
               placeholder="name here..."
               onChange={handleNameChange}
@@ -119,23 +140,9 @@ export default function CreateProfile() {
               required
             />
 
-            <p className="top-wrapper-picture-title">Picture</p>
-            <input
-              className="top-wrapper-picture"
-              type="file"
-              name="upload"
-              id="upload"
-              onChange={(event) => {
-                setImageSelected(event.target.files[0]);
-              }}
-              required
-            />
-            <button className="top-wrapper-upload" onClick={uploadImage}>
-              upload
-            </button>
-          </div>
-          <div className="middle-wrapper">
-            <input
+            <p className="wrapper-bio-title">Bio:</p>
+            <textarea
+              className="wrapper-bio"
               type="text"
               onChange={handleBioChange}
               placeholder="enter a bio here..."
@@ -147,21 +154,30 @@ export default function CreateProfile() {
               {counter}
             </div>
           </div>
-
-          <Image
-            className={imageId ? "create-profile-image" : "hidden"}
-            placeholder="loading..."
-            id={imageId}
-            cloudName="dy1xpaosj"
-            publicId={`https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`}
-          />
-          <button
-            className={
-              clicked === true ? "hidden" : "create-profile-save-button"
-            }
-          >
-            <AiFillSave type="submit" onClick={handleCreateProfileSubmit} />
-          </button>
+          <label className="input-file-label">
+            <input
+              className="browse-button"
+              type="file"
+              name="upload"
+              id="upload"
+              onChange={(event) => {
+                setImageSelected(event.target.files[0]);
+              }}
+              required
+            />
+            <button className="upload-button" onClick={uploadImage}>
+              {buttonName}
+            </button>
+          </label>
+          <div className="bottom-wrapper">
+            <button
+              className={
+                clicked === true ? "hidden" : "create-profile-save-button"
+              }
+            >
+              <AiFillSave type="submit" onClick={handleCreateProfileSubmit} />
+            </button>
+          </div>
         </form>
       </main>
       <footer className="footer">
