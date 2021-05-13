@@ -27,17 +27,25 @@ export default function MainContent() {
     <div className="grid-wrapper">
       <div className="top-profile-wrapper">
         <img className="profile-picture" src={picture} alt="doggy" />
-        <FaDog className="fren-icon" />
-        <p className="fren-count">4 frens</p>
-        <FaBone className="bone-icon" />
-        <p className="dog-rating">4.8</p>
+        <div className="top-text-wrapper">
+          <div className="top-wrapper-icons">
+            <FaDog className="fren-icon" />
+            <FaBone className="bone-icon" />
+          </div>
+          <div className="top-wrapper-text">
+            <p className="fren-count">4 frens</p>
+            <p className="dog-rating">4.8</p>
+          </div>
+        </div>
         <img className="profile-bubble" src={bubble} alt="#" />
       </div>
       <div className="middle-profile-wrapper">
-        <h2 className="dog-name">{Capitalize(name)}</h2>
-
-        <p className="profile-bio-text">{bio}</p>
         <img className="profile-bio" src={bioBubble} alt="#" />
+        <div className="middle-text-wrapper">
+          <h2 className="dog-name">{Capitalize(name)}</h2>
+          <p className="profile-bio-text">{bio}</p>
+        </div>
+
         <p className="feedback">feedback</p>
         <div className="feedback-list">
           <li>the goodest boy</li>
