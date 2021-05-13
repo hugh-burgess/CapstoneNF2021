@@ -7,11 +7,6 @@
   filter: blur(3px);
 }
 
-.grid-wrapper {
-  display: grid;
-  grid-template-rows: 33vh 33vh 33vh;
-}
-
 .edit-pen {
   color: red;
   z-index: 10;
