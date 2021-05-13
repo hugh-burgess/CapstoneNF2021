@@ -53,7 +53,7 @@
 .single-dog-stats-title,
 .single-dog-review-title,
 .single-dog-rating-title {
-  font-family: "Helvetiva Neue";
+  font-family: var(--normal-text-title);
   font-size: 30px;
 }
 
