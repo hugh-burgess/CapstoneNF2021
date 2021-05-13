@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
-
 .friends-header {
   position: fixed;
   z-index: 100;
@@ -56,7 +54,7 @@
 }
 
 .names-left {
-  font-family: "Cookie", cursive;
+  font-family: var(--cookie-text-title);
   font-size: 41px;
   color: var(--deep-blue);
   position: absolute;
@@ -70,7 +68,6 @@
 }
 
 .bin-left {
-  font-family: "Cookie", cursive;
   font-size: 20px;
   color: var(--sea-blue);
   position: absolute;
@@ -79,7 +76,6 @@
   z-index: 1000;
 }
 .bin-right {
-  font-family: "Cookie", cursive;
   font-size: 20px;
   color: var(--sea-blue);
   position: absolute;
@@ -89,7 +85,7 @@
 }
 
 .names-right {
-  font-family: "Cookie", cursive;
+  font-family: var(--cookie-text-title);
   font-size: 41px;
   color: var(--deep-blue);
   position: absolute;
@@ -108,7 +104,7 @@
 
 .no-mates-message {
   margin: 100px auto;
-  font-family: "Cookie", cursive;
+  font-family: var(--cookie-text-title);
   font-size: 50px;
   text-align: center;
 }
