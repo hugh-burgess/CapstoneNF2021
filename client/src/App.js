@@ -55,7 +55,7 @@ function App() {
             <LogIn />
           </Route>
           <Route path="*">
-            <h2>No match! Go Back 🤓 </h2>
+            <h2>Something went wrong! Go Back 🤓 </h2>
           </Route>
         </Switch>
       </div>
