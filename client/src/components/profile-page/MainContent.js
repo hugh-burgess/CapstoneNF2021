@@ -23,23 +23,25 @@ export default function MainContent() {
 
   return (
     <div className="profile-wrapper">
-      <p className="profile-bio-text">{bio}</p>
+      <div className="grid-wrapper">
+        <p className="profile-bio-text">{bio}</p>
 
-      <FaDog className="fren-icon" />
-      <FaBone className="bone-icon" />
-      <h2 className="dog-name">{Capitalize(name)}</h2>
-      <p className="fren-count">4 frens</p>
-      <p className="dog-rating">4.8</p>
-      <p className="feedback">feedback</p>
-      <div className="feedback-list">
-        <li>the goodest boy</li>
-        <li>loves scritches</li>
-        <li>loves walks</li>
+        <FaDog className="fren-icon" />
+        <FaBone className="bone-icon" />
+        <h2 className="dog-name">{Capitalize(name)}</h2>
+        <p className="fren-count">4 frens</p>
+        <p className="dog-rating">4.8</p>
+        <p className="feedback">feedback</p>
+        <div className="feedback-list">
+          <li>the goodest boy</li>
+          <li>loves scritches</li>
+          <li>loves walks</li>
+        </div>
+        <img className="profile-picture" src={picture} alt="doggy" />
+        <img className="profile-bubble" src={bubble} alt="#" />
+        <img className="profile-bio" src={bioBubble} alt="#" />
+        <FaBone className="big-bone-image" />
       </div>
-      <img className="profile-picture" src={picture} alt="doggy" />
-      <img className="profile-bubble" src={bubble} alt="#" />
-      <img className="profile-bio" src={bioBubble} alt="#" />
-      <FaBone className="big-bone-image" />
     </div>
   );
 }

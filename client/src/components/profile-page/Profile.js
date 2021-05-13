@@ -2,6 +2,8 @@ import Navigation from "../Navigation";
 import MainContent from "./MainContent";
 import "./Profile.css";
 import Header from "../Header";
+import TourButton from "./TourButton";
+import EditButton from "./EditButton";
 
 export default function Profile() {
   return (
@@ -9,6 +11,8 @@ export default function Profile() {
       <Header title="profile" />
       <main className="main profile-page">
         <MainContent />
+        <TourButton />
+        <EditButton />
       </main>
       <footer className="footer">
         <Navigation />
