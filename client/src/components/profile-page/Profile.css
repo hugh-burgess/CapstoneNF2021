@@ -64,7 +64,7 @@
 .profile-bubble {
   height: 130%;
   margin-left: -14rem;
-  margin-bottom: 3rem;
+  margin-top: -1rem;
 }
 
 .middle-profile-wrapper {
@@ -75,9 +75,9 @@
 .middle-text-wrapper {
   display: flex;
   flex-direction: column;
-  width: 15em;
+  width: 35em;
   height: 90%;
-  margin-left: -19em;
+  margin-left: -15.5em;
   z-index: 10;
   align-self: center;
 }
@@ -92,11 +92,11 @@
 
 .profile-bio-text {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 10;
+  font-size: 75%;
   color: var(--deep-blue);
 }
 .profile-bio {
-  height: 100%;
+  height: 110%;
   margin-left: -1em;
 }
 
@@ -107,6 +107,7 @@
   text-align: center;
   align-self: flex-end;
   margin-bottom: -2em;
+  z-index: 10;
 }
 
 .feedback {
