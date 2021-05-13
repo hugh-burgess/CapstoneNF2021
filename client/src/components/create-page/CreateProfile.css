@@ -1,96 +1,128 @@
+.background-create-page {
+  background-color: var(--background-light);
+}
+
 .create-profile-page {
-  background-color: var(--light-blue);
+  background-color: var(--deep-blue);
   overflow-y: hidden;
+  display: grid;
+  grid-template-rows: [top] 25vh [middle] 25vh [bottom] 5vh [ground] 25vh;
+  grid-template-columns: [width] 90vw;
+  max-width: 90vw;
+  max-height: 70vh;
+  margin-top: 2em;
+  justify-self: center;
+  box-shadow: var(--soft-shadow);
+  border-radius: 15px;
 }
-
-.create-profile-image {
-  height: 200px;
-  border-radius: 50%;
-  display: block;
-}
-
 .hidden {
   display: none;
 }
 
-.create-profile-form {
-  display: grid;
-  grid-template-rows: [top] 30vh [middle] 10vh [bottom] 25vh [ground] 12.5vh;
-  grid-template-columns: 100vw;
-  max-width: 100vw;
-}
-
-.top-wrapper {
-  margin-top: 1em;
-  grid-row: top;
+.image-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-area: 1 /1 /2/2;
+  height: 100%;
 }
-
-.top-wrapper-name-title {
-  width: 100%;
-  text-align: center;
-  font-family: "Cookie", cursive;
-  font-size: 3em;
-}
-
-.top-wrapper-name {
-  width: 30%;
-  height: 20%;
-  align-self: center;
-  text-align: center;
-}
-
-.top-wrapper-picture-title {
-  width: 100%;
-  text-align: center;
-  font-family: "Cookie", cursive;
-  font-size: 3em;
-}
-
-.top-wrapper-picture {
-  grid-row: bottom;
-  width: 100%;
-  height: 20%;
-  text-align: center;
-}
-
-.top-wrapper-upload {
-  width: 30%;
-  text-align: center;
-  align-self: center;
-}
-
-.middle-wrapper {
-  margin-top: 1em;
-  display: flex;
-  flex-direction: column;
-  grid-row: middle;
+.create-profile-image {
+  border: var(--border-blue) 3px solid;
+  height: 9em;
+  border-radius: 50%;
   justify-self: center;
   align-items: center;
-  height: auto;
+}
+
+.create-profile-title {
+  color: var(--white);
+  font-family: "Cookie", cursive;
+  font-size: 3em;
+  transform: rotate(-20deg) skew(-20deg);
+}
+
+.name-and-bio-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-area: 2 /1 /3/2;
+  height: 100%;
+}
+
+.wrapper-name-title {
+  width: 80%;
+  text-align: left;
+  font-family: var(--normal-text-title);
+  color: var(--white);
+  font-size: 1em;
+}
+
+.wrapper-bio-title {
+  width: 80%;
+  text-align: left;
+  font-family: var(--normal-text-title);
+  color: var(--white);
+  font-size: 1em;
+}
+
+.wrapper-name {
+  width: 80%;
+  height: 10%;
+  align-self: center;
+  text-align: left;
+  resize: none;
+  box-shadow: var(--hard-shadow);
+  border-radius: 5px;
+  margin: 5px 0;
+}
+.wrapper-bio {
+  width: 80%;
+  height: 40%;
+  text-align: left;
+  resize: none;
+  box-shadow: var(--hard-shadow);
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.input-file-label {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.browse-button {
+  grid-row: bottom;
+  width: 69px;
+  height: 20%;
+  margin: 0 1em;
+  box-shadow: var(--hard-shadow);
+}
+
+.upload-button {
+  margin: 0 1em;
+  width: 30%;
+  text-align: center;
+  box-shadow: var(--hard-shadow);
 }
 
 .bio-counter {
   text-align: right;
-  width: 100%;
-  font-family: "Cookie", cursive;
+  width: 80%;
+  font-family: var(--cookie-text-title);
   opacity: 0.5;
+  color: var(--light-blue);
 }
 
-.create-profile-image {
-  height: 90%;
-  grid-row: bottom;
-  justify-self: center;
-  align-items: center;
+.bottom-wrapper {
+  grid-area: 4 / 1 / 5 / 2;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 .create-profile-save-button {
-  grid-row: 4/5;
-  grid-column: 1/2;
-  justify-self: center;
-  align-items: center;
-  font-size: 40px;
+  font-size: 2.5rem;
   text-decoration: none;
   color: var(--deep-blue);
   border-radius: 50%;
@@ -98,5 +130,5 @@
   height: 60px;
   width: 60px;
   border: none;
-  box-shadow: 0px 7px 0px 0px rgba(0, 0, 0, 0.32);
+  box-shadow: var(--hard-shadow);
 }
