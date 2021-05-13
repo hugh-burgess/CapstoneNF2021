@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { getItemsFromLocalStorage } from "../utils/itemStorage";
 
 import "./LogIn.css";
-const baseUrl = " https://shielded-tundra-69796.herokuapp.com/login";
+const baseUrl = "  https://shielded-tundra-69796.herokuapp.com/login";
 
 export default function Cover() {
   const [user, setUser] = useState([]);

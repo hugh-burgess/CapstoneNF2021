@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SiDatadog } from "react-icons/si";
 import { useHistory } from "react-router";
 import "./LogIn.css";
-const baseUrl = " https://shielded-tundra-69796.herokuapp.com/login/register";
+const baseUrl = "  https://shielded-tundra-69796.herokuapp.com/login/register";
 
 export default function Register() {
   const [clicked, setClicked] = useState(false);

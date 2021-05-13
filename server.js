@@ -2,6 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
 const mongoose = require("mongoose");
 const Park = require("./models/Park");
 const Friends = require("./models/Friends");
@@ -64,12 +67,24 @@ app.post("/login", (req, res) => {
   } else {
     Users.find({ username: username })
       .then((user) => {
-        if (password === user[0].password) {
-          res.status(200).json({ login: true });
-        } else {
-          res.status(400);
-          res.json({ error: "Password and username invalid!" });
-        }
+        const passwordEnteredByUser = password;
+        const hash = user[0].password;
+        bcrypt.compare(passwordEnteredByUser, hash, function (err, isMatch) {
+          if (err) {
+            throw err;
+          } else if (!isMatch) {
+            return response.json({
+              success: false,
+              message: "passwords do not match",
+            });
+          } else {
+            res.status(200).json({
+              login: true,
+              success: true,
+              message: "passwords match",
+            });
+          }
+        });
       })
       .catch((error) => {
         console.error(error);
@@ -80,30 +95,52 @@ app.post("/login", (req, res) => {
 app.post("/login/register", (req, res) => {
   console.log(req.body);
   const { username, password, bio, name, picture } = req.body;
-  Users.find({ username: username }).then((user) => {
-    if (user.length !== 0) {
-      res.json({ error: "User already exists! Please choose another name" });
-    } else {
-      if (!username || !password) {
-        res.status(400);
-        res.json({ error: "Please create a username and password!" });
+  Users.find({ username: username })
+    .exec()
+    .then((user) => {
+      if (user.length !== 0) {
+        res.json({
+          error: "User already exists! Please choose another name",
+          user: user,
+        });
       } else {
-        Users.create({
-          username: username,
-          password: password,
-          bio: bio,
-          name: name,
-          picture: picture,
-        })
-          .then((user) => {
-            res.status(200).json({ newUserCreated: true });
-          })
-          .catch((error) => {
-            console.error(error);
+        if (!username || !password) {
+          res.status(400);
+          res.json({ error: "Please create a username and password!" });
+        } else {
+          bcrypt.hash(password, saltRounds, function (err, hash) {
+            // Store hash in your password DB.
+            if (err) {
+              return res.json({
+                error: err,
+              });
+            } else {
+              const user = new Users({
+                _id: new mongoose.Types.ObjectId(),
+                username: username,
+                password: hash,
+                bio: bio,
+                name: name,
+                picture: picture,
+              });
+              user
+                .save()
+                .then((result) => {
+                  res.status(200).json({
+                    newUserCreated: true,
+                    message: "user created!",
+                    user: result,
+                  });
+                })
+
+                .catch((error) => {
+                  console.error(error);
+                });
+            }
           });
+        }
       }
-    }
-  });
+    });
 });
 
 app.patch("/users", (req, res) => {
@@ -126,7 +163,6 @@ app.patch("/users", (req, res) => {
       });
   }
 });
-
 
 app.get("/parks/:id", (req, res) => {
   const { id } = req.params;
