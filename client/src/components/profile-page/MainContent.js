@@ -45,12 +45,13 @@ export default function MainContent() {
           <h2 className="dog-name">{Capitalize(name)}</h2>
           <p className="profile-bio-text">{bio}</p>
         </div>
-
-        <p className="feedback">feedback</p>
-        <div className="feedback-list">
-          <li>the goodest boy</li>
-          <li>loves scritches</li>
-          <li>loves walks</li>
+        <div className="feedback-list-wrapper">
+          <p className="feedback">feedback</p>
+          <div className="feedback-list">
+            <li>the goodest boy</li>
+            <li>loves scritches</li>
+            <li>loves walks</li>
+          </div>
         </div>
       </div>
       <div className="bottom-profile-wrapper">
