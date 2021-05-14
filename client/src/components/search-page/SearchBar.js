@@ -3,7 +3,6 @@ export default function SearchBar({ handleNameFilter }) {
     event.preventDefault();
     const value = event.target.value;
     handleNameFilter(value);
-    console.log(value);
   }
 
   return (

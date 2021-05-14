@@ -14,7 +14,6 @@ export default function Dogs({ filter }) {
   const filteredName = friends.filter(
     (friend) => friend.name.toLowerCase().includes(filter) || filter === ""
   );
-  console.log(filter);
 
   function renderFriend() {
     return filteredName.map((friend, index) => {

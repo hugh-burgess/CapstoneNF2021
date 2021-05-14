@@ -5,7 +5,7 @@ export function getItemsFromLocalStorage(key) {
 }
 
 export function addItemToLocalStorage(key, item) {
-  const data = getItemsFromLocalStorage(key); // always returns an array
+  const data = getItemsFromLocalStorage(key);
 
   item.id = Date.now();
 
