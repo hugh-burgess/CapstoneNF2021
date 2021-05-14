@@ -54,7 +54,9 @@ export default function Register() {
   return (
     <div className="cover-page">
       <div className="cover-box-light-blue">
-        <h1 className="app-title">Walkies&amp;Talkies</h1>
+        <div className="app-title-wrapper">
+          <h1 className="app-title">Walkies&amp;Talkies</h1>
+        </div>
       </div>
       <div className="login-page-wrapper">
         <SiDatadog className="login-page-dog" />
