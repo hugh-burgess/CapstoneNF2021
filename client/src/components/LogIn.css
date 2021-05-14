@@ -64,7 +64,7 @@
 }
 
 .register-red-warning {
-  border: var(--red) 1px solid;
+  border: var(--red) 2px solid;
 }
 
 .register-message-warning {
