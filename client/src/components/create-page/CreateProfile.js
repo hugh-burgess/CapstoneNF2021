@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { GiDogHouse } from "react-icons/gi";
 import { addProfileToLocalStorage } from "../../utils/itemStorage";
 import CreateForm from "./CreateForm";
-const baseUrl = "http://localhost:4000/users";
+const baseUrl = "https://shielded-tundra-69796.herokuapp.com/users";
 
 export default function CreateProfile() {
   const [imageSelected, setImageSelected] = useState("");
