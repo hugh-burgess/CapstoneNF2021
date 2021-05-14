@@ -39,7 +39,6 @@ export default function Map() {
     ];
     setParkData(veryNewParks);
   }
-
   useEffect(() => {
     saveJSONToLocalStorage("parkData", parkData);
   }, [parkData]);
