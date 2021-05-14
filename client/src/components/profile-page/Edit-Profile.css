@@ -7,27 +7,40 @@
   filter: blur(3px);
 }
 
+.blank-picture {
+  background: var(--white);
+  height: 100%;
+  width: 90%;
+  border-radius: 50%;
+}
+
 .edit-pen {
   color: red;
   z-index: 10;
-  font-size: 30px;
-  grid-area: 2 / 1 / 3 / 3;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 5em;
+  left: 1.5em;
+  top: 0.7em;
+  height: 22%;
+  position: absolute;
 }
 
 .edit-photo {
-  grid-column: left;
-  grid-row: first;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
   color: red;
   z-index: 10;
-  font-size: 30px;
+  font-size: 3em;
+  left: 1.2em;
+  top: 1.2em;
+  position: absolute;
+}
+
+.save-button {
+  font-family: "PT Sans";
+  cursor: pointer;
+  background-color: white;
+  color: var(--deep-blue);
+  border-radius: 15px;
+  width: 30px;
+  height: 20px;
+  padding: 10px;
+  border: black 1px solid;
 }

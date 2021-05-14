@@ -2,56 +2,49 @@ import { FaDog } from "react-icons/fa";
 import { FaBone } from "react-icons/fa";
 import { BsPencil } from "react-icons/bs";
 import { MdAddAPhoto } from "react-icons/md";
-import blankProfilePic from "../../images/blankProfilePic.svg";
 import bubble from "../../images/stat-bubble.svg";
 import bioBubble from "../../images/bio-bubble.svg";
 import "./Edit-Profile.css";
 import { Link } from "react-router-dom";
+import TourButton from "./TourButton";
 
 export default function EditContent() {
   return (
-    <div className="profile-wrapper">
-      <div className="grid-wrapper">
-        <div className="edit-pen">
-          <BsPencil />
-        </div>
-
-        <div className="edit-photo">
-          <MdAddAPhoto />
-        </div>
-        <img className="profile-picture" src={blankProfilePic} alt="doggy" />
-        <img className="profile-bubble blur-effect" src={bubble} alt="#" />
-        <div className="top-icons-and-text">
-          <div className="top-flex-frens blur-effect">
-            <FaDog className="fren-icon" />
-            <p className="fren-count">4 frens</p>
+    <div className="grid-wrapper">
+      <div className="top-profile-wrapper">
+        <div className="blank-picture" />
+        <MdAddAPhoto className="edit-photo" />
+        <div className="top-text-wrapper ">
+          <div className="top-wrapper-icons">
+            <FaDog className="fren-icon blur-effect" />
+            <FaBone className="bone-icon blur-effect" />
           </div>
-          <div className="top-flex-rating blur-effect">
-            <FaBone className="bone-icon" />
+          <div className="top-wrapper-text blur-effect">
+            <p className="fren-count">4 frens</p>
             <p className="dog-rating">4.8</p>
           </div>
         </div>
-
+        <img className="profile-bubble blur-effect" src={bubble} alt="#" />
+      </div>
+      <div className="middle-profile-wrapper">
         <img className="profile-bio" src={bioBubble} alt="#" />
-        <div className="middle-flex-feedback-title blur-effect">
+        <BsPencil className="edit-pen" />
+        <div className="middle-text-wrapper"></div>
+        <div className="feedback-list-wrapper blur-effect">
           <p className="feedback">feedback</p>
-        </div>
-        <div className="middle-flex-feedback-list blur-effect">
           <div className="feedback-list">
             <li>the goodest boy</li>
             <li>loves scritches</li>
             <li>loves walks</li>
           </div>
         </div>
-
-        <div className="edit-wrapper">
-          <Link to="/profile">
-            <div className="save-button">save</div>
-          </Link>
-        </div>
-        <div className="bone-wrapper">
-          <FaBone className="big-bone-image" />
-        </div>
+      </div>
+      <div className="bottom-profile-wrapper">
+        <FaBone className="big-bone-image" />
+        <TourButton />
+        <Link to="/profile">
+          <div className="save-button">save</div>
+        </Link>
       </div>
     </div>
   );

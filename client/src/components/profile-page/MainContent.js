@@ -4,6 +4,8 @@ import bubble from "../../images/stat-bubble.svg";
 import bioBubble from "../../images/bio-bubble.svg";
 import { useEffect, useState } from "react";
 import { getItemsFromLocalStorage } from "../../utils/itemStorage";
+import TourButton from "./TourButton";
+import EditButton from "./EditButton";
 
 export default function MainContent() {
   const [name, setName] = useState("");
@@ -22,24 +24,41 @@ export default function MainContent() {
   }
 
   return (
-    <div className="profile-wrapper">
-      <p className="profile-bio-text">{bio}</p>
-
-      <FaDog className="fren-icon" />
-      <FaBone className="bone-icon" />
-      <h2 className="dog-name">{Capitalize(name)}</h2>
-      <p className="fren-count">4 frens</p>
-      <p className="dog-rating">4.8</p>
-      <p className="feedback">feedback</p>
-      <div className="feedback-list">
-        <li>the goodest boy</li>
-        <li>loves scritches</li>
-        <li>loves walks</li>
+    <div className="grid-wrapper">
+      <div className="top-profile-wrapper">
+        <img className="profile-picture" src={picture} alt="doggy" />
+        <div className="top-text-wrapper">
+          <div className="top-wrapper-icons">
+            <FaDog className="fren-icon" />
+            <FaBone className="bone-icon" />
+          </div>
+          <div className="top-wrapper-text">
+            <p className="fren-count">4 frens</p>
+            <p className="dog-rating">4.8</p>
+          </div>
+        </div>
+        <img className="profile-bubble" src={bubble} alt="#" />
       </div>
-      <img className="profile-picture" src={picture} alt="doggy" />
-      <img className="profile-bubble" src={bubble} alt="#" />
       <img className="profile-bio" src={bioBubble} alt="#" />
-      <FaBone className="big-bone-image" />
+      <div className="middle-profile-wrapper">
+        <div className="middle-text-wrapper">
+          <h2 className="dog-name">{Capitalize(name)}</h2>
+          <p className="profile-bio-text">{bio}</p>
+        </div>
+        <div className="feedback-list-wrapper">
+          <p className="feedback">feedback</p>
+          <div className="feedback-list">
+            <li>the goodest boy</li>
+            <li>loves scritches</li>
+            <li>loves walks</li>
+          </div>
+        </div>
+      </div>
+      <div className="bottom-profile-wrapper">
+        <FaBone className="big-bone-image" />
+        <TourButton />
+        <EditButton />
+      </div>
     </div>
   );
 }
