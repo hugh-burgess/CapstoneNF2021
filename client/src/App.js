@@ -12,6 +12,8 @@ import Whistle from "./components/single-dog/Whistle";
 import SinglePark from "./components/map-page/SinglePark";
 import CreateProfile from "./components/create-page/CreateProfile";
 import Register from "./components/Register";
+import { removeItemFromLocalStorageByName } from "./utils/itemStorage";
+import FailStatePage from "./FailStatePage";
 
 function App() {
   return (
@@ -55,7 +57,7 @@ function App() {
             <LogIn />
           </Route>
           <Route path="*">
-            <h2>Something went wrong! Go Back 🤓 </h2>
+            <FailStatePage />
           </Route>
         </Switch>
       </div>
