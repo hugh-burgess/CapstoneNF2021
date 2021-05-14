@@ -1,6 +1,6 @@
 import { GiSniffingDog } from "react-icons/gi";
 import Header from "./components/Header";
-import Navigation from "./components/Navigation";
+import Navigation from "./components/navigation/Navigation";
 import "./components/friends-page/FriendsContent.css";
 import { useHistory } from "react-router";
 

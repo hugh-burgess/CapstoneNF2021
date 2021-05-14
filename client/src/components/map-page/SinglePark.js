@@ -1,4 +1,4 @@
-import Navigation from "../Navigation";
+import Navigation from "../navigation/Navigation";
 import parksData from "../../parks.json";
 import "./SinglePark.css";
 import { useEffect, useState } from "react";

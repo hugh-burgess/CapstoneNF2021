@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { SiDatadog } from "react-icons/si";
 import { useHistory } from "react-router";
-import "./log-in/LogIn.css";
+import "../log-in/LogIn.css";
 import RegisterForm from "./RegisterForm";
 const baseUrl = "  https://shielded-tundra-69796.herokuapp.com/login/register";
 

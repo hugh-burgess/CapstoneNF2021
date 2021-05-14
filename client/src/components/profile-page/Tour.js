@@ -1,5 +1,5 @@
 import Header from "../Header";
-import Navigation from "../Navigation";
+import Navigation from "../navigation/Navigation";
 import MainContent from "./MainContent";
 import "./Tour.css";
 

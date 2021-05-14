@@ -4,7 +4,7 @@ import {
   getItemsFromLocalStorage,
   getSingleDogFromLocalStorage,
 } from "../../utils/itemStorage";
-import Navigation from "../Navigation";
+import Navigation from "../navigation/Navigation";
 import "./SingleDog.css";
 import { AiFillStar } from "react-icons/ai";
 import { ImBubble } from "react-icons/im";

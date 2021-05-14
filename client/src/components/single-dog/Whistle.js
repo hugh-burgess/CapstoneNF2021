@@ -1,7 +1,7 @@
 import { useLocation } from "react-router";
 import { getSingleDogFromLocalStorage } from "../../utils/itemStorage";
 import Header from "../Header";
-import Navigation from "../Navigation";
+import Navigation from "../navigation/Navigation";
 import "./Whistle.css";
 
 export default function Whistle() {

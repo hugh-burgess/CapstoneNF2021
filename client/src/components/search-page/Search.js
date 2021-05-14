@@ -1,4 +1,4 @@
-import Navigation from "../Navigation";
+import Navigation from "../navigation/Navigation";
 import "./Search.css";
 import "../profile-page/Profile.css";
 import SearchBar from "./SearchBar";

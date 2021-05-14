@@ -1,4 +1,4 @@
-import Navigation from "../Navigation";
+import Navigation from "../navigation/Navigation";
 import MainContent from "./MainContent";
 import "./Profile.css";
 import Header from "../Header";
