@@ -93,7 +93,6 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/login/register", (req, res) => {
-  console.log(req.body);
   const { username, password, bio, name, picture } = req.body;
   Users.find({ username: username })
     .exec()
