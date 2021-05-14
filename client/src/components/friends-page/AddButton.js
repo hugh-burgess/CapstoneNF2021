@@ -19,7 +19,7 @@ export default function AddButton() {
   const [reviewing, setReviewing] = useState("");
   const [fields, setFields] = useState([{ value: null }]);
   const [isStar, setIsStar] = useState(false);
-  
+
   const [friends, setFriends] = useState([]);
   const [count, setCount] = useState(0);
   // const [selectedFile, setSelectedFile] = useState(null);
@@ -229,10 +229,7 @@ export default function AddButton() {
               {isStar ? "Starred!" : "Star"}
             </button>
           </div>
-          {/* <FileUploader
-              onFileSelectSuccess={(file) => setSelectedFile(file)}
-              onFileSelectError={({ error }) => alert(error)}
-            /> */}
+
           <button type="submit" onClick={() => setCount(count + 1)}>
             save
           </button>
