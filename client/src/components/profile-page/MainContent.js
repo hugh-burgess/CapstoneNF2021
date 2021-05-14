@@ -39,8 +39,8 @@ export default function MainContent() {
         </div>
         <img className="profile-bubble" src={bubble} alt="#" />
       </div>
+      <img className="profile-bio" src={bioBubble} alt="#" />
       <div className="middle-profile-wrapper">
-        <img className="profile-bio" src={bioBubble} alt="#" />
         <div className="middle-text-wrapper">
           <h2 className="dog-name">{Capitalize(name)}</h2>
           <p className="profile-bio-text">{bio}</p>
