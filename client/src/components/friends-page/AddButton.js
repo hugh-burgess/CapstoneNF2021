@@ -7,8 +7,6 @@ import {
 } from "../../utils/itemStorage";
 import { ImBin } from "react-icons/im";
 import { RiAddCircleFill } from "react-icons/ri";
-// import FileUploader from "./FileUploader";
-// import axios from "axios";
 
 export default function AddButton() {
   const [isClicked, setIsClicked] = useState(false);
@@ -22,7 +20,6 @@ export default function AddButton() {
 
   const [friends, setFriends] = useState([]);
   const [count, setCount] = useState(0);
-  // const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
     const friends = getItemsFromLocalStorage("friends");
@@ -70,10 +67,6 @@ export default function AddButton() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    // const formData = new FormData();
-    // formData.append("name", friendName);
-    // formData.append("file", selectedFile);
-
     addItemToLocalStorage("friends", {
       name: friendName,
       // imgSrc: imageSource,
@@ -82,7 +75,6 @@ export default function AddButton() {
       rating: ratings,
       review: reviewing,
       isStarred: isStar,
-      // file: selectedFile,
     });
 
     const items = getItemsFromLocalStorage("friends");
@@ -105,29 +97,12 @@ export default function AddButton() {
     });
   }
 
-  // const submitForm = (event) => {
-  //   event.preventDefault();
-  //   // const url = "https://shielded-tundra-69796.herokuapp.com/friends";
-  //   const formData = new FormData();
-  //   formData.append("name", friendName);
-  //   formData.append("file", selectedFile);
-
-  //   axios
-  //     .post(url, formData)
-  //     .then((res) => {
-  //       alert("File Upload success");
-  //       console.log("File Upload success");
-  //     })
-  //     .catch((err) => alert("File Upload Error"));
-  // };
-
   function handleButtonClick(event) {
     event.preventDefault();
 
     setIsClicked(!isClicked);
   }
 
-  // delete the rendered message after 2 seconds
   const Expire = (props) => {
     const [visible, setVisible] = useState(true);
 
@@ -179,9 +154,6 @@ export default function AddButton() {
                       placeholder="stats goes here..."
                       value={field.value || ""}
                       onChange={(e) => handleChange(idx, e)}
-
-                      //   value={statistics}
-                      //   onChange={handleStatsChange}
                     />
                     <button
                       className="stats-add-button"
