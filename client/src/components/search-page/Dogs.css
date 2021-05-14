@@ -8,12 +8,13 @@
   width: 50vw;
   margin: 20px auto;
   background-color: var(--sea-blue);
-  box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: var(--hard-shadow);
 }
 
 .dogs-name {
   font-size: 35px;
-  font-family: "Cookie", cursive;
+  font-family: var(--cookie-text-title);
+  text-decoration: none;
   color: var(--deep-blue);
   margin: 5px;
 }

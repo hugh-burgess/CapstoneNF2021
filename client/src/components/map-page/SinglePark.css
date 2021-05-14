@@ -13,7 +13,7 @@
 }
 
 .single-park-updates-title {
-  font-family: "Helvetiva Neue";
+  font-family: var(--normal-text-title);
   font-size: 30px;
 }
 

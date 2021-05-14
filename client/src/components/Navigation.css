@@ -12,7 +12,7 @@
   height: 60px;
   width: 60px;
   border: none;
-  box-shadow: 0px 7px 0px 0px rgba(0, 0, 0, 0.32);
+  box-shadow: var(--hard-shadow);
 }
 .nav-icons {
   font-size: 40px;
