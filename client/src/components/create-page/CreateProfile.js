@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Image } from "cloudinary-react";
 import "./CreateProfile.css";
 import Header from "../../components/Header";
 import { NavLink } from "react-router-dom";
-import { AiFillSave } from "react-icons/ai";
 import { GiDogHouse } from "react-icons/gi";
 import { addProfileToLocalStorage } from "../../utils/itemStorage";
+import CreateForm from "./CreateForm";
 const baseUrl = "http://localhost:4000/users";
 
 export default function CreateProfile() {
@@ -109,76 +108,21 @@ export default function CreateProfile() {
     <div className="grid-layout-app background-create-page">
       <Header title="create profile" />
       <main className="main create-profile-page">
-        <form
-          className="create-profile-form"
-          onSubmit={handleCreateProfileSubmit}
-        >
-          <div className="image-wrapper">
-            <Image
-              className={imageId ? "create-profile-image" : "hidden"}
-              id={imageId}
-              cloudName="dy1xpaosj"
-              publicId={
-                imageId
-                  ? `https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`
-                  : ""
-              }
-            />
-            <div className={imageId ? "hidden" : "create-profile-title"}>
-              Describe your Dog!
-            </div>
-          </div>
-          <div className="name-and-bio-wrapper">
-            <p className="wrapper-name-title">Name:</p>
-            <textarea
-              className="wrapper-name"
-              type="text"
-              placeholder="name here..."
-              onChange={handleNameChange}
-              maxLength="10"
-              value={name}
-              required
-            />
-
-            <p className="wrapper-bio-title">Bio:</p>
-            <textarea
-              className="wrapper-bio"
-              type="text"
-              onChange={handleBioChange}
-              placeholder="enter a bio here..."
-              maxLength="125"
-              value={bio}
-              required
-            />
-            <div className="bio-counter" onChange={handleBioChange}>
-              {counter}
-            </div>
-          </div>
-          <label className="input-file-label">
-            <input
-              className="browse-button"
-              type="file"
-              name="upload"
-              id="upload"
-              onChange={(event) => {
-                setImageSelected(event.target.files[0]);
-              }}
-              required
-            />
-            <button className="upload-button" onClick={uploadImage}>
-              {buttonName}
-            </button>
-          </label>
-          <div className="bottom-wrapper">
-            <button
-              className={
-                clicked === true ? "hidden" : "create-profile-save-button"
-              }
-            >
-              <AiFillSave type="submit" onClick={handleCreateProfileSubmit} />
-            </button>
-          </div>
-        </form>
+        <CreateForm
+          handleCreateProfileSubmit={handleCreateProfileSubmit}
+          handleNameChange={handleNameChange}
+          imageId={imageId}
+          name={name}
+          handleBioChange={handleBioChange}
+          bio={bio}
+          counter={counter}
+          clicked={clicked}
+          buttonName={buttonName}
+          uploadImage={uploadImage}
+          setImageSelected={setImageSelected}
+          imageType={imageType}
+          imagePublicId={imagePublicId}
+        />
       </main>
       <footer className="footer">
         <nav className="nav footer">
