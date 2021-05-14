@@ -7,7 +7,6 @@ import {
   getItemsFromLocalStorage,
   addNotetoLocalStorage,
 } from "../../utils/itemStorage";
-import Header from "../header/Header";
 
 function initialLoad() {
   const retrieveArray = getItemsFromLocalStorage("parkData");
