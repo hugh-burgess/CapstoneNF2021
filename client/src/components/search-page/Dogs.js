@@ -4,6 +4,18 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GiSniffingDog } from "react-icons/gi";
 
+import dogOne from "../../images/dogs/dogOne.png";
+import dogTwo from "../../images/dogs/dogTwo.png";
+import dogThree from "../../images/dogs/dogThree.png";
+import dogFour from "../../images/dogs/dogFour.png";
+import dogFive from "../../images/dogs/dogFive.png";
+
+const fakeFrensArray = [dogOne, dogTwo, dogThree, dogFour, dogFive];
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 export default function Dogs({ filter }) {
   const [friends, setFriends] = useState([]);
   useEffect(() => {
@@ -22,7 +34,11 @@ export default function Dogs({ filter }) {
         <Link to={`/single-dog/${friend.id}`}>
           <div key={index} className="friend-card">
             <p className="dogs-name">{friend.name}</p>
-            <img className="dogs-image" src={friend.imgSrc} alt="dog" />
+            <img
+              className="dogs-image"
+              src={fakeFrensArray[getRandomInt(5)]}
+              alt="dog"
+            />
           </div>
         </Link>
       );
