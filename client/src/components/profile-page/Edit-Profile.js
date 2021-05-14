@@ -1,4 +1,4 @@
-import Header from "../Header";
+import Header from "../header/Header";
 import Navigation from "../navigation/Navigation";
 import EditContent from "./EditContent";
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./CreateProfile.css";
-import Header from "../../components/Header";
+import Header from "../header/Header";
 import { NavLink } from "react-router-dom";
 import { GiDogHouse } from "react-icons/gi";
 import { addProfileToLocalStorage } from "../../utils/itemStorage";

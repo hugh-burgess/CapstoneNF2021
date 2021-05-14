@@ -13,6 +13,22 @@
   text-decoration: none;
 }
 
+.park-title {
+  font-family: var(--cookie-text-title);
+  padding-left: 10px;
+  font-size: 3rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.app-title {
+  font-family: var(--cookie-text-title);
+  padding-left: 10px;
+  font-size: 3rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
 .cover-link {
   text-decoration: none;
   color: var(--deep-blue);

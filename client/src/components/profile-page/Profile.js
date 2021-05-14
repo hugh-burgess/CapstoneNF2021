@@ -1,7 +1,7 @@
 import Navigation from "../navigation/Navigation";
 import MainContent from "./MainContent";
 import "./Profile.css";
-import Header from "../Header";
+import Header from "../header/Header";
 
 export default function Profile() {
   return (
