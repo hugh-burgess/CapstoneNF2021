@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { getItemsFromLocalStorage } from "../utils/itemStorage";
+import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 
 import "./LogIn.css";
 import LogInForm from "./LogInForm";
