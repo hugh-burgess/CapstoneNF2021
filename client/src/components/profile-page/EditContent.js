@@ -237,7 +237,7 @@ export default function EditContent() {
                 className="edit-back-button"
                 onClick={() => history.goBack()}
               >
-                Back
+                back
               </button>
             </div>
           )}
