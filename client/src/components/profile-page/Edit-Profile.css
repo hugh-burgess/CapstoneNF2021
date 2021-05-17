@@ -34,8 +34,27 @@
 
 .edit-upload-button {
   position: absolute;
-  margin-top: 4rem;
-  margin-left: 4rem;
+  top: 4rem;
+  left: 4rem;
+}
+
+.edit-page-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+}
+
+.edit-back-button {
+  font-family: "PT Sans";
+  cursor: pointer;
+  background-color: white;
+  color: var(--deep-blue);
+  border-radius: 15px;
+  width: 30px;
+  height: 20px;
+  padding: 10px;
+  border: black 1px solid;
+  margin: 5px 0;
 }
 
 .save-button {
@@ -48,6 +67,7 @@
   height: 20px;
   padding: 10px;
   border: black 1px solid;
+  margin: 5px 0;
 }
 
 .edit-bio-wrapper {

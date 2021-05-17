@@ -11,9 +11,11 @@ import {
   getItemsFromLocalStorage,
 } from "../../utils/itemStorage";
 import { Image } from "cloudinary-react";
+import { useHistory } from "react-router";
 const baseUrl = "https://shielded-tundra-69796.herokuapp.com/users";
 
 export default function EditContent() {
+  let history = useHistory();
   const [picture, setPicture] = useState("");
   const [isClicked, setIsClicked] = useState(false);
   const [bioClick, setBioClick] = useState(false);
@@ -211,17 +213,33 @@ export default function EditContent() {
             </div>
           </div>
           {isClicked ? (
-            <button className="save-button" disabled>
-              saved
-            </button>
+            <div className="edit-page-buttons-wrapper">
+              <button className="save-button" disabled>
+                saved
+              </button>
+              <button
+                className="edit-back-button"
+                onClick={() => history.goBack()}
+              >
+                Back
+              </button>
+            </div>
           ) : (
-            <button
-              className="save-button"
-              type="submit"
-              onClick={handleEditSubmit}
-            >
-              save
-            </button>
+            <div className="edit-page-buttons-wrapper">
+              <button
+                className="save-button"
+                type="submit"
+                onClick={handleEditSubmit}
+              >
+                save
+              </button>
+              <button
+                className="edit-back-button"
+                onClick={() => history.goBack()}
+              >
+                Back
+              </button>
+            </div>
           )}
         </div>
       </div>

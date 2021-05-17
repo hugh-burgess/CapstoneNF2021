@@ -10,7 +10,7 @@
   max-height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: 12rem 12em 10rem;
+  grid-template-rows: 12rem 12em 7rem;
   grid-template-columns: 1fr 1fr;
 }
 .top-profile-wrapper {
