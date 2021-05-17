@@ -4,8 +4,7 @@ import dogThree from "../images/dogs/dogThree.png";
 import dogFour from "../images/dogs/dogFour.png";
 import dogFive from "../images/dogs/dogFive.png";
 
-const fakeFrensArray = [dogOne, dogTwo, dogThree, dogFour, dogFive];
-
 export default function FakeFrens() {
+  const fakeFrensArray = [dogOne, dogTwo, dogThree, dogFour, dogFive];
   return fakeFrensArray;
 }

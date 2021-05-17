@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useHistory, useLocation, useParams } from "react-router-dom";
 import {
   getItemsFromLocalStorage,
   getSingleDogFromLocalStorage,
+  removeItemFromLocalStorageById,
 } from "../../utils/itemStorage";
 import Navigation from "../navigation/Navigation";
 import "./SingleDog.css";
@@ -12,12 +13,19 @@ import { ImBin } from "react-icons/im";
 import { FaBone } from "react-icons/fa";
 import RandomNumber from "../../utils/RandomNumber";
 import FakeFrens from "../../utils/FakeFrens";
-console.log(FakeFrens);
 
 export default function SingleDog() {
+  let number = RandomNumber;
   const [friends, setFriends] = useState([]);
   let location = useLocation();
   let { id } = useParams();
+  let history = useHistory();
+
+  function handleDeleteFriend(friend) {
+    removeItemFromLocalStorageById("friends", friend.id);
+    setFriends(getItemsFromLocalStorage("friends"));
+    history.push("/friends");
+  }
 
   useEffect(() => {
     const friends = getItemsFromLocalStorage("friends");
@@ -76,7 +84,7 @@ export default function SingleDog() {
           <div className="single-dog-wrapper">
             <img
               class="single-dog-image"
-              src={FakeFrens()[RandomNumber(5)]}
+              src={FakeFrens()[number(5)]}
               alt={filteredFriend.name}
             />
             <h1 className="cover-title">{filteredFriend.name}</h1>
@@ -127,7 +135,7 @@ export default function SingleDog() {
               </div>
               <div className="single-dog-delete">
                 <p className="single-dog-delete-content">
-                  <ImBin />
+                  <ImBin onClick={() => handleDeleteFriend(filteredFriend)} />
                 </p>
               </div>
             </div>
