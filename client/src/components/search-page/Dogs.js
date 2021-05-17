@@ -3,8 +3,8 @@ import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GiSniffingDog } from "react-icons/gi";
-import RandomNumber from "../../utils/RandomNumber";
-import FakeFrens from "../../utils/FakeFrens";
+import randomNumber from "../../utils/randomNumber";
+import fakeFrens from "../../utils/fakeFrens";
 
 export default function Dogs({ filter }) {
   const [friends, setFriends] = useState([]);
@@ -25,7 +25,7 @@ export default function Dogs({ filter }) {
             <p className="dogs-name">{friend.name}</p>
             <img
               className="dogs-image"
-              src={FakeFrens()[RandomNumber(5)]}
+              src={fakeFrens()[randomNumber(5)]}
               alt="dog"
             />
           </div>
