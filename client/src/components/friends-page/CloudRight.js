@@ -16,7 +16,7 @@ export default function CloudRight({
         <Link to={`/single-dog/${id}`}>
           <img
             className=" dog-image dog-image-right"
-            src={FakeFrens()[RandomNumber(5)]}
+            src={FakeFrens[RandomNumber(5)]}
             alt="dog"
           />
           <img

@@ -15,7 +15,7 @@ export default function CloudLeft({
       <Link to={`/single-dog/${id}`}>
         <img
           className="dog-image dog-image-left"
-          src={FakeFrens()[RandomNumber(5)]}
+          src={FakeFrens[RandomNumber(5)]}
           alt="dog"
         />
         <img

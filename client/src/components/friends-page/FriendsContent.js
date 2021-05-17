@@ -9,16 +9,8 @@ import { GiSittingDog } from "react-icons/gi";
 import CloudRight from "./CloudRight";
 import CloudLeft from "./CloudLeft";
 import FakeFrens from "../../utils/FakeFrens";
-
-import cloudOne from "../../images/clouds/cloudOne.svg";
-import cloudTwo from "../../images/clouds/cloudTwo.svg";
-import cloudThree from "../../images/clouds/cloudThree.svg";
-import cloudFour from "../../images/clouds/cloudFour.svg";
-import cloudFive from "../../images/clouds/cloudFive.svg";
-import cloudSix from "../../images/clouds/cloudSix.svg";
-
-const cloudFormationsLeft = [cloudTwo, cloudFour, cloudSix];
-const cloudFormationsRight = [cloudOne, cloudThree, cloudFive];
+import cloudFormationsLeft from "../../utils/CloudFormationsLeft";
+import cloudFormationsRight from "../../utils/CloudFormationsRight";
 
 export default function FriendsContent() {
   const [friends, setFriends] = useState([]);
@@ -40,8 +32,8 @@ export default function FriendsContent() {
             friend={friend}
             id={friend.id}
             onDeleteFriend={handleDeleteFriend}
-            cloudFormationsRight={cloudFormationsRight}
-            FakeFrens={FakeFrens}
+            cloudFormationsRight={cloudFormationsRight()}
+            FakeFrens={FakeFrens()}
           />
         );
       } else {
@@ -50,8 +42,8 @@ export default function FriendsContent() {
             friend={friend}
             id={friend.id}
             onDeleteFriend={handleDeleteFriend}
-            cloudFormationsLeft={cloudFormationsLeft}
-            FakeFrens={FakeFrens}
+            cloudFormationsLeft={cloudFormationsLeft()}
+            FakeFrens={FakeFrens()}
           />
         );
       }
