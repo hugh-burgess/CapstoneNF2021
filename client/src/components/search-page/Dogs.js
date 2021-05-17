@@ -3,6 +3,7 @@ import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GiSniffingDog } from "react-icons/gi";
+import RandomNumber from "../../utils/RandomNumber";
 
 import dogOne from "../../images/dogs/dogOne.png";
 import dogTwo from "../../images/dogs/dogTwo.png";
@@ -11,10 +12,6 @@ import dogFour from "../../images/dogs/dogFour.png";
 import dogFive from "../../images/dogs/dogFive.png";
 
 const fakeFrensArray = [dogOne, dogTwo, dogThree, dogFour, dogFive];
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
 
 export default function Dogs({ filter }) {
   const [friends, setFriends] = useState([]);
@@ -36,7 +33,7 @@ export default function Dogs({ filter }) {
             <p className="dogs-name">{friend.name}</p>
             <img
               className="dogs-image"
-              src={fakeFrensArray[getRandomInt(5)]}
+              src={fakeFrensArray[RandomNumber(5)]}
               alt="dog"
             />
           </div>

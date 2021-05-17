@@ -1,10 +1,8 @@
 import { TiDelete } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import "./FriendsContent.css";
+import RandomNumber from "../../utils/RandomNumber";
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
 export default function CloudRight({
   friend,
   id,
@@ -18,12 +16,12 @@ export default function CloudRight({
         <Link to={`/single-dog/${id}`}>
           <img
             className="dog-image-right"
-            src={fakeFrensArray[getRandomInt(5)]}
+            src={fakeFrensArray[RandomNumber(5)]}
             alt="dog"
           />
           <img
             className="cloud-right"
-            src={cloudFormationsRight[getRandomInt(3)]}
+            src={cloudFormationsRight[RandomNumber(3)]}
             alt="cloud"
           />
           <p className="names-right">{friend.name}</p>
