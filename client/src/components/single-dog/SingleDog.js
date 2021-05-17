@@ -11,11 +11,11 @@ import { AiFillStar } from "react-icons/ai";
 import { ImBubble } from "react-icons/im";
 import { ImBin } from "react-icons/im";
 import { FaBone } from "react-icons/fa";
-import randomNumber from "../../utils/randomNumber";
+import RandomNumber from "../../utils/RandomNumber";
 import fakeFrens from "../../utils/fakeFrens";
 
 export default function SingleDog() {
-  let number = randomNumber;
+  let number = RandomNumber;
   const [friends, setFriends] = useState([]);
   let location = useLocation();
   let { id } = useParams();

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./FriendsContent.css";
-import randomNumber from "../../utils/randomNumber";
+import RandomNumber from "../../utils/RandomNumber";
 
 export default function CloudLeft({
   friend,
@@ -13,12 +13,12 @@ export default function CloudLeft({
       <Link to={`/single-dog/${id}`}>
         <img
           className="dog-image dog-image-left"
-          src={fakeFrens[randomNumber(5)]}
+          src={fakeFrens[RandomNumber(5)]}
           alt="dog"
         />
         <img
           className="cloud"
-          src={cloudFormationsLeft[randomNumber(3)]}
+          src={cloudFormationsLeft[RandomNumber(3)]}
           alt="cloud"
         />
 
