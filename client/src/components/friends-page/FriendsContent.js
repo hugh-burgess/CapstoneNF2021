@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import { GiSittingDog } from "react-icons/gi";
 import CloudRight from "./CloudRight";
 import CloudLeft from "./CloudLeft";
-import FakeFrens from "../../utils/FakeFrens";
-import cloudFormationsLeft from "../../utils/CloudFormationsLeft";
-import cloudFormationsRight from "../../utils/CloudFormationsRight";
+import fakeFrens from "../../utils/fakeFrens";
+import cloudFormationsLeft from "../../utils/cloudFormationsLeft";
+import cloudFormationsRight from "../../utils/cloudFormationsRight";
 
 export default function FriendsContent() {
   const [friends, setFriends] = useState([]);
@@ -25,7 +25,7 @@ export default function FriendsContent() {
             friend={friend}
             id={friend.id}
             cloudFormationsRight={cloudFormationsRight()}
-            FakeFrens={FakeFrens()}
+            fakeFrens={fakeFrens()}
           />
         );
       } else {
@@ -34,7 +34,7 @@ export default function FriendsContent() {
             friend={friend}
             id={friend.id}
             cloudFormationsLeft={cloudFormationsLeft()}
-            FakeFrens={FakeFrens()}
+            fakeFrens={fakeFrens()}
           />
         );
       }

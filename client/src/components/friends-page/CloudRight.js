@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import "./FriendsContent.css";
-import RandomNumber from "../../utils/RandomNumber";
+import randomNumber from "../../utils/randomNumber";
 
 export default function CloudRight({
   friend,
   id,
   cloudFormationsRight,
-  FakeFrens,
+  fakeFrens,
 }) {
   return (
     <div className="cloud-wrapper">
@@ -14,12 +14,12 @@ export default function CloudRight({
         <Link to={`/single-dog/${id}`}>
           <img
             className=" dog-image dog-image-right"
-            src={FakeFrens[RandomNumber(5)]}
+            src={fakeFrens[randomNumber(5)]}
             alt="dog"
           />
           <img
             className="cloud cloud-right"
-            src={cloudFormationsRight[RandomNumber(3)]}
+            src={cloudFormationsRight[randomNumber(3)]}
             alt="cloud"
           />
           <p className="names names-right">{friend.name}</p>
