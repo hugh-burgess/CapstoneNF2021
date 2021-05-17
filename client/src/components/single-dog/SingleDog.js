@@ -14,6 +14,8 @@ import { FaBone } from "react-icons/fa";
 import randomNumber from "../../utils/randomNumber";
 import fakeFrens from "../../utils/fakeFrens";
 
+let number = randomNumber(5);
+
 export default function SingleDog() {
   const [friends, setFriends] = useState([]);
   let location = useLocation();
@@ -83,7 +85,7 @@ export default function SingleDog() {
           <div className="single-dog-wrapper">
             <img
               class="single-dog-image"
-              src={fakeFrens()[randomNumber(5)]}
+              src={fakeFrens()[number]}
               alt={filteredFriend.name}
             />
             <h1 className="cover-title">{filteredFriend.name}</h1>
