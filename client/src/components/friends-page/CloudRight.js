@@ -12,19 +12,19 @@ export default function CloudRight({
 }) {
   return (
     <div className="cloud-wrapper">
-      <div className="cloud-right">
+      <div className="cloud cloud-right">
         <Link to={`/single-dog/${id}`}>
           <img
-            className="dog-image-right"
+            className=" dog-image dog-image-right"
             src={fakeFrensArray[RandomNumber(5)]}
             alt="dog"
           />
           <img
-            className="cloud-right"
+            className="cloud cloud-right"
             src={cloudFormationsRight[RandomNumber(3)]}
             alt="cloud"
           />
-          <p className="names-right">{friend.name}</p>
+          <p className="names names-right">{friend.name}</p>
         </Link>
         <TiDelete
           className="bin-right"

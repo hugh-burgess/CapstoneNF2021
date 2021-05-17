@@ -11,20 +11,20 @@ export default function CloudLeft({
   fakeFrensArray,
 }) {
   return (
-    <div className="cloud-left">
+    <div className="cloud">
       <Link to={`/single-dog/${id}`}>
         <img
-          className="dog-image-left"
+          className="dog-image dog-image-left"
           src={fakeFrensArray[RandomNumber(5)]}
           alt="dog"
         />
         <img
-          className="cloud-left"
+          className="cloud"
           src={cloudFormationsLeft[RandomNumber(3)]}
           alt="cloud"
         />
 
-        <p className="names-left">{friend.name}</p>
+        <p className="names names-left">{friend.name}</p>
       </Link>
       <TiDelete className="bin-left" onClick={() => onDeleteFriend(friend)} />
     </div>
