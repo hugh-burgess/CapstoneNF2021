@@ -1,9 +1,6 @@
 import "./FriendsContent.css";
 
-import {
-  getItemsFromLocalStorage,
-  removeItemFromLocalStorageById,
-} from "../../utils/itemStorage";
+import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 import { useEffect, useState } from "react";
 import { GiSittingDog } from "react-icons/gi";
 import CloudRight from "./CloudRight";
