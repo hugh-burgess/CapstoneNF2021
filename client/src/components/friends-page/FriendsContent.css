@@ -20,12 +20,9 @@
 }
 
 .cloud-right {
-  display: flex;
   justify-content: flex-end;
-  padding: 10px 10px;
-  position: relative;
 }
-.cloud-left {
+.cloud {
   display: flex;
   padding: 10px 10px;
   position: relative;
@@ -33,33 +30,41 @@
 
 .dog-image-left {
   justify-self: left;
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  left: 20px;
-  top: 30px;
-  z-index: 1;
+  left: 30px;
+  top: 40px;
   position: absolute;
 }
 
 .dog-image-right {
   justify-self: right;
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  right: 20px;
-  top: 20px;
-  z-index: 1;
+  right: 30px;
+  top: 40px;
   position: absolute;
 }
 
+.dog-image {
+  z-index: 1;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+}
+
 .names-left {
-  font-family: var(--cookie-text-title);
-  font-size: 41px;
-  color: var(--deep-blue);
   position: absolute;
   left: 100px;
   bottom: 30px;
+}
+
+.names-right {
+  position: absolute;
+  right: 100px;
+  bottom: 30px;
+}
+
+.names {
+  font-family: var(--cookie-text-title);
+  font-size: 41px;
+  color: var(--deep-blue);
   z-index: 10;
 }
 
@@ -79,19 +84,9 @@
   font-size: 20px;
   color: var(--sea-blue);
   position: absolute;
-  top: 60px;
+  top: 80px;
   right: 30px;
   z-index: 1000;
-}
-
-.names-right {
-  font-family: var(--cookie-text-title);
-  font-size: 41px;
-  color: var(--deep-blue);
-  position: absolute;
-  right: 100px;
-  bottom: 30px;
-  z-index: 10;
 }
 
 .search-icon {
