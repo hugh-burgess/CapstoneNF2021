@@ -12,7 +12,7 @@ import { ImBubble } from "react-icons/im";
 import { ImBin } from "react-icons/im";
 import { FaBone } from "react-icons/fa";
 import RandomNumber from "../../utils/RandomNumber";
-import fakeFrens from "../../utils/fakeFrens";
+import FakeFrens from "../../utils/FakeFrens";
 
 export default function SingleDog() {
   let number = RandomNumber;
@@ -84,7 +84,7 @@ export default function SingleDog() {
           <div className="single-dog-wrapper">
             <img
               class="single-dog-image"
-              src={fakeFrens()[number(5)]}
+              src={FakeFrens()[number(5)]}
               alt={filteredFriend.name}
             />
             <h1 className="cover-title">{filteredFriend.name}</h1>
