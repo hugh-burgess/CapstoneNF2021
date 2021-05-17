@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GiSniffingDog } from "react-icons/gi";
 import RandomNumber from "../../utils/RandomNumber";
-import fakeFrens from "../../utils/fakeFrens";
+import FakeFrens from "../../utils/FakeFrens";
 
 export default function Dogs({ filter }) {
   const [friends, setFriends] = useState([]);
@@ -25,7 +25,7 @@ export default function Dogs({ filter }) {
             <p className="dogs-name">{friend.name}</p>
             <img
               className="dogs-image"
-              src={fakeFrens()[RandomNumber(5)]}
+              src={FakeFrens()[RandomNumber(5)]}
               alt="dog"
             />
           </div>

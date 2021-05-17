@@ -6,14 +6,14 @@ export default function CloudLeft({
   friend,
   id,
   cloudFormationsLeft,
-  fakeFrens,
+  FakeFrens,
 }) {
   return (
     <div className="cloud">
       <Link to={`/single-dog/${id}`}>
         <img
           className="dog-image dog-image-left"
-          src={fakeFrens[RandomNumber(5)]}
+          src={FakeFrens[RandomNumber(5)]}
           alt="dog"
         />
         <img
