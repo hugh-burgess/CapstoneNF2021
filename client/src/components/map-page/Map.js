@@ -1,5 +1,6 @@
 import Navigation from "../navigation/Navigation";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import Header from "../header/Header";
 import parksData from "../../parks.json";
 import { useEffect, useState } from "react";
 import { TiTree } from "react-icons/ti";
@@ -11,7 +12,6 @@ import {
   getItemsFromLocalStorage,
   saveJSONToLocalStorage,
 } from "../../utils/itemStorage";
-import Header from "../header/Header";
 
 export default function Map() {
   const [viewport, setViewport] = useState({
