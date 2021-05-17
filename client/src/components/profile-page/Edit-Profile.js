@@ -1,5 +1,5 @@
-import Header from "../Header";
-import Navigation from "../Navigation";
+import Header from "../header/Header";
+import Navigation from "../navigation/Navigation";
 import EditContent from "./EditContent";
 
 export default function EditProfile() {

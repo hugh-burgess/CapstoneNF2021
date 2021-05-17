@@ -24,3 +24,12 @@
   --hard-shadow: 0px 7px 0px 0px rgba(0, 0, 0, 0.32);
   --soft-shadow: 0px 8px 7px 7px rgba(0, 0, 0, 0.61);
 }
+
+.false-page {
+  background-color: var(--light-yellow);
+  height: 100vh;
+}
+
+.lost-dog {
+  font-size: 8rem;
+}

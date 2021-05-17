@@ -1,10 +1,10 @@
-import Navigation from "../Navigation";
+import Navigation from "../navigation/Navigation";
 import "./Search.css";
 import "../profile-page/Profile.css";
 import SearchBar from "./SearchBar";
 import Dogs from "./Dogs";
 import { useState } from "react";
-import Header from "../Header";
+import Header from "../header/Header";
 
 export default function Search() {
   const [filter, setFilter] = useState("");

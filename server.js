@@ -59,7 +59,6 @@ app.get("/friends", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  console.log(req.body);
   const { username, password } = req.body;
   if (!username || !password) {
     res.status(400);
@@ -108,7 +107,6 @@ app.post("/login/register", (req, res) => {
           res.json({ error: "Please create a username and password!" });
         } else {
           bcrypt.hash(password, saltRounds, function (err, hash) {
-            // Store hash in your password DB.
             if (err) {
               return res.json({
                 error: err,
@@ -195,6 +193,6 @@ const mongodb = mongoose.connection;
 
 mongodb.on("open", () => {
   app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+    `Listening on port ${PORT}`);
   });
 });

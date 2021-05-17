@@ -5,13 +5,14 @@ import Map from "./components/map-page/Map";
 import EditProfile from "./components/profile-page/Edit-Profile";
 import Profile from "./components/profile-page/Profile";
 import Tour from "./components/profile-page/Tour";
-import LogIn from "./components/LogIn";
+import LogIn from "./components/log-in/LogIn";
 import Search from "./components/search-page/Search";
 import SingleDog from "./components/single-dog/SingleDog";
 import Whistle from "./components/single-dog/Whistle";
 import SinglePark from "./components/map-page/SinglePark";
 import CreateProfile from "./components/create-page/CreateProfile";
-import Register from "./components/Register";
+import Register from "./components/register/Register";
+import FailStatePage from "./FailStatePage";
 
 function App() {
   return (
@@ -55,7 +56,7 @@ function App() {
             <LogIn />
           </Route>
           <Route path="*">
-            <h2>Something went wrong! Go Back 🤓 </h2>
+            <FailStatePage />
           </Route>
         </Switch>
       </div>

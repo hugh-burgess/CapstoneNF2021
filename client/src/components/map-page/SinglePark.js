@@ -1,4 +1,4 @@
-import Navigation from "../Navigation";
+import Navigation from "../navigation/Navigation";
 import parksData from "../../parks.json";
 import "./SinglePark.css";
 import { useEffect, useState } from "react";
@@ -7,7 +7,6 @@ import {
   getItemsFromLocalStorage,
   addNotetoLocalStorage,
 } from "../../utils/itemStorage";
-import Header from "../Header";
 
 function initialLoad() {
   const retrieveArray = getItemsFromLocalStorage("parkData");
@@ -53,7 +52,9 @@ export default function SinglePark() {
 
   return (
     <div>
-      <Header title={selectedPark.name} />
+      <div className="header">
+        <h1 className="park-title">{selectedPark.name}</h1>
+      </div>
       <main className="main single-park-page">
         <p class="single-park-address">Address: {selectedPark.address}</p>
         <p className="single-park-updates-title">Updates</p>

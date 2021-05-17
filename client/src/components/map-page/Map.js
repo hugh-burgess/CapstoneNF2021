@@ -1,13 +1,14 @@
-import Navigation from "../Navigation";
+import Navigation from "../navigation/Navigation";
+import Header from "../header/Header";
 import parksData from "../../parks.json";
 import { useEffect, useState } from "react";
 import "./SinglePark.css";
+import MapDisplay from "./MapDisplay";
+
 import {
   getItemsFromLocalStorage,
   saveJSONToLocalStorage,
 } from "../../utils/itemStorage";
-import Header from "../Header";
-import MapDisplay from "./MapDisplay";
 
 export default function Map() {
   const [parkData, setParkData] = useState(initialLoad());
