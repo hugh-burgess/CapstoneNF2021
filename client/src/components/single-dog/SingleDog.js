@@ -10,6 +10,9 @@ import { AiFillStar } from "react-icons/ai";
 import { ImBubble } from "react-icons/im";
 import { ImBin } from "react-icons/im";
 import { FaBone } from "react-icons/fa";
+import RandomNumber from "../../utils/RandomNumber";
+import FakeFrens from "../../utils/FakeFrens";
+console.log(FakeFrens);
 
 export default function SingleDog() {
   const [friends, setFriends] = useState([]);
@@ -73,7 +76,7 @@ export default function SingleDog() {
           <div className="single-dog-wrapper">
             <img
               class="single-dog-image"
-              src={filteredFriend.imgSrc}
+              src={FakeFrens()[RandomNumber(5)]}
               alt={filteredFriend.name}
             />
             <h1 className="cover-title">{filteredFriend.name}</h1>

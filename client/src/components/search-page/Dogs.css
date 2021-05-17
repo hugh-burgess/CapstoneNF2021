@@ -19,10 +19,8 @@
   margin: 5px;
 }
 .dogs-image {
-  border: black 1px solid;
   color: var(--grey-shade);
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  padding: 5px;
+  height: 3rem;
+  width: 3rem;
 }
