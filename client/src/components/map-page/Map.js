@@ -1,5 +1,6 @@
 
-import Navigation from "../Navigation";
+import Navigation from "../navigation/Navigation";
+import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import parksData from "../../parks.json";
 import { useEffect, useState } from "react";
 import "./SinglePark.css";
