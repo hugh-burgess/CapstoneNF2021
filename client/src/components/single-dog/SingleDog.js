@@ -12,7 +12,6 @@ import { ImBin } from "react-icons/im";
 import { FaBone } from "react-icons/fa";
 import RandomNumber from "../../utils/RandomNumber";
 import FakeFrens from "../../utils/FakeFrens";
-console.log(FakeFrens);
 
 export default function SingleDog() {
   const [friends, setFriends] = useState([]);
