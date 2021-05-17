@@ -4,6 +4,6 @@ import cloudSix from "../images/clouds/cloudSix.svg";
 
 const cloudFormations = [cloudTwo, cloudFour, cloudSix];
 
-export default function cloudFormationsLeft() {
+export default function CloudFormationsLeft() {
   return cloudFormations;
 }

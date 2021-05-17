@@ -5,7 +5,7 @@ import RandomNumber from "../../utils/RandomNumber";
 export default function CloudRight({
   friend,
   id,
-  cloudFormationsRight,
+  CloudFormationsRight,
   FakeFrens,
 }) {
   return (
@@ -19,7 +19,7 @@ export default function CloudRight({
           />
           <img
             className="cloud cloud-right"
-            src={cloudFormationsRight[RandomNumber(3)]}
+            src={CloudFormationsRight[RandomNumber(3)]}
             alt="cloud"
           />
           <p className="names names-right">{friend.name}</p>
