@@ -1,4 +1,3 @@
-import { TiDelete } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import "./FriendsContent.css";
 import RandomNumber from "../../utils/RandomNumber";
@@ -6,7 +5,6 @@ import RandomNumber from "../../utils/RandomNumber";
 export default function CloudLeft({
   friend,
   id,
-  onDeleteFriend,
   cloudFormationsLeft,
   FakeFrens,
 }) {
@@ -26,7 +24,6 @@ export default function CloudLeft({
 
         <p className="names names-left">{friend.name}</p>
       </Link>
-      <TiDelete className="bin-left" onClick={() => onDeleteFriend(friend)} />
     </div>
   );
 }

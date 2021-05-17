@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useHistory, useLocation, useParams } from "react-router-dom";
 import {
   getItemsFromLocalStorage,
   getSingleDogFromLocalStorage,
+  removeItemFromLocalStorageById,
 } from "../../utils/itemStorage";
 import Navigation from "../navigation/Navigation";
 import "./SingleDog.css";
@@ -18,6 +19,13 @@ export default function SingleDog() {
   const [friends, setFriends] = useState([]);
   let location = useLocation();
   let { id } = useParams();
+  let history = useHistory();
+
+  function handleDeleteFriend(friend) {
+    removeItemFromLocalStorageById("friends", friend.id);
+    setFriends(getItemsFromLocalStorage("friends"));
+    history.push("/friends");
+  }
 
   useEffect(() => {
     const friends = getItemsFromLocalStorage("friends");
@@ -127,7 +135,7 @@ export default function SingleDog() {
               </div>
               <div className="single-dog-delete">
                 <p className="single-dog-delete-content">
-                  <ImBin />
+                  <ImBin onClick={() => handleDeleteFriend(filteredFriend)} />
                 </p>
               </div>
             </div>

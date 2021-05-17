@@ -1,4 +1,3 @@
-import { TiDelete } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import "./FriendsContent.css";
 import RandomNumber from "../../utils/RandomNumber";
@@ -6,7 +5,6 @@ import RandomNumber from "../../utils/RandomNumber";
 export default function CloudRight({
   friend,
   id,
-  onDeleteFriend,
   cloudFormationsRight,
   FakeFrens,
 }) {
@@ -26,10 +24,6 @@ export default function CloudRight({
           />
           <p className="names names-right">{friend.name}</p>
         </Link>
-        <TiDelete
-          className="bin-right"
-          onClick={() => onDeleteFriend(friend)}
-        />
       </div>
     </div>
   );

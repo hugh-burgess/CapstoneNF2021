@@ -19,10 +19,6 @@ export default function FriendsContent() {
     const friends = getItemsFromLocalStorage("friends");
     setFriends(friends);
   }, []);
-  function handleDeleteFriend(friend) {
-    removeItemFromLocalStorageById("friends", friend.id);
-    setFriends(getItemsFromLocalStorage("friends"));
-  }
 
   function renderItems() {
     return friends.map((friend, index) => {
@@ -31,7 +27,6 @@ export default function FriendsContent() {
           <CloudRight
             friend={friend}
             id={friend.id}
-            onDeleteFriend={handleDeleteFriend}
             cloudFormationsRight={cloudFormationsRight()}
             FakeFrens={FakeFrens()}
           />
@@ -41,7 +36,6 @@ export default function FriendsContent() {
           <CloudLeft
             friend={friend}
             id={friend.id}
-            onDeleteFriend={handleDeleteFriend}
             cloudFormationsLeft={cloudFormationsLeft()}
             FakeFrens={FakeFrens()}
           />
