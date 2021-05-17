@@ -6,7 +6,6 @@ import bubble from "../../images/stat-bubble.svg";
 import bioBubble from "../../images/bio-bubble.svg";
 import "./Edit-Profile.css";
 import { Link } from "react-router-dom";
-import TourButton from "./TourButton";
 
 export default function EditContent() {
   return (
@@ -29,7 +28,6 @@ export default function EditContent() {
       <div className="middle-profile-wrapper">
         <img className="profile-bio" src={bioBubble} alt="#" />
         <BsPencil className="edit-pen" />
-        <div className="middle-text-wrapper"></div>
         <div className="feedback-list-wrapper blur-effect">
           <p className="feedback">feedback</p>
           <div className="feedback-list">
@@ -40,8 +38,6 @@ export default function EditContent() {
         </div>
       </div>
       <div className="bottom-profile-wrapper">
-        <FaBone className="big-bone-image" />
-        <TourButton />
         <Link to="/profile">
           <div className="save-button">save</div>
         </Link>

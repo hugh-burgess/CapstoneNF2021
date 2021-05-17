@@ -4,7 +4,6 @@ import bubble from "../../images/stat-bubble.svg";
 import bioBubble from "../../images/bio-bubble.svg";
 import { useEffect, useState } from "react";
 import { getItemsFromLocalStorage } from "../../utils/itemStorage";
-import TourButton from "./TourButton";
 import EditButton from "./EditButton";
 
 export default function MainContent() {
@@ -55,8 +54,6 @@ export default function MainContent() {
         </div>
       </div>
       <div className="bottom-profile-wrapper">
-        <FaBone className="big-bone-image" />
-        <TourButton />
         <EditButton />
       </div>
     </div>
