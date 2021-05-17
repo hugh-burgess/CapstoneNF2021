@@ -3,6 +3,8 @@ import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GiSniffingDog } from "react-icons/gi";
+import RandomNumber from "../../utils/RandomNumber";
+import FakeFrens from "../../utils/FakeFrens";
 
 export default function Dogs({ filter }) {
   const [friends, setFriends] = useState([]);
@@ -21,7 +23,11 @@ export default function Dogs({ filter }) {
         <Link to={`/single-dog/${friend.id}`}>
           <div key={index} className="friend-card">
             <p className="dogs-name">{friend.name}</p>
-            <img className="dogs-image" src={friend.imgSrc} alt="dog" />
+            <img
+              className="dogs-image"
+              src={FakeFrens()[RandomNumber(5)]}
+              alt="dog"
+            />
           </div>
         </Link>
       );
