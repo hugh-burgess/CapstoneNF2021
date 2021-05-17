@@ -2,6 +2,7 @@
   position: relative;
   display: grid;
   grid-template-rows: [header] 70px [main] auto [footer] 80px;
+  height: 100vh;
 }
 
 .header {

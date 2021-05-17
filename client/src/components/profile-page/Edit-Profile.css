@@ -32,6 +32,12 @@
   font-size: 2rem;
 }
 
+.edit-upload-button {
+  position: absolute;
+  margin-top: 4rem;
+  margin-left: 4rem;
+}
+
 .save-button {
   font-family: "PT Sans";
   cursor: pointer;
@@ -42,4 +48,28 @@
   height: 20px;
   padding: 10px;
   border: black 1px solid;
+}
+
+.edit-bio-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.edit-bio-textarea {
+  margin-left: 2rem;
+  margin-top: 3rem;
+  width: 50%;
+  height: 40%;
+  text-align: left;
+  resize: none;
+  border-radius: 5px;
+}
+.edit-bio-counter {
+  text-align: right;
+  width: 60%;
+  font-family: var(--cookie-text-title);
+  opacity: 0.5;
+  color: var(--light-blue);
 }

@@ -15,9 +15,10 @@ export default function MainContent() {
     setPicture(user[0].info.url);
     setBio(user[0].bio);
     setName(user[0].name);
+    console.log(user[0]);
   }, []);
 
-  function Capitalize(str) {
+  function capitalizeName(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
@@ -40,7 +41,7 @@ export default function MainContent() {
       <img className="profile-bio" src={bioBubble} alt="#" />
       <div className="middle-profile-wrapper">
         <div className="middle-text-wrapper">
-          <h2 className="dog-name">{Capitalize(name)}</h2>
+          <h2 className="dog-name">{capitalizeName(name)}</h2>
           <p className="profile-bio-text">{bio}</p>
         </div>
       </div>

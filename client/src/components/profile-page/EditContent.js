@@ -17,21 +17,27 @@ export default function EditContent() {
   const [picture, setPicture] = useState("");
   const [isClicked, setIsClicked] = useState(false);
   const [bioClick, setBioClick] = useState(false);
+  const [isPhotoClicked, setIsPhotoClicked] = useState(false);
+  const [isLoadClicked, setIsLoadClicked] = useState(false);
   const [imageId, setImageId] = useState("");
   const [imageSelected, setImageSelected] = useState("");
   const [imageType, setImageType] = useState("");
   const [imagePublicId, setImagePublicId] = useState("");
   const [info, setInfo] = useState({});
+  const [name, setName] = useState("");
   const [bio, setBio] = useState("");
+  const [counter, setCounter] = useState(125);
+  const [account, setAccount] = useState([]);
 
   useEffect(() => {
     const user = getItemsFromLocalStorage("user");
     setPicture(user[0].info.url);
+    setName(user[0].name);
+    setAccount(user);
   }, []);
 
   const uploadImage = (e) => {
     e.preventDefault();
-    console.log("submitted!");
     const formData = new FormData();
     formData.append("file", imageSelected);
     formData.append("upload_preset", "s2bkhsfz");
@@ -46,7 +52,7 @@ export default function EditContent() {
         setImageType(result.format);
         setImageId(result.created_at);
         setInfo(result);
-        setIsClicked(!isClicked);
+        setIsLoadClicked(!isLoadClicked);
 
         console.log("Success:", result);
         if (result.error.message === "Missing required parameter - file") {
@@ -58,17 +64,19 @@ export default function EditContent() {
       });
   };
 
-  const profile = { bio, imageType, info };
+  const profile = { bio, imageType, info, name };
+  account.push(profile);
+
   function handleEditSubmit(e) {
     e.preventDefault();
     if (imageType === "" || bio === "") {
       alert(
-        "Please fill out the name and bio, and pick a photo and upload. If you've done all this then hit save!"
+        "Please fill out the bio and pick a photo and upload. If you've done all this then hit save!"
       );
     } else {
       addProfileToLocalStorage("user", profile);
+      setIsClicked(!isClicked);
     }
-
     const initDetails = {
       method: "PATCH",
       headers: {
@@ -76,9 +84,11 @@ export default function EditContent() {
       },
       mode: "cors",
       body: JSON.stringify({
-        username: "hugh",
-        picture: `https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`,
+        name: name,
         bio: bio,
+        imageType: imageType,
+        info: info,
+        picture: `https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`,
       }),
     };
     fetch(baseUrl, initDetails)
@@ -86,29 +96,32 @@ export default function EditContent() {
         console.log(res.status);
         return res.json();
       })
-      .then((data) => {
-        console.log(data);
-      })
       .catch((err) => {
         console.error(err);
       });
   }
 
-  function handleEditBio(e) {
-    console.log("bio clicked!");
+  function handleEditBioChange(e) {
     const newBio = e.target.value;
     setBio(newBio);
+    setCounter(counter - 1);
+    if (e.target.value === "") {
+      setCounter(125);
+    } else if (e.nativeEvent.data === null) {
+      setCounter(counter + 1);
+    }
   }
 
   function pencilClick(e) {
     e.preventDefault();
     setBioClick(!bioClick);
   }
+
   return (
     <form onSubmit={handleEditSubmit}>
       <div className="grid-wrapper">
         <div className="top-profile-wrapper">
-          {!isClicked ? (
+          {!isLoadClicked ? (
             <img
               className="profile-picture blur-effect"
               src={picture}
@@ -119,24 +132,37 @@ export default function EditContent() {
               className="profile-picture blur-effect"
               id={imageId}
               cloudName="dy1xpaosj"
-              publicId={`https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`}
+              publicId={
+                imageId
+                  ? `https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`
+                  : ""
+              }
             />
           )}
-          <label className="edit-photo">
-            <MdAddAPhoto />
-            <input
-              className="hidden"
-              type="file"
-              name="upload"
-              id="upload"
-              onChange={(event) => {
-                console.log("photo clicked!");
-                console.log(event.target.files[0]);
-                setImageSelected(event.target.files[0]);
-              }}
-              required
-            />
-          </label>
+          {!isPhotoClicked ? (
+            <label className="edit-photo">
+              <MdAddAPhoto />
+              <input
+                className="hidden"
+                type="file"
+                name="upload"
+                id="upload"
+                onChange={(event) => {
+                  setIsPhotoClicked(!isPhotoClicked);
+                  setImageSelected(event.target.files[0]);
+                }}
+                required
+              />
+            </label>
+          ) : (
+            <button
+              className="edit-upload-button save-button"
+              type="submit"
+              onClick={uploadImage}
+            >
+              upload
+            </button>
+          )}
           <div className="top-text-wrapper ">
             <div className="top-wrapper-icons">
               <FaDog className="fren-icon blur-effect" />
@@ -151,27 +177,28 @@ export default function EditContent() {
         </div>
         <img className="profile-bio" src={bioBubble} alt="#" />
         <div className="middle-profile-wrapper">
-          <BsPencil className="edit-pen" onClick={pencilClick} />
           {bioClick ? (
-            <textarea
-              className="wrapper-bio"
-              type="text"
-              onChange={handleEditBio}
-              placeholder="enter a bio here..."
-              maxLength="125"
-              value={bio}
-              required
-            />
+            <BsPencil className="hidden" onClick={pencilClick} />
           ) : (
-            <textarea
-              className="hidden"
-              type="text"
-              onChange={handleEditBio}
-              placeholder="enter a bio here..."
-              maxLength="125"
-              value={bio}
-              required
-            />
+            <BsPencil className="edit-pen" onClick={pencilClick} />
+          )}
+          {bioClick ? (
+            <div className="edit-bio-wrapper">
+              <textarea
+                className="edit-bio-textarea"
+                type="text"
+                onChange={handleEditBioChange}
+                placeholder="enter a bio here..."
+                maxLength="125"
+                value={bio}
+                required
+              />
+              <div className="edit-bio-counter" onChange={handleEditBioChange}>
+                {counter}
+              </div>
+            </div>
+          ) : (
+            <textarea className="hidden" type="text" />
           )}
         </div>
         <div className="bottom-profile-wrapper">
@@ -188,7 +215,11 @@ export default function EditContent() {
               saved
             </button>
           ) : (
-            <button className="save-button" type="submit" onClick={uploadImage}>
+            <button
+              className="save-button"
+              type="submit"
+              onClick={handleEditSubmit}
+            >
               save
             </button>
           )}
