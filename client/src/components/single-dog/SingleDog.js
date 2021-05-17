@@ -11,14 +11,8 @@ import { ImBubble } from "react-icons/im";
 import { ImBin } from "react-icons/im";
 import { FaBone } from "react-icons/fa";
 import RandomNumber from "../../utils/RandomNumber";
-
-import dogOne from "../../images/dogs/dogOne.png";
-import dogTwo from "../../images/dogs/dogTwo.png";
-import dogThree from "../../images/dogs/dogThree.png";
-import dogFour from "../../images/dogs/dogFour.png";
-import dogFive from "../../images/dogs/dogFive.png";
-
-const fakeFrensArray = [dogOne, dogTwo, dogThree, dogFour, dogFive];
+import FakeFrens from "../../utils/FakeFrens";
+console.log(FakeFrens);
 
 export default function SingleDog() {
   const [friends, setFriends] = useState([]);
@@ -82,7 +76,7 @@ export default function SingleDog() {
           <div className="single-dog-wrapper">
             <img
               class="single-dog-image"
-              src={fakeFrensArray[RandomNumber(5)]}
+              src={FakeFrens()[RandomNumber(5)]}
               alt={filteredFriend.name}
             />
             <h1 className="cover-title">{filteredFriend.name}</h1>

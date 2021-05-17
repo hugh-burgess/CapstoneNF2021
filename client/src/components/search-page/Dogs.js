@@ -4,14 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GiSniffingDog } from "react-icons/gi";
 import RandomNumber from "../../utils/RandomNumber";
-
-import dogOne from "../../images/dogs/dogOne.png";
-import dogTwo from "../../images/dogs/dogTwo.png";
-import dogThree from "../../images/dogs/dogThree.png";
-import dogFour from "../../images/dogs/dogFour.png";
-import dogFive from "../../images/dogs/dogFive.png";
-
-const fakeFrensArray = [dogOne, dogTwo, dogThree, dogFour, dogFive];
+import FakeFrens from "../../utils/FakeFrens";
 
 export default function Dogs({ filter }) {
   const [friends, setFriends] = useState([]);
@@ -33,7 +26,7 @@ export default function Dogs({ filter }) {
             <p className="dogs-name">{friend.name}</p>
             <img
               className="dogs-image"
-              src={fakeFrensArray[RandomNumber(5)]}
+              src={FakeFrens()[RandomNumber(5)]}
               alt="dog"
             />
           </div>

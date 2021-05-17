@@ -8,7 +8,7 @@ export default function CloudRight({
   id,
   onDeleteFriend,
   cloudFormationsRight,
-  fakeFrensArray,
+  FakeFrens,
 }) {
   return (
     <div className="cloud-wrapper">
@@ -16,7 +16,7 @@ export default function CloudRight({
         <Link to={`/single-dog/${id}`}>
           <img
             className=" dog-image dog-image-right"
-            src={fakeFrensArray[RandomNumber(5)]}
+            src={FakeFrens()[RandomNumber(5)]}
             alt="dog"
           />
           <img
