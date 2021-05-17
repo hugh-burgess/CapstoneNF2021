@@ -14,9 +14,8 @@ import { FaBone } from "react-icons/fa";
 import randomNumber from "../../utils/randomNumber";
 import fakeFrens from "../../utils/fakeFrens";
 
-let number = randomNumber;
-
 export default function SingleDog() {
+  let number = randomNumber;
   const [friends, setFriends] = useState([]);
   let location = useLocation();
   let { id } = useParams();
