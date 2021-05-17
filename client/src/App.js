@@ -4,7 +4,6 @@ import Friends from "./components/friends-page/Friends";
 import Map from "./components/map-page/Map";
 import EditProfile from "./components/profile-page/Edit-Profile";
 import Profile from "./components/profile-page/Profile";
-import Tour from "./components/profile-page/Tour";
 import LogIn from "./components/log-in/LogIn";
 import Search from "./components/search-page/Search";
 import SingleDog from "./components/single-dog/SingleDog";
@@ -36,9 +35,6 @@ function App() {
           </Route>
           <Route exact path="/profile">
             <Profile />
-          </Route>
-          <Route path="/tour">
-            <Tour />
           </Route>
           <Route path="/edit-profile">
             <EditProfile />

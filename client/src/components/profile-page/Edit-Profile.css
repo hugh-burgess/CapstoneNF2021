@@ -9,7 +9,6 @@
 .blank-picture {
   background: var(--white);
   height: 100%;
-  width: 90%;
   border-radius: 50%;
 }
 .edit-pen {
@@ -17,21 +16,17 @@
   z-index: 10;
   font-size: 2rem;
   grid-area: 2 / 1 / 3 / 3;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 20%;
+  width: 20%;
+  margin-left: 6rem;
+  margin-top: 4rem;
 }
 
 .edit-photo {
-  grid-column: left;
-  grid-row: first;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  left: 4.5rem;
+  top: 4.5rem;
+  height: 20%;
   color: var(--red);
   z-index: 10;
   font-size: 2rem;

@@ -5,7 +5,6 @@ import bioBubble from "../../images/bio-bubble.svg";
 import { useEffect, useState } from "react";
 import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 import EditButton from "./EditButton";
-
 export default function MainContent() {
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
@@ -44,6 +43,8 @@ export default function MainContent() {
           <h2 className="dog-name">{Capitalize(name)}</h2>
           <p className="profile-bio-text">{bio}</p>
         </div>
+      </div>
+      <div className="bottom-profile-wrapper">
         <div className="feedback-list-wrapper">
           <p className="feedback">feedback</p>
           <div className="feedback-list">
@@ -52,8 +53,6 @@ export default function MainContent() {
             <li>loves walks</li>
           </div>
         </div>
-      </div>
-      <div className="bottom-profile-wrapper">
         <EditButton />
       </div>
     </div>

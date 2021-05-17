@@ -6,12 +6,25 @@ import bubble from "../../images/stat-bubble.svg";
 import bioBubble from "../../images/bio-bubble.svg";
 import "./Edit-Profile.css";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 
 export default function EditContent() {
+  const [picture, setPicture] = useState("");
+
+  useEffect(() => {
+    const user = getItemsFromLocalStorage("user");
+    setPicture(user[0].info.url);
+  }, []);
+
   return (
     <div className="grid-wrapper">
       <div className="top-profile-wrapper">
-        <div className="blank-picture" />
+        <img
+          className="profile-picture blur-effect"
+          src={picture}
+          alt="doggy"
+        />
         <MdAddAPhoto className="edit-photo" />
         <div className="top-text-wrapper ">
           <div className="top-wrapper-icons">
@@ -25,9 +38,11 @@ export default function EditContent() {
         </div>
         <img className="profile-bubble blur-effect" src={bubble} alt="#" />
       </div>
+      <img className="profile-bio" src={bioBubble} alt="#" />
       <div className="middle-profile-wrapper">
-        <img className="profile-bio" src={bioBubble} alt="#" />
         <BsPencil className="edit-pen" />
+      </div>
+      <div className="bottom-profile-wrapper">
         <div className="feedback-list-wrapper blur-effect">
           <p className="feedback">feedback</p>
           <div className="feedback-list">
@@ -36,8 +51,6 @@ export default function EditContent() {
             <li>loves walks</li>
           </div>
         </div>
-      </div>
-      <div className="bottom-profile-wrapper">
         <Link to="/profile">
           <div className="save-button">save</div>
         </Link>

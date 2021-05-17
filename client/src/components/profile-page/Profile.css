@@ -111,14 +111,12 @@
 }
 
 .feedback-list-wrapper {
-  position: absolute;
   display: flex;
   flex-direction: column;
   width: 50%;
   text-align: center;
   align-self: flex-end;
-  margin-bottom: -3rem;
-  margin-left: 10rem;
+  margin-bottom: 3rem;
   z-index: 10;
 }
 
@@ -140,15 +138,6 @@
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
-}
-
-.tour-icon {
-  background-color: white;
-  color: var(--deep-blue);
-  border-radius: 50%;
-  font-size: 2rem;
-  padding: 10px;
-  border: black 1px solid;
 }
 
 .edit-wrapper {
