@@ -12,10 +12,10 @@ export default function SearchBar({ handleNameFilter }) {
           onChange={handleSubmit}
           type="input"
           name="searchBar"
-          className="search-page-bar"
+          className="search-page-bar generic-button"
           placeholder="search a fren..."
         />
-        <button className="search-go-button" type="submit">
+        <button className="generic-button search-go-button" type="submit">
           Go
         </button>
       </form>

@@ -17,7 +17,7 @@ export default function AddButton() {
   return (
     <div className="add-friend-wrapper">
       {!isClicked && (
-        <button className="add-friend-button" onClick={handleButtonClick}>
+        <button className="generic-button" onClick={handleButtonClick}>
           Add A Friend
         </button>
       )}

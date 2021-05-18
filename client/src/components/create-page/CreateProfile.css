@@ -92,11 +92,8 @@
   justify-content: center;
 }
 .browse-button {
-  grid-row: bottom;
-  width: 69px;
-  height: 20%;
-  margin: 0 1em;
-  box-shadow: var(--hard-shadow);
+  font-size: 1rem;
+  margin: 0 5px;
 }
 
 .upload-button {

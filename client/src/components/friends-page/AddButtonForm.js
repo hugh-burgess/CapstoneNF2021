@@ -186,7 +186,11 @@ export default function AddButtonForm({
         </button>
       </div>
 
-      <button type="submit" onClick={() => setCount(count + 1)}>
+      <button
+        className="generic-button"
+        type="submit"
+        onClick={() => setCount(count + 1)}
+      >
         save
       </button>
       <Expire delay="3000">

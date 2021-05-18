@@ -37,11 +37,11 @@ export default function LogInForm({ handleLogInSubmit, clicked }) {
             username or password invalid. Please retry...{" "}
           </div>
           <div className="login-buttons-wrapper">
-            <button type="submit" className="login-page-login-button">
-              Log In
+            <button type="submit" className="generic-button">
+              LogIn
             </button>
             <Link to="/register">
-              <button type="submit" className="login-page-register-button">
+              <button type="submit" className="generic-button">
                 Register
               </button>
             </Link>

@@ -60,8 +60,11 @@ export default function CreateForm({
         </div>
       </div>
       <label className="input-file-label">
+        <label for="upload" className="generic-button browse-button">
+          Browse
+        </label>
         <input
-          className="browse-button"
+          className="hidden"
           type="file"
           name="upload"
           id="upload"
@@ -70,7 +73,7 @@ export default function CreateForm({
           }}
           required
         />
-        <button className="upload-button" onClick={uploadImage}>
+        <button className="generic-button browse-button" onClick={uploadImage}>
           {buttonName}
         </button>
       </label>

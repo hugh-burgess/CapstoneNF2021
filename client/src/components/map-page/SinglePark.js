@@ -54,7 +54,9 @@ export default function SinglePark() {
             onChange={handleNoteChange}
             type="input"
           />
-          <button type="submit">Leave a Note</button>
+          <button className="generic-button" type="submit">
+            Leave a Note
+          </button>
         </form>
       </main>
       <footer className="footer">

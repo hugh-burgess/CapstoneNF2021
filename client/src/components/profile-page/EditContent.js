@@ -227,7 +227,7 @@ export default function EditContent() {
           ) : (
             <div className="edit-page-buttons-wrapper">
               <button
-                className="save-button"
+                className="generic-button"
                 type="submit"
                 onClick={handleEditSubmit}
               >

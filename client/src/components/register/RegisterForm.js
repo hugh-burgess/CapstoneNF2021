@@ -38,10 +38,12 @@ export default function RegisterForm({ handleRegisterSubmit, clicked }) {
       </div>
 
       <div className="login-buttons-wrapper">
-        <button type="submit" className="login-page-register-button">
+        <button type="submit" className="generic-button">
           Sign Up
         </button>
-        <button onClick={() => history.goBack()}>Back</button>
+        <button className="generic-button" onClick={() => history.goBack()}>
+          Back
+        </button>
       </div>
     </form>
   );
