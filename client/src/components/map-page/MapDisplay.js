@@ -28,8 +28,7 @@ export default function MapDisplay({ handleStarClick, parkData }) {
       }}
       mapStyle="mapbox://styles/trix2705/cko8hkfyn0sm617o9ek7qmkiq"
     >
-      {
-        // parkData > 0 &&
+      {parkData !== 0 &&
         parkData.map((park) => (
           <Marker
             key={park.coordinates[0]}
@@ -46,8 +45,7 @@ export default function MapDisplay({ handleStarClick, parkData }) {
               className={park.isStarred ? "red-dot" : "hidden"}
             />
           </Marker>
-        ))
-      }
+        ))}
       {selectedPark ? (
         <Link to={`/single-park/${mapID}`}>
           <Popup
