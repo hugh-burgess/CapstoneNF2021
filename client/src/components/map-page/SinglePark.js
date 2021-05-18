@@ -12,7 +12,7 @@ export default function SinglePark() {
   const [parkData, setParkData] = useParks();
   const pathname = window.location.pathname; // turns this into useLocation later
   const geo = pathname.slice(13).replace(/-/g, ".");
-  const selectedPark = parkData.park.find((park) =>
+  const selectedPark = parkData.find((park) =>
     park.coordinates[0].includes(geo)
   );
 
@@ -38,7 +38,7 @@ export default function SinglePark() {
         <h1 className="park-title">{selectedPark.name}</h1>
       </div>
       <main className="main single-park-page">
-        <p class="single-park-address">Address: {selectedPark.address}</p>
+        <p className="single-park-address">Address: {selectedPark.address}</p>
         <p className="single-park-updates-title">Updates</p>
         <div className="single-park-updates-content">
           {selectedPark.notes.map((note, i) => (
