@@ -1,27 +1,21 @@
 import "./FriendsContent.css";
-
-import { getItemsFromLocalStorage } from "../../utils/itemStorage";
-import { useEffect, useState } from "react";
 import { GiSittingDog } from "react-icons/gi";
 import CloudRight from "./CloudRight";
 import CloudLeft from "./CloudLeft";
 import FakeFrens from "../../utils/FakeFrens";
 import CloudFormationsLeft from "../../utils/CloudFormationsLeft";
 import CloudFormationsRight from "../../utils/CloudFormationsRight";
+import useFriends from "../../hooks/useFriends";
 
 export default function FriendsContent() {
-  const [friends, setFriends] = useState([]);
-
-  useEffect(() => {
-    const friends = getItemsFromLocalStorage("friends");
-    setFriends(friends);
-  }, []);
+  const [friends, setFriends] = useFriends();
 
   function renderItems() {
     return friends.map((friend, index) => {
       if (index % 2 === 0) {
         return (
           <CloudRight
+            setFriends={setFriends} // where can this be used?
             friend={friend}
             id={friend.id}
             CloudFormationsRight={CloudFormationsRight()}
@@ -31,6 +25,7 @@ export default function FriendsContent() {
       } else {
         return (
           <CloudLeft
+            setFriends={setFriends} // where can this be used?
             friend={friend}
             id={friend.id}
             CloudFormationsLeft={CloudFormationsLeft()}

@@ -1,38 +1,20 @@
 import Navigation from "../navigation/Navigation";
-import parksData from "../../parks.json";
 import "./SinglePark.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
-  saveJSONToLocalStorage,
   getItemsFromLocalStorage,
   addNotetoLocalStorage,
 } from "../../utils/itemStorage";
-
-function initialLoad() {
-  const retrieveArray = getItemsFromLocalStorage("parkData");
-  if (retrieveArray.length === 0) {
-    return parksData;
-  } else {
-    return retrieveArray;
-  }
-}
+import useParks from "../../hooks/useParks";
 
 export default function SinglePark() {
   const [note, setNote] = useState("");
-  const [parkData, setParkData] = useState(initialLoad());
+  const [parkData, setParkData] = useParks();
   const pathname = window.location.pathname; // turns this into useLocation later
-  const geo = pathname.slice([13]).replace(/-/g, ".");
+  const geo = pathname.slice(13).replace(/-/g, ".");
   const selectedPark = parkData.find((park) =>
     park.coordinates[0].includes(geo)
   );
-
-  useEffect(() => {
-    saveJSONToLocalStorage("parkData", parkData);
-  }, [parkData]);
-
-  useEffect(() => {
-    getItemsFromLocalStorage("parkData");
-  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();

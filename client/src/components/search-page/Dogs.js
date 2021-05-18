@@ -1,24 +1,18 @@
 import "./Dogs.css";
-import { getItemsFromLocalStorage } from "../../utils/itemStorage";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GiSniffingDog } from "react-icons/gi";
 import RandomNumber from "../../utils/RandomNumber";
 import FakeFrens from "../../utils/FakeFrens";
+import useFriends from "../../hooks/useFriends";
+import { getDogsFilteredByName } from "../../utils/dogs";
 
 export default function Dogs({ filter }) {
-  const [friends, setFriends] = useState([]);
-  useEffect(() => {
-    const friendsList = getItemsFromLocalStorage("friends");
-    setFriends(friendsList);
-  }, []);
-
-  const filteredName = friends.filter(
-    (friend) => friend.name.toLowerCase().includes(filter) || filter === ""
-  );
+  const [friends, setFriends] = useFriends();
+  console.log(setFriends); // where to use this?
+  const filteredDogs = getDogsFilteredByName(friends, filter);
 
   function renderFriend() {
-    return filteredName.map((friend, index) => {
+    return filteredDogs.map((friend, index) => {
       return (
         <Link to={`/single-dog/${friend.id}`}>
           <div key={index} className="friend-card">
@@ -36,7 +30,7 @@ export default function Dogs({ filter }) {
 
   return (
     <div className="conditional-div">
-      {filteredName < 1 && (
+      {filteredDogs < 1 && (
         <div className="render-div">
           <p className="no-mates-message">
             Nothing to find <br /> here!
@@ -47,7 +41,7 @@ export default function Dogs({ filter }) {
         </div>
       )}
 
-      {filteredName && renderFriend()}
+      {filteredDogs && renderFriend()}
     </div>
   );
 }

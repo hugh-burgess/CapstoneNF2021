@@ -1,18 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { getItemsFromLocalStorage } from "../../utils/itemStorage";
+import useUser from "../../hooks/useUser";
 
 import "./LogIn.css";
 import LogInForm from "./LogInForm";
 const baseUrl = "  https://shielded-tundra-69796.herokuapp.com/login";
 
 export default function Cover() {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useUser();
   const [clicked, setClicked] = useState(false);
-  useEffect(() => {
-    const user = getItemsFromLocalStorage("user");
-    setUser(user);
-  }, []);
 
   let history = useHistory();
 
@@ -55,5 +51,11 @@ export default function Cover() {
       });
   }
 
-  return <LogInForm handleLogInSubmit={handleLogInSubmit} clicked={clicked} />;
+  return (
+    <LogInForm
+      setUser={setUser} // where else can this go ?
+      handleLogInSubmit={handleLogInSubmit}
+      clicked={clicked}
+    />
+  );
 }

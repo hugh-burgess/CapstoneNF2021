@@ -1,17 +1,11 @@
 import Navigation from "../navigation/Navigation";
 import Header from "../header/Header";
-import parksData from "../../parks.json";
-import { useEffect, useState } from "react";
 import "./SinglePark.css";
 import MapDisplay from "./MapDisplay";
-
-import {
-  getItemsFromLocalStorage,
-  saveJSONToLocalStorage,
-} from "../../utils/itemStorage";
+import useParks from "../../hooks/useParks";
 
 export default function Map() {
-  const [parkData, setParkData] = useState(initialLoad());
+  const [parkData, setParkData] = useParks();
 
   function handleStarClick(name) {
     const [searchedPark] = parkData.filter((park) => park.name === name);
@@ -26,9 +20,6 @@ export default function Map() {
     ];
     setParkData(veryNewParks);
   }
-  useEffect(() => {
-    saveJSONToLocalStorage("parkData", parkData);
-  }, [parkData]);
 
   return (
     <div className="grid-layout-app">
@@ -44,12 +35,4 @@ export default function Map() {
       </footer>
     </div>
   );
-  function initialLoad() {
-    const parkDemDates = getItemsFromLocalStorage("parkData");
-    if (parkDemDates.length === 0) {
-      return parksData.park;
-    } else {
-      return parkDemDates;
-    }
-  }
 }

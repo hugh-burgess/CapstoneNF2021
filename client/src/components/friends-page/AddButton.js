@@ -1,19 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./AddButton.css";
-import { getItemsFromLocalStorage } from "../../utils/itemStorage";
-
+import useFriends from "../../hooks/useFriends";
 import AddButtonForm from "./AddButtonForm";
 
 export default function AddButton() {
   const [isClicked, setIsClicked] = useState(false);
+  const [friends, setFriends] = useFriends();
   // const [imageSource, setImageSource] = useState("");
-
-  const [friends, setFriends] = useState([]);
-
-  useEffect(() => {
-    const friends = getItemsFromLocalStorage("friends");
-    setFriends(friends);
-  }, []);
 
   function handleButtonClick(event) {
     event.preventDefault();
