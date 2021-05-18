@@ -115,14 +115,17 @@ export default function AddButtonForm({
           placeholder="name goes here..."
           onChange={handleNameChange}
           value={friendName}
+          required
         />
         <input
           className="name-input"
           type="text"
           name="biography"
+          maxLength="125"
           placeholder="bio goes here..."
           onChange={handleBiographyChange}
           value={biography}
+          required
         />
         <div className="stats-wrapper">
           {fields.map((field, idx) => {
