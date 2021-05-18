@@ -193,6 +193,6 @@ const mongodb = mongoose.connection;
 
 mongodb.on("open", () => {
   app.listen(PORT, () => {
-    `Listening on port ${PORT}`);
+    `Listening on port ${PORT}`;
   });
 });

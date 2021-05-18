@@ -4,9 +4,7 @@ import bubble from "../../images/stat-bubble.svg";
 import bioBubble from "../../images/bio-bubble.svg";
 import { useEffect, useState } from "react";
 import { getItemsFromLocalStorage } from "../../utils/itemStorage";
-import TourButton from "./TourButton";
 import EditButton from "./EditButton";
-
 export default function MainContent() {
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
@@ -17,9 +15,10 @@ export default function MainContent() {
     setPicture(user[0].info.url);
     setBio(user[0].bio);
     setName(user[0].name);
+    console.log(user[0]);
   }, []);
 
-  function Capitalize(str) {
+  function capitalizeName(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
@@ -42,9 +41,11 @@ export default function MainContent() {
       <img className="profile-bio" src={bioBubble} alt="#" />
       <div className="middle-profile-wrapper">
         <div className="middle-text-wrapper">
-          <h2 className="dog-name">{Capitalize(name)}</h2>
+          <h2 className="dog-name">{capitalizeName(name)}</h2>
           <p className="profile-bio-text">{bio}</p>
         </div>
+      </div>
+      <div className="bottom-profile-wrapper">
         <div className="feedback-list-wrapper">
           <p className="feedback">feedback</p>
           <div className="feedback-list">
@@ -53,10 +54,6 @@ export default function MainContent() {
             <li>loves walks</li>
           </div>
         </div>
-      </div>
-      <div className="bottom-profile-wrapper">
-        <FaBone className="big-bone-image" />
-        <TourButton />
         <EditButton />
       </div>
     </div>

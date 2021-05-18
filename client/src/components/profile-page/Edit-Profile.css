@@ -9,7 +9,6 @@
 .blank-picture {
   background: var(--white);
   height: 100%;
-  width: 90%;
   border-radius: 50%;
 }
 .edit-pen {
@@ -17,24 +16,45 @@
   z-index: 10;
   font-size: 2rem;
   grid-area: 2 / 1 / 3 / 3;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 20%;
+  width: 20%;
+  margin-left: 6rem;
+  margin-top: 4rem;
 }
 
 .edit-photo {
-  grid-column: left;
-  grid-row: first;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  left: 4.5rem;
+  top: 4.5rem;
+  height: 20%;
   color: var(--red);
   z-index: 10;
   font-size: 2rem;
+}
+
+.edit-upload-button {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.edit-page-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+}
+
+.edit-back-button {
+  font-family: "PT Sans";
+  cursor: pointer;
+  background-color: white;
+  color: var(--deep-blue);
+  border-radius: 15px;
+  width: 30px;
+  height: 20px;
+  padding: 10px;
+  border: black 1px solid;
+  margin: 5px 0;
 }
 
 .save-button {
@@ -47,4 +67,29 @@
   height: 20px;
   padding: 10px;
   border: black 1px solid;
+  margin: 5px 0;
+}
+
+.edit-bio-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.edit-bio-textarea {
+  margin-left: 2rem;
+  margin-top: 3rem;
+  width: 50%;
+  height: 40%;
+  text-align: left;
+  resize: none;
+  border-radius: 5px;
+}
+.edit-bio-counter {
+  text-align: right;
+  width: 60%;
+  font-family: var(--cookie-text-title);
+  opacity: 0.5;
+  color: var(--light-blue);
 }

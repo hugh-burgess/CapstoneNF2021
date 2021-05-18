@@ -5,47 +5,244 @@ import { MdAddAPhoto } from "react-icons/md";
 import bubble from "../../images/stat-bubble.svg";
 import bioBubble from "../../images/bio-bubble.svg";
 import "./Edit-Profile.css";
-import { Link } from "react-router-dom";
-import TourButton from "./TourButton";
+import { useEffect, useState } from "react";
+import {
+  addProfileToLocalStorage,
+  getItemsFromLocalStorage,
+} from "../../utils/itemStorage";
+import { Image } from "cloudinary-react";
+import { useHistory } from "react-router";
+const baseUrl = "https://shielded-tundra-69796.herokuapp.com/users";
 
 export default function EditContent() {
+  let history = useHistory();
+  const [picture, setPicture] = useState("");
+  const [isClicked, setIsClicked] = useState(false);
+  const [bioClick, setBioClick] = useState(false);
+  const [isPhotoClicked, setIsPhotoClicked] = useState(false);
+  const [isLoadClicked, setIsLoadClicked] = useState(false);
+  const [imageId, setImageId] = useState("");
+  const [imageSelected, setImageSelected] = useState("");
+  const [imageType, setImageType] = useState("");
+  const [imagePublicId, setImagePublicId] = useState("");
+  const [info, setInfo] = useState({});
+  const [name, setName] = useState("");
+  const [bio, setBio] = useState("");
+  const [counter, setCounter] = useState(125);
+  const [account, setAccount] = useState([]);
+
+  useEffect(() => {
+    const user = getItemsFromLocalStorage("user");
+    setPicture(user[0].info.url);
+    setName(user[0].name);
+    setAccount(user);
+  }, []);
+
+  const uploadImage = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("file", imageSelected);
+    formData.append("upload_preset", "s2bkhsfz");
+
+    fetch("https://api.cloudinary.com/v1_1/dy1xpaosj/image/upload", {
+      method: "PUT",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        setImagePublicId(result.public_id);
+        setImageType(result.format);
+        setImageId(result.created_at);
+        setInfo(result);
+        setIsLoadClicked(!isLoadClicked);
+
+        console.log("Success:", result);
+        if (result.error.message === "Missing required parameter - file") {
+          alert("Please select a picture to upload.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
+  const profile = { bio, imageType, info, name };
+  account.push(profile);
+
+  function handleEditSubmit(e) {
+    e.preventDefault();
+    if (imageType === "" || bio === "") {
+      alert(
+        "Please fill out the bio and pick a photo and upload. If you've done all this then hit save!"
+      );
+    } else {
+      addProfileToLocalStorage("user", profile);
+      setIsClicked(!isClicked);
+    }
+    const initDetails = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      mode: "cors",
+      body: JSON.stringify({
+        name: name,
+        bio: bio,
+        imageType: imageType,
+        info: info,
+        picture: `https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`,
+      }),
+    };
+    fetch(baseUrl, initDetails)
+      .then((res) => {
+        console.log(res.status);
+        return res.json();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  function handleEditBioChange(e) {
+    const newBio = e.target.value;
+    setBio(newBio);
+    setCounter(counter - 1);
+    if (e.target.value === "") {
+      setCounter(125);
+    } else if (e.nativeEvent.data === null) {
+      setCounter(counter + 1);
+    }
+  }
+
+  function pencilClick(e) {
+    e.preventDefault();
+    setBioClick(!bioClick);
+  }
+
   return (
-    <div className="grid-wrapper">
-      <div className="top-profile-wrapper">
-        <div className="blank-picture" />
-        <MdAddAPhoto className="edit-photo" />
-        <div className="top-text-wrapper ">
-          <div className="top-wrapper-icons">
-            <FaDog className="fren-icon blur-effect" />
-            <FaBone className="bone-icon blur-effect" />
+    <form onSubmit={handleEditSubmit}>
+      <div className="grid-wrapper">
+        <div className="top-profile-wrapper">
+          {!isLoadClicked ? (
+            <img
+              className="profile-picture blur-effect"
+              src={picture}
+              alt="doggy"
+            />
+          ) : (
+            <Image
+              className="profile-picture blur-effect"
+              id={imageId}
+              cloudName="dy1xpaosj"
+              publicId={
+                imageId
+                  ? `https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`
+                  : ""
+              }
+            />
+          )}
+          {!isPhotoClicked ? (
+            <label className="edit-photo">
+              <MdAddAPhoto />
+              <input
+                className="hidden"
+                type="file"
+                name="upload"
+                id="upload"
+                onChange={(event) => {
+                  setIsPhotoClicked(!isPhotoClicked);
+                  setImageSelected(event.target.files[0]);
+                }}
+                required
+              />
+            </label>
+          ) : (
+            <button
+              className="edit-upload-button save-button"
+              type="submit"
+              onClick={uploadImage}
+            >
+              upload
+            </button>
+          )}
+          <div className="top-text-wrapper ">
+            <div className="top-wrapper-icons">
+              <FaDog className="fren-icon blur-effect" />
+              <FaBone className="bone-icon blur-effect" />
+            </div>
+            <div className="top-wrapper-text blur-effect">
+              <p className="fren-count">4 frens</p>
+              <p className="dog-rating">4.8</p>
+            </div>
           </div>
-          <div className="top-wrapper-text blur-effect">
-            <p className="fren-count">4 frens</p>
-            <p className="dog-rating">4.8</p>
-          </div>
+          <img className="profile-bubble blur-effect" src={bubble} alt="#" />
         </div>
-        <img className="profile-bubble blur-effect" src={bubble} alt="#" />
-      </div>
-      <div className="middle-profile-wrapper">
         <img className="profile-bio" src={bioBubble} alt="#" />
-        <BsPencil className="edit-pen" />
-        <div className="middle-text-wrapper"></div>
-        <div className="feedback-list-wrapper blur-effect">
-          <p className="feedback">feedback</p>
-          <div className="feedback-list">
-            <li>the goodest boy</li>
-            <li>loves scritches</li>
-            <li>loves walks</li>
+        <div className="middle-profile-wrapper">
+          {bioClick ? (
+            <BsPencil className="hidden" onClick={pencilClick} />
+          ) : (
+            <BsPencil className="edit-pen" onClick={pencilClick} />
+          )}
+          {bioClick ? (
+            <div className="edit-bio-wrapper">
+              <textarea
+                className="edit-bio-textarea"
+                type="text"
+                onChange={handleEditBioChange}
+                placeholder="enter a bio here..."
+                maxLength="125"
+                value={bio}
+                required
+              />
+              <div className="edit-bio-counter" onChange={handleEditBioChange}>
+                {counter}
+              </div>
+            </div>
+          ) : (
+            <textarea className="hidden" type="text" />
+          )}
+        </div>
+        <div className="bottom-profile-wrapper">
+          <div className="feedback-list-wrapper blur-effect">
+            <p className="feedback">feedback</p>
+            <div className="feedback-list">
+              <li>the goodest boy</li>
+              <li>loves scritches</li>
+              <li>loves walks</li>
+            </div>
           </div>
+          {isClicked ? (
+            <div className="edit-page-buttons-wrapper">
+              <button className="save-button" disabled>
+                saved
+              </button>
+              <button
+                className="edit-back-button"
+                onClick={() => history.goBack()}
+              >
+                Back
+              </button>
+            </div>
+          ) : (
+            <div className="edit-page-buttons-wrapper">
+              <button
+                className="save-button"
+                type="submit"
+                onClick={handleEditSubmit}
+              >
+                save
+              </button>
+              <button
+                className="edit-back-button"
+                onClick={() => history.goBack()}
+              >
+                back
+              </button>
+            </div>
+          )}
         </div>
       </div>
-      <div className="bottom-profile-wrapper">
-        <FaBone className="big-bone-image" />
-        <TourButton />
-        <Link to="/profile">
-          <div className="save-button">save</div>
-        </Link>
-      </div>
-    </div>
+    </form>
   );
 }
