@@ -12,7 +12,7 @@ export default function SinglePark() {
   const [parkData, setParkData] = useParks();
   const pathname = window.location.pathname; // turns this into useLocation later
   const geo = pathname.slice(13).replace(/-/g, ".");
-  const selectedPark = parkData.find((park) =>
+  const selectedPark = parkData.park.find((park) =>
     park.coordinates[0].includes(geo)
   );
 
