@@ -8,14 +8,13 @@ import CloudFormationsRight from "../../utils/CloudFormationsRight";
 import useFriends from "../../hooks/useFriends";
 
 export default function FriendsContent() {
-  const [friends, setFriends] = useFriends();
+  const friends = useFriends();
 
   function renderItems() {
     return friends.map((friend, index) => {
       if (index % 2 === 0) {
         return (
           <CloudRight
-            setFriends={setFriends} // where can this be used?
             friend={friend}
             id={friend.id}
             CloudFormationsRight={CloudFormationsRight()}
@@ -25,7 +24,6 @@ export default function FriendsContent() {
       } else {
         return (
           <CloudLeft
-            setFriends={setFriends} // where can this be used?
             friend={friend}
             id={friend.id}
             CloudFormationsLeft={CloudFormationsLeft()}

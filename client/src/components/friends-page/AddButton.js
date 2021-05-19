@@ -5,8 +5,7 @@ import AddButtonForm from "./AddButtonForm";
 
 export default function AddButton() {
   const [isClicked, setIsClicked] = useState(false);
-  const [friends, setFriends] = useFriends();
-  // const [imageSource, setImageSource] = useState("");
+  const friends = useFriends();
 
   function handleButtonClick(event) {
     event.preventDefault();
@@ -25,7 +24,6 @@ export default function AddButton() {
         <AddButtonForm
           handleButtonClick={handleButtonClick}
           friends={friends}
-          setFriends={setFriends}
         />
       )}
     </div>

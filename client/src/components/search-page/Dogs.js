@@ -7,8 +7,7 @@ import useFriends from "../../hooks/useFriends";
 import { getDogsFilteredByName } from "../../utils/dogs";
 
 export default function Dogs({ filter }) {
-  const [friends, setFriends] = useFriends();
-  console.log(setFriends); // where to use this?
+  const friends = useFriends();
   const filteredDogs = getDogsFilteredByName(friends, filter);
 
   function renderFriend() {
