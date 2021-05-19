@@ -9,30 +9,34 @@
 }
 
 .popup-box {
-  height: auto;
-  width: 70vw;
+  width: 80vw;
   border-radius: 5px;
   padding: 5px;
   border: black 1px solid;
-  box-shadow: var(--hard-shadow);
+  box-shadow: var(--soft-shadow);
+  background-color: var(--sea-blue);
 }
 
-.popup-delete {
+.add-form-close-button-wrapper {
   float: right;
-  padding: 1px;
+  box-shadow: var(--hard-shadow);
 }
 
 .input-boxes-parent {
   display: flex;
   flex-direction: column;
   padding: 20px 0;
-  align-content: space-around;
+  margin-top: 2rem;
+  margin-left: 2rem;
 }
 
 .name-input {
   border-radius: 5px;
-  width: auto;
-  height: auto;
+}
+
+.stats-input {
+  border-radius: 5px;
+  width: 100%;
 }
 
 .hidden {
@@ -47,10 +51,23 @@
 .stats-input-parent {
   display: flex;
   justify-content: space-between;
-  width: 100%;
 }
 
 .stats-add-button,
 .stats-delete-button {
-  margin: 0 10px;
+  margin: 0 5px;
+}
+
+.add-button-form-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.star-and-save {
+  box-shadow: var(--hard-shadow);
+}
+
+.flashcard {
+  margin: 5px;
+  color: var(--white);
 }
