@@ -4,7 +4,6 @@ import { RiAddCircleFill } from "react-icons/ri";
 import {
   getItemsFromLocalStorage,
   addItemToLocalStorage,
-  removeItemFromLocalStorageByName,
 } from "../../utils/itemStorage";
 import useFriends from "../../hooks/useFriends";
 
