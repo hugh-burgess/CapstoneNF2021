@@ -6,12 +6,10 @@ import {
   addItemToLocalStorage,
   removeItemFromLocalStorageByName,
 } from "../../utils/itemStorage";
+import useFriends from "../../hooks/useFriends";
 
-export default function AddButtonForm({
-  handleButtonClick,
-  friends,
-  setFriends,
-}) {
+export default function AddButtonForm({ handleButtonClick }) {
+  const [friends, setFriends] = useFriends();
   const [count, setCount] = useState(0);
   const [friendName, setFriendName] = useState("");
   const [biography, setBiography] = useState("");
@@ -115,14 +113,17 @@ export default function AddButtonForm({
           placeholder="name goes here..."
           onChange={handleNameChange}
           value={friendName}
+          required
         />
         <input
           className="name-input"
           type="text"
           name="biography"
+          maxLength="125"
           placeholder="bio goes here..."
           onChange={handleBiographyChange}
           value={biography}
+          required
         />
         <div className="stats-wrapper">
           {fields.map((field, idx) => {
@@ -183,9 +184,14 @@ export default function AddButtonForm({
         </button>
       </div>
 
-      <button type="submit" onClick={() => setCount(count + 1)}>
+      <button
+        className="generic-button"
+        type="submit"
+        onClick={() => setCount(count + 1)}
+      >
         save
       </button>
+
       <Expire delay="3000">
         <p>Friends added: {count}</p>
         {renderItems()}

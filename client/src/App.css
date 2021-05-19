@@ -34,3 +34,14 @@
   z-index: 100;
   position: fixed;
 }
+
+.generic-button {
+  font-family: "PT Sans";
+  cursor: pointer;
+  background-color: white;
+  color: var(--deep-blue);
+  border-radius: 15px;
+  padding: 10px;
+  border: black 1px solid;
+  margin: 5px 0;
+}

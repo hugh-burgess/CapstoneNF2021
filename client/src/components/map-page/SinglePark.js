@@ -1,38 +1,22 @@
 import Navigation from "../navigation/Navigation";
-import parksData from "../../parks.json";
 import "./SinglePark.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
-  saveJSONToLocalStorage,
   getItemsFromLocalStorage,
   addNotetoLocalStorage,
 } from "../../utils/itemStorage";
-
-function initialLoad() {
-  const retrieveArray = getItemsFromLocalStorage("parkData");
-  if (retrieveArray.length === 0) {
-    return parksData;
-  } else {
-    return retrieveArray;
-  }
-}
+import useParks from "../../hooks/useParks";
+import { useParams } from "react-router";
 
 export default function SinglePark() {
+  const { mapID } = useParams();
   const [note, setNote] = useState("");
-  const [parkData, setParkData] = useState(initialLoad());
-  const pathname = window.location.pathname; // turns this into useLocation later
-  const geo = pathname.slice([13]).replace(/-/g, ".");
-  const selectedPark = parkData.find((park) =>
-    park.coordinates[0].includes(geo)
+  const [parkData, setParkData] = useParks();
+  const coordinatesID = mapID.replace(/-/g, ".");
+  console.log(parkData[0].coordinates[0]);
+  const selectedPark = parkData.find(
+    (park) => park.coordinates[0] === coordinatesID
   );
-
-  useEffect(() => {
-    saveJSONToLocalStorage("parkData", parkData);
-  }, [parkData]);
-
-  useEffect(() => {
-    getItemsFromLocalStorage("parkData");
-  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -56,7 +40,7 @@ export default function SinglePark() {
         <h1 className="park-title">{selectedPark.name}</h1>
       </div>
       <main className="main single-park-page">
-        <p class="single-park-address">Address: {selectedPark.address}</p>
+        <p className="single-park-address">Address: {selectedPark.address}</p>
         <p className="single-park-updates-title">Updates</p>
         <div className="single-park-updates-content">
           {selectedPark.notes.map((note, i) => (
@@ -72,7 +56,9 @@ export default function SinglePark() {
             onChange={handleNoteChange}
             type="input"
           />
-          <button type="submit">Leave a Note</button>
+          <button className="generic-button" type="submit">
+            Leave a Note
+          </button>
         </form>
       </main>
       <footer className="footer">

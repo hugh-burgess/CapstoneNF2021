@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import { Link, useHistory, useLocation, useParams } from "react-router-dom";
 import {
-  getItemsFromLocalStorage,
   getSingleDogFromLocalStorage,
   removeItemFromLocalStorageById,
 } from "../../utils/itemStorage";
@@ -13,24 +11,19 @@ import { ImBin } from "react-icons/im";
 import { FaBone } from "react-icons/fa";
 import RandomNumber from "../../utils/RandomNumber";
 import FakeFrens from "../../utils/FakeFrens";
+import useFriends from "../../hooks/useFriends";
 
 export default function SingleDog() {
   let number = RandomNumber;
-  const [friends, setFriends] = useState([]);
+  const [friends, setFriends] = useFriends();
   let location = useLocation();
   let { id } = useParams();
   let history = useHistory();
 
   function handleDeleteFriend(friend) {
     removeItemFromLocalStorageById("friends", friend.id);
-    setFriends(getItemsFromLocalStorage("friends"));
     history.push("/friends");
   }
-
-  useEffect(() => {
-    const friends = getItemsFromLocalStorage("friends");
-    setFriends(friends);
-  }, []);
 
   const filteredFriend = getSingleDogFromLocalStorage(
     Number(location.pathname.slice(12))

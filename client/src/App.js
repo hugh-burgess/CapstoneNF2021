@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Friends from "./components/friends-page/Friends";
 import Map from "./components/map-page/Map";
-import EditProfile from "./components/profile-page/Edit-Profile";
+import EditProfile from "./components/profile-page/EditProfile";
 import Profile from "./components/profile-page/Profile";
 import LogIn from "./components/log-in/LogIn";
 import Search from "./components/search-page/Search";

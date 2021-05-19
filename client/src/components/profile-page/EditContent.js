@@ -4,7 +4,7 @@ import { BsPencil } from "react-icons/bs";
 import { MdAddAPhoto } from "react-icons/md";
 import bubble from "../../images/stat-bubble.svg";
 import bioBubble from "../../images/bio-bubble.svg";
-import "./Edit-Profile.css";
+import "./EditProfile.css";
 import { useEffect, useState } from "react";
 import {
   addProfileToLocalStorage,
@@ -227,7 +227,7 @@ export default function EditContent() {
           ) : (
             <div className="edit-page-buttons-wrapper">
               <button
-                className="save-button"
+                className="generic-button"
                 type="submit"
                 onClick={handleEditSubmit}
               >

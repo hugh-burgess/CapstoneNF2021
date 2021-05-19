@@ -17,7 +17,6 @@ export default function MapDisplay({ handleStarClick, parkData }) {
 
   let { mapID } = useParams();
   mapID = selectedPark?.coordinates[0].replace(/\./g, "-");
-
   return (
     <ReactMapGL
       {...viewport}
@@ -29,7 +28,7 @@ export default function MapDisplay({ handleStarClick, parkData }) {
       }}
       mapStyle="mapbox://styles/trix2705/cko8hkfyn0sm617o9ek7qmkiq"
     >
-      {parkData.length > 0 &&
+      {parkData &&
         parkData.map((park) => (
           <Marker
             key={park.coordinates[0]}
@@ -47,7 +46,6 @@ export default function MapDisplay({ handleStarClick, parkData }) {
             />
           </Marker>
         ))}
-
       {selectedPark ? (
         <Link to={`/single-park/${mapID}`}>
           <Popup

@@ -15,7 +15,6 @@ export default function MainContent() {
     setPicture(user[0].info.url);
     setBio(user[0].bio);
     setName(user[0].name);
-    console.log(user[0]);
   }, []);
 
   function capitalizeName(str) {
