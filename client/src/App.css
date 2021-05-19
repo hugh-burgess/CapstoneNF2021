@@ -44,4 +44,5 @@
   padding: 10px;
   border: black 1px solid;
   margin: 5px 0;
+  box-shadow: var(--hard-shadow);
 }

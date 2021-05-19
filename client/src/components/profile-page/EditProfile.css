@@ -44,19 +44,6 @@
   margin: 5px 0;
 }
 
-.edit-back-button {
-  font-family: "PT Sans";
-  cursor: pointer;
-  background-color: white;
-  color: var(--deep-blue);
-  border-radius: 15px;
-  width: 30px;
-  height: 20px;
-  padding: 10px;
-  border: black 1px solid;
-  margin: 5px 0;
-}
-
 .edit-bio-wrapper {
   display: flex;
   flex-direction: column;

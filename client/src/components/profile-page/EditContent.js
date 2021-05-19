@@ -234,7 +234,7 @@ export default function EditContent() {
                 save
               </button>
               <button
-                className="edit-back-button"
+                className="generic-button"
                 onClick={() => history.goBack()}
               >
                 back
