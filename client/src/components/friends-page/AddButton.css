@@ -9,7 +9,6 @@
 }
 
 .popup-box {
-  height: auto;
   width: 80vw;
   border-radius: 5px;
   padding: 5px;
@@ -33,14 +32,11 @@
 
 .name-input {
   border-radius: 5px;
-  width: auto;
-  height: auto;
 }
 
 .stats-input {
   border-radius: 5px;
   width: 100%;
-  height: auto;
 }
 
 .hidden {
@@ -72,5 +68,6 @@
 }
 
 .flashcard {
+  margin: 5px;
   color: var(--white);
 }

@@ -18,12 +18,6 @@ export default function AddButtonForm({ handleButtonClick }) {
   const [isStar, setIsStar] = useState(false);
   const [fields, setFields] = useState([{ value: null }]);
 
-  function handleRemoveLocalStorage(itemName) {
-    removeItemFromLocalStorageByName(itemName);
-    const items = getItemsFromLocalStorage("friends");
-    setFriends(items);
-  }
-
   const Expire = (props) => {
     const [visible, setVisible] = useState(true);
 
@@ -37,14 +31,7 @@ export default function AddButtonForm({ handleButtonClick }) {
 
   function renderItems() {
     return friends.map((friend) => {
-      return (
-        <p
-          className="flashcard"
-          onClick={() => handleRemoveLocalStorage(friend.name)}
-        >
-          - {friend.name}
-        </p>
-      );
+      return <p className="flashcard">- {friend.name}</p>;
     });
   }
 
@@ -196,7 +183,9 @@ export default function AddButtonForm({ handleButtonClick }) {
         <button
           className="generic-button star-and-save"
           type="submit"
-          onClick={() => setCount(count + 1)}
+          onClick={() => {
+            friendName && setCount(count + 1);
+          }}
         >
           save
         </button>
