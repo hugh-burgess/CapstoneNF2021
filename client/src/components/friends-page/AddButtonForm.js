@@ -38,7 +38,10 @@ export default function AddButtonForm({ handleButtonClick }) {
   function renderItems() {
     return friends.map((friend) => {
       return (
-        <p onClick={() => handleRemoveLocalStorage(friend.name)}>
+        <p
+          className="flashcard"
+          onClick={() => handleRemoveLocalStorage(friend.name)}
+        >
           - {friend.name}
         </p>
       );
@@ -50,7 +53,6 @@ export default function AddButtonForm({ handleButtonClick }) {
 
     addItemToLocalStorage("friends", {
       name: friendName,
-      // imgSrc: imageSource,
       bio: biography,
       stats: fields,
       rating: ratings,
@@ -102,7 +104,10 @@ export default function AddButtonForm({ handleButtonClick }) {
 
   return (
     <form className="popup-box" onSubmit={handleSubmit}>
-      <button onClick={handleButtonClick} className="popup-delete">
+      <button
+        className="generic-button add-form-close-button-wrapper"
+        onClick={handleButtonClick}
+      >
         close
       </button>
       <div className="input-boxes-parent">
@@ -130,7 +135,7 @@ export default function AddButtonForm({ handleButtonClick }) {
             return (
               <div className="stats-input-parent" key={`${field}-${idx}`}>
                 <input
-                  className="name-input"
+                  className="stats-input"
                   type="text"
                   name="statistics"
                   placeholder="stats goes here..."
@@ -179,21 +184,26 @@ export default function AddButtonForm({ handleButtonClick }) {
           <option value="4">4 Star</option>
           <option value="5">5 Star</option>
         </select>
-        <button type="button" onClick={handleStarredClick}>
-          {isStar ? "Starred!" : "Star"}
+      </div>
+      <div className="add-button-form-buttons">
+        <button
+          className="generic-button star-and-save"
+          type="button"
+          onClick={handleStarredClick}
+        >
+          {isStar ? "starred!" : "star"}
+        </button>
+        <button
+          className="generic-button star-and-save"
+          type="submit"
+          onClick={() => setCount(count + 1)}
+        >
+          save
         </button>
       </div>
 
-      <button
-        className="generic-button"
-        type="submit"
-        onClick={() => setCount(count + 1)}
-      >
-        save
-      </button>
-
       <Expire delay="3000">
-        <p>Friends added: {count}</p>
+        <p className="flashcard">Friends added: {count}</p>
         {renderItems()}
       </Expire>
     </form>
