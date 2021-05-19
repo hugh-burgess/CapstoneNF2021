@@ -6,12 +6,10 @@ import {
   addItemToLocalStorage,
   removeItemFromLocalStorageByName,
 } from "../../utils/itemStorage";
+import useFriends from "../../hooks/useFriends";
 
-export default function AddButtonForm({
-  handleButtonClick,
-  friends,
-  setFriends,
-}) {
+export default function AddButtonForm({ handleButtonClick }) {
+  const [friends, setFriends] = useFriends();
   const [count, setCount] = useState(0);
   const [friendName, setFriendName] = useState("");
   const [biography, setBiography] = useState("");
@@ -193,6 +191,7 @@ export default function AddButtonForm({
       >
         save
       </button>
+
       <Expire delay="3000">
         <p>Friends added: {count}</p>
         {renderItems()}

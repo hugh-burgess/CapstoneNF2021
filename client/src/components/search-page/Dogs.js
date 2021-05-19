@@ -4,10 +4,10 @@ import { GiSniffingDog } from "react-icons/gi";
 import RandomNumber from "../../utils/RandomNumber";
 import FakeFrens from "../../utils/FakeFrens";
 import useFriends from "../../hooks/useFriends";
-import { getDogsFilteredByName } from "../../utils/dogs";
+import { getDogsFilteredByName } from "../../utils/getDogsFilteredByName";
 
 export default function Dogs({ filter }) {
-  const friends = useFriends();
+  const [friends] = useFriends();
   console.log(friends);
   const filteredDogs = getDogsFilteredByName(friends, filter);
   function renderFriend() {

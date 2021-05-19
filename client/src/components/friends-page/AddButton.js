@@ -1,11 +1,9 @@
 import { useState } from "react";
 import "./AddButton.css";
-import useFriends from "../../hooks/useFriends";
 import AddButtonForm from "./AddButtonForm";
 
 export default function AddButton() {
   const [isClicked, setIsClicked] = useState(false);
-  const friends = useFriends();
 
   function handleButtonClick(event) {
     event.preventDefault();
@@ -20,12 +18,7 @@ export default function AddButton() {
           Add A Friend
         </button>
       )}
-      {isClicked && (
-        <AddButtonForm
-          handleButtonClick={handleButtonClick}
-          friends={friends}
-        />
-      )}
+      {isClicked && <AddButtonForm handleButtonClick={handleButtonClick} />}
     </div>
   );
 }

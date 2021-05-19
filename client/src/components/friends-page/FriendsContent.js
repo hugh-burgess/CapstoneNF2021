@@ -8,7 +8,7 @@ import CloudFormationsRight from "../../utils/CloudFormationsRight";
 import useFriends from "../../hooks/useFriends";
 
 export default function FriendsContent() {
-  const friends = useFriends();
+  const [friends] = useFriends();
 
   function renderItems() {
     return friends.map((friend, index) => {

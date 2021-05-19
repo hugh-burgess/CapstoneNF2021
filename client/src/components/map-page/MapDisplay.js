@@ -28,7 +28,7 @@ export default function MapDisplay({ handleStarClick, parkData }) {
       }}
       mapStyle="mapbox://styles/trix2705/cko8hkfyn0sm617o9ek7qmkiq"
     >
-      {parkData !== 0 &&
+      {parkData &&
         parkData.map((park) => (
           <Marker
             key={park.coordinates[0]}

@@ -6,14 +6,16 @@ import {
   addNotetoLocalStorage,
 } from "../../utils/itemStorage";
 import useParks from "../../hooks/useParks";
+import { useParams } from "react-router";
 
 export default function SinglePark() {
+  const { mapID } = useParams();
   const [note, setNote] = useState("");
   const [parkData, setParkData] = useParks();
-  const pathname = window.location.pathname; // turns this into useLocation later
-  const geo = pathname.slice(13).replace(/-/g, ".");
-  const selectedPark = parkData.find((park) =>
-    park.coordinates[0].includes(geo)
+  const coordinatesID = mapID.replace(/-/g, ".");
+  console.log(parkData[0].coordinates[0]);
+  const selectedPark = parkData.find(
+    (park) => park.coordinates[0] === coordinatesID
   );
 
   function handleSubmit(e) {
