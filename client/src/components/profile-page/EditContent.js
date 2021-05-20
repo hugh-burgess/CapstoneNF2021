@@ -29,13 +29,14 @@ export default function EditContent() {
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
   const [counter, setCounter] = useState(125);
-  const [account, setAccount] = useState([]);
 
   useEffect(() => {
     const user = getItemsFromLocalStorage("user");
-    setPicture(user[0].info.url);
-    setName(user[0].name);
-    setAccount(user);
+    setPicture(user.info.url);
+    setBio(user.bio);
+    setName(user.name);
+    setInfo(user.info);
+    setImageType(user.imageType);
   }, []);
 
   const uploadImage = (e) => {
@@ -66,12 +67,10 @@ export default function EditContent() {
       });
   };
 
-  const profile = { bio, imageType, info, name };
-  account.push(profile);
-
   function handleEditSubmit(e) {
+    const profile = { bio, imageType, info, name };
     e.preventDefault();
-    if (imageType === "" || bio === "") {
+    if (imageType === "" && bio === "") {
       alert(
         "Please fill out the bio and pick a photo and upload. If you've done all this then hit save!"
       );
@@ -158,7 +157,7 @@ export default function EditContent() {
             </label>
           ) : (
             <button
-              className="edit-upload-button save-button"
+              className="edit-upload-button generic-button"
               type="submit"
               onClick={uploadImage}
             >
@@ -214,14 +213,14 @@ export default function EditContent() {
           </div>
           {isClicked ? (
             <div className="edit-page-buttons-wrapper">
-              <button className="save-button" disabled>
+              <button className="generic-button" disabled>
                 saved
               </button>
               <button
-                className="edit-back-button"
+                className="generic-button"
                 onClick={() => history.goBack()}
               >
-                Back
+                back
               </button>
             </div>
           ) : (

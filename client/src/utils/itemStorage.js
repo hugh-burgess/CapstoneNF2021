@@ -15,11 +15,11 @@ export function addItemToLocalStorage(key, item) {
 }
 
 export function addProfileToLocalStorage(key, profile) {
-  const data = getItemsFromLocalStorage(key);
-  data.length = 0;
-  profile.id = Date.now();
-  data.push(profile);
-  localStorage.setItem(key, JSON.stringify(data));
+  const newProfile = {
+    id: Date.now(),
+    ...profile,
+  };
+  localStorage.setItem(key, JSON.stringify(newProfile));
 }
 
 export function removeItemFromLocalStorageByName(key, itemName) {
