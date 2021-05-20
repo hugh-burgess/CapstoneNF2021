@@ -66,14 +66,20 @@ export default function EditContent() {
         console.error("Error:", error);
       });
   };
+  console.log(bioClick);
+  console.log(isPhotoClicked);
+  console.log(isLoadClicked);
 
   function handleEditSubmit(e) {
     const profile = { bio, imageType, info, name };
     e.preventDefault();
-    if (imageType === "" && bio === "") {
-      alert(
-        "Please fill out the bio and pick a photo and upload. If you've done all this then hit save!"
-      );
+
+    if (
+      bioClick === false &&
+      isPhotoClicked === false &&
+      isLoadClicked === false
+    ) {
+      alert("nothing to save!");
     } else {
       addProfileToLocalStorage("user", profile);
       setIsClicked(!isClicked);
