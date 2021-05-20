@@ -15,6 +15,7 @@ export default function CreateForm({
   setImageSelected,
   imageType,
   imagePublicId,
+  imageSelected,
 }) {
   return (
     <form className="create-profile-form" onSubmit={handleCreateProfileSubmit}>
@@ -73,9 +74,15 @@ export default function CreateForm({
           }}
           required
         />
-        <button className="generic-button browse-button" onClick={uploadImage}>
-          {buttonName}
-        </button>
+        {imageSelected && (
+          <button
+            className="generic-button browse-button"
+            onClick={uploadImage}
+            disabled={buttonName === "Done!" ? true : false}
+          >
+            {buttonName}
+          </button>
+        )}
       </label>
       <div className="bottom-wrapper">
         <button

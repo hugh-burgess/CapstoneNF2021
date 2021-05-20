@@ -122,6 +122,7 @@ export default function CreateProfile() {
           setImageSelected={setImageSelected}
           imageType={imageType}
           imagePublicId={imagePublicId}
+          imageSelected={imageSelected}
         />
       </main>
       <footer className="footer">
