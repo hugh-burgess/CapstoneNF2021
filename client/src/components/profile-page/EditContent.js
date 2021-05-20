@@ -66,9 +66,6 @@ export default function EditContent() {
         console.error("Error:", error);
       });
   };
-  console.log(bioClick);
-  console.log(isPhotoClicked);
-  console.log(isLoadClicked);
 
   function handleEditSubmit(e) {
     const profile = { bio, imageType, info, name };
