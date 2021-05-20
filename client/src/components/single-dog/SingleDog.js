@@ -86,50 +86,54 @@ export default function SingleDog() {
         <main className="main single-dog-main-wrapper">
           <div key={id} className="single-dog-page">
             <div className="single-dog-overview">
-              <div className="single-dog-stats">
-                <p className="single-dog-stats-title">Stats</p>
-                <div className="single-dog-content-box">
-                  <ul>
-                    {filteredFriend.stats.map((stat) => {
-                      if (stat.value === null) {
-                        return <li key={stat.value}>None listed</li>;
-                      } else {
+              {filteredFriend.stats[1] && (
+                <div className="single-dog-stats">
+                  <p className="single-dog-stats-title">Stats</p>
+                  <div className="single-dog-content-box">
+                    <ul>
+                      {filteredFriend.stats.map((stat) => {
                         return <li key={stat.value}>{stat.value + " "}</li>;
-                      }
-                    })}
-                  </ul>
+                      })}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-              <div className="single-dog-review">
-                <p className="single-dog-review-title">Review</p>
-                <div className="single-dog-content-box">
-                  {filteredFriend.review}
+              )}
+              {filteredFriend.review && (
+                <div className="single-dog-review">
+                  <p className="single-dog-review-title">Review</p>
+                  <div className="single-dog-content-box">
+                    {filteredFriend.review}
+                  </div>
                 </div>
-              </div>
-              <div className="single-dog-rating">
-                <p className="single-dog-rating-title">Rating</p>
-                <p className="single-dog-rating-content">
-                  {createBones(filteredFriend.rating)}
-                </p>
-              </div>
+              )}
+              {filteredFriend.rating && (
+                <div className="single-dog-rating">
+                  <p className="single-dog-rating-title">Rating</p>
+                  <p className="single-dog-rating-content">
+                    {createBones(filteredFriend.rating)}
+                  </p>
+                </div>
+              )}
             </div>
-            <div class="single-dog-options">
-              <div className="single-dog-starred">
-                <p className="single-dog-starred-content">
-                  {handleStarredClick(filteredFriend.isStarred)}
-                </p>
-              </div>
-              <div className="single-dog-message">
-                <p className="single-dog-message-content">
-                  <Link to={`/whistle/${id}`}>
-                    <ImBubble />
-                  </Link>
-                </p>
-              </div>
-              <div className="single-dog-delete">
-                <p className="single-dog-delete-content">
-                  <ImBin onClick={() => handleDeleteFriend(filteredFriend)} />
-                </p>
+            <div className="options-wrapper">
+              <div class="single-dog-options">
+                <div className="single-dog-starred">
+                  <p className="single-dog-starred-content">
+                    {handleStarredClick(filteredFriend.isStarred)}
+                  </p>
+                </div>
+                <div className="single-dog-message">
+                  <p className="single-dog-message-content">
+                    <Link to={`/whistle/${id}`}>
+                      <ImBubble />
+                    </Link>
+                  </p>
+                </div>
+                <div className="single-dog-delete">
+                  <p className="single-dog-delete-content">
+                    <ImBin onClick={() => handleDeleteFriend(filteredFriend)} />
+                  </p>
+                </div>
               </div>
             </div>
           </div>
