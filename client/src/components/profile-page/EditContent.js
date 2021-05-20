@@ -105,12 +105,20 @@ export default function EditContent() {
   function handleEditBioChange(e) {
     const newBio = e.target.value;
     setBio(newBio);
-    setCounter(counter - 1);
-    if (e.target.value === "") {
+    const text = e.nativeEvent.target.textLength;
+
+    if (e.nativeEvent.inputType === "insertText") {
+      setCounter(counter - 1);
+    } else if (e.nativeEvent.target.textLength === 0) {
       setCounter(125);
-    } else if (e.nativeEvent.data === null) {
+    } else if (e.nativeEvent.inputType === "deleteContentBackward") {
       setCounter(counter + 1);
+    } else if (e.nativeEvent.inputType === "insertLineBreak") {
+      setCounter(counter - 1);
+    } else if (e.nativeEvent.inputType === "deleteSoftLineBackward") {
+      setCounter(125 - text);
     }
+    return setCounter(125 - text);
   }
 
   function pencilClick(e) {

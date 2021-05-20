@@ -94,13 +94,20 @@ export default function CreateProfile() {
 
   function handleBioChange(e) {
     const newBio = e.target.value;
-
     setBio(newBio);
+    const text = e.nativeEvent.target.textLength;
     setCounter(counter - 1);
-    if (e.target.value === "") {
+
+    if (e.nativeEvent.inputType === "insertText") {
+      setCounter(counter - 1);
+    } else if (e.nativeEvent.target.textLength === 0) {
       setCounter(125);
-    } else if (e.nativeEvent.data === null) {
+    } else if (e.nativeEvent.inputType === "deleteContentBackward") {
       setCounter(counter + 1);
+    } else if (e.nativeEvent.inputType === "insertLineBreak") {
+      setCounter(counter - 1);
+    } else if (e.nativeEvent.inputType === "deleteSoftLineBackward") {
+      setCounter(125 - text);
     }
   }
 
