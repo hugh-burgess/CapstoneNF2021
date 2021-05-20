@@ -115,7 +115,10 @@ export default function EditContent() {
       setCounter(counter + 1);
     } else if (e.nativeEvent.inputType === "insertLineBreak") {
       setCounter(counter - 1);
-    } else if (e.nativeEvent.inputType === "deleteSoftLineBackward") {
+    } else if (
+      e.nativeEvent.inputType === "deleteSoftLineBackward" ||
+      e.nativeEvent.inputType === "deleteWordBackward"
+    ) {
       setCounter(125 - text);
     }
     return setCounter(125 - text);
