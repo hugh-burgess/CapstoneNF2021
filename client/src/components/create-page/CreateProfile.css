@@ -36,7 +36,7 @@
 
 .create-profile-title {
   color: var(--white);
-  font-family: "Cookie", cursive;
+  font-family: var(--cookie-text-title);
   font-size: 3em;
   transform: rotate(-20deg) skew(-20deg);
 }

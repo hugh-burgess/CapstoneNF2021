@@ -6,11 +6,7 @@
 .blur-effect {
   filter: blur(3px);
 }
-.blank-picture {
-  background: var(--white);
-  height: 100%;
-  border-radius: 50%;
-}
+
 .edit-pen {
   color: var(--red);
   z-index: 10;
