@@ -50,7 +50,7 @@
 .options-wrapper {
   display: flex;
   justify-self: end;
-  height: 100vh;
+  margin-top: 60%;
 }
 
 .single-dog-options {
@@ -74,6 +74,10 @@
 .single-dog-delete-content {
   height: auto;
   margin-bottom: 0;
+}
+
+.messaging-bubble {
+  color: var(--deep-blue);
 }
 
 .single-dog-rating-content {

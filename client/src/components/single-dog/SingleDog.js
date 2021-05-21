@@ -125,7 +125,7 @@ export default function SingleDog() {
                 <div className="single-dog-message">
                   <p className="single-dog-message-content">
                     <Link to={`/whistle/${id}`}>
-                      <ImBubble />
+                      <ImBubble className="messaging-bubble" />
                     </Link>
                   </p>
                 </div>
