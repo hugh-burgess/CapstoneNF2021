@@ -28,8 +28,8 @@ export default function EditContent() {
   const [info, setInfo] = useState({});
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
-  const [counter, setCounter] = useState(125);
-
+  const [text, setText] = useState("");
+  const [wordCount, setWordCount] = useState(125);
   useEffect(() => {
     const user = getItemsFromLocalStorage("user");
     setPicture(user.info.url);
@@ -106,23 +106,9 @@ export default function EditContent() {
   function handleEditBioChange(e) {
     const newBio = e.target.value;
     setBio(newBio);
-    const text = e.nativeEvent.target.textLength;
-
-    if (e.nativeEvent.inputType === "insertText") {
-      setCounter(counter - 1);
-    } else if (e.nativeEvent.target.textLength === 0) {
-      setCounter(125);
-    } else if (e.nativeEvent.inputType === "deleteContentBackward") {
-      setCounter(counter + 1);
-    } else if (e.nativeEvent.inputType === "insertLineBreak") {
-      setCounter(counter - 1);
-    } else if (
-      e.nativeEvent.inputType === "deleteSoftLineBackward" ||
-      e.nativeEvent.inputType === "deleteWordBackward"
-    ) {
-      setCounter(125 - text);
-    }
-    return setCounter(125 - text);
+    const { value } = e.target;
+    setWordCount(125 - value.length);
+    setText(value);
   }
 
   function pencilClick(e) {
@@ -206,8 +192,12 @@ export default function EditContent() {
                 value={bio}
                 required
               />
-              <div className="edit-bio-counter" onChange={handleEditBioChange}>
-                {counter}
+              <div
+                value={text}
+                className="edit-bio-counter"
+                onChange={handleEditBioChange}
+              >
+                {wordCount}
               </div>
             </div>
           ) : (

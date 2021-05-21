@@ -14,10 +14,14 @@ export default function CreateProfile() {
   const [imageId, setImageId] = useState("");
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
-  const [counter, setCounter] = useState(125);
+
+  const [text, setText] = useState("");
+  const [wordCount, setWordCount] = useState(125);
+
   const [clicked, setClicked] = useState(false);
   const [info, setInfo] = useState({});
   const [buttonName, setButtonName] = useState("Upload");
+  const [imageStatus, setImageStatus] = useState("not loaded");
 
   const uploadImage = (e) => {
     e.preventDefault();
@@ -25,6 +29,7 @@ export default function CreateProfile() {
     formData.append("file", imageSelected);
     formData.append("upload_preset", "s2bkhsfz");
     setButtonName("uploading...");
+    setImageStatus("uploading...");
 
     fetch("https://api.cloudinary.com/v1_1/dy1xpaosj/image/upload", {
       method: "PUT",
@@ -37,6 +42,7 @@ export default function CreateProfile() {
         setImageId(result.created_at);
         setInfo(result);
         setButtonName("Done!");
+        setImageStatus("loaded");
 
         console.log("Success:", result);
         if (result.error.message === "Missing required parameter - file") {
@@ -95,23 +101,9 @@ export default function CreateProfile() {
   function handleBioChange(e) {
     const newBio = e.target.value;
     setBio(newBio);
-    const text = e.nativeEvent.target.textLength;
-    setCounter(counter - 1);
-
-    if (e.nativeEvent.inputType === "insertText") {
-      setCounter(counter - 1);
-    } else if (e.nativeEvent.target.textLength === 0) {
-      setCounter(125);
-    } else if (e.nativeEvent.inputType === "deleteContentBackward") {
-      setCounter(counter + 1);
-    } else if (e.nativeEvent.inputType === "insertLineBreak") {
-      setCounter(counter - 1);
-    } else if (
-      e.nativeEvent.inputType === "deleteSoftLineBackward" ||
-      e.nativeEvent.inputType === "deleteWordBackward"
-    ) {
-      setCounter(125 - text);
-    }
+    const { value } = e.target;
+    setWordCount(125 - value.length);
+    setText(value);
   }
 
   return (
@@ -125,9 +117,11 @@ export default function CreateProfile() {
           name={name}
           handleBioChange={handleBioChange}
           bio={bio}
-          counter={counter}
           clicked={clicked}
           buttonName={buttonName}
+          imageStatus={imageStatus}
+          text={text}
+          wordCount={wordCount}
           uploadImage={uploadImage}
           setImageSelected={setImageSelected}
           imageType={imageType}

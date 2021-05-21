@@ -107,8 +107,8 @@
   text-align: right;
   width: 80%;
   font-family: var(--cookie-text-title);
-  opacity: 0.5;
-  color: var(--light-blue);
+  opacity: 0.8;
+  color: var(--white);
 }
 
 .bottom-wrapper {
