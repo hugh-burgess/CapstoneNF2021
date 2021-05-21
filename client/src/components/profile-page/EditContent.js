@@ -213,35 +213,19 @@ export default function EditContent() {
               <li>loves walks</li>
             </div>
           </div>
-          {isClicked ? (
-            <div className="edit-page-buttons-wrapper">
-              <button className="generic-button" disabled>
-                saved
-              </button>
-              <button
-                className="generic-button"
-                onClick={() => history.goBack()}
-              >
-                back
-              </button>
-            </div>
-          ) : (
-            <div className="edit-page-buttons-wrapper">
-              <button
-                className="generic-button"
-                type="submit"
-                onClick={handleEditSubmit}
-              >
-                save
-              </button>
-              <button
-                className="generic-button"
-                onClick={() => history.goBack()}
-              >
-                back
-              </button>
-            </div>
-          )}
+          <div className="edit-page-buttons-wrapper">
+            <button
+              className="generic-button"
+              type={isClicked === false && "submit"}
+              onClick={isClicked === false && handleEditSubmit}
+              disabled={isClicked ? true : false}
+            >
+              {isClicked ? "saved" : "save"}
+            </button>
+            <button className="generic-button" onClick={() => history.goBack()}>
+              back
+            </button>
+          </div>
         </div>
       </div>
     </form>
