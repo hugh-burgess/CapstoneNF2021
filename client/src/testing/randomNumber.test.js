@@ -17,7 +17,7 @@ describe("randomNumber", () => {
     // THEN the value should be equal to or greater than zero
     expect(value >= 0).toEqual(true);
   });
-  it("should recieve a number and returns the largest integer of that given number, and also a Number", () => {
+  it("should recieve a number and returns the largest integer of that given number, and also be a Number", () => {
     // GIVEN
     const max = 5;
     // WHEN I call this function with the arguement "max"
