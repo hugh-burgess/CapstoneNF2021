@@ -11,7 +11,7 @@ describe("randomNumber", () => {
   });
   it("should recieve a number and returns the largest integer of that given number, and also a number greater than zero", () => {
     // GIVEN
-    const max = 5;
+    const max = 7;
     // WHEN I call this function with the arguement "max"
     const value = randomNumber(max);
     // THEN the value should be equal to or greater than zero
@@ -19,7 +19,7 @@ describe("randomNumber", () => {
   });
   it("should recieve a number and returns the largest integer of that given number, and also be a Number", () => {
     // GIVEN
-    const max = 5;
+    const max = 3;
     // WHEN I call this function with the arguement "max"
     const value = randomNumber(max);
     // THEN the value should be a number
