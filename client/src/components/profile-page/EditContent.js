@@ -57,7 +57,6 @@ export default function EditContent() {
         setInfo(result);
         setIsLoadClicked(!isLoadClicked);
 
-        console.log("Success:", result);
         if (result.error.message === "Missing required parameter - file") {
           alert("Please select a picture to upload.");
         }
@@ -97,7 +96,6 @@ export default function EditContent() {
     };
     fetch(baseUrl, initDetails)
       .then((res) => {
-        console.log(res.status);
         return res.json();
       })
       .catch((err) => {
