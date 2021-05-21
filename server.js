@@ -28,7 +28,7 @@ app.post("/login", (req, res) => {
     Users.find({ username: username })
       .then((user) => {
         const passwordEnteredByUser = password;
-        const hash = user[0].password;
+        const hash = user.password;
         bcrypt.compare(passwordEnteredByUser, hash, function (err, isMatch) {
           if (err) {
             throw err;

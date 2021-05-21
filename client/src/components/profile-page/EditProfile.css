@@ -6,11 +6,7 @@
 .blur-effect {
   filter: blur(3px);
 }
-.blank-picture {
-  background: var(--white);
-  height: 100%;
-  border-radius: 50%;
-}
+
 .edit-pen {
   color: var(--red);
   z-index: 10;
@@ -62,8 +58,8 @@
 }
 .edit-bio-counter {
   text-align: right;
-  width: 60%;
+  width: 55%;
   font-family: var(--cookie-text-title);
   opacity: 0.5;
-  color: var(--light-blue);
+  color: var(--deep-blue);
 }

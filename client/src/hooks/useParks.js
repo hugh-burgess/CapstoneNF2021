@@ -3,7 +3,7 @@ import {
   getItemsFromLocalStorage,
   saveJSONToLocalStorage,
 } from "../utils/itemStorage";
-import parksData from "../parks.json";
+import parksData from "../lib/parks.json";
 
 function initialLoad() {
   const retrieveArray = getItemsFromLocalStorage("parkData");

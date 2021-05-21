@@ -28,14 +28,15 @@ export default function EditContent() {
   const [info, setInfo] = useState({});
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
-  const [counter, setCounter] = useState(125);
-  const [account, setAccount] = useState([]);
-
+  const [text, setText] = useState("");
+  const [wordCount, setWordCount] = useState(125);
   useEffect(() => {
     const user = getItemsFromLocalStorage("user");
-    setPicture(user[0].info.url);
-    setName(user[0].name);
-    setAccount(user);
+    setPicture(user.info.url);
+    setBio(user.bio);
+    setName(user.name);
+    setInfo(user.info);
+    setImageType(user.imageType);
   }, []);
 
   const uploadImage = (e) => {
@@ -56,7 +57,6 @@ export default function EditContent() {
         setInfo(result);
         setIsLoadClicked(!isLoadClicked);
 
-        console.log("Success:", result);
         if (result.error.message === "Missing required parameter - file") {
           alert("Please select a picture to upload.");
         }
@@ -66,15 +66,16 @@ export default function EditContent() {
       });
   };
 
-  const profile = { bio, imageType, info, name };
-  account.push(profile);
-
   function handleEditSubmit(e) {
+    const profile = { bio, imageType, info, name };
     e.preventDefault();
-    if (imageType === "" || bio === "") {
-      alert(
-        "Please fill out the bio and pick a photo and upload. If you've done all this then hit save!"
-      );
+
+    if (
+      bioClick === false &&
+      isPhotoClicked === false &&
+      isLoadClicked === false
+    ) {
+      alert("nothing to save!");
     } else {
       addProfileToLocalStorage("user", profile);
       setIsClicked(!isClicked);
@@ -95,7 +96,6 @@ export default function EditContent() {
     };
     fetch(baseUrl, initDetails)
       .then((res) => {
-        console.log(res.status);
         return res.json();
       })
       .catch((err) => {
@@ -106,12 +106,9 @@ export default function EditContent() {
   function handleEditBioChange(e) {
     const newBio = e.target.value;
     setBio(newBio);
-    setCounter(counter - 1);
-    if (e.target.value === "") {
-      setCounter(125);
-    } else if (e.nativeEvent.data === null) {
-      setCounter(counter + 1);
-    }
+    const { value } = e.target;
+    setWordCount(125 - value.length);
+    setText(value);
   }
 
   function pencilClick(e) {
@@ -158,7 +155,7 @@ export default function EditContent() {
             </label>
           ) : (
             <button
-              className="edit-upload-button save-button"
+              className="edit-upload-button generic-button"
               type="submit"
               onClick={uploadImage}
             >
@@ -195,8 +192,12 @@ export default function EditContent() {
                 value={bio}
                 required
               />
-              <div className="edit-bio-counter" onChange={handleEditBioChange}>
-                {counter}
+              <div
+                value={text}
+                className="edit-bio-counter"
+                onChange={handleEditBioChange}
+              >
+                {wordCount}
               </div>
             </div>
           ) : (
@@ -212,35 +213,19 @@ export default function EditContent() {
               <li>loves walks</li>
             </div>
           </div>
-          {isClicked ? (
-            <div className="edit-page-buttons-wrapper">
-              <button className="save-button" disabled>
-                saved
-              </button>
-              <button
-                className="edit-back-button"
-                onClick={() => history.goBack()}
-              >
-                Back
-              </button>
-            </div>
-          ) : (
-            <div className="edit-page-buttons-wrapper">
-              <button
-                className="generic-button"
-                type="submit"
-                onClick={handleEditSubmit}
-              >
-                save
-              </button>
-              <button
-                className="generic-button"
-                onClick={() => history.goBack()}
-              >
-                back
-              </button>
-            </div>
-          )}
+          <div className="edit-page-buttons-wrapper">
+            <button
+              className="generic-button"
+              type={isClicked === false && "submit"}
+              onClick={isClicked === false && handleEditSubmit}
+              disabled={isClicked ? true : false}
+            >
+              {isClicked ? "saved" : "save"}
+            </button>
+            <button className="generic-button" onClick={() => history.goBack()}>
+              back
+            </button>
+          </div>
         </div>
       </div>
     </form>

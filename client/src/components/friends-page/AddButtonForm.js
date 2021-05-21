@@ -11,7 +11,6 @@ export default function AddButtonForm({ handleButtonClick }) {
   const [friends, setFriends] = useFriends();
   const [count, setCount] = useState(0);
   const [friendName, setFriendName] = useState("");
-  const [biography, setBiography] = useState("");
   const [ratings, setRatings] = useState("");
   const [reviewing, setReviewing] = useState("");
   const [isStar, setIsStar] = useState(false);
@@ -39,7 +38,6 @@ export default function AddButtonForm({ handleButtonClick }) {
 
     addItemToLocalStorage("friends", {
       name: friendName,
-      bio: biography,
       stats: fields,
       rating: ratings,
       review: reviewing,
@@ -72,10 +70,6 @@ export default function AddButtonForm({ handleButtonClick }) {
     setFriendName(event.target.value);
   }
 
-  function handleBiographyChange(event) {
-    setBiography(event.target.value);
-  }
-
   function handleReviewChange(event) {
     setReviewing(event.target.value);
   }
@@ -106,16 +100,7 @@ export default function AddButtonForm({ handleButtonClick }) {
           value={friendName}
           required
         />
-        <input
-          className="name-input"
-          type="text"
-          name="biography"
-          maxLength="125"
-          placeholder="bio goes here..."
-          onChange={handleBiographyChange}
-          value={biography}
-          required
-        />
+
         <div className="stats-wrapper">
           {fields.map((field, idx) => {
             return (

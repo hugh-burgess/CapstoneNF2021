@@ -6,7 +6,11 @@
 
 .single-dog-page {
   color: var(--deep-blue);
-  margin-top: 40px;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100%;
 }
 
 .single-dog-wrapper {
@@ -28,6 +32,7 @@
 
 .single-dog-overview {
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
 }
@@ -42,11 +47,19 @@
   margin: 10px;
 }
 
+.options-wrapper {
+  display: flex;
+  justify-self: end;
+  margin-top: 60%;
+}
+
 .single-dog-options {
   display: flex;
-  height: auto;
+  width: 100%;
+  align-self: end;
   justify-content: space-around;
   font-size: 40px;
+  margin-bottom: 4rem;
 }
 
 .single-dog-stats-title,
@@ -61,6 +74,10 @@
 .single-dog-delete-content {
   height: auto;
   margin-bottom: 0;
+}
+
+.messaging-bubble {
+  color: var(--deep-blue);
 }
 
 .single-dog-rating-content {

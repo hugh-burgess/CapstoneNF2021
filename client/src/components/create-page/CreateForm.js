@@ -1,6 +1,5 @@
 import { Image } from "cloudinary-react";
 import { AiFillSave } from "react-icons/ai";
-
 export default function CreateForm({
   handleCreateProfileSubmit,
   handleNameChange,
@@ -8,13 +7,16 @@ export default function CreateForm({
   name,
   handleBioChange,
   bio,
-  counter,
   clicked,
   buttonName,
+  imageStatus,
   uploadImage,
   setImageSelected,
   imageType,
+  text,
+  wordCount,
   imagePublicId,
+  imageSelected,
 }) {
   return (
     <form className="create-profile-form" onSubmit={handleCreateProfileSubmit}>
@@ -55,12 +57,12 @@ export default function CreateForm({
           value={bio}
           required
         />
-        <div className="bio-counter" onChange={handleBioChange}>
-          {counter}
+        <div value={text} className="bio-counter" onChange={handleBioChange}>
+          {wordCount}
         </div>
       </div>
       <label className="input-file-label">
-        <label for="upload" className="generic-button browse-button">
+        <label HTMLfor="upload" className="generic-button browse-button">
           Browse
         </label>
         <input
@@ -73,9 +75,15 @@ export default function CreateForm({
           }}
           required
         />
-        <button className="generic-button browse-button" onClick={uploadImage}>
-          {buttonName}
-        </button>
+        {imageSelected && (
+          <button
+            className="generic-button browse-button"
+            onClick={uploadImage}
+            disabled={imageStatus === "loaded" ? true : false}
+          >
+            {buttonName}
+          </button>
+        )}
       </label>
       <div className="bottom-wrapper">
         <button
