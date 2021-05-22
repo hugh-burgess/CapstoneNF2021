@@ -4,12 +4,12 @@ import cloudThree from "../images/clouds/cloudThree.svg";
 import cloudFive from "../images/clouds/cloudFive.svg";
 
 describe("CloudFormationsRight", () => {
-  it("should render an array which contains three items inside", () => {
+  it("should return an array which contains three items inside", () => {
     // GIVEN that my array contains three items inside
     const cloudFormations = [cloudOne, cloudThree, cloudFive];
-    // WHEN I return the array
+    // WHEN I call the function
     const result = CloudFormationsRight();
-    // THEN I expect the result to contain three items inside.
+    // THEN I expect to receive an array with 3 items inside
     expect(result).toEqual(cloudFormations);
   });
 });

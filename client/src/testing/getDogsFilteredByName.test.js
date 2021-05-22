@@ -1,14 +1,15 @@
 import { getDogsFilteredByName } from "../utils/getDogsFilteredByName";
 
 describe("getDogsFilteredByName", () => {
-  it("should take an array and filter each value inside into lowercase or return an empty string", () => {
+  it("should give back an array that was filtered by comparing the object name to the filter name", () => {
     // GIVEN
-    const dogs = [{ name: "String" }, { name: "Name" }];
-    const filter = "String";
+    const dogs = [{ name: "Dog name" }, { name: "Name" }];
+    const filter = "Dog name";
 
     // WHEN I call this function with these arguments
     const result = getDogsFilteredByName(dogs, filter);
     // THEN
-    expect(result).toEqual([{ name: "String" }]);
+    expect(result).toEqual([{ name: "Dog name" }]);
+    expect(result).not.toEqual([{ name: "Name" }]);
   });
 });

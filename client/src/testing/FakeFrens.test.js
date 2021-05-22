@@ -7,12 +7,14 @@ import dogFour from "../images/dogs/dogFour.png";
 import dogFive from "../images/dogs/dogFive.png";
 
 describe("FakeFrens", () => {
-  it("should render an array which contains fakeFrensArray inside", () => {
+  it("should return an array which contains fakeFrensArray inside", () => {
     // GIVEN that my array contains five items inside
     const fakeFrensArray = [dogOne, dogTwo, dogThree, dogFour, dogFive];
-    // WHEN I return the array
+    // WHEN I call the function
     const result = FakeFrens();
-    // THEN I expect the result to contain three items inside.
+    // THEN I expect to receive an array with 5 items inside
     expect(result).toEqual(fakeFrensArray);
+    expect(fakeFrensArray[5]).toEqual(undefined);
+    expect(fakeFrensArray[4]).toEqual("dogFive.png");
   });
 });
