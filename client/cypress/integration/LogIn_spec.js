@@ -13,7 +13,7 @@ describe("Register the User", () => {
 
     cy.get('[type="text"]').focus().type("Robot");
     cy.get('[type="password"]').focus().type("123");
-    cy.get('[id="log-in"]').trigger("mouseover").click();
+    cy.get('[id="log-in"]').click();
     cy.wait(500);
   });
 
@@ -24,7 +24,7 @@ describe("Register the User", () => {
       .type(
         "The goodest boy, he is the best of the dogs. He loves walks and sleeping."
       );
-    cy.get('[HTMLfor="upload"]').trigger("mouseover");
-    cy.get("form").submit();
+    cy.get('[HTMLfor="upload"]').click();
+    cy.wait(500);
   });
 });
