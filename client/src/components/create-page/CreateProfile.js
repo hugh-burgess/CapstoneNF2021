@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { GiDogHouse } from "react-icons/gi";
 import { addProfileToLocalStorage } from "../../utils/itemStorage";
 import CreateForm from "./CreateForm";
+import { uploadToCloudinary } from "../../utils/cloudinary";
 const baseUrl = "https://shielded-tundra-69796.herokuapp.com/users";
 
 export default function CreateProfile() {
@@ -31,11 +32,7 @@ export default function CreateProfile() {
     setButtonName("uploading...");
     setImageStatus("uploading...");
 
-    fetch("https://api.cloudinary.com/v1_1/dy1xpaosj/image/upload", {
-      method: "PUT",
-      body: formData,
-    })
-      .then((response) => response.json())
+    uploadToCloudinary(formData)
       .then((result) => {
         setImagePublicId(result.public_id);
         setImageType(result.format);
