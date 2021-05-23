@@ -62,7 +62,7 @@ export default function CreateForm({
         </div>
       </div>
       <label className="input-file-label">
-        <label HTMLfor="upload" className="generic-button browse-button">
+        <label htmlFor="upload" className="generic-button browse-button">
           Browse
         </label>
         <input
