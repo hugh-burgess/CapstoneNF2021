@@ -46,4 +46,14 @@ describe("Navigate the App", () => {
     cy.wait(500);
     cy.get(".nav-button").click();
   });
+
+  it("view friends page", () => {
+    cy.get(".nav > :nth-child(2)").click();
+    cy.wait(2000);
+  });
+
+  it("view map page", () => {
+    cy.get(".nav > :nth-child(3)").click();
+    cy.wait(2000);
+  });
 });
