@@ -32,25 +32,24 @@ describe("Navigate the App", () => {
     cy.wait(100);
 
     cy.get("button.generic-button").click();
-    cy.waitUntil(() => {
-      cy.get("button.generic-button").should("have.text", "Done!");
-    });
-
+    // cy.waitUntil(() => {
+    cy.get("button.generic-button").should("have.text", "Done!");
     cy.get(".create-profile-save-button").click();
     cy.get(".nav-button").click();
-  });
+    // });
 
-  it("view friends page", () => {
-    cy.visit("http://localhost:3000/profile");
+    it("view friends page", () => {
+      cy.visit("http://localhost:3000/profile");
 
-    cy.get(".nav > :nth-child(2)").click();
-    cy.url().should("include", "/friends");
-    cy.wait(2000);
-  });
+      cy.get(".nav > :nth-child(2)").click();
+      cy.url().should("include", "/friends");
+      cy.wait(2000);
+    });
 
-  it("view map page", () => {
-    cy.get(".nav > :nth-child(3)").click();
-    cy.url().should("include", "/map");
-    cy.wait(2000);
+    it("view map page", () => {
+      cy.get(".nav > :nth-child(3)").click();
+      cy.url().should("include", "/map");
+      cy.wait(2000);
+    });
   });
 });
