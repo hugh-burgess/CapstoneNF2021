@@ -2,6 +2,8 @@ describe("Navigate the App", () => {
   it("creates a user sent to the DB and sends the user to the log in page", () => {
     cy.viewport(375, 667);
     cy.visit("http://localhost:3000/register");
+    cy.url().should("include", "/register");
+
     cy.location().should((loc) => {
       expect(loc.host).to.eq("localhost:3000");
       expect(loc.href).to.eq("http://localhost:3000/register");
@@ -24,6 +26,7 @@ describe("Navigate the App", () => {
 
   it("enter details for first-time users", () => {
     cy.viewport(375, 667);
+    cy.url().should("include", "/create");
     cy.get('[placeholder="name here..."]').focus().type("Bobby");
     cy.get('[placeholder="enter a bio here..."]')
       .focus()
@@ -49,11 +52,13 @@ describe("Navigate the App", () => {
 
   it("view friends page", () => {
     cy.get(".nav > :nth-child(2)").click();
+    cy.url().should("include", "/friends");
     cy.wait(2000);
   });
 
   it("view map page", () => {
     cy.get(".nav > :nth-child(3)").click();
+    cy.url().should("include", "/map");
     cy.wait(2000);
   });
 });
