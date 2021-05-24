@@ -1,66 +1,23 @@
-import { Link, useHistory, useLocation, useParams } from "react-router-dom";
-import {
-  getSingleDogFromLocalStorage,
-  removeItemFromLocalStorageById,
-} from "../../utils/itemStorage";
+import { useLocation, useParams } from "react-router-dom";
+import { getSingleDogFromLocalStorage } from "../../utils/itemStorage";
 import Navigation from "../navigation/Navigation";
 import "./SingleDog.css";
-import { AiFillStar } from "react-icons/ai";
-import { ImBubble } from "react-icons/im";
-import { ImBin } from "react-icons/im";
+import DogOptions from "./DogOptions";
 import { FaBone } from "react-icons/fa";
 import RandomNumber from "../../utils/RandomNumber";
 import FakeFrens from "../../utils/FakeFrens";
-import useFriends from "../../hooks/useFriends";
+import { GiSittingDog } from "react-icons/gi";
 
 export default function SingleDog() {
-  let number = RandomNumber;
-  const [friends, setFriends] = useFriends();
   let location = useLocation();
-  let { id } = useParams();
-  let history = useHistory();
 
-  function handleDeleteFriend(friend) {
-    removeItemFromLocalStorageById("friends", friend.id);
-    history.push("/friends");
-  }
+  let number = RandomNumber;
+  let { id } = useParams();
 
   const filteredFriend = getSingleDogFromLocalStorage(
     Number(location.pathname.slice(12))
   );
-
-  function starredClick() {
-    let index;
-    friends.forEach((friend, i) => {
-      if (friend.id === filteredFriend.id) {
-        index = i;
-      }
-    });
-    filteredFriend.isStarred = !filteredFriend.isStarred;
-    const veryNewFriends = [
-      ...friends.slice(0, index),
-      filteredFriend,
-      ...friends.slice(index + 1),
-    ];
-    setFriends(veryNewFriends);
-    localStorage.setItem("friends", JSON.stringify(veryNewFriends));
-  }
-
-  function handleStarredClick(boolean) {
-    return (
-      <div>
-        {boolean === true ? (
-          <div>
-            <AiFillStar className="gold-star" onClick={() => starredClick()} />
-          </div>
-        ) : (
-          <div>
-            <AiFillStar className="dull-star" onClick={() => starredClick()} />
-          </div>
-        )}
-      </div>
-    );
-  }
+  console.log(filteredFriend);
 
   function createBones(number) {
     const bones = [];
@@ -85,57 +42,55 @@ export default function SingleDog() {
         </header>
         <main className="main single-dog-main-wrapper">
           <div key={id} className="single-dog-page">
-            <div className="single-dog-overview">
-              {filteredFriend.stats[1] && (
-                <div className="single-dog-stats">
-                  <p className="single-dog-stats-title">Stats</p>
-                  <div className="single-dog-content-box">
-                    <ul>
-                      {filteredFriend.stats.map((stat) => {
-                        return <li key={stat.value}>{stat.value + " "}</li>;
-                      })}
-                    </ul>
+            {filteredFriend && (
+              <div className="single-dog-overview">
+                {filteredFriend.stats[0].value !== null && (
+                  <div className="single-dog-stats">
+                    <p className="single-dog-stats-title">Stats</p>
+                    <div className="single-dog-content-box">
+                      <ul>
+                        {filteredFriend.stats.map((stat) => {
+                          if (stat.value !== null) {
+                            return <li key={stat.value}>{stat.value + " "}</li>;
+                          }
+                          return stat.value;
+                        })}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              )}
-              {filteredFriend.review && (
-                <div className="single-dog-review">
-                  <p className="single-dog-review-title">Review</p>
-                  <div className="single-dog-content-box">
-                    {filteredFriend.review}
+                )}
+                {filteredFriend.review && (
+                  <div className="single-dog-review">
+                    <p className="single-dog-review-title">Review</p>
+                    <div className="single-dog-content-box">
+                      {filteredFriend.review}
+                    </div>
                   </div>
-                </div>
-              )}
-              {filteredFriend.rating && (
-                <div className="single-dog-rating">
-                  <p className="single-dog-rating-title">Rating</p>
-                  <p className="single-dog-rating-content">
-                    {createBones(filteredFriend.rating)}
-                  </p>
-                </div>
-              )}
-            </div>
-            <div className="options-wrapper">
-              <div class="single-dog-options">
-                <div className="single-dog-starred">
-                  <p className="single-dog-starred-content">
-                    {handleStarredClick(filteredFriend.isStarred)}
-                  </p>
-                </div>
-                <div className="single-dog-message">
-                  <p className="single-dog-message-content">
-                    <Link to={`/whistle/${id}`}>
-                      <ImBubble className="messaging-bubble" />
-                    </Link>
-                  </p>
-                </div>
-                <div className="single-dog-delete">
-                  <p className="single-dog-delete-content">
-                    <ImBin onClick={() => handleDeleteFriend(filteredFriend)} />
-                  </p>
-                </div>
+                )}
+                {filteredFriend.rating && (
+                  <div className="single-dog-rating">
+                    <p className="single-dog-rating-title">Rating</p>
+                    <p className="single-dog-rating-content">
+                      {createBones(filteredFriend.rating)}
+                    </p>
+                  </div>
+                )}
               </div>
-            </div>
+            )}
+            {filteredFriend.stats[0].value === null &&
+              filteredFriend.review === "" &&
+              filteredFriend.rating === "" && (
+                <div>
+                  <div className="render-div">
+                    <p className="no-mates-message">
+                      {filteredFriend.name} doesn't have anything to show!
+                      <br /> <GiSittingDog />
+                    </p>
+                  </div>
+                  <DogOptions id={id} />
+                </div>
+              )}
+            {filteredFriend && <DogOptions id={id} />}
           </div>
         </main>
         <footer className="footer">
