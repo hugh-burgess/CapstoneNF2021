@@ -5,7 +5,8 @@ import { NavLink } from "react-router-dom";
 import { GiDogHouse } from "react-icons/gi";
 import { addProfileToLocalStorage } from "../../utils/itemStorage";
 import CreateForm from "./CreateForm";
-import { uploadToCloudinary } from "../../utils/cloudinary";
+import { uploadToCloudinary } from "../../utils/uploadToCloudinary";
+
 const baseUrl = "https://shielded-tundra-69796.herokuapp.com/users";
 
 export default function CreateProfile() {

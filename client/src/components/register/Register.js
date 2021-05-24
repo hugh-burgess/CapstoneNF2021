@@ -11,6 +11,7 @@ export default function Register() {
 
   function handleRegisterSubmit(e) {
     e.preventDefault();
+
     const initDetails = {
       method: "post",
       headers: {
@@ -26,6 +27,7 @@ export default function Register() {
         picture: "",
       }),
     };
+
     fetch(baseUrl, initDetails)
       .then((res) => {
         if (initDetails.body.password !== initDetails.body.verifyPassword) {
