@@ -3,7 +3,6 @@ import "./SinglePark.css";
 import LeaveANote from "./LeaveANote";
 import { useParams } from "react-router";
 import useParks from "../../hooks/useParks";
-import useLocalStorage from "../../hooks/useLocalStorage";
 import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 
 export default function SinglePark() {
@@ -14,12 +13,7 @@ export default function SinglePark() {
   const selectedPark = parkData.find(
     (park) => park.coordinates[0] === coordinatesID
   );
-  const [storedValue, setValue] = useLocalStorage(
-    "parkData",
-    selectedPark.notes
-  );
 
-  console.log(selectedPark.notes.length);
   console.log(selectedPark.notes.length);
 
   function handleDeleteNote() {
@@ -29,24 +23,21 @@ export default function SinglePark() {
         index = i;
       }
     });
-    const parks = getItemsFromLocalStorage("parkData");
 
     const newNoteList = [
       ...selectedPark.notes.splice(0, index),
-      storedValue,
+      selectedPark.notes[index],
       ...selectedPark.notes.splice(index + 1),
     ];
 
-    const newData = parks.filter((park) => {
-      return park === newNoteList;
+    const newData = selectedPark.notes.filter((notes) => {
+      return notes === newNoteList;
     });
     console.log(newData);
     setParkData([...parkData, newData]);
-    setValue(newNoteList);
     console.log(newNoteList);
     console.log(`removed: ${newNoteList}`);
     console.log(selectedPark.notes);
-    localStorage.setItem(parks, JSON.stringify(parkData));
   }
 
   return (

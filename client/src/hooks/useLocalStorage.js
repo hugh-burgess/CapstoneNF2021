@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+// Adds new objects directly to localStorage
 export default function useLocalStorage(key, initialValue) {
   const readFromLocalStorage = () => {
     try {
