@@ -12,7 +12,7 @@ export default function Register() {
   function handleRegisterSubmit(e) {
     e.preventDefault();
 
-    const initDetails = {
+    const Details = {
       method: "post",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -28,14 +28,14 @@ export default function Register() {
       }),
     };
 
-    fetch(baseUrl, initDetails)
+    fetch(baseUrl, Details)
       .then((res) => {
-        if (initDetails.body.password !== initDetails.body.verifyPassword) {
+        if (e.target[1].value !== e.target[2].value) {
           alert("Passwords dont match, please check again.");
           return;
         } else {
           console.log(res.status);
-          return res.json();
+          return res.json(Details);
         }
       })
       .then((data) => {
@@ -50,7 +50,6 @@ export default function Register() {
       })
       .catch((err) => {
         console.error(err);
-        history.push("*");
       });
   }
   return (
