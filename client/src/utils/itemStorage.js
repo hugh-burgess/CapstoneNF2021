@@ -53,6 +53,7 @@ export function getSingleDogFromLocalStorage(id) {
 
 export function addNotetoLocalStorage(key, item, note) {
   const array = getItemsFromLocalStorage(key);
+
   const foundObject = array.find((currywurst) => currywurst.name === item.name);
   foundObject.notes.push(note);
 

@@ -1,31 +1,68 @@
 .single-park-page {
-  background-color: var(--light-blue);
+  background-color: var(--deep-blue);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   text-align: center;
+  overflow-y: scroll;
+}
+
+.park-information-card {
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw;
+  border-radius: 5px;
+  padding: 5px;
+  border: black 1px solid;
+  box-shadow: var(--soft-shadow);
+  background-color: var(--sea-blue);
 }
 
 .single-park-address {
   font-size: 20px;
+  font-family: var(--normal-text-title);
+  color: var(--deep-blue);
 }
 
 .single-park-updates-title {
+  margin-top: 2rem;
+  width: 80%;
   font-family: var(--normal-text-title);
-  font-size: 30px;
+  color: var(--deep-blue);
+  font-size: 1.5em;
 }
 
 .single-park-updates-content {
   height: auto;
   width: 70vw;
+  align-items: center;
+}
+
+.note-and-clear-wrapper {
+  margin: 1rem 0;
   border-radius: 15px;
-  background-color: var(--sea-blue);
+  background-color: var(--deep-blue);
+  display: flex;
+  justify-content: space-between;
+  border: 5px;
+  height: 2rem;
+}
+
+.note-content {
+  color: var(--white);
+  list-style: none;
+}
+.note-content,
+.clear-button {
+  margin: 0.4rem 1rem;
 }
 
 .single-park-form {
-  margin: 100px;
+  margin-top: 50px;
+  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
 }

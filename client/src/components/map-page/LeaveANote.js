@@ -6,7 +6,6 @@ import {
 
 export default function LeaveANote({ selectedPark, setParkData }) {
   const [note, setNote] = useState("");
-
   function handleSubmit(e) {
     e.preventDefault();
     if (!note) {
@@ -14,7 +13,6 @@ export default function LeaveANote({ selectedPark, setParkData }) {
     } else {
       addNotetoLocalStorage("parkData", selectedPark, note);
       setParkData(getItemsFromLocalStorage("parkData"));
-
       setNote("");
     }
   }
@@ -32,6 +30,7 @@ export default function LeaveANote({ selectedPark, setParkData }) {
         value={note}
         onChange={handleNoteChange}
         type="input"
+        maxLength="20"
       />
       <button className="generic-button" type="submit">
         Leave a Note
