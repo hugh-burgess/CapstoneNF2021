@@ -18,7 +18,7 @@ export default function MapDisplay() {
   });
 
   let { mapID } = useParams();
-  mapID = selectedPark?.coordinates[0].replace(/\./g, "-");
+  mapID = selectedPark?.id;
 
   const [parkData, setParkData] = useParks();
 

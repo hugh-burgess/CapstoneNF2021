@@ -11,14 +11,11 @@ import {
 export default function SinglePark() {
   const [parkData, setParkData] = useParks();
   const { mapID } = useParams();
-  const coordinatesID = mapID.replace(/-/g, ".");
 
-  const selectedPark = parkData.find(
-    (park) => park.coordinates[0] === coordinatesID
-  );
+  const selectedPark = parkData.find((park) => park.id === mapID);
 
   function handleDeleteNote(id) {
-    removeNoteFromLocalStorageById(coordinatesID, id);
+    removeNoteFromLocalStorageById(selectedPark.id, id);
     setParkData(getItemsFromLocalStorage("parkData"));
   }
 
@@ -36,7 +33,7 @@ export default function SinglePark() {
           <div className="single-park-updates-content">
             {selectedPark.notes.map((note, id, index) => (
               <div className="note-and-clear-wrapper">
-                <li className="note-content" id={index} key={id}>
+                <li className="note-content" id={selectedPark.id} key={id}>
                   {note}
                 </li>
                 <button
