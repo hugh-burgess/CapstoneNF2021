@@ -7,13 +7,11 @@ export default function FriendsContent() {
   const [friends] = useFriends();
 
   function renderItems() {
-    return friends.map((friend) => {
-      return (
-        <div>
-          <SlideInTransition />
-        </div>
-      );
-    });
+    return (
+      <div>
+        <SlideInTransition />
+      </div>
+    );
   }
 
   return (
