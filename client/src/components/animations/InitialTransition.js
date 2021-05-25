@@ -9,7 +9,7 @@ export default function InitialTransition() {
     animate: {
       height: 0,
       transition: {
-        duration: 1.5,
+        duration: 1,
         ease: [0.87, 0, 0.13, 1],
       },
     },
