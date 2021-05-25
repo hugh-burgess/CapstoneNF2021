@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80vw;
+  width: 65vw;
   border-radius: 5px;
   padding: 5px;
   border: black 1px solid;
@@ -29,7 +29,7 @@
 
 .single-park-updates-title {
   margin-top: 2rem;
-  width: 80%;
+  width: 60%;
   font-family: var(--normal-text-title);
   color: var(--deep-blue);
   font-size: 1.5em;
@@ -37,7 +37,7 @@
 
 .single-park-updates-content {
   height: auto;
-  width: 70vw;
+  width: 60vw;
   align-items: center;
 }
 

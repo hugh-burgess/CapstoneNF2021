@@ -59,3 +59,14 @@ export function addNotetoLocalStorage(key, item, note) {
 
   localStorage.setItem(key, JSON.stringify(array));
 }
+
+export function removeNoteFromLocalStorageById(coordinatesID, noteIndex) {
+  const parkData = getItemsFromLocalStorage("parkData");
+  const singlePark = parkData.find((park) => {
+    return park.coordinates[0] === coordinatesID;
+  });
+  singlePark.notes.splice(noteIndex, 1);
+  parkData.push(singlePark);
+
+  localStorage.setItem("parkData", JSON.stringify(parkData));
+}

@@ -3,6 +3,10 @@ import "./SinglePark.css";
 import LeaveANote from "./LeaveANote";
 import { useParams } from "react-router";
 import useParks from "../../hooks/useParks";
+import {
+  getItemsFromLocalStorage,
+  removeNoteFromLocalStorageById,
+} from "../../utils/itemStorage";
 
 export default function SinglePark() {
   const [parkData, setParkData] = useParks();
@@ -13,26 +17,9 @@ export default function SinglePark() {
     (park) => park.coordinates[0] === coordinatesID
   );
 
-  console.log(selectedPark.notes.length);
-
-  function handleDeleteNote(e) {
-    const noteWord = e.target.previousSibling.textContent;
-    let index;
-    selectedPark.notes.forEach((note, i) => {
-      if (note.id === selectedPark.id) {
-        index = i;
-      }
-    });
-
-    const newNoteList = [
-      ...selectedPark.notes.splice(0, index),
-      selectedPark.notes.includes(noteWord),
-      ...selectedPark.notes.splice(index + 1),
-    ];
-
-    console.log(newNoteList);
-    setParkData([...parkData]);
-    console.log(`removed: ${newNoteList}`);
+  function handleDeleteNote(id) {
+    removeNoteFromLocalStorageById(coordinatesID, id);
+    setParkData(getItemsFromLocalStorage("parkData"));
   }
 
   return (
@@ -49,13 +36,13 @@ export default function SinglePark() {
           <div className="single-park-updates-content">
             {selectedPark.notes.map((note, id, index) => (
               <div className="note-and-clear-wrapper">
-                <li className="note-content" key={id}>
+                <li className="note-content" id={index} key={id}>
                   {note}
                 </li>
                 <button
                   className="clear-button"
                   key={index}
-                  onClick={handleDeleteNote}
+                  onClick={() => handleDeleteNote(id)}
                 >
                   clear
                 </button>
