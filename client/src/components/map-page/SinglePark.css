@@ -108,15 +108,18 @@
 }
 
 .markers-on-map {
-  animation: drop-down 1.5s ease-in-out;
+  opacity: 0;
+  animation: drop-down 0.3s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0.7s;
 }
 
 @keyframes drop-down {
   0% {
-    transform: translate(0, -1000px);
+    opacity: 0;
   }
   100% {
-    transform: translate(0, 0);
+    opacity: 1;
   }
 }
 
@@ -152,7 +155,7 @@
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
   animation-duration: 0.3s;
-  animation-delay: 1.5s;
+  animation-delay: 0.7s;
 }
 
 .hidden {
