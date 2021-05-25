@@ -14,7 +14,7 @@ export default function SlideInTransition({ filter }) {
     card: {
       initial: {
         opacity: 0,
-        y: 500,
+        y: 50,
       },
 
       animate: {
