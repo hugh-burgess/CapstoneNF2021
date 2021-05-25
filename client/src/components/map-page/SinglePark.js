@@ -3,7 +3,6 @@ import "./SinglePark.css";
 import LeaveANote from "./LeaveANote";
 import { useParams } from "react-router";
 import useParks from "../../hooks/useParks";
-import { getItemsFromLocalStorage } from "../../utils/itemStorage";
 
 export default function SinglePark() {
   const [parkData, setParkData] = useParks();
@@ -16,7 +15,8 @@ export default function SinglePark() {
 
   console.log(selectedPark.notes.length);
 
-  function handleDeleteNote() {
+  function handleDeleteNote(e) {
+    const noteWord = e.target.previousSibling.textContent;
     let index;
     selectedPark.notes.forEach((note, i) => {
       if (note.id === selectedPark.id) {
@@ -26,18 +26,13 @@ export default function SinglePark() {
 
     const newNoteList = [
       ...selectedPark.notes.splice(0, index),
-      selectedPark.notes[index],
+      selectedPark.notes.includes(noteWord),
       ...selectedPark.notes.splice(index + 1),
     ];
 
-    const newData = selectedPark.notes.filter((notes) => {
-      return notes === newNoteList;
-    });
-    console.log(newData);
-    setParkData([...parkData, newData]);
     console.log(newNoteList);
+    setParkData([...parkData]);
     console.log(`removed: ${newNoteList}`);
-    console.log(selectedPark.notes);
   }
 
   return (
