@@ -8,6 +8,19 @@
   overflow-y: scroll;
 }
 
+.map-brush-in-effect {
+  animation: zoomout 0.7s ease-in-out;
+}
+
+@keyframes zoomout {
+  0% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .park-information-card {
   margin-top: 8rem;
   display: flex;
@@ -73,6 +86,20 @@
 
 .popup {
   position: relative;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .mapboxgl-popup-close-button {
@@ -80,12 +107,25 @@
   margin-top: -0.3em;
 }
 
+.markers-on-map {
+  animation: drop-down 1.5s ease-in-out;
+}
+
+@keyframes drop-down {
+  0% {
+    transform: translate(0, -1000px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 .park-gold-star {
   color: var(--gold);
-  font-size: 35px;
+  font-size: 40px;
   position: absolute;
-  right: -15px;
-  bottom: -15px;
+  right: -20px;
+  bottom: -20px;
 }
 .park-dull-star {
   color: var(--grey-shade);
@@ -93,6 +133,11 @@
   position: absolute;
   right: -15px;
   bottom: -15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.light-up {
+  transition: all 0.3s ease-in-out;
 }
 
 .red-dot {
@@ -101,7 +146,15 @@
   position: absolute;
   left: 3px;
   top: 15px;
+  opacity: 0;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+  animation-duration: 0.3s;
+  animation-delay: 1.5s;
 }
+
 .hidden {
   display: hidden;
   font-size: 0px;
