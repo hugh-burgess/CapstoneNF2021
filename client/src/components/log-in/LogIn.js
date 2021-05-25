@@ -52,10 +52,12 @@ export default function Cover() {
   }
 
   return (
-    <LogInForm
-      setUser={setUser} // where else can this go ?
-      handleLogInSubmit={handleLogInSubmit}
-      clicked={clicked}
-    />
+    <div>
+      <LogInForm
+        setUser={setUser} // where else can this go ?
+        handleLogInSubmit={handleLogInSubmit}
+        clicked={clicked}
+      />
+    </div>
   );
 }
