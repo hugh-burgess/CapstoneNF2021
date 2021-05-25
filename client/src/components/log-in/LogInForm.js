@@ -1,6 +1,6 @@
 import { SiDatadog } from "react-icons/si";
 import { Link } from "react-router-dom";
-import InitialTransition from "../../InitialTransition";
+import InitialTransition from "../../components/animations/InitialTransition";
 
 export default function LogInForm({ handleLogInSubmit, clicked }) {
   return (
