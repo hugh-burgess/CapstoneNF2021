@@ -60,10 +60,10 @@ export function addNotetoLocalStorage(key, item, note) {
   localStorage.setItem(key, JSON.stringify(array));
 }
 
-export function removeNoteFromLocalStorageById(coordinatesID, noteIndex) {
+export function removeNoteFromLocalStorageById(parkId, noteIndex) {
   const parkData = getItemsFromLocalStorage("parkData");
   const singlePark = parkData.find((park) => {
-    return park.coordinates[0] === coordinatesID;
+    return park.id === parkId;
   });
   singlePark.notes.splice(noteIndex, 1);
   parkData.push(singlePark);

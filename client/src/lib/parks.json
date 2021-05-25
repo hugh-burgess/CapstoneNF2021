@@ -1,5 +1,6 @@
 [
   {
+    "id": "1",
     "name": "Stadtpark",
     "address": "Hamburg-Nord, 22303 Hamburg",
     "coordinates": ["53.5969875", "10.018507"],
@@ -8,6 +9,7 @@
   },
 
   {
+    "id": "2",
     "name": "Hammer Park",
     "address": "Hammerpark, 20535 Hamburg",
     "coordinates": ["53.5587539", "10.05753"],
@@ -16,6 +18,7 @@
   },
 
   {
+    "id": "3",
     "name": "Planten un Blomen",
     "address": "Marseiller Str., 20355 Hamburg",
     "coordinates": ["53.5602458", "9.9820754"],
@@ -24,6 +27,7 @@
   },
 
   {
+    "id": "4",
     "name": "Altonaer Volkspark",
     "address": "August-Kirch-Straße 19, 22525 Hamburg",
     "coordinates": ["53.5830731", "9.8983048"],
@@ -32,6 +36,7 @@
   },
 
   {
+    "id": "5",
     "name": "Jenisch Park",
     "address": "Baron-Voght-Straße 50, 22609 Hamburg",
     "coordinates": ["53.5519136", "9.8681652"],
@@ -40,6 +45,7 @@
   },
 
   {
+    "id": "6",
     "name": "Öjendorfer Park",
     "address": "Barsbütteler Weg 49, 22117 Hamburg",
     "coordinates": ["53.5567542", "10.1451383"],
@@ -48,6 +54,7 @@
   },
 
   {
+    "id": "7",
     "name": "Wohlers Park",
     "address": "Norderreihe 2, 22767 Hamburg",
     "coordinates": ["53.5578839", "9.9530525"],
@@ -56,6 +63,7 @@
   },
 
   {
+    "id": "8",
     "name": "Wilhelmsburg Island Park",
     "address": "Am Inselpark, 21109 Hamburg",
     "coordinates": ["53.4944331", "10.001271"],
@@ -64,6 +72,7 @@
   },
 
   {
+    "id": "9",
     "name": "Eimsbütteler Park",
     "address": "Ottersbekallee, 20255 Hamburg",
     "coordinates": ["53.5787284", "9.9581099"],
@@ -72,6 +81,7 @@
   },
 
   {
+    "id": "10",
     "name": "Blohms Park",
     "address": "Horner Landstraße 52, 22111 Hamburg",
     "coordinates": ["53.5524327", "10.0743896"],
@@ -80,6 +90,7 @@
   },
 
   {
+    "id": "11",
     "name": "Innocentia Park",
     "address": "20144 Hamburg",
     "coordinates": ["53.578195", "9.9826983"],
@@ -88,6 +99,7 @@
   },
 
   {
+    "id": "12",
     "name": "Eilbek Park",
     "address": "22081 Hamburg",
     "coordinates": ["53.5740738", "10.0516621"],
@@ -96,6 +108,7 @@
   },
 
   {
+    "id": "13",
     "name": "Hayns Park",
     "address": "Eppendorfer Landstraße 148B, 20251 Hamburg",
     "coordinates": ["53.595962", "9.9891643"],
@@ -104,6 +117,7 @@
   },
 
   {
+    "id": "14",
     "name": "Park Fiction",
     "address": "20359 Hamburg",
     "coordinates": ["53.5462712", "9.9569785"],
@@ -112,6 +126,7 @@
   },
 
   {
+    "id": "15",
     "name": "Thörls Park",
     "address": "Sievekingdamm 7, 20535 Hamburg",
     "coordinates": ["53.5560462", "10.0444203"],
@@ -120,6 +135,7 @@
   },
 
   {
+    "id": "16",
     "name": "Kellinghusen Park",
     "address": "20249 Hamburg",
     "coordinates": ["53.5884274", "9.9878976"],
@@ -128,6 +144,7 @@
   },
 
   {
+    "id": "17",
     "name": "Von-Eicken Park",
     "address": "22529 Hamburg",
     "coordinates": ["53.6033917", "9.956891"],
@@ -136,6 +153,7 @@
   },
 
   {
+    "id": "18",
     "name": "Old Elbe Park",
     "address": "Helgoländer Allee, 20459 Hamburg",
     "coordinates": ["53.5492364", "9.971327"],
@@ -144,6 +162,7 @@
   },
 
   {
+    "id": "19",
     "name": "Gustav-Mahler Park",
     "address": "Esplanade 39, 20354 Hamburg",
     "coordinates": ["53.5586543", "9.9908561"],
@@ -152,6 +171,7 @@
   },
 
   {
+    "id": "20",
     "name": "Schanzen Park",
     "address": "Schröderstiftstraße, 20357 Hamburg",
     "coordinates": ["53.5654563", "9.9698107"],
@@ -159,6 +179,7 @@
     "isStarred": false
   },
   {
+    "id": "21",
     "name": "Heine Park",
     "address": "Große Elbstraße 273, 22767 Hamburg",
     "coordinates": ["53.5454126", "9.9286234"],
