@@ -4,7 +4,9 @@ import { AiFillStar } from "react-icons/ai";
 import { BsFillCircleFill } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
-export default function MapDisplay({ handleStarClick, parkData }) {
+import useParks from "../../hooks/useParks";
+
+export default function MapDisplay() {
   const [selectedPark, setSelectedPark] = useState(null);
 
   const [viewport, setViewport] = useState({
@@ -17,6 +19,23 @@ export default function MapDisplay({ handleStarClick, parkData }) {
 
   let { mapID } = useParams();
   mapID = selectedPark?.coordinates[0].replace(/\./g, "-");
+
+  const [parkData, setParkData] = useParks();
+
+  function handleStarClick(name) {
+    const [searchedPark] = parkData.filter((park) => park.name === name);
+    const index = parkData.findIndex((park) => {
+      return park.name === name;
+    });
+    searchedPark.isStarred = !searchedPark.isStarred;
+    const veryNewParks = [
+      ...parkData.slice(0, index),
+      searchedPark,
+      ...parkData.slice(index + 1),
+    ];
+    setParkData(veryNewParks);
+  }
+
   return (
     <ReactMapGL
       {...viewport}

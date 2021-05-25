@@ -7,6 +7,10 @@
 }
 @import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
 
+html {
+  background-color: var(--deep-blue);
+}
+
 :root {
   --white: #fff;
   --deep-blue: #304057;
