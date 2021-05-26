@@ -1,4 +1,3 @@
-import Navigation from "../navigation/Navigation";
 import MainContent from "./MainContent";
 import "./Profile.css";
 import Header from "../header/Header";
@@ -10,9 +9,6 @@ export default function Profile() {
       <main className="main profile-page">
         <MainContent />
       </main>
-      <footer className="footer">
-        <Navigation />
-      </footer>
     </div>
   );
 }

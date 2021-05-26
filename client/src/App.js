@@ -1,5 +1,10 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 import Friends from "./components/friends-page/Friends";
 import Map from "./components/map-page/Map";
 import EditProfile from "./components/profile-page/EditProfile";
@@ -12,6 +17,7 @@ import SinglePark from "./components/map-page/SinglePark";
 import CreateProfile from "./components/create-page/CreateProfile";
 import Register from "./components/register/Register";
 import FailStatePage from "./FailStatePage";
+import Navigation from "./components/navigation/Navigation";
 
 function App() {
   return (
@@ -51,8 +57,30 @@ function App() {
           <Route exact path="/">
             <LogIn />
           </Route>
-          <Route path="*">
+          <Route path="/not-found">
             <FailStatePage />
+          </Route>
+          <Route path="*">
+            <Redirect to="/not-found" />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route
+            path={[
+              "/not-found",
+              "/search",
+              "/edit-profile",
+              "/profile",
+              "/friends",
+              "/single-dog/:id",
+              "/whistle/:id",
+              "/map",
+              "/single-park/:mapID",
+            ]}
+          >
+            <footer className="footer">
+              <Navigation />
+            </footer>
           </Route>
         </Switch>
       </div>
@@ -61,3 +89,5 @@ function App() {
 }
 
 export default App;
+
+// <Route path={["/users/:id", "/profile/:id"]}>

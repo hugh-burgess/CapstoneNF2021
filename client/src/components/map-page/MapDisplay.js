@@ -38,7 +38,6 @@ export default function MapDisplay() {
 
   return (
     <ReactMapGL
-      className="map-brush-in-effect"
       {...viewport}
       mapboxApiAccessToken={
         "pk.eyJ1IjoidHJpeDI3MDUiLCJhIjoiY2tvOGV4NnF5Mm1lZDJwcGd2cThxcWZhbCJ9.5YJMb_ZfjMrG0yCbYyFj5w"

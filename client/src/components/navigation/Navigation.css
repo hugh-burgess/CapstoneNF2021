@@ -25,30 +25,11 @@
   animation-fill-mode: forwards;
 }
 
-.null-animation {
-  animation: deflate 0.3s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
 @keyframes inflate {
   0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.2);
-    transform: translateY(-5%);
-    background-color: var(--light-blue);
-  }
-}
-
-@keyframes deflate {
-  0% {
-    transform: scale(1);
-    transform: translateY(-5%);
-    background-color: var(--light-blue);
-  }
-  100% {
-    transform: scale(1);
     transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-10%);
   }
 }

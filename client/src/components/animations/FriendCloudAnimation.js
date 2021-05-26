@@ -13,30 +13,26 @@ export default function FriendCloudAnimation() {
     container: {
       animate: {
         transition: {
-          staggerChildren: 0.4,
+          staggerChildren: 0.1,
         },
       },
     },
     cardLeft: {
       initial: {
         opacity: 0,
-        x: 500,
       },
 
       animate: {
         opacity: 1,
-        x: 0,
       },
     },
     cardRight: {
       initial: {
         opacity: 0,
-        x: -500,
       },
 
       animate: {
         opacity: 1,
-        x: 0,
       },
     },
   };
@@ -48,15 +44,21 @@ export default function FriendCloudAnimation() {
         animate="animate"
         variants={variants.container}
       >
-        <Card />;
+        <Clouds />
       </motion.div>
     );
   };
-  const Card = () =>
+  const Clouds = () =>
     friends.map((friend, index) => {
       if (index % 2 === 0) {
         return (
-          <motion.div variants={variants.cardRight}>
+          <motion.div
+            variants={variants.cardRight}
+            transition={{
+              duration: 0.3,
+              ease: [0.87, 0, 0.13, 1],
+            }}
+          >
             <CloudRight
               friend={friend}
               id={friend.id}
@@ -67,7 +69,13 @@ export default function FriendCloudAnimation() {
         );
       } else {
         return (
-          <motion.div variants={variants.cardLeft}>
+          <motion.div
+            variants={variants.cardLeft}
+            transition={{
+              duration: 0.3,
+              ease: [0.87, 0, 0.13, 1],
+            }}
+          >
             <CloudLeft
               friend={friend}
               id={friend.id}

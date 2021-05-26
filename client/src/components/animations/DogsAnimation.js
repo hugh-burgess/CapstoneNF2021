@@ -31,7 +31,7 @@ export default function DogsAnimation({ filter }) {
         animate="animate"
         variants={variants.container}
       >
-        <Card />;
+        <Card />
       </motion.div>
     );
   };

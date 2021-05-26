@@ -1,6 +1,5 @@
 import { GiSniffingDog } from "react-icons/gi";
 import Header from "./components/header/Header";
-import Navigation from "./components/navigation/Navigation";
 import "./components/friends-page/FriendsContent.css";
 import { useHistory } from "react-router";
 
@@ -19,9 +18,6 @@ export default function FailStatePage() {
           </p>
         </div>
       </main>
-      <footer className="footer">
-        <Navigation />
-      </footer>
     </div>
   );
 }
