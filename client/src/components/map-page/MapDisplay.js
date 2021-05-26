@@ -78,8 +78,8 @@ export default function MapDisplay() {
             closeOnClick={false}
           >
             <div>
-              <h3>{selectedPark.name}</h3>
-              <p>{selectedPark.address}</p>
+              <p className="selected-park-name">{selectedPark.name}</p>
+              <p className="selected-park-address">{selectedPark.address}</p>
             </div>
             <AiFillStar
               onClick={(e) => {

@@ -7,8 +7,10 @@ import {
   removeNoteFromLocalStorageById,
 } from "../../utils/itemStorage";
 import SlideUpAnimation from "../animations/SlideUpAnimation";
+import { AiFillStar } from "react-icons/ai";
 
 export default function SinglePark() {
+
   const [parkData, setParkData] = useParks();
   const { mapID } = useParams();
 
@@ -23,6 +25,16 @@ export default function SinglePark() {
     <div>
       <div className="header">
         <h1 className="park-title">{selectedPark.name}</h1>
+        <div className="starred-wrapper">
+          {selectedPark.isStarred === true && (
+            <>
+              <div className="starred-single-park">
+                This park is noteworthy{" "}
+              </div>
+              <AiFillStar className="single-park-star" />
+            </>
+          )}
+        </div>
       </div>
       <main className="main single-park-page">
         <SlideUpAnimation />

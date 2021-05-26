@@ -12,10 +12,8 @@
   width: 100vw;
   background-color: var(--sea-blue);
   clip-path: polygon(0 0, 100% 0, 100% 69%, 0 100%);
-  display: flex;
   grid-row: header;
   z-index: 100;
-  position: fixed;
   width: 100vw;
 }
 

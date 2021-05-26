@@ -29,6 +29,8 @@
 .create-profile-image {
   border: var(--border-blue) 3px solid;
   height: 9em;
+  width: 9rem;
+  object-fit: cover;
   border-radius: 50%;
   justify-self: center;
   align-items: center;
