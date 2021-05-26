@@ -1,5 +1,4 @@
 import Header from "../header/Header";
-import Navigation from "../navigation/Navigation";
 import EditContent from "./EditContent";
 
 export default function EditProfile() {
@@ -9,9 +8,6 @@ export default function EditProfile() {
       <main className="main edit-page">
         <EditContent />
       </main>
-      <footer className="footer">
-        <Navigation />
-      </footer>
     </div>
   );
 }

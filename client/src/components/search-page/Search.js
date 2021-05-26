@@ -1,4 +1,3 @@
-import Navigation from "../navigation/Navigation";
 import "./Search.css";
 import "../profile-page/Profile.css";
 import SearchBar from "./SearchBar";
@@ -21,9 +20,6 @@ export default function Search() {
         <SearchBar handleNameFilter={handleNameFilter} />
         <DogsAnimation filter={filter} />
       </main>
-      <footer className="footer">
-        <Navigation />
-      </footer>
     </div>
   );
 }

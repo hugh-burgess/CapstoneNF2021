@@ -9,18 +9,18 @@ import CloudLeft from "../friends-page/CloudLeft";
 
 export default function FriendCloudAnimation() {
   const [friends] = useFriends();
-  const variants = {
+  const cloud = {
     container: {
       animate: {
         transition: {
-          staggerChildren: 0.4,
+          staggerChildren: 0.2,
         },
       },
     },
     cardLeft: {
       initial: {
         opacity: 0,
-        x: 500,
+        x: 10,
       },
 
       animate: {
@@ -31,7 +31,7 @@ export default function FriendCloudAnimation() {
     cardRight: {
       initial: {
         opacity: 0,
-        x: -500,
+        x: -10,
       },
 
       animate: {
@@ -43,20 +43,19 @@ export default function FriendCloudAnimation() {
 
   const StaggeredList = () => {
     return (
-      <motion.div
-        initial="initial"
-        animate="animate"
-        variants={variants.container}
-      >
-        <Card />;
+      <motion.div initial="initial" animate="animate" cloud={cloud.container}>
+        <Clouds />
       </motion.div>
     );
   };
-  const Card = () =>
+  const Clouds = () =>
     friends.map((friend, index) => {
       if (index % 2 === 0) {
         return (
-          <motion.div variants={variants.cardRight}>
+          <motion.div
+            variants={cloud.cardRight}
+            transition={{ type: "spring", restSpeed: 0.5 }}
+          >
             <CloudRight
               friend={friend}
               id={friend.id}
@@ -67,7 +66,10 @@ export default function FriendCloudAnimation() {
         );
       } else {
         return (
-          <motion.div variants={variants.cardLeft}>
+          <motion.div
+            variants={cloud.cardLeft}
+            transition={{ type: "spring", restSpeed: 0.5 }}
+          >
             <CloudLeft
               friend={friend}
               id={friend.id}
@@ -85,7 +87,7 @@ export default function FriendCloudAnimation() {
         exit={{ opacity: 0, y: -50 }}
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        variants={variants}
+        variants={cloud}
       >
         <StaggeredList />
       </motion.div>

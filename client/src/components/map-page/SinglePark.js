@@ -1,4 +1,3 @@
-import Navigation from "../navigation/Navigation";
 import "./SinglePark.css";
 import LeaveANote from "./LeaveANote";
 import { useParams } from "react-router";
@@ -8,7 +7,6 @@ import {
   removeNoteFromLocalStorageById,
 } from "../../utils/itemStorage";
 import SlideUpAnimation from "../animations/SlideUpAnimation";
-
 
 export default function SinglePark() {
   const [parkData, setParkData] = useParks();
@@ -53,9 +51,6 @@ export default function SinglePark() {
         </div>
         <LeaveANote selectedPark={selectedPark} setParkData={setParkData} />
       </main>
-      <footer className="footer">
-        <Navigation />
-      </footer>
     </div>
   );
 }

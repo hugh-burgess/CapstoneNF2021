@@ -1,15 +1,11 @@
-import { useLocation } from "react-router";
+import { useParams } from "react-router";
 import { getSingleDogFromLocalStorage } from "../../utils/itemStorage";
 import Header from "../header/Header";
-import Navigation from "../navigation/Navigation";
 import "./Whistle.css";
 
 export default function Whistle() {
-  const location = useLocation();
-
-  const friend = getSingleDogFromLocalStorage(
-    Number(location.pathname.slice(9))
-  );
+  const { id } = useParams();
+  const friend = getSingleDogFromLocalStorage(Number(id));
 
   return (
     <div className="whistle-page">
@@ -26,9 +22,6 @@ export default function Whistle() {
           </button>
         </div>
       </main>
-      <footer className="footer">
-        <Navigation />
-      </footer>
     </div>
   );
 }
