@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { SiDatadog } from "react-icons/si";
 import { useHistory } from "react-router";
+import SlideUpAnimation from "../animations/SlideUpAnimation";
+
 import "../log-in/LogIn.css";
 import RegisterForm from "./RegisterForm";
 const baseUrl = "  https://shielded-tundra-69796.herokuapp.com/login/register";
@@ -60,7 +62,9 @@ export default function Register() {
         </div>
       </div>
       <div className="login-page-wrapper">
-        <SiDatadog className="login-page-dog" />
+        <SlideUpAnimation />
+        <SiDatadog className="login-page-dog swing" />
+
         <RegisterForm
           handleRegisterSubmit={handleRegisterSubmit}
           clicked={clicked}

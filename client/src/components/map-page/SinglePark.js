@@ -7,6 +7,8 @@ import {
   getItemsFromLocalStorage,
   removeNoteFromLocalStorageById,
 } from "../../utils/itemStorage";
+import SlideUpAnimation from "../animations/SlideUpAnimation";
+
 
 export default function SinglePark() {
   const [parkData, setParkData] = useParks();
@@ -25,6 +27,8 @@ export default function SinglePark() {
         <h1 className="park-title">{selectedPark.name}</h1>
       </div>
       <main className="main single-park-page">
+        <SlideUpAnimation />
+
         <div className="park-information-card">
           <p className="single-park-address">{selectedPark.address}</p>
           {selectedPark.notes.length > 0 && (
