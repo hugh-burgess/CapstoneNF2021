@@ -9,12 +9,12 @@
 }
 
 .map-brush-in-effect {
-  animation: zoomout 0.7s ease-in-out;
+  animation: zoom 0.7s ease-in-out;
 }
 
-@keyframes zoomout {
+@keyframes zoom {
   0% {
-    transform: scale(1.5);
+    transform: scale(5);
   }
   100% {
     transform: scale(1);

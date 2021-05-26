@@ -8,7 +8,7 @@ export default function Map() {
       <Header title="map" />
 
       <main className="main">
-        <div>
+        <div className="map-brush-in-effect">
           <MapDisplay />
         </div>
       </main>

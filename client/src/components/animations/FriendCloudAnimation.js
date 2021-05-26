@@ -9,41 +9,41 @@ import CloudLeft from "../friends-page/CloudLeft";
 
 export default function FriendCloudAnimation() {
   const [friends] = useFriends();
-  const cloud = {
+  const variants = {
     container: {
       animate: {
         transition: {
-          staggerChildren: 0.2,
+          staggerChildren: 0.1,
         },
       },
     },
     cardLeft: {
       initial: {
         opacity: 0,
-        x: 10,
       },
 
       animate: {
         opacity: 1,
-        x: 0,
       },
     },
     cardRight: {
       initial: {
         opacity: 0,
-        x: -10,
       },
 
       animate: {
         opacity: 1,
-        x: 0,
       },
     },
   };
 
   const StaggeredList = () => {
     return (
-      <motion.div initial="initial" animate="animate" cloud={cloud.container}>
+      <motion.div
+        initial="initial"
+        animate="animate"
+        variants={variants.container}
+      >
         <Clouds />
       </motion.div>
     );
@@ -53,8 +53,11 @@ export default function FriendCloudAnimation() {
       if (index % 2 === 0) {
         return (
           <motion.div
-            variants={cloud.cardRight}
-            transition={{ type: "spring", restSpeed: 0.5 }}
+            variants={variants.cardRight}
+            transition={{
+              duration: 0.3,
+              ease: [0.87, 0, 0.13, 1],
+            }}
           >
             <CloudRight
               friend={friend}
@@ -67,8 +70,11 @@ export default function FriendCloudAnimation() {
       } else {
         return (
           <motion.div
-            variants={cloud.cardLeft}
-            transition={{ type: "spring", restSpeed: 0.5 }}
+            variants={variants.cardLeft}
+            transition={{
+              duration: 0.3,
+              ease: [0.87, 0, 0.13, 1],
+            }}
           >
             <CloudLeft
               friend={friend}
@@ -87,7 +93,7 @@ export default function FriendCloudAnimation() {
         exit={{ opacity: 0, y: -50 }}
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        variants={cloud}
+        variants={variants}
       >
         <StaggeredList />
       </motion.div>
