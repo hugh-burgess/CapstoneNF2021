@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
-export default function InitialTransition() {
-  const blackBox = {
+export default function SlideUpAnimation() {
+  const slide = {
     initial: {
       height: "100vh",
       bottom: 0,
@@ -20,13 +20,13 @@ export default function InitialTransition() {
         className="relative z-50 w-full bg-black"
         initial="initial"
         animate="animate"
-        variants={blackBox}
+        variants={slide}
       />
       <motion.div
         className="absolute z-50 flex items-center justify-center w-full bg-black"
         initial="initial"
         animate="animate"
-        variants={blackBox}
+        variants={slide}
         onAnimationStart={() => document.body.classList.add("overflow-hidden")}
         onAnimationComplete={() =>
           document.body.classList.remove("overflow-hidden")

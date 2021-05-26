@@ -7,7 +7,7 @@ import FakeFrens from "../../utils/FakeFrens";
 import CloudRight from "../friends-page/CloudRight";
 import CloudLeft from "../friends-page/CloudLeft";
 
-export default function SlideInTransition() {
+export default function FriendCloudAnimation() {
   const [friends] = useFriends();
   const variants = {
     container: {

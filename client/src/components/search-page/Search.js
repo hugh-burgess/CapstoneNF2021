@@ -4,7 +4,7 @@ import "../profile-page/Profile.css";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
 import Header from "../header/Header";
-import SlideUpTransition from "../animations/SlideUpTransition";
+import DogsAnimation from "../animations/DogsAnimation";
 
 export default function Search() {
   const [filter, setFilter] = useState("");
@@ -19,7 +19,7 @@ export default function Search() {
       </div>
       <main className="main search-page">
         <SearchBar handleNameFilter={handleNameFilter} />
-        <SlideUpTransition filter={filter} />
+        <DogsAnimation filter={filter} />
       </main>
       <footer className="footer">
         <Navigation />

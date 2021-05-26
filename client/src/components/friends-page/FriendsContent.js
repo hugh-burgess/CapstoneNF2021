@@ -1,17 +1,13 @@
 import "./FriendsContent.css";
 import { GiSittingDog } from "react-icons/gi";
 import useFriends from "../../hooks/useFriends";
-import SlideInTransition from "../animations/SlideInTransition";
+import FriendCloudAnimation from "../animations/FriendCloudAnimation";
 
 export default function FriendsContent() {
   const [friends] = useFriends();
 
   function renderItems() {
-    return (
-      <div>
-        <SlideInTransition />
-      </div>
-    );
+    return <FriendCloudAnimation />;
   }
 
   return (

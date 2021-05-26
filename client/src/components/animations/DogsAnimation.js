@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import Dogs from "../search-page/Dogs";
 
-export default function SlideInTransition({ filter }) {
+export default function DogsAnimation({ filter }) {
   const variants = {
     container: {
       animate: {
