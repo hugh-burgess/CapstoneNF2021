@@ -8,6 +8,40 @@
   overflow-y: scroll;
 }
 
+.selected-park-name {
+  font-size: 90%;
+  font-weight: 800;
+  font-family: var(--normal-text-title);
+}
+.selected-park-address {
+  font-size: 60%;
+}
+
+.starred-wrapper {
+  display: flex;
+  height: 30px;
+  position: relative;
+}
+
+.single-park-star {
+  position: absolute;
+  color: var(--gold);
+  font-size: 20px;
+  right: 46%;
+  top: 2px;
+}
+
+.starred-single-park {
+  text-align: right;
+  padding-right: 10px;
+  font-family: var(--cookie-text-title);
+  color: var(--white);
+  font-size: 1.5rem;
+  transform: skewY(-5deg);
+  height: 20px;
+  width: 100%;
+}
+
 .map-brush-in-effect {
   animation: zoomout 0.7s ease-in-out;
 }
