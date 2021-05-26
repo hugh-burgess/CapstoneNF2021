@@ -1,20 +1,13 @@
 import "./FriendsContent.css";
 import { GiSittingDog } from "react-icons/gi";
-import CloudRight from "./CloudRight";
-import CloudLeft from "./CloudLeft";
-import FakeFrens from "../../utils/FakeFrens";
-import CloudFormationsLeft from "../../utils/CloudFormationsLeft";
-import CloudFormationsRight from "../../utils/CloudFormationsRight";
 import useFriends from "../../hooks/useFriends";
 import FriendCloudAnimation from "../animations/FriendCloudAnimation";
-
 
 export default function FriendsContent() {
   const [friends] = useFriends();
 
   function renderItems() {
     return <FriendCloudAnimation />;
-
   }
 
   return (

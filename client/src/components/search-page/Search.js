@@ -2,7 +2,6 @@ import Navigation from "../navigation/Navigation";
 import "./Search.css";
 import "../profile-page/Profile.css";
 import SearchBar from "./SearchBar";
-import Dogs from "./Dogs";
 import { useState } from "react";
 import Header from "../header/Header";
 import DogsAnimation from "../animations/DogsAnimation";
@@ -21,7 +20,6 @@ export default function Search() {
       <main className="main search-page">
         <SearchBar handleNameFilter={handleNameFilter} />
         <DogsAnimation filter={filter} />
-
       </main>
       <footer className="footer">
         <Navigation />
