@@ -28,6 +28,9 @@
   object-fit: contain;
   object-position: center;
   border-radius: 50%;
+  height: 12rem;
+  width: 12rem;
+  object-fit: cover;
 }
 .top-wrapper-icons {
   display: flex;
