@@ -9,6 +9,7 @@ import {
 } from "../../utils/itemStorage";
 import SlideUpAnimation from "../animations/SlideUpAnimation";
 
+
 export default function SinglePark() {
   const [parkData, setParkData] = useParks();
   const { mapID } = useParams();
@@ -27,6 +28,7 @@ export default function SinglePark() {
       </div>
       <main className="main single-park-page">
         <SlideUpAnimation />
+
         <div className="park-information-card">
           <p className="single-park-address">{selectedPark.address}</p>
           {selectedPark.notes.length > 0 && (

@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 export default function RegisterForm({ handleRegisterSubmit, clicked }) {
+  let history = useHistory();
+
   return (
     <form
       className="login-form"
@@ -39,9 +41,9 @@ export default function RegisterForm({ handleRegisterSubmit, clicked }) {
         <button type="submit" className="generic-button">
           Sign Up
         </button>
-        <Link to="/">
-          <button className="generic-button">Back</button>
-        </Link>
+        <button className="generic-button" onClick={() => history.goBack()}>
+          Back
+        </button>
       </div>
     </form>
   );

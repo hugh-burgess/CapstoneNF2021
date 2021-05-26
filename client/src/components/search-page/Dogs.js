@@ -8,6 +8,7 @@ import { getDogsFilteredByName } from "../../utils/getDogsFilteredByName";
 
 export default function Dogs({ filter }) {
   const [friends] = useFriends();
+  console.log(friends);
   const filteredDogs = getDogsFilteredByName(friends, filter);
   function renderFriend() {
     return filteredDogs.map((friend, index) => {

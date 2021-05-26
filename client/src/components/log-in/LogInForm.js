@@ -2,6 +2,7 @@ import { SiDatadog } from "react-icons/si";
 import { Link } from "react-router-dom";
 import SlideUpAnimation from "../../components/animations/SlideUpAnimation";
 
+
 export default function LogInForm({ handleLogInSubmit, clicked }) {
   return (
     <div className="cover-page">
@@ -13,6 +14,7 @@ export default function LogInForm({ handleLogInSubmit, clicked }) {
       <div className="login-page-wrapper">
         <SlideUpAnimation />
         <SiDatadog className="login-page-dog swing" />
+
 
         <form
           className="login-form"
