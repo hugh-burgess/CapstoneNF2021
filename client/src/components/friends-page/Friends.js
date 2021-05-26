@@ -1,6 +1,5 @@
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
 import Navigation from "../navigation/Navigation";
 import AddButton from "./AddButton";
 import FriendsContent from "./FriendsContent";
