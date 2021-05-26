@@ -35,9 +35,9 @@ export default function MapDisplay() {
     ];
     setParkData(veryNewParks);
   }
+
   return (
     <ReactMapGL
-      className="map-brush-in-effect"
       {...viewport}
       mapboxApiAccessToken={
         "pk.eyJ1IjoidHJpeDI3MDUiLCJhIjoiY2tvOGV4NnF5Mm1lZDJwcGd2cThxcWZhbCJ9.5YJMb_ZfjMrG0yCbYyFj5w"
@@ -50,12 +50,11 @@ export default function MapDisplay() {
       {parkData &&
         parkData.map((park) => (
           <Marker
-            key={park.id}
+            key={park.coordinates[0]}
             latitude={Number(park.coordinates[0])}
             longitude={Number(park.coordinates[1])}
           >
             <TiTree
-              className="markers-on-map"
               onClick={(e) => {
                 e.preventDefault();
                 setSelectedPark(park);
@@ -87,9 +86,7 @@ export default function MapDisplay() {
                 handleStarClick(selectedPark.name);
               }}
               className={
-                selectedPark.isStarred
-                  ? "park-gold-star light-up"
-                  : "park-dull-star"
+                selectedPark.isStarred ? "park-gold-star" : "park-dull-star"
               }
             />
           </Popup>

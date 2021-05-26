@@ -1,6 +1,5 @@
 import { SiDatadog } from "react-icons/si";
 import { Link } from "react-router-dom";
-import InitialTransition from "../../components/animations/InitialTransition";
 
 export default function LogInForm({ handleLogInSubmit, clicked }) {
   return (
@@ -11,8 +10,7 @@ export default function LogInForm({ handleLogInSubmit, clicked }) {
         </div>
       </div>
       <div className="login-page-wrapper">
-        <InitialTransition />
-        <SiDatadog className="login-page-dog swing" />
+        <SiDatadog className="login-page-dog" />
 
         <form
           className="login-form"
