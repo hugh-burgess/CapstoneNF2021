@@ -7,6 +7,7 @@ import {
   getItemsFromLocalStorage,
   removeNoteFromLocalStorageById,
 } from "../../utils/itemStorage";
+import InitialTransition from "../animations/InitialTransition";
 
 export default function SinglePark() {
   const [parkData, setParkData] = useParks();
@@ -25,6 +26,7 @@ export default function SinglePark() {
         <h1 className="park-title">{selectedPark.name}</h1>
       </div>
       <main className="main single-park-page">
+        <InitialTransition />
         <div className="park-information-card">
           <p className="single-park-address">{selectedPark.address}</p>
           {selectedPark.notes.length > 0 && (
