@@ -29,6 +29,7 @@ export default function SinglePark({ handleStarClick }) {
           {selectedPark.isStarred === true && (
             <>
               <div className="starred-single-park">This park is noteworthy</div>
+
               <AiFillStar className="single-park-star" />
             </>
           )}
