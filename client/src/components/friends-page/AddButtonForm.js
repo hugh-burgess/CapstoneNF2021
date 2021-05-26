@@ -98,6 +98,7 @@ export default function AddButtonForm({ handleButtonClick }) {
           placeholder="name goes here..."
           onChange={handleNameChange}
           value={friendName}
+          maxLength="7"
           required
         />
 
@@ -108,6 +109,7 @@ export default function AddButtonForm({ handleButtonClick }) {
                 <input
                   className="stats-input"
                   type="text"
+                  maxLength="20"
                   name="statistics"
                   placeholder="stats goes here..."
                   value={field.value || ""}
@@ -135,6 +137,7 @@ export default function AddButtonForm({ handleButtonClick }) {
           className="name-input"
           type="text"
           name="reviewing"
+          maxLength="35"
           placeholder="review goes here..."
           onChange={handleReviewChange}
           value={reviewing}
