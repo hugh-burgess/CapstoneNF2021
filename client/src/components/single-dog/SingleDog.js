@@ -87,7 +87,6 @@ export default function SingleDog() {
                       <br /> <GiSittingDog />
                     </p>
                   </div>
-                  <DogOptions id={id} />
                 </div>
               )}
             {filteredFriend && <DogOptions id={id} />}
