@@ -71,10 +71,11 @@ export default function CreateProfile() {
       },
       mode: "cors",
       body: JSON.stringify({
-        username: "hugh",
         picture: `https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`,
         bio: bio,
         name: name,
+        imageType: imageType,
+        info: info,
       }),
     };
     fetch(baseUrl, initDetails)

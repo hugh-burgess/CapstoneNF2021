@@ -9,6 +9,8 @@ const UsersSchema = new Schema(
     picture: String,
     bio: String,
     name: String,
+    info: Object,
+    imageType: String,
   },
   {
     timestamps: true,

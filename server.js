@@ -28,7 +28,6 @@ app.post("/api/login", (req, res) => {
   } else {
     Users.find({ username: username })
       .then((user) => {
-        console.log(user[0]);
         const passwordEnteredByUser = password;
         const hash = user[0].password;
 
@@ -46,6 +45,7 @@ app.post("/api/login", (req, res) => {
               success: true,
               message: "passwords match",
             });
+            console.log(user[0]);
           }
         });
       })
@@ -105,17 +105,32 @@ app.post("/api/login/register", (req, res) => {
 });
 
 app.patch("/api/users", (req, res) => {
-  const { bio, name, picture, username } = req.body;
+  const { bio, name, picture, username, info, imageType } = req.body;
   const query = { username: username };
   if (!name || !bio || !picture) {
     res.status(400);
     res.json({ error: "Please create a profile!" });
   } else {
-    Users.findOneAndUpdate((query, { name: name, bio: bio, picture: picture }))
+    Users.findOneAndUpdate(
+      query,
+      {
+        name: name,
+        bio: bio,
+        picture: picture,
+        info: info,
+        imageType: imageType,
+      },
+      {
+        new: true,
+      }
+    )
       .then((user) => {
+        mongoose.set("useNewUrlParser", true);
         mongoose.set("useFindAndModify", false);
-        console.log(user);
+        mongoose.set("useCreateIndex", true);
+        mongoose.set("useUnifiedTopology", true);
         res.status(200).json({ profileUpdated: true });
+        console.log(user);
       })
       .catch((error) => {
         res.status(400);

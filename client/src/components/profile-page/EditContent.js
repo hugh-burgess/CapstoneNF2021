@@ -12,6 +12,7 @@ import {
 } from "../../utils/itemStorage";
 import { Image } from "cloudinary-react";
 import { useHistory } from "react-router";
+import { uploadToCloudinary } from "../../utils/uploadToCloudinary";
 const baseUrl = "/api/users";
 
 export default function EditContent() {
@@ -45,11 +46,7 @@ export default function EditContent() {
     formData.append("file", imageSelected);
     formData.append("upload_preset", "s2bkhsfz");
 
-    fetch("https://api.cloudinary.com/v1_1/dy1xpaosj/image/upload", {
-      method: "PUT",
-      body: formData,
-    })
-      .then((response) => response.json())
+    uploadToCloudinary(formData)
       .then((result) => {
         setImagePublicId(result.public_id);
         setImageType(result.format);
