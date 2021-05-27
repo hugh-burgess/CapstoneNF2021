@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
-
+const path = require("path");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -10,8 +9,6 @@ const mongoose = require("mongoose");
 const Users = require("./models/Users");
 const app = express();
 
-app.use(cors());
-app.options("*", cors());
 app.use(express.json());
 app.use((req, res, next) => {
   const { method, url } = req;
@@ -19,7 +16,21 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/login", (req, res) => {
+app.get("/api/hello-world", (req, res) => {
+  res.status(200).json("Hello World");
+});
+
+if (process.env.NODE_ENV === "production") {
+  // Serve any static file
+  app.use(express.static(path.join(__dirname, "client/build")));
+
+  // Handle React routing, return all requests to React app
+  app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  });
+}
+
+app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
     res.status(400);
@@ -52,7 +63,7 @@ app.post("/login", (req, res) => {
   }
 });
 
-app.post("/login/register", (req, res) => {
+app.post("/api/login/register", (req, res) => {
   const { username, password, bio, name, picture } = req.body;
   Users.find({ username: username })
     .exec()
@@ -101,7 +112,7 @@ app.post("/login/register", (req, res) => {
     });
 });
 
-app.patch("/users", (req, res) => {
+app.patch("/api/users", (req, res) => {
   const { bio, name, picture, username } = req.body;
   const query = { username: username };
   if (!name || !bio || !picture) {

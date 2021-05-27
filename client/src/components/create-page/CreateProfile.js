@@ -7,7 +7,7 @@ import { addProfileToLocalStorage } from "../../utils/itemStorage";
 import CreateForm from "./CreateForm";
 import { uploadToCloudinary } from "../../utils/uploadToCloudinary";
 
-const baseUrl = "https://shielded-tundra-69796.herokuapp.com/users";
+const baseUrl = "/api/users";
 
 export default function CreateProfile() {
   const [imageSelected, setImageSelected] = useState("");

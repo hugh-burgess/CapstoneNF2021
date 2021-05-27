@@ -20,6 +20,22 @@ import FailStatePage from "./FailStatePage";
 import Navigation from "./components/navigation/Navigation";
 
 function App() {
+  // example of path without 4000 working
+  //   const [state, setState] = useState("");
+
+  // //   useEffect(() => {
+  // //     fetch("/api/hello-world")
+  // //       .then((res) => res.json())
+  // //       .then((data) => setState(data));
+  // //   });
+
+  // //   return (
+  // //     <div className="App">
+  // //       <h1> {state} </h1>
+  // //     </div>
+  // //   );
+  // // }
+
   return (
     <Router>
       <div>

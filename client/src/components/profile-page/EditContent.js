@@ -12,7 +12,7 @@ import {
 } from "../../utils/itemStorage";
 import { Image } from "cloudinary-react";
 import { useHistory } from "react-router";
-const baseUrl = "https://shielded-tundra-69796.herokuapp.com/users";
+const baseUrl = "/api/users";
 
 export default function EditContent() {
   let history = useHistory();

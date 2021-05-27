@@ -5,7 +5,7 @@ import SlideUpAnimation from "../animations/SlideUpAnimation";
 
 import "../log-in/LogIn.css";
 import RegisterForm from "./RegisterForm";
-const baseUrl = "  https://shielded-tundra-69796.herokuapp.com/login/register";
+const baseUrl = "/api/login/register";
 
 export default function Register() {
   const [clicked, setClicked] = useState(false);
