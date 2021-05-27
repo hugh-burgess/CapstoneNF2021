@@ -22,15 +22,16 @@ app.get("/api/hello-world", (req, res) => {
 
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body);
   if (!username || !password) {
     res.status(400);
     res.json({ error: "Please create a username and password!" });
   } else {
     Users.find({ username: username })
       .then((user) => {
+        console.log(user[0]);
         const passwordEnteredByUser = password;
-        const hash = user.password;
+        const hash = user[0].password;
+
         bcrypt.compare(passwordEnteredByUser, hash, function (err, isMatch) {
           if (err) {
             throw err;
