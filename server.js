@@ -20,18 +20,9 @@ app.get("/api/hello-world", (req, res) => {
   res.status(200).json("Hello World");
 });
 
-if (process.env.NODE_ENV === "production") {
-  // Serve any static file
-  app.use(express.static(path.join(__dirname, "client/build")));
-
-  // Handle React routing, return all requests to React app
-  app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client/build", "index.html"));
-  });
-}
-
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
+  console.log(req.body);
   if (!username || !password) {
     res.status(400);
     res.json({ error: "Please create a username and password!" });
@@ -132,6 +123,16 @@ app.patch("/api/users", (req, res) => {
       });
   }
 });
+
+if (process.env.NODE_ENV === "production") {
+  // Serve any static file
+  app.use(express.static(path.join(__dirname, "client/build")));
+
+  // Handle React routing, return all requests to React app
+  app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  });
+}
 
 const { PORT, MONGO_URL } = process.env;
 
