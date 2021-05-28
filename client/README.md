@@ -4,4 +4,4 @@ Welcome, here is my Capstone project for May 2021, with Neue Fische. My app is c
 
 ## Links
 
-Here you can find the app itself: [Walkies&Talkies](http://capstone-nf-2021.vercel.app/)
+Here you can find the app itself: [Walkies&Talkies](https://shielded-tundra-69796.herokuapp.com)
