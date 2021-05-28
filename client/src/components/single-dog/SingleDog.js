@@ -17,7 +17,6 @@ export default function SingleDog() {
   const filteredFriend = getSingleDogFromLocalStorage(
     Number(location.pathname.slice(12))
   );
-  console.log(filteredFriend);
 
   function createBones(number) {
     const bones = [];

@@ -32,7 +32,7 @@ export default function EditContent() {
   const [text, setText] = useState("");
   const [wordCount, setWordCount] = useState(125);
   useEffect(() => {
-    const user = getItemsFromLocalStorage("user");
+    const user = getItemsFromLocalStorage("profile");
     setPicture(user.info.url);
     setBio(user.bio);
     setName(user.name);
@@ -64,7 +64,13 @@ export default function EditContent() {
   };
 
   function handleEditSubmit(e) {
-    const profile = { bio, imageType, info, name };
+    const profile = {
+      bio,
+      imageType,
+      info,
+      name,
+      username: JSON.parse(localStorage.getItem("owner")).user,
+    };
     e.preventDefault();
 
     if (
@@ -74,7 +80,7 @@ export default function EditContent() {
     ) {
       alert("nothing to save!");
     } else {
-      addProfileToLocalStorage("user", profile);
+      addProfileToLocalStorage("profile", profile);
       setIsClicked(!isClicked);
     }
     const initDetails = {
@@ -84,6 +90,8 @@ export default function EditContent() {
       },
       mode: "cors",
       body: JSON.stringify({
+        username: JSON.parse(localStorage.getItem("owner")).user,
+
         name: name,
         bio: bio,
         imageType: imageType,

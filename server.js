@@ -6,6 +6,11 @@ const saltRounds = 10;
 
 const mongoose = require("mongoose");
 
+mongoose.set("useNewUrlParser", true);
+mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);
+mongoose.set("useUnifiedTopology", true);
+
 const Users = require("./models/Users");
 const app = express();
 
@@ -45,7 +50,6 @@ app.post("/api/login", (req, res) => {
               success: true,
               message: "passwords match",
             });
-            console.log(user[0]);
           }
         });
       })
@@ -56,14 +60,13 @@ app.post("/api/login", (req, res) => {
 });
 
 app.post("/api/login/register", (req, res) => {
-  const { username, password, bio, name, picture } = req.body;
+  const { username, password } = req.body;
   Users.find({ username: username })
     .exec()
-    .then((user) => {
-      if (user.length !== 0) {
+    .then((users) => {
+      if (users.length !== 0) {
         res.json({
           error: "User already exists! Please choose another name",
-          user: user,
         });
       } else {
         if (!username || !password) {
@@ -76,21 +79,22 @@ app.post("/api/login/register", (req, res) => {
                 error: err,
               });
             } else {
-              const user = new Users({
-                _id: new mongoose.Types.ObjectId(),
+              const owner = new Users({
                 username: username,
                 password: hash,
-                bio: bio,
-                name: name,
-                picture: picture,
+                name: "",
+                bio: "",
+                picture: "",
+                imageType: "",
+                info: "",
               });
-              user
+              owner
                 .save()
                 .then((result) => {
                   res.status(200).json({
                     newUserCreated: true,
                     message: "user created!",
-                    user: result,
+                    owner: result,
                   });
                 })
 
@@ -114,23 +118,19 @@ app.patch("/api/users", (req, res) => {
     Users.findOneAndUpdate(
       query,
       {
+        username: username,
         name: name,
         bio: bio,
         picture: picture,
         info: info,
         imageType: imageType,
       },
-      {
-        new: true,
-      }
+      { new: true, upsert: true }
     )
+
       .then((user) => {
-        mongoose.set("useNewUrlParser", true);
-        mongoose.set("useFindAndModify", false);
-        mongoose.set("useCreateIndex", true);
-        mongoose.set("useUnifiedTopology", true);
+        console.log(`the new profile for user is: ${user}`);
         res.status(200).json({ profileUpdated: true });
-        console.log(user);
       })
       .catch((error) => {
         res.status(400);
