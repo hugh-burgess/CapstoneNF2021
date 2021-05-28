@@ -7,7 +7,7 @@ import { addProfileToLocalStorage } from "../../utils/itemStorage";
 import CreateForm from "./CreateForm";
 import { uploadToCloudinary } from "../../utils/uploadToCloudinary";
 
-const baseUrl = "https://shielded-tundra-69796.herokuapp.com/users";
+const baseUrl = "/api/users";
 
 export default function CreateProfile() {
   const [imageSelected, setImageSelected] = useState("");
@@ -16,7 +16,6 @@ export default function CreateProfile() {
   const [imageId, setImageId] = useState("");
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
-
   const [text, setText] = useState("");
   const [wordCount, setWordCount] = useState(125);
 
@@ -52,7 +51,14 @@ export default function CreateProfile() {
       });
   };
 
-  const profile = { name, bio, imageType, info };
+  const profile = {
+    name,
+    bio,
+    imageType,
+    info,
+    username: JSON.parse(localStorage.getItem("owner")).user,
+    picture: `https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`,
+  };
   function handleCreateProfileSubmit(e) {
     e.preventDefault();
     if (name === "" || imageType === "" || bio === "") {
@@ -60,7 +66,7 @@ export default function CreateProfile() {
         "Please fill out the name and bio, and pick a photo and upload. If you've done all this then hit save!"
       );
     } else {
-      addProfileToLocalStorage("user", profile);
+      addProfileToLocalStorage("profile", profile);
       setClicked(!clicked);
     }
 
@@ -70,12 +76,7 @@ export default function CreateProfile() {
         "Content-Type": "application/json; charset=utf-8",
       },
       mode: "cors",
-      body: JSON.stringify({
-        username: "hugh",
-        picture: `https://res.cloudinary.com/dy1xpaosj/image/upload/v1620380186/${imagePublicId}.${imageType}`,
-        bio: bio,
-        name: name,
-      }),
+      body: JSON.stringify(profile),
     };
     fetch(baseUrl, initDetails)
       .then((res) => {

@@ -4,7 +4,7 @@ import useUser from "../../hooks/useUser";
 
 import "./LogIn.css";
 import LogInForm from "./LogInForm";
-const baseUrl = "  https://shielded-tundra-69796.herokuapp.com/login";
+const baseUrl = "/api/login";
 
 export default function Cover() {
   const [user, setUser] = useUser();

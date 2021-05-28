@@ -12,7 +12,8 @@ import {
 } from "../../utils/itemStorage";
 import { Image } from "cloudinary-react";
 import { useHistory } from "react-router";
-const baseUrl = "https://shielded-tundra-69796.herokuapp.com/users";
+import { uploadToCloudinary } from "../../utils/uploadToCloudinary";
+const baseUrl = "/api/users";
 
 export default function EditContent() {
   let history = useHistory();
@@ -31,7 +32,7 @@ export default function EditContent() {
   const [text, setText] = useState("");
   const [wordCount, setWordCount] = useState(125);
   useEffect(() => {
-    const user = getItemsFromLocalStorage("user");
+    const user = getItemsFromLocalStorage("profile");
     setPicture(user.info.url);
     setBio(user.bio);
     setName(user.name);
@@ -45,11 +46,7 @@ export default function EditContent() {
     formData.append("file", imageSelected);
     formData.append("upload_preset", "s2bkhsfz");
 
-    fetch("https://api.cloudinary.com/v1_1/dy1xpaosj/image/upload", {
-      method: "PUT",
-      body: formData,
-    })
-      .then((response) => response.json())
+    uploadToCloudinary(formData)
       .then((result) => {
         setImagePublicId(result.public_id);
         setImageType(result.format);
@@ -67,7 +64,13 @@ export default function EditContent() {
   };
 
   function handleEditSubmit(e) {
-    const profile = { bio, imageType, info, name };
+    const profile = {
+      bio,
+      imageType,
+      info,
+      name,
+      username: JSON.parse(localStorage.getItem("owner")).user,
+    };
     e.preventDefault();
 
     if (
@@ -77,7 +80,7 @@ export default function EditContent() {
     ) {
       alert("nothing to save!");
     } else {
-      addProfileToLocalStorage("user", profile);
+      addProfileToLocalStorage("profile", profile);
       setIsClicked(!isClicked);
     }
     const initDetails = {
@@ -87,6 +90,8 @@ export default function EditContent() {
       },
       mode: "cors",
       body: JSON.stringify({
+        username: JSON.parse(localStorage.getItem("owner")).user,
+
         name: name,
         bio: bio,
         imageType: imageType,

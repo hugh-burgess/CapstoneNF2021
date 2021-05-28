@@ -11,7 +11,7 @@ export default function MainContent() {
   const [picture, setPicture] = useState("");
 
   useEffect(() => {
-    const user = getItemsFromLocalStorage("user");
+    const user = getItemsFromLocalStorage("profile");
     setPicture(user.info.url);
     setBio(user.bio);
     setName(user.name);

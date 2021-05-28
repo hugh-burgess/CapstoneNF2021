@@ -1,17 +1,19 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
-
+const path = require("path");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 const mongoose = require("mongoose");
 
+mongoose.set("useNewUrlParser", true);
+mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);
+mongoose.set("useUnifiedTopology", true);
+
 const Users = require("./models/Users");
 const app = express();
 
-app.use(cors());
-app.options("*", cors());
 app.use(express.json());
 app.use((req, res, next) => {
   const { method, url } = req;
@@ -19,7 +21,11 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/login", (req, res) => {
+app.get("/api/hello-world", (req, res) => {
+  res.status(200).json("Hello World");
+});
+
+app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
     res.status(400);
@@ -28,7 +34,8 @@ app.post("/login", (req, res) => {
     Users.find({ username: username })
       .then((user) => {
         const passwordEnteredByUser = password;
-        const hash = user.password;
+        const hash = user[0].password;
+
         bcrypt.compare(passwordEnteredByUser, hash, function (err, isMatch) {
           if (err) {
             throw err;
@@ -52,15 +59,14 @@ app.post("/login", (req, res) => {
   }
 });
 
-app.post("/login/register", (req, res) => {
-  const { username, password, bio, name, picture } = req.body;
+app.post("/api/login/register", (req, res) => {
+  const { username, password } = req.body;
   Users.find({ username: username })
     .exec()
-    .then((user) => {
-      if (user.length !== 0) {
+    .then((users) => {
+      if (users.length !== 0) {
         res.json({
           error: "User already exists! Please choose another name",
-          user: user,
         });
       } else {
         if (!username || !password) {
@@ -73,21 +79,22 @@ app.post("/login/register", (req, res) => {
                 error: err,
               });
             } else {
-              const user = new Users({
-                _id: new mongoose.Types.ObjectId(),
+              const owner = new Users({
                 username: username,
                 password: hash,
-                bio: bio,
-                name: name,
-                picture: picture,
+                name: "",
+                bio: "",
+                picture: "",
+                imageType: "",
+                info: "",
               });
-              user
+              owner
                 .save()
                 .then((result) => {
                   res.status(200).json({
                     newUserCreated: true,
                     message: "user created!",
-                    user: result,
+                    owner: result,
                   });
                 })
 
@@ -101,17 +108,28 @@ app.post("/login/register", (req, res) => {
     });
 });
 
-app.patch("/users", (req, res) => {
-  const { bio, name, picture, username } = req.body;
+app.patch("/api/users", (req, res) => {
+  const { bio, name, picture, username, info, imageType } = req.body;
   const query = { username: username };
   if (!name || !bio || !picture) {
     res.status(400);
     res.json({ error: "Please create a profile!" });
   } else {
-    Users.findOneAndUpdate((query, { name: name, bio: bio, picture: picture }))
+    Users.findOneAndUpdate(
+      query,
+      {
+        username: username,
+        name: name,
+        bio: bio,
+        picture: picture,
+        info: info,
+        imageType: imageType,
+      },
+      { new: true, upsert: true }
+    )
+
       .then((user) => {
-        mongoose.set("useFindAndModify", false);
-        console.log(user);
+        console.log(`the new profile for user is: ${user}`);
         res.status(200).json({ profileUpdated: true });
       })
       .catch((error) => {
@@ -121,6 +139,16 @@ app.patch("/users", (req, res) => {
       });
   }
 });
+
+if (process.env.NODE_ENV === "production") {
+  // Serve any static file
+  app.use(express.static(path.join(__dirname, "client/build")));
+
+  // Handle React routing, return all requests to React app
+  app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  });
+}
 
 const { PORT, MONGO_URL } = process.env;
 
