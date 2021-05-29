@@ -28,6 +28,7 @@
   bottom: 0;
   width: 100vw;
   height: 80px;
+  z-index: 1000;
   position: fixed;
 }
 
@@ -41,4 +42,39 @@
   border: black 1px solid;
   margin: 5px 0;
   box-shadow: var(--hard-shadow);
+}
+
+@media only screen and (min-width: 760px) {
+  .header {
+    position: fixed;
+    color: var(--deep-blue);
+    height: 100px;
+    width: 100rem;
+    background-color: var(--sea-blue);
+    clip-path: polygon(0 0, 100% 0, 100% 69%, 0 100%);
+    grid-row: header;
+    z-index: 100;
+  }
+
+  .footer {
+    background-color: var(--grey-shade);
+    grid-row: footer;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+    position: fixed;
+  }
+}
+
+@media only screen and (min-width: 1020px) {
+  .footer {
+    background-color: var(--grey-shade);
+    grid-row: footer;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+    position: fixed;
+  }
 }

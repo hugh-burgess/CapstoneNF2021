@@ -6,7 +6,7 @@
 
 .friends-page {
   background-color: var(--light-blue);
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
