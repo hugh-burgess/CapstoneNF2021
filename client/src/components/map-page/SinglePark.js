@@ -10,7 +10,6 @@ import SlideUpAnimation from "../animations/SlideUpAnimation";
 import { AiFillStar } from "react-icons/ai";
 
 export default function SinglePark() {
-
   const [parkData, setParkData] = useParks();
   const { mapID } = useParams();
 
@@ -28,9 +27,8 @@ export default function SinglePark() {
         <div className="starred-wrapper">
           {selectedPark.isStarred === true && (
             <>
-              <div className="starred-single-park">This park is noteworthy</div>
-
               <AiFillStar className="single-park-star" />
+              <div className="starred-single-park">This park is noteworthy</div>
             </>
           )}
         </div>
