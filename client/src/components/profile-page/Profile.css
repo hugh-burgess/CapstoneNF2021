@@ -224,7 +224,7 @@
   }
 }
 
-@media only screen and (min-width: 1020px) {
+@media only screen and (min-width: 800px) {
   .grid-wrapper {
     margin-top: 4rem;
     margin-left: 4rem;
