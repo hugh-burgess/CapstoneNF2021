@@ -14,8 +14,13 @@ export default function Register() {
   const [pass, setPass] = useState("");
   const [passVerify, setPassVerify] = useState("");
 
+  const letterNumber = /^[0-9a-zA-Z]+$/;
   function handleInputUserChange(e) {
-    setUser(e.target.value);
+    if (e.target.value.match(letterNumber)) {
+      return setUser(e.target.value);
+    } else {
+      alert("Please enter a valid username without spaces");
+    }
   }
   function handleInputPassChange(e) {
     setPass(e.target.value);

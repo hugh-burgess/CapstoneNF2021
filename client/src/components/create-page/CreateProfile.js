@@ -61,7 +61,7 @@ export default function CreateProfile() {
   };
   function handleCreateProfileSubmit(e) {
     e.preventDefault();
-    if (name === "" || imageType === "" || bio === "") {
+    if (name === "" || bio === "" || imageType === "") {
       alert(
         "Please fill out the name and bio, and pick a photo and upload. If you've done all this then hit save!"
       );
@@ -92,9 +92,15 @@ export default function CreateProfile() {
   }
 
   function handleNameChange(e) {
-    const newName = e.target.value.replace(/[^a-zA-Z\s]/g, "");
-
-    setName(newName);
+    const newName = e.target.value.replace(/\s/g, "");
+    const capitalisedName =
+      newName
+        .replace(/[^a-zA-Z]/g, "")
+        .charAt(0)
+        .toUpperCase() + newName.substring(1).toLowerCase();
+    capitalisedName.trim();
+    console.log(capitalisedName);
+    setName(capitalisedName);
   }
 
   function handleBioChange(e) {
