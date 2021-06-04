@@ -25,12 +25,11 @@
 }
 
 .profile-picture {
-  object-fit: contain;
   object-position: center;
   border-radius: 50%;
   height: 12rem;
   width: 12rem;
-  object-fit: cover;
+  object-fit: contain;
 }
 .top-wrapper-icons {
   display: flex;
@@ -121,7 +120,6 @@
   text-align: center;
   align-self: flex-end;
   margin-bottom: 3rem;
-  z-index: 10;
 }
 
 .feedback {
@@ -142,4 +140,161 @@
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
+}
+
+@media only screen and (min-width: 560px) {
+  .grid-wrapper {
+    margin-top: 4rem;
+    margin-left: 4rem;
+    overflow-x: hidden;
+    width: 35rem;
+    display: grid;
+    grid-template-rows: 18rem 17rem 12rem;
+    grid-template-columns: 40vw 40vw;
+  }
+  .profile-picture {
+    object-position: center;
+    border-radius: 50%;
+    height: 18rem;
+    width: 18rem;
+    object-fit: contain;
+  }
+
+  .profile-bubble {
+    height: 100%;
+    margin-left: -15rem;
+  }
+
+  .middle-text-wrapper {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 2rem;
+    z-index: 10;
+    height: 70%;
+    width: 100%;
+  }
+
+  .dog-name {
+    font-family: var(--cookie-text-title);
+    font-size: 3rem;
+    color: var(--deep-blue);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .profile-bio-text {
+    font-family: var(--normal-text-title);
+    font-size: 100%;
+    width: 15rem;
+    color: var(--deep-blue);
+    word-wrap: break-word;
+  }
+
+  .profile-bio {
+    height: 35rem;
+    width: 25rem;
+    top: 17rem;
+    margin-left: -2em;
+    position: absolute;
+  }
+
+  .feedback-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 40%;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .middle-profile-wrapper {
+    grid-area: 2/1/3/2;
+    display: flex;
+    position: relative;
+    width: 50vw;
+  }
+
+  .bottom-profile-wrapper {
+    grid-area: 3/1/4/3;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 35rem;
+  }
+}
+
+@media only screen and (min-width: 1020px) {
+  .grid-wrapper {
+    margin-top: 4rem;
+    margin-left: 4rem;
+    overflow-x: hidden;
+    width: 50rem;
+    display: grid;
+    grid-template-rows: 12rem 12rem 9rem;
+    grid-template-columns: 40vw 40vw;
+  }
+
+  .profile-picture {
+    object-fit: contain;
+    object-position: center;
+    border-radius: 50%;
+    height: 15rem;
+    width: 15rem;
+  }
+
+  .bottom-profile-wrapper {
+    grid-area: 1/2/4/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    justify-self: center;
+    width: 20rem;
+    z-index: 10;
+  }
+
+  .profile-bio {
+    height: 35rem;
+    width: 30rem;
+    top: 17rem;
+    margin-left: -2em;
+    position: absolute;
+  }
+  .feedback-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 50%;
+    height: 40%;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .middle-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+    height: 90%;
+    margin-top: 12rem;
+    margin-left: 2em;
+    z-index: 10;
+    align-self: center;
+  }
+
+  .dog-name {
+    font-family: var(--cookie-text-title);
+    font-size: 3rem;
+    color: var(--deep-blue);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .profile-bio-text {
+    font-family: var(--normal-text-title);
+    font-size: 100%;
+    width: 20rem;
+    color: var(--deep-blue);
+    word-wrap: break-word;
+  }
 }

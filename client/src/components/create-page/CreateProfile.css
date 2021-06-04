@@ -131,3 +131,24 @@
   border: none;
   box-shadow: var(--hard-shadow);
 }
+
+@media only screen and (min-width: 475px) {
+  .create-profile-page {
+    background-color: var(--deep-blue);
+    overflow-y: hidden;
+    display: grid;
+    grid-template-rows: [top] 25vh [middle] 25vh [bottom] 5vh [ground] 25vh;
+    grid-template-columns: [width] 90vw;
+    max-width: 90vw;
+    margin: 2em 0;
+    justify-self: center;
+    box-shadow: var(--soft-shadow);
+    border-radius: 15px;
+  }
+  .create-profile-title {
+    color: var(--white);
+    font-family: var(--cookie-text-title);
+    font-size: 8vh;
+    transform: rotate(-20deg) skew(-20deg);
+  }
+}
